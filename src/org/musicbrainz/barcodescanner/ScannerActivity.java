@@ -53,11 +53,11 @@ public class ScannerActivity extends BaseActivity {
 		
 		if (scanResult != null) {
 			String barcode = scanResult.getContents();
-			//barcode = "766929908628"; // DEBUG
+			barcode = "766929908628"; // DEBUG
 			
 			Intent resultIntent = new Intent(ScannerActivity.this,
 					PerformSearchActivity.class);
-			resultIntent.putExtra("barcode", barcode);
+			resultIntent.putExtra("org.musicbrainz.android.barcode", barcode);
 			startActivity(resultIntent);
 		}
 	}

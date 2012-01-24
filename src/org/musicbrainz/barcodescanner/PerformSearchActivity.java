@@ -20,8 +20,7 @@
 
 package org.musicbrainz.barcodescanner;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import org.musicbrainz.android.api.data.Release;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,7 +42,7 @@ public class PerformSearchActivity extends BaseActivity {
 		View spinner = findViewById(R.id.spinner);
 		Animation rotation = AnimationUtils.loadAnimation(this, R.anim.spinner);
 		spinner.startAnimation(rotation);
-		
+
 		search();
 	}
 
@@ -57,22 +56,33 @@ public class PerformSearchActivity extends BaseActivity {
 	private void handleIntents() {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			this.barcode = extras.getString("barcode");
+			this.barcode = extras.getString("org.musicbrainz.android.barcode");
 		}
 	}
-	
+
 	private void search() {
-		// For debugging simulate search by delay
-		Timer timer = new Timer();
-		TimerTask task = new TimerTask() {
+		TaskCallback<Release> lookupCallback = new TaskCallback<Release>() {
 
 			@Override
-			public void run() {
+			public void onResult(Release release) {
+				// TODO: Send Result to Picard
 				Intent resultIntent = new Intent(PerformSearchActivity.this,
 						ResultActivity.class);
+				if (release != null) {
+					resultIntent.putExtra(
+							"org.musicbrainz.android.releaseTitle",
+							release.getTitle());
+					resultIntent.putExtra(
+							"org.musicbrainz.android.releaseArtist", release
+									.getArtists().get(0).getName());
+					resultIntent.putExtra(
+							"org.musicbrainz.android.releaseYear",
+							release.getDate());
+				}
 				startActivity(resultIntent);
 			}
 		};
-		timer.schedule(task, 5000);
+
+		new ReleaseLookupTask(this, lookupCallback).execute(this.barcode);
 	}
 }

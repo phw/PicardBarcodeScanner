@@ -23,10 +23,14 @@ package org.musicbrainz.barcodescanner;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ResultActivity extends BaseActivity {
 	/** Called when the activity is first created. */
@@ -34,6 +38,7 @@ public class ResultActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_result);
+		handleIntents();
 
 		Button connectBtn = (Button) findViewById(R.id.btn_scan_barcode);
 		connectBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,18 +52,51 @@ public class ResultActivity extends BaseActivity {
 	}
 
 	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		handleIntents();
+	}
+
+	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		IntentResult scanResult = IntentIntegrator.parseActivityResult(
 				requestCode, resultCode, intent);
 
 		if (scanResult != null) {
 			String barcode = scanResult.getContents();
-			// barcode = "766929908628"; // DEBUG
+			barcode = "766929908628"; // DEBUG
 
 			Intent resultIntent = new Intent(ResultActivity.this,
 					PerformSearchActivity.class);
-			resultIntent.putExtra("barcode", barcode);
+			resultIntent.putExtra("org.musicbrainz.android.barcode", barcode);
 			startActivity(resultIntent);
 		}
+	}
+
+	private void handleIntents() {
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			String releaseTitle = extras
+					.getString("org.musicbrainz.android.releaseTitle");
+			String releaseArtist = extras
+					.getString("org.musicbrainz.android.releaseArtist");
+			String releaseYear = extras
+					.getString("org.musicbrainz.android.releaseYear");
+
+			LayoutInflater inflater = (LayoutInflater) getApplicationContext()
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			ViewGroup resultList = (ViewGroup) findViewById(R.id.result_list);
+			View resultView = inflater.inflate(R.layout.widget_release_item,
+					resultList);
+
+			setViewText(resultView, R.id.release_title, releaseTitle);
+			setViewText(resultView, R.id.release_artist, releaseArtist);
+			setViewText(resultView, R.id.release_year, releaseYear);
+		}
+	}
+
+	private void setViewText(View view, int fieldId, String text) {
+		TextView textView = (TextView) view.findViewById(fieldId);
+		textView.setText(text);
 	}
 }

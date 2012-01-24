@@ -30,7 +30,8 @@
     <color name="actionbar_background_item_pressed_end">#FFBA58</color>
 
     <!-- General layout -->
-    <color name="background">#FFFFFF</color>
-    <color name="text">#000000</color>
+    <color name="background">#FFF</color>
+    <color name="text">#000</color>
+    <color name="lightText">#999</color>
 
 </resources>

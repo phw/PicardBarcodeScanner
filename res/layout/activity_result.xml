@@ -31,71 +31,19 @@
         android:text="@string/description_result" />
 
     <LinearLayout
+        android:id="@+id/result_list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="@dimen/content_padding" >
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+<!--		<View-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="2dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:background="#999" />-->
 
-            <TextView
-                android:id="@+id/release_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Ghosts I-IV" />
-
-            <TextView
-                android:id="@+id/release_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="2008" />
-
-            <TextView
-                android:id="@+id/release_artist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/release_title"
-                android:text="by Nine Inch Nails" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:background="#ccc" />
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/release_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Ghosts I-IV" />
-
-            <TextView
-                android:id="@+id/release_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="2008" />
-
-            <TextView
-                android:id="@+id/release_artist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/release_title"
-                android:text="by Nine Inch Nails" />
-        </RelativeLayout>
     </LinearLayout>
 
     <Button
