@@ -20,31 +20,11 @@
 
 package org.musicbrainz.barcodescanner;
 
-import com.markupartist.android.widget.ActionBar;
+public final class Constants {
 
-import android.app.Activity;
-import android.content.Intent;
-import android.view.ViewStub;
-
-public abstract class BaseActivity extends Activity {
-
-	private Preferences mPreferences = null;
+	public static final String PREFERENCES_NAME = "org.musicbrainz.android.barcodescanner.preferences";
 	
-	protected void setSubView(int subView) {
-		setContentView(R.layout.main);
-		ViewStub content = (ViewStub) findViewById(R.id.view_content);
-		content.setLayoutResource(subView);
-		content.inflate();
-
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
-		actionBar.setHomeAction(new ActionBar.IntentAction(this, new Intent(
-				this, ConnectActivity.class), R.drawable.ic_menu_tags));
-	}
-
-	protected Preferences getPreferences() {
-		if (mPreferences == null)
-			mPreferences = new Preferences(this);
-		
-		return mPreferences;
-	}
+	public static final String PREFERENCE_PICARD_IP_ADDRESS = "picard_ip_address";
+	
+	public static final String PREFERENCE_PICARD_PORT = "picard_port";
 }

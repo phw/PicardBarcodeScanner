@@ -34,13 +34,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/content_padding"
-        android:text="@string/ip_address" />
+        android:text="@string/picard_ip_address" />
 
     <EditText
-        android:id="@+id/ip_address"
+        android:id="@+id/picard_ip_address"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/content_padding" />
+        android:layout_marginTop="@dimen/content_padding"
+        android:inputType="textNoSuggestions" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_padding"
+        android:text="@string/picard_port" />
+
+    <EditText
+        android:id="@+id/picard_port"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_padding"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/btn_picard_connect"

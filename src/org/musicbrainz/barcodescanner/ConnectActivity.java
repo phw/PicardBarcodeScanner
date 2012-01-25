@@ -24,21 +24,49 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class ConnectActivity extends BaseActivity {
+
+	private EditText mIpAddressInput;
+	private EditText mPortInput;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_connect);
 
+		mIpAddressInput = (EditText) findViewById(R.id.picard_ip_address);
+		mPortInput = (EditText) findViewById(R.id.picard_port);
+		mIpAddressInput.setText(getPreferences().getIpAddress());
+		mPortInput.setText(String.valueOf(getPreferences().getPort()));
+
 		Button connectBtn = (Button) findViewById(R.id.btn_picard_connect);
 		connectBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ConnectActivity.this, ScannerActivity.class);
+				getPreferences().setIpAddressAndPort(readIpAddressFromInput(),
+						readPortFromInput());
+
+				Intent intent = new Intent(ConnectActivity.this,
+						ScannerActivity.class);
 				startActivity(intent);
 			}
 		});
+	}
+
+	private String readIpAddressFromInput() {
+		return mIpAddressInput.getText().toString();
+	}
+
+	private int readPortFromInput() {
+		String port = mPortInput.getText().toString();
+
+		try {
+			return Integer.parseInt(port.trim());
+		} catch (NumberFormatException nfe) {
+			return 0;
+		}
 	}
 }

@@ -23,12 +23,13 @@
 
     <string name="app_name">Picard Barcode Scanner</string>
     <string name="actionbar_title">Picard Barcode Scanner</string>
-    <string name="description_connect">In order to send scanned barcodes to Picard you have to connect your phone with Picard.\n\nPlease enter the IP address shown by the Picard Barcode Scanner plugin into the input field below.</string>
-    <string name="ip_address">IP address:</string>
+    <string name="description_connect">In order to send scanned barcodes to Picard you have to connect your phone with Picard.\n\nPlease enter the IP address and port number shown by the Picard Barcode Scanner plugin into the input field below.</string>
+    <string name="picard_ip_address">IP address:</string>
+    <string name="picard_port">Port:</string>
     <string name="btn_picard_connect">Connect with Picard</string>
     <string name="description_scanner">Use your phone\'s camera to scan the barcode of a CD or other music media. If MusicBrainz knows about the media it will automatically be loaded into MusicBrainz Picard.</string>
     <string name="btn_scan_barcode">Scan barcode</string>
     <string name="description_result">MusicBrainz has found the following results for this barcode and sent them to Picard.</string>
-	<string name="loading_text">Consulting MusicBrainz...</string>
+	<string name="loading_text">Consulting MusicBrainz&#8230;</string>
     
 </resources>
