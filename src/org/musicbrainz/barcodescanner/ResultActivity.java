@@ -66,10 +66,13 @@ public class ResultActivity extends BaseActivity {
 			String barcode = scanResult.getContents();
 			barcode = "766929908628"; // DEBUG
 
-			Intent resultIntent = new Intent(ResultActivity.this,
-					PerformSearchActivity.class);
-			resultIntent.putExtra("org.musicbrainz.android.barcode", barcode);
-			startActivity(resultIntent);
+			if (barcode != null) {
+				Intent resultIntent = new Intent(ResultActivity.this,
+						PerformSearchActivity.class);
+				resultIntent.putExtra("org.musicbrainz.android.barcode",
+						barcode);
+				startActivity(resultIntent);
+			}
 		}
 	}
 
