@@ -18,7 +18,9 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-package org.musicbrainz.barcodescanner;
+package org.musicbrainz.picard.barcodescanner.activities;
+
+import org.musicbrainz.picard.barcodescanner.R;
 
 import android.content.Intent;
 import android.os.Bundle;

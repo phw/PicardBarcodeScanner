@@ -18,46 +18,44 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-package org.musicbrainz.barcodescanner;
+package org.musicbrainz.picard.barcodescanner.tasks;
 
 import java.io.IOException;
-import java.util.LinkedList;
 
 import org.musicbrainz.android.api.data.ReleaseStub;
-import org.musicbrainz.android.api.webservice.MusicBrainzWebClient;
+import org.musicbrainz.picard.barcodescanner.util.PicardClient;
+import org.musicbrainz.picard.barcodescanner.util.Preferences;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class ReleaseLookupTask extends AsyncTask<String, Integer, ReleaseStub[]> {
+// TODO: Common superclass for all callback AsyncTasks
+public class SendToPicardTask extends AsyncTask<ReleaseStub, Integer, ReleaseStub[]> {
 
-	private Context packageContext;
+	private Preferences preferences;
 	private TaskCallback<ReleaseStub[]> callback;
 
-	public ReleaseLookupTask(Context packageContext,
+	public SendToPicardTask(Preferences preferences,
 			TaskCallback<ReleaseStub[]> callback) {
-		this.packageContext = packageContext;
+		this.preferences = preferences;
 		this.callback = callback;
 	}
 
 	@Override
-	protected ReleaseStub[] doInBackground(String... params) {
-		MusicBrainzWebClient mbClient = new MusicBrainzWebClient(
-				packageContext.getString(R.string.webservice_user_agent));
-		
+	protected ReleaseStub[] doInBackground(ReleaseStub... params) {
+		PicardClient client = new PicardClient(preferences.getIpAddress(),
+				preferences.getPort());
+
 		try {
-			String barcode = params[0];
-			// TODO: We should allow multiple results.
-			String searchTerm = String.format("barcode:%s", barcode);
-			LinkedList<ReleaseStub> releases = mbClient.searchRelease(searchTerm);
-			ReleaseStub[] releaseArray = new ReleaseStub[releases.size()];
-			return releases.toArray(releaseArray);
+			for (ReleaseStub release : params) {
+				client.openRelease(release.getReleaseMbid());
+			}
 		} catch (IOException e) {
 			Log.e(this.getClass().getName(), e.getMessage(), e);
 			// TODO: Handle error (error callback?)
-			return new ReleaseStub[] {};
 		}
+
+		return params;
 	}
 
 	@Override

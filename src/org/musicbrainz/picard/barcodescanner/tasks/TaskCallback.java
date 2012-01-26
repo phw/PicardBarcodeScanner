@@ -18,13 +18,10 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-package org.musicbrainz.barcodescanner;
+package org.musicbrainz.picard.barcodescanner.tasks;
 
-public final class Constants {
+public abstract interface TaskCallback<Result> {
 
-	public static final String PREFERENCES_NAME = "org.musicbrainz.android.barcodescanner.preferences";
+	public void onResult(Result result);
 	
-	public static final String PREFERENCE_PICARD_IP_ADDRESS = "picard_ip_address";
-	
-	public static final String PREFERENCE_PICARD_PORT = "picard_port";
 }

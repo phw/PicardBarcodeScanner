@@ -18,9 +18,13 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-package org.musicbrainz.barcodescanner;
+package org.musicbrainz.picard.barcodescanner.activities;
 
 import org.musicbrainz.android.api.data.ReleaseStub;
+import org.musicbrainz.picard.barcodescanner.R;
+import org.musicbrainz.picard.barcodescanner.tasks.ReleaseLookupTask;
+import org.musicbrainz.picard.barcodescanner.tasks.SendToPicardTask;
+import org.musicbrainz.picard.barcodescanner.tasks.TaskCallback;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -62,7 +66,7 @@ public class PerformSearchActivity extends BaseActivity {
 	private void handleIntents() {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			this.barcode = extras.getString("org.musicbrainz.android.barcode");
+			this.barcode = extras.getString("org.musicbrainz.picard.barcode");
 		}
 	}
 
@@ -92,13 +96,13 @@ public class PerformSearchActivity extends BaseActivity {
 
 				if (release != null) {
 					resultIntent.putExtra(
-							"org.musicbrainz.android.releaseTitle",
+							"org.musicbrainz.picard.releaseTitle",
 							release.getTitle());
 					resultIntent.putExtra(
-							"org.musicbrainz.android.releaseArtist", release
+							"org.musicbrainz.picard.releaseArtist", release
 									.getArtistName());
 					resultIntent.putExtra(
-							"org.musicbrainz.android.releaseYear",
+							"org.musicbrainz.picard.releaseYear",
 							release.getDate());
 				}
 				startActivity(resultIntent);

@@ -18,7 +18,10 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-package org.musicbrainz.barcodescanner;
+package org.musicbrainz.picard.barcodescanner.activities;
+
+import org.musicbrainz.picard.barcodescanner.R;
+import org.musicbrainz.picard.barcodescanner.util.Preferences;
 
 import com.markupartist.android.widget.ActionBar;
 

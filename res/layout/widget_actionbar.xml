@@ -20,7 +20,7 @@
 -->
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/org.musicbrainz.barcodescanner" >
+    xmlns:app="http://schemas.android.com/apk/res/org.musicbrainz.picard.barcodescanner" >
     
     <com.markupartist.android.widget.ActionBar
         android:id="@+id/actionbar"
