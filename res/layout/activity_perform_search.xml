@@ -29,7 +29,8 @@
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/spinner_white_76" />
+        android:src="@drawable/spinner_white_76"
+        android:contentDescription="@string/loading_musicbrainz_text" />
 
     <TextView
         android:id="@+id/loading_text"
