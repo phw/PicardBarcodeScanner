@@ -24,12 +24,14 @@ import com.markupartist.android.widget.ActionBar;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.os.Build;
 import android.view.ViewStub;
 
 public abstract class BaseActivity extends Activity {
 
 	private Preferences mPreferences = null;
-	
+
 	protected void setSubView(int subView) {
 		setContentView(R.layout.main);
 		ViewStub content = (ViewStub) findViewById(R.id.view_content);
@@ -44,7 +46,12 @@ public abstract class BaseActivity extends Activity {
 	protected Preferences getPreferences() {
 		if (mPreferences == null)
 			mPreferences = new Preferences(this);
-		
+
 		return mPreferences;
+	}
+
+	protected boolean isRunningInEmulator() {
+		return ApplicationInfo.FLAG_DEBUGGABLE != 0 &&
+			("google_sdk".equals(Build.PRODUCT) || "sdk".equals(Build.PRODUCT));
 	}
 }

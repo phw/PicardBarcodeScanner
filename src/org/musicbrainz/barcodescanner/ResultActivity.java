@@ -64,7 +64,8 @@ public class ResultActivity extends BaseActivity {
 
 		if (scanResult != null) {
 			String barcode = scanResult.getContents();
-			barcode = "766929908628"; // DEBUG
+			if (isRunningInEmulator())
+				barcode = "766929908628"; // DEBUG
 
 			if (barcode != null) {
 				Intent resultIntent = new Intent(ResultActivity.this,
