@@ -20,16 +20,19 @@
 
 package org.musicbrainz.barcodescanner;
 
-import org.musicbrainz.android.api.data.Release;
+import org.musicbrainz.android.api.data.ReleaseStub;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 public class PerformSearchActivity extends BaseActivity {
 	private String barcode;
+	
+	private TextView loadingTextView;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -42,7 +45,10 @@ public class PerformSearchActivity extends BaseActivity {
 		View spinner = findViewById(R.id.spinner);
 		Animation rotation = AnimationUtils.loadAnimation(this, R.anim.spinner);
 		spinner.startAnimation(rotation);
-
+		
+		loadingTextView = (TextView) findViewById(R.id.loading_text);
+		loadingTextView.setText(R.string.loading_musicbrainz_text);
+		
 		search();
 	}
 
@@ -61,20 +67,36 @@ public class PerformSearchActivity extends BaseActivity {
 	}
 
 	private void search() {
-		TaskCallback<Release> lookupCallback = new TaskCallback<Release>() {
+		TaskCallback<ReleaseStub[]> lookupCallback = new TaskCallback<ReleaseStub[]>() {
 
 			@Override
-			public void onResult(Release release) {
-				// TODO: Send Result to Picard
+			public void onResult(ReleaseStub[] releases) {
+				sendToPicard(releases);
+			}
+		};
+
+		loadingTextView.setText(R.string.loading_musicbrainz_text);
+		new ReleaseLookupTask(this, lookupCallback).execute(this.barcode);
+	}
+
+	protected void sendToPicard(ReleaseStub[] releases) {
+		TaskCallback<ReleaseStub[]> sendToPicardCallback = new TaskCallback<ReleaseStub[]>() {
+
+			@Override
+			public void onResult(ReleaseStub[] releases) {
 				Intent resultIntent = new Intent(PerformSearchActivity.this,
 						ResultActivity.class);
+
+				// FIXME: Handle multiple results
+				ReleaseStub release = releases[0];
+
 				if (release != null) {
 					resultIntent.putExtra(
 							"org.musicbrainz.android.releaseTitle",
 							release.getTitle());
 					resultIntent.putExtra(
 							"org.musicbrainz.android.releaseArtist", release
-									.getArtists().get(0).getName());
+									.getArtistName());
 					resultIntent.putExtra(
 							"org.musicbrainz.android.releaseYear",
 							release.getDate());
@@ -83,6 +105,8 @@ public class PerformSearchActivity extends BaseActivity {
 			}
 		};
 
-		new ReleaseLookupTask(this, lookupCallback).execute(this.barcode);
+		loadingTextView.setText(R.string.loading_picard_text);
+		new SendToPicardTask(getPreferences(), sendToPicardCallback)
+				.execute(releases);
 	}
 }

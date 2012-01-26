@@ -32,9 +32,10 @@
         android:src="@drawable/spinner_white_76" />
 
     <TextView
+        android:id="@+id/loading_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/content_padding"
-        android:text="@string/loading_text" />
+        android:text="@string/loading_musicbrainz_text" />
 
 </LinearLayout>
