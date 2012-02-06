@@ -29,4 +29,10 @@ public final class Constants {
 	public static final String PREFERENCE_PICARD_PORT = "picard_port";
 	
 	public static final String INTENT_EXTRA_BARCODE = "org.musicbrainz.picard.barcode";
+	
+	public static final String INTENT_EXTRA_RELEASE_TITLES = "org.musicbrainz.picard.releaseTitles";
+	
+	public static final String INTENT_EXTRA_RELEASE_ARTISTS = "org.musicbrainz.picard.releaseArtists";
+	
+	public static final String INTENT_EXTRA_RELEASE_DATES = "org.musicbrainz.picard.releaseDates";
 }

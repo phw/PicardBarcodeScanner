@@ -73,8 +73,7 @@ public class ResultActivity extends BaseActivity {
 			if (barcode != null) {
 				Intent resultIntent = new Intent(ResultActivity.this,
 						PerformSearchActivity.class);
-				resultIntent
-						.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode);
+				resultIntent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode);
 				startActivity(resultIntent);
 			}
 		}
@@ -83,27 +82,42 @@ public class ResultActivity extends BaseActivity {
 	private void handleIntents() {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			String releaseTitle = extras
-					.getString("org.musicbrainz.picard.releaseTitle");
-			String releaseArtist = extras
-					.getString("org.musicbrainz.picard.releaseArtist");
-			String releaseYear = extras
-					.getString("org.musicbrainz.picard.releaseYear");
+			String[] releaseTitles = extras
+					.getStringArray(Constants.INTENT_EXTRA_RELEASE_TITLES);
+			String[] releaseArtists = extras
+					.getStringArray(Constants.INTENT_EXTRA_RELEASE_ARTISTS);
+			String[] releaseDates = extras
+					.getStringArray(Constants.INTENT_EXTRA_RELEASE_DATES);
+
+			int numberOfReleases = Math.min(
+					Math.min(releaseTitles.length, releaseArtists.length),
+					releaseDates.length);
+
+			ViewGroup resultList = (ViewGroup) findViewById(R.id.result_list);
+			resultList.removeAllViews();
 
 			LayoutInflater inflater = (LayoutInflater) getApplicationContext()
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			ViewGroup resultList = (ViewGroup) findViewById(R.id.result_list);
-			View resultView = inflater.inflate(R.layout.widget_release_item,
-					resultList);
 
-			setViewText(resultView, R.id.release_title, releaseTitle);
-			setViewText(resultView, R.id.release_artist, releaseArtist);
-			setViewText(resultView, R.id.release_year, releaseYear);
+			for (int i = 0; i < numberOfReleases; ++i) {
+				addReleaseToView(resultList, inflater, releaseTitles[i],
+						releaseArtists[i], releaseDates[i]);
+			}
 		}
 	}
 
 	private void setViewText(View view, int fieldId, String text) {
 		TextView textView = (TextView) view.findViewById(fieldId);
 		textView.setText(text);
+	}
+
+	private void addReleaseToView(ViewGroup parent, LayoutInflater inflater,
+			String releaseTitle, String releaseArtist, String releaseYear) {
+		View resultItem = inflater.inflate(R.layout.widget_release_item,
+				parent, false);
+		setViewText(resultItem, R.id.release_title, releaseTitle);
+		setViewText(resultItem, R.id.release_artist, releaseArtist);
+		setViewText(resultItem, R.id.release_date, releaseYear);
+		parent.addView(resultItem);
 	}
 }

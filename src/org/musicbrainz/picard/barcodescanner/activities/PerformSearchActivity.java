@@ -92,20 +92,25 @@ public class PerformSearchActivity extends BaseActivity {
 				Intent resultIntent = new Intent(PerformSearchActivity.this,
 						ResultActivity.class);
 
-				// FIXME: Handle multiple results
-				ReleaseStub release = releases[0];
+				int numberOfReleases = releases.length;
+				String[] releaseTitles = new String[numberOfReleases];
+				String[] releaseArtists = new String[numberOfReleases];
+				String[] releaseDates = new String[numberOfReleases];
 
-				if (release != null) {
-					resultIntent.putExtra(
-							"org.musicbrainz.picard.releaseTitle",
-							release.getTitle());
-					resultIntent.putExtra(
-							"org.musicbrainz.picard.releaseArtist", release
-									.getArtistName());
-					resultIntent.putExtra(
-							"org.musicbrainz.picard.releaseYear",
-							release.getDate());
+				for (int i = 0; i < numberOfReleases; ++i) {
+					ReleaseStub release = releases[i];
+					releaseTitles[i] = release.getTitle();
+					releaseArtists[i] = release.getArtistName();
+					releaseDates[i] = release.getDate();
 				}
+
+				resultIntent.putExtra(Constants.INTENT_EXTRA_RELEASE_TITLES,
+						releaseTitles);
+				resultIntent.putExtra(Constants.INTENT_EXTRA_RELEASE_ARTISTS,
+						releaseArtists);
+				resultIntent.putExtra(Constants.INTENT_EXTRA_RELEASE_DATES,
+						releaseDates);
+
 				startActivity(resultIntent);
 			}
 		};
