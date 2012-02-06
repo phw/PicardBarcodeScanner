@@ -35,26 +35,26 @@ public class PicardClient {
 
 	private static final String PICARD_OPENALBUM_URL = "http://%s:%d/openalbum?id=%s";
 
-	private AbstractHttpClient httpClient;
-	private String ipAddress;
-	private int port;
+	private AbstractHttpClient mHttpClient;
+	private String mIpAddress;
+	private int mPort;
 
 	public PicardClient(String ipAddress, int port) {
-		this.ipAddress = ipAddress;
-		this.port = port;
-		httpClient = new DefaultHttpClient();
+		mIpAddress = ipAddress;
+		mPort = port;
+		mHttpClient = new DefaultHttpClient();
 	}
 
 	public Boolean openRelease(String releaseId) throws IOException {
-		String url = String.format(PICARD_OPENALBUM_URL, ipAddress,
-				port, uriEncode(releaseId));
+		String url = String.format(PICARD_OPENALBUM_URL, mIpAddress,
+				mPort, uriEncode(releaseId));
 		HttpResponse response = get(url);
 		return isResponseSuccess(response);
 	}
 
 	private HttpResponse get(String url) throws IOException {
 		HttpGet get = new HttpGet(url);
-		HttpResponse response = httpClient.execute(get);
+		HttpResponse response = mHttpClient.execute(get);
 		return response;
 	}
 

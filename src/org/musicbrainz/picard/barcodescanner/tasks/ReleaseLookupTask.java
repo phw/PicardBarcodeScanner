@@ -33,19 +33,19 @@ import android.util.Log;
 
 public class ReleaseLookupTask extends AsyncTask<String, Integer, ReleaseStub[]> {
 
-	private Context packageContext;
-	private TaskCallback<ReleaseStub[]> callback;
+	private Context mPackageContext;
+	private TaskCallback<ReleaseStub[]> mCallback;
 
 	public ReleaseLookupTask(Context packageContext,
 			TaskCallback<ReleaseStub[]> callback) {
-		this.packageContext = packageContext;
-		this.callback = callback;
+		mPackageContext = packageContext;
+		mCallback = callback;
 	}
 
 	@Override
 	protected ReleaseStub[] doInBackground(String... params) {
 		MusicBrainzWebClient mbClient = new MusicBrainzWebClient(
-				packageContext.getString(R.string.webservice_user_agent));
+				mPackageContext.getString(R.string.webservice_user_agent));
 		
 		try {
 			String barcode = params[0];
@@ -63,6 +63,6 @@ public class ReleaseLookupTask extends AsyncTask<String, Integer, ReleaseStub[]>
 
 	@Override
 	protected void onPostExecute(ReleaseStub[] result) {
-		callback.onResult(result);
+		mCallback.onResult(result);
 	}
 }

@@ -25,6 +25,7 @@ import org.musicbrainz.picard.barcodescanner.R;
 import org.musicbrainz.picard.barcodescanner.tasks.ReleaseLookupTask;
 import org.musicbrainz.picard.barcodescanner.tasks.SendToPicardTask;
 import org.musicbrainz.picard.barcodescanner.tasks.TaskCallback;
+import org.musicbrainz.picard.barcodescanner.util.Constants;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,9 +35,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class PerformSearchActivity extends BaseActivity {
-	private String barcode;
-	
-	private TextView loadingTextView;
+	private String mBarcode;
+
+	private TextView mLoadingTextView;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -49,10 +50,10 @@ public class PerformSearchActivity extends BaseActivity {
 		View spinner = findViewById(R.id.spinner);
 		Animation rotation = AnimationUtils.loadAnimation(this, R.anim.spinner);
 		spinner.startAnimation(rotation);
-		
-		loadingTextView = (TextView) findViewById(R.id.loading_text);
-		loadingTextView.setText(R.string.loading_musicbrainz_text);
-		
+
+		mLoadingTextView = (TextView) findViewById(R.id.loading_text);
+		mLoadingTextView.setText(R.string.loading_musicbrainz_text);
+
 		search();
 	}
 
@@ -66,7 +67,7 @@ public class PerformSearchActivity extends BaseActivity {
 	private void handleIntents() {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			this.barcode = extras.getString("org.musicbrainz.picard.barcode");
+			mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE);
 		}
 	}
 
@@ -79,8 +80,8 @@ public class PerformSearchActivity extends BaseActivity {
 			}
 		};
 
-		loadingTextView.setText(R.string.loading_musicbrainz_text);
-		new ReleaseLookupTask(this, lookupCallback).execute(this.barcode);
+		mLoadingTextView.setText(R.string.loading_musicbrainz_text);
+		new ReleaseLookupTask(this, lookupCallback).execute(mBarcode);
 	}
 
 	protected void sendToPicard(ReleaseStub[] releases) {
@@ -109,7 +110,7 @@ public class PerformSearchActivity extends BaseActivity {
 			}
 		};
 
-		loadingTextView.setText(R.string.loading_picard_text);
+		mLoadingTextView.setText(R.string.loading_picard_text);
 		new SendToPicardTask(getPreferences(), sendToPicardCallback)
 				.execute(releases);
 	}

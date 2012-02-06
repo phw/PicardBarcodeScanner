@@ -21,6 +21,7 @@
 package org.musicbrainz.picard.barcodescanner.activities;
 
 import org.musicbrainz.picard.barcodescanner.R;
+import org.musicbrainz.picard.barcodescanner.util.Constants;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -61,8 +62,7 @@ public class ScannerActivity extends BaseActivity {
 			if (barcode != null) {
 				Intent resultIntent = new Intent(ScannerActivity.this,
 						PerformSearchActivity.class);
-				resultIntent.putExtra("org.musicbrainz.picard.barcode",
-						barcode);
+				resultIntent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode);
 				startActivity(resultIntent);
 			}
 		}
