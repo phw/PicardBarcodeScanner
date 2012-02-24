@@ -20,8 +20,23 @@
 
 package org.musicbrainz.picard.barcodescanner.tasks;
 
-public interface TaskCallback<Result> {
+import android.os.AsyncTask;
 
-	public void onResult(Result result);
+public abstract class AsyncCallbackTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
 	
+	private TaskCallback<Result> mCallback;
+	
+	public TaskCallback<Result> getCallback() {
+		return mCallback;
+	}
+
+	public void setCallback(TaskCallback<Result> callback) {
+		this.mCallback = callback;
+	}
+
+	@Override
+	protected void onPostExecute(Result result) {
+		if (mCallback != null)
+			mCallback.onResult(result);
+	}
 }

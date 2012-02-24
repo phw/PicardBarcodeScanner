@@ -28,18 +28,16 @@ import org.musicbrainz.android.api.webservice.MusicBrainzWebClient;
 import org.musicbrainz.picard.barcodescanner.R;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 
-public class ReleaseLookupTask extends AsyncTask<String, Integer, ReleaseStub[]> {
+public class ReleaseLookupTask extends AsyncCallbackTask<String, Integer, ReleaseStub[]> {
 
 	private Context mPackageContext;
-	private TaskCallback<ReleaseStub[]> mCallback;
-
+	
 	public ReleaseLookupTask(Context packageContext,
 			TaskCallback<ReleaseStub[]> callback) {
 		mPackageContext = packageContext;
-		mCallback = callback;
+		setCallback(callback);
 	}
 
 	@Override
@@ -49,7 +47,6 @@ public class ReleaseLookupTask extends AsyncTask<String, Integer, ReleaseStub[]>
 		
 		try {
 			String barcode = params[0];
-			// TODO: We should allow multiple results.
 			String searchTerm = String.format("barcode:%s", barcode);
 			LinkedList<ReleaseStub> releases = mbClient.searchRelease(searchTerm);
 			ReleaseStub[] releaseArray = new ReleaseStub[releases.size()];
@@ -59,10 +56,5 @@ public class ReleaseLookupTask extends AsyncTask<String, Integer, ReleaseStub[]>
 			// TODO: Handle error (error callback?)
 			return new ReleaseStub[] {};
 		}
-	}
-
-	@Override
-	protected void onPostExecute(ReleaseStub[] result) {
-		mCallback.onResult(result);
 	}
 }
