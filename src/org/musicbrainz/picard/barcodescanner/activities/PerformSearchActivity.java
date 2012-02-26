@@ -81,7 +81,11 @@ public class PerformSearchActivity extends BaseActivity {
 		};
 
 		mLoadingTextView.setText(R.string.loading_musicbrainz_text);
-		new ReleaseLookupTask(this, lookupCallback).execute(mBarcode);
+		ReleaseLookupTask task = new ReleaseLookupTask(this);
+		task.setCallback(lookupCallback);
+		// TODO: Handle error
+		// task.setErrorCallback(errorCallback);
+		task.execute(mBarcode);
 	}
 
 	protected void sendToPicard(ReleaseStub[] releases) {
@@ -115,8 +119,22 @@ public class PerformSearchActivity extends BaseActivity {
 			}
 		};
 
+		TaskCallback<Exception> errorCallback = new TaskCallback<Exception>() {
+
+			@Override
+			public void onResult(Exception result) {
+				Intent configurePicard = new Intent(PerformSearchActivity.this,
+						ConnectActivity.class);
+				configurePicard.putExtra(Constants.INTENT_EXTRA_BARCODE,
+						mBarcode);
+				startActivity(configurePicard);
+			}
+		};
+
 		mLoadingTextView.setText(R.string.loading_picard_text);
-		new SendToPicardTask(getPreferences(), sendToPicardCallback)
-				.execute(releases);
+		SendToPicardTask task = new SendToPicardTask(getPreferences());
+		task.setCallback(sendToPicardCallback);
+		task.setErrorCallback(errorCallback);
+		task.execute(releases);
 	}
 }

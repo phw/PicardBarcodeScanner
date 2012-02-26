@@ -21,9 +21,12 @@
 package org.musicbrainz.picard.barcodescanner.activities;
 
 import org.musicbrainz.picard.barcodescanner.R;
+import org.musicbrainz.picard.barcodescanner.util.Constants;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,30 +35,78 @@ public class ConnectActivity extends BaseActivity {
 
 	private EditText mIpAddressInput;
 	private EditText mPortInput;
+	private Button mConnectBtn;
+	private String mBarcode;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_connect);
+		handleIntents();
 
 		mIpAddressInput = (EditText) findViewById(R.id.picard_ip_address);
 		mPortInput = (EditText) findViewById(R.id.picard_port);
-		mIpAddressInput.setText(getPreferences().getIpAddress());
-		mPortInput.setText(String.valueOf(getPreferences().getPort()));
+		mConnectBtn = (Button) findViewById(R.id.btn_picard_connect);
 
-		Button connectBtn = (Button) findViewById(R.id.btn_picard_connect);
-		connectBtn.setOnClickListener(new View.OnClickListener() {
+		registerEventListeners();
+		loadFormDataFromPreferences();
+		checkConnectButtonEnabled();
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		handleIntents();
+	}
+
+	private void handleIntents() {
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE);
+		} else {
+			mBarcode = null;
+		}
+	}
+
+	private void registerEventListeners() {
+		TextWatcher textWatcher = new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				checkConnectButtonEnabled();
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+			}
+		};
+		mIpAddressInput.addTextChangedListener(textWatcher);
+
+		mConnectBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				getPreferences().setIpAddressAndPort(readIpAddressFromInput(),
 						readPortFromInput());
 
-				Intent intent = new Intent(ConnectActivity.this,
-						ScannerActivity.class);
-				startActivity(intent);
+				startNextActivity();
 			}
 		});
+	}
+
+	private void loadFormDataFromPreferences() {
+		mIpAddressInput.setText(getPreferences().getIpAddress());
+		mPortInput.setText(String.valueOf(getPreferences().getPort()));
+	}
+
+	private void checkConnectButtonEnabled() {
+		mConnectBtn.setEnabled(!readIpAddressFromInput().equals(""));
 	}
 
 	private String readIpAddressFromInput() {
@@ -70,5 +121,19 @@ public class ConnectActivity extends BaseActivity {
 		} catch (NumberFormatException nfe) {
 			return 0;
 		}
+	}
+
+	private void startNextActivity() {
+		Intent intent;
+
+		if (mBarcode == null) {
+			intent = new Intent(ConnectActivity.this, ScannerActivity.class);
+		} else {
+			intent = new Intent(ConnectActivity.this,
+					PerformSearchActivity.class);
+			intent.putExtra(Constants.INTENT_EXTRA_BARCODE, mBarcode);
+		}
+
+		startActivity(intent);
 	}
 }

@@ -32,10 +32,8 @@ public class SendToPicardTask extends AsyncCallbackTask<ReleaseStub, Integer, Re
 
 	private Preferences mPreferences;
 	
-	public SendToPicardTask(Preferences preferences,
-			TaskCallback<ReleaseStub[]> callback) {
+	public SendToPicardTask(Preferences preferences) {
 		mPreferences = preferences;
-		setCallback(callback);
 	}
 
 	@Override
@@ -49,7 +47,7 @@ public class SendToPicardTask extends AsyncCallbackTask<ReleaseStub, Integer, Re
 			}
 		} catch (IOException e) {
 			Log.e(this.getClass().getName(), e.getMessage(), e);
-			// TODO: Handle error (error callback?)
+			this.onError(e);
 		}
 
 		return params;

@@ -34,10 +34,8 @@ public class ReleaseLookupTask extends AsyncCallbackTask<String, Integer, Releas
 
 	private Context mPackageContext;
 	
-	public ReleaseLookupTask(Context packageContext,
-			TaskCallback<ReleaseStub[]> callback) {
+	public ReleaseLookupTask(Context packageContext) {
 		mPackageContext = packageContext;
-		setCallback(callback);
 	}
 
 	@Override
@@ -53,7 +51,7 @@ public class ReleaseLookupTask extends AsyncCallbackTask<String, Integer, Releas
 			return releases.toArray(releaseArray);
 		} catch (IOException e) {
 			Log.e(this.getClass().getName(), e.getMessage(), e);
-			// TODO: Handle error (error callback?)
+			this.onError(e);
 			return new ReleaseStub[] {};
 		}
 	}
