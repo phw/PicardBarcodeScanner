@@ -32,21 +32,41 @@ import android.view.View;
 import android.widget.Button;
 
 public class ScannerActivity extends BaseActivity {
+	Boolean mAutoStart = false;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_scanner);
 
-		Button connectBtn = (Button) findViewById(R.id.btn_scan_barcode);
-		connectBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				IntentIntegrator integrator = new IntentIntegrator(
-						ScannerActivity.this);
-				integrator.initiateScan();
-			}
-		});
+		if (!checkIfSettingsAreComplete()) {
+			Intent configurePicard = new Intent(ScannerActivity.this,
+					PreferencesActivity.class);
+			startActivity(configurePicard);
+		}
+		else if (mAutoStart) {
+			startScanner();
+		}
+		else {
+			Button connectBtn = (Button) findViewById(R.id.btn_scan_barcode);
+			connectBtn.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					startScanner();
+				}
+			});
+		}
+	}
+
+	@Override
+	protected void handleIntents() {
+		super.handleIntents();
+		
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			mAutoStart = extras.getBoolean(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, false);
+		}
 	}
 
 	@Override
@@ -66,5 +86,16 @@ public class ScannerActivity extends BaseActivity {
 				startActivity(resultIntent);
 			}
 		}
+	}
+	
+	private void startScanner() {
+		IntentIntegrator integrator = new IntentIntegrator(
+				ScannerActivity.this);
+		integrator.initiateScan();
+	}
+	
+	protected boolean checkIfSettingsAreComplete() {
+		return !getPreferences().getIpAddress().equals("")
+				&& getPreferences().getPort() > 0;
 	}
 }

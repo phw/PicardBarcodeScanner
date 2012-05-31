@@ -31,7 +31,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class ConnectActivity extends BaseActivity {
+public class PreferencesActivity extends BaseActivity {
 
 	private EditText mIpAddressInput;
 	private EditText mPortInput;
@@ -42,25 +42,25 @@ public class ConnectActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setSubView(R.layout.activity_connect);
-		handleIntents();
-
+		setSubView(R.layout.activity_preferences);
+		
 		mIpAddressInput = (EditText) findViewById(R.id.picard_ip_address);
 		mPortInput = (EditText) findViewById(R.id.picard_port);
 		mConnectBtn = (Button) findViewById(R.id.btn_picard_connect);
 
+		if (mBarcode != null) {
+			mConnectBtn.setText(R.string.btn_picard_connect);
+		}
+		
 		registerEventListeners();
 		loadFormDataFromPreferences();
 		checkConnectButtonEnabled();
 	}
 
 	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-		handleIntents();
-	}
-
-	private void handleIntents() {
+	protected void handleIntents() {
+		super.handleIntents();
+		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE);
@@ -127,13 +127,14 @@ public class ConnectActivity extends BaseActivity {
 		Intent intent;
 
 		if (mBarcode == null) {
-			intent = new Intent(ConnectActivity.this, ScannerActivity.class);
+			intent = new Intent(PreferencesActivity.this, ScannerActivity.class);
 		} else {
-			intent = new Intent(ConnectActivity.this,
+			intent = new Intent(PreferencesActivity.this,
 					PerformSearchActivity.class);
 			intent.putExtra(Constants.INTENT_EXTRA_BARCODE, mBarcode);
 		}
 
 		startActivity(intent);
+		finish();
 	}
 }

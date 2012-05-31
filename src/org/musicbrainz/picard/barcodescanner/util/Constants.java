@@ -35,4 +35,6 @@ public final class Constants {
 	public static final String INTENT_EXTRA_RELEASE_ARTISTS = "org.musicbrainz.picard.releaseArtists";
 	
 	public static final String INTENT_EXTRA_RELEASE_DATES = "org.musicbrainz.picard.releaseDates";
+	
+	public static final String INTENT_EXTRA_AUTOSTART_SCANNER = "org.musicbrainz.picard.startScanner";
 }

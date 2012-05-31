@@ -23,9 +23,6 @@ package org.musicbrainz.picard.barcodescanner.activities;
 import org.musicbrainz.picard.barcodescanner.R;
 import org.musicbrainz.picard.barcodescanner.util.Constants;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,45 +38,24 @@ public class ResultActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_result);
-		handleIntents();
-
+		
 		Button connectBtn = (Button) findViewById(R.id.btn_scan_barcode);
 		connectBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				IntentIntegrator integrator = new IntentIntegrator(
-						ResultActivity.this);
-				integrator.initiateScan();
+				Intent resultIntent = new Intent(ResultActivity.this,
+						ScannerActivity.class);
+				resultIntent.putExtra(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, true);
+				startActivity(resultIntent);
+				finish();
 			}
 		});
 	}
 
 	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-		handleIntents();
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		IntentResult scanResult = IntentIntegrator.parseActivityResult(
-				requestCode, resultCode, intent);
-
-		if (scanResult != null) {
-			String barcode = scanResult.getContents();
-			if (isRunningInEmulator())
-				barcode = "766929908628"; // DEBUG
-
-			if (barcode != null) {
-				Intent resultIntent = new Intent(ResultActivity.this,
-						PerformSearchActivity.class);
-				resultIntent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode);
-				startActivity(resultIntent);
-			}
-		}
-	}
-
-	private void handleIntents() {
+	protected void handleIntents() {
+		super.handleIntents();
+		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			String[] releaseTitles = extras

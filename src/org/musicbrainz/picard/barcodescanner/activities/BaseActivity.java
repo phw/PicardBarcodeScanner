@@ -43,7 +43,20 @@ public abstract class BaseActivity extends Activity {
 
 		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		actionBar.setHomeAction(new ActionBar.IntentAction(this, new Intent(
-				this, ConnectActivity.class), R.drawable.ic_menu_tags));
+				this, ScannerActivity.class), R.drawable.ic_menu_tags));
+		actionBar.addAction(new ActionBar.IntentAction(this, new Intent(
+				this, PreferencesActivity.class), R.drawable.ic_menu_settings));
+		
+		handleIntents();
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		handleIntents();
+	}
+	
+	protected void handleIntents() {
 	}
 
 	protected Preferences getPreferences() {

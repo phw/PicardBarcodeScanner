@@ -20,6 +20,9 @@
 
 package org.musicbrainz.picard.barcodescanner.activities;
 
+import java.util.ArrayList;
+
+import org.musicbrainz.android.api.data.ArtistNameMbid;
 import org.musicbrainz.android.api.data.ReleaseStub;
 import org.musicbrainz.picard.barcodescanner.R;
 import org.musicbrainz.picard.barcodescanner.tasks.ReleaseLookupTask;
@@ -29,6 +32,7 @@ import org.musicbrainz.picard.barcodescanner.util.Constants;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -44,8 +48,7 @@ public class PerformSearchActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_perform_search);
-		handleIntents();
-
+		
 		// Start animation
 		View spinner = findViewById(R.id.spinner);
 		Animation rotation = AnimationUtils.loadAnimation(this, R.anim.spinner);
@@ -60,11 +63,13 @@ public class PerformSearchActivity extends BaseActivity {
 	@Override
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
-		handleIntents();
 		search();
 	}
 
-	private void handleIntents() {
+	@Override
+	protected void handleIntents() {
+		super.handleIntents();
+		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE);
@@ -104,7 +109,7 @@ public class PerformSearchActivity extends BaseActivity {
 				for (int i = 0; i < numberOfReleases; ++i) {
 					ReleaseStub release = releases[i];
 					releaseTitles[i] = release.getTitle();
-					releaseArtists[i] = release.getArtistName();
+					releaseArtists[i] = getArtistName(release);
 					releaseDates[i] = release.getDate();
 				}
 
@@ -124,7 +129,7 @@ public class PerformSearchActivity extends BaseActivity {
 			@Override
 			public void onResult(Exception result) {
 				Intent configurePicard = new Intent(PerformSearchActivity.this,
-						ConnectActivity.class);
+						PreferencesActivity.class);
 				configurePicard.putExtra(Constants.INTENT_EXTRA_BARCODE,
 						mBarcode);
 				startActivity(configurePicard);
@@ -136,5 +141,15 @@ public class PerformSearchActivity extends BaseActivity {
 		task.setCallback(sendToPicardCallback);
 		task.setErrorCallback(errorCallback);
 		task.execute(releases);
+	}
+
+	protected String getArtistName(ReleaseStub release) {
+		ArrayList<String> artistNames = new ArrayList<String>();
+		
+		for (ArtistNameMbid artist : release.getArtists()) {
+			artistNames.add(artist.getName());
+		}
+		
+		return TextUtils.join(", ", artistNames);
 	}
 }
