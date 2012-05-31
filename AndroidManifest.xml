@@ -14,8 +14,7 @@
         android:theme="@style/PicardBarcodeScanner" >
         <activity
             android:name="org.musicbrainz.picard.barcodescanner.activities.ScannerActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTop" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,16 +23,15 @@
         </activity>
         <activity
             android:name=".activities.PreferencesActivity"
-            android:launchMode="singleTop" >
+            android:noHistory="true" >
         </activity>
         <activity
             android:name="org.musicbrainz.picard.barcodescanner.activities.PerformSearchActivity"
-            android:launchMode="singleTop"
             android:noHistory="true" >
         </activity>
         <activity
             android:name=".activities.ResultActivity"
-            android:launchMode="singleTop" >
+            android:noHistory="true" >
         </activity>
     </application>
 

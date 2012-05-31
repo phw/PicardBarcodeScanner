@@ -42,8 +42,9 @@ public abstract class BaseActivity extends Activity {
 		content.inflate();
 
 		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
-		actionBar.setHomeAction(new ActionBar.IntentAction(this, new Intent(
-				this, ScannerActivity.class), R.drawable.ic_menu_tags));
+		Intent homeIntent = new Intent(this, ScannerActivity.class);
+		homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		actionBar.setHomeAction(new ActionBar.IntentAction(this, homeIntent, R.drawable.ic_menu_tags));
 		actionBar.addAction(new ActionBar.IntentAction(this, new Intent(
 				this, PreferencesActivity.class), R.drawable.ic_menu_settings));
 		

@@ -121,6 +121,7 @@ public class PerformSearchActivity extends BaseActivity {
 						releaseDates);
 
 				startActivity(resultIntent);
+				finish();
 			}
 		};
 

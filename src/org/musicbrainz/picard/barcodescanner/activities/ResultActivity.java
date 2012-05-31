@@ -46,8 +46,8 @@ public class ResultActivity extends BaseActivity {
 				Intent resultIntent = new Intent(ResultActivity.this,
 						ScannerActivity.class);
 				resultIntent.putExtra(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, true);
+				resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(resultIntent);
-				finish();
 			}
 		});
 	}

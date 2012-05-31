@@ -128,6 +128,7 @@ public class PreferencesActivity extends BaseActivity {
 
 		if (mBarcode == null) {
 			intent = new Intent(PreferencesActivity.this, ScannerActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		} else {
 			intent = new Intent(PreferencesActivity.this,
 					PerformSearchActivity.class);
