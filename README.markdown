@@ -29,6 +29,11 @@ Usage
     and your Picard connection settings are correct the album data will automatically be loaded
 	into Picard.
  6. Tag your files in Picard.
+ 
+Build requirements
+------------------
+ * Android ActionBar from https://github.com/johannilsson/android-actionbar
+ * The MusicBrainz API from https://github.com/jdamcd/musicbrainz-android/
 
 License
 -------
