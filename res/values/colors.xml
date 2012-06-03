@@ -33,5 +33,7 @@
     <color name="background">#FFF</color>
     <color name="text">#000</color>
     <color name="lightText">#999</color>
+    <color name="errorColor">#B94A48</color>
+    <color name="errorBackgroundColor">#F2DEDE</color>
 
 </resources>

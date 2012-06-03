@@ -33,11 +33,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResultActivity extends BaseActivity {
+	TextView descriptionTextView;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_result);
+		
+		descriptionTextView = (TextView) findViewById(R.id.description_search_result);
 		
 		Button connectBtn = (Button) findViewById(R.id.btn_scan_barcode);
 		connectBtn.setOnClickListener(new View.OnClickListener() {
@@ -50,11 +54,14 @@ public class ResultActivity extends BaseActivity {
 				startActivity(resultIntent);
 			}
 		});
+		
+		handleIntents();
 	}
 
 	@Override
 	protected void handleIntents() {
 		super.handleIntents();
+		int numberOfReleases = 0;
 		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
@@ -65,7 +72,7 @@ public class ResultActivity extends BaseActivity {
 			String[] releaseDates = extras
 					.getStringArray(Constants.INTENT_EXTRA_RELEASE_DATES);
 
-			int numberOfReleases = Math.min(
+			numberOfReleases = Math.min(
 					Math.min(releaseTitles.length, releaseArtists.length),
 					releaseDates.length);
 
@@ -79,6 +86,10 @@ public class ResultActivity extends BaseActivity {
 				addReleaseToView(resultList, inflater, releaseTitles[i],
 						releaseArtists[i], releaseDates[i]);
 			}
+		}
+		
+		if (numberOfReleases == 0) {
+			descriptionTextView.setText(R.string.description_no_result);
 		}
 	}
 

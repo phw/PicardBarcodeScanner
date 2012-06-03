@@ -30,6 +30,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class PreferencesActivity extends BaseActivity {
 
@@ -48,13 +49,16 @@ public class PreferencesActivity extends BaseActivity {
 		mPortInput = (EditText) findViewById(R.id.picard_port);
 		mConnectBtn = (Button) findViewById(R.id.btn_picard_connect);
 
-		if (mBarcode != null) {
-			mConnectBtn.setText(R.string.btn_picard_connect);
-		}
-		
+		handleIntents();
 		registerEventListeners();
 		loadFormDataFromPreferences();
 		checkConnectButtonEnabled();
+		
+		if (mBarcode != null) {
+			TextView errorMsg = (TextView) findViewById(R.id.label_connection_error);
+			errorMsg.setVisibility(View.VISIBLE);
+			mConnectBtn.setText(R.string.btn_picard_connect);
+		}
 	}
 
 	@Override

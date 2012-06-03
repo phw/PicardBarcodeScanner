@@ -23,5 +23,6 @@
 
     <dimen name="window_padding">16dp</dimen>
     <dimen name="content_padding">12dp</dimen>
-
+	<dimen name="messagebox_padding">6dp</dimen>
+    
 </resources>

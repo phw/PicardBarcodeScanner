@@ -40,6 +40,8 @@ public class ScannerActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setSubView(R.layout.activity_scanner);
 
+		handleIntents();
+
 		if (!checkIfSettingsAreComplete()) {
 			Intent configurePicard = new Intent(ScannerActivity.this,
 					PreferencesActivity.class);

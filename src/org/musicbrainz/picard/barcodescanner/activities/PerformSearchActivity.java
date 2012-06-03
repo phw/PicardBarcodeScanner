@@ -57,6 +57,7 @@ public class PerformSearchActivity extends BaseActivity {
 		mLoadingTextView = (TextView) findViewById(R.id.loading_text);
 		mLoadingTextView.setText(R.string.loading_musicbrainz_text);
 
+		handleIntents();
 		search();
 	}
 

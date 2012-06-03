@@ -47,8 +47,6 @@ public abstract class BaseActivity extends Activity {
 		actionBar.setHomeAction(new ActionBar.IntentAction(this, homeIntent, R.drawable.ic_menu_tags));
 		actionBar.addAction(new ActionBar.IntentAction(this, new Intent(
 				this, PreferencesActivity.class), R.drawable.ic_menu_settings));
-		
-		handleIntents();
 	}
 
 	@Override
