@@ -13,7 +13,7 @@ tag the files using the correct album.
 Requirements
 ------------
  * Picard 1.0 or higher
- * Android 2.2 or higher
+ * Android 2.1 or higher
  * ZXing barcode scanner (https://play.google.com/store/apps/details?id=com.google.zxing.client.android)
 
 Usage

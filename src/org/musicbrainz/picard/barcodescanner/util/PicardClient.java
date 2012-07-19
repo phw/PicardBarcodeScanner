@@ -62,6 +62,7 @@ public class PicardClient {
 		return response.getStatusLine().getStatusCode() < 400;
 	}
 
+	@SuppressWarnings("deprecation")
 	private String uriEncode(String releaseId) {
 		try {
 			return URLEncoder.encode(releaseId, "UTF-8");
