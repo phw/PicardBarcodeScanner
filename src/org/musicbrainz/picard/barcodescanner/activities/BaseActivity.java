@@ -67,6 +67,6 @@ public abstract class BaseActivity extends Activity {
 
 	protected boolean isRunningInEmulator() {
 		return ApplicationInfo.FLAG_DEBUGGABLE != 0 &&
-			("google_sdk".equals(Build.PRODUCT) || "sdk".equals(Build.PRODUCT));
+			("google_sdk".equals(Build.PRODUCT) || "sdk".equals(Build.PRODUCT) || "sdk_x86".equals(Build.PRODUCT));
 	}
 }
