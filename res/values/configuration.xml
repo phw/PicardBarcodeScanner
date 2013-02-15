@@ -21,7 +21,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <string name="webservice_user_agent">picard-android-barcodescanner-0.1</string>
-    <string name="picard_default_port">8000</string>
+    <string name="webservice_user_agent" translatable="false">picard-android-barcodescanner-0.1</string>
+    <string name="picard_default_port" translatable="false">8000</string>
     
 </resources>

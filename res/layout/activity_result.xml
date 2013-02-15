@@ -15,8 +15,8 @@
 	Public License for more details.
 	
 	You should have received a copy of the GNU General Public License along with
-	MusicBrainz Picard Barcode Scanner. If not, see
-	<http://www.gnu.org/licenses/>.
+	MusicBrainz Picard Barcode Scanner. If not, see <http://www.gnu.org/licenses/>.
+	
 -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
