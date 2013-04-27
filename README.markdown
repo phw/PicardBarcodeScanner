@@ -35,6 +35,11 @@ Build requirements
  * Android ActionBar from https://github.com/johannilsson/android-actionbar
  * The MusicBrainz API from https://github.com/jdamcd/musicbrainz-android/
 
+Translations
+------------
+You can help translate this project into your language. Please visit the Picard Barcode Scanner
+localization project on https://www.transifex.com/projects/p/picard-barcode-scanner/
+
 License
 -------
 Picard Barcode Scanner is free software published under the GPL version 3. See LICENSE for details.
