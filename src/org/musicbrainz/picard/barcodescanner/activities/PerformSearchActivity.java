@@ -22,8 +22,8 @@ package org.musicbrainz.picard.barcodescanner.activities;
 
 import java.util.ArrayList;
 
-import org.musicbrainz.android.api.data.ArtistNameMbid;
-import org.musicbrainz.android.api.data.ReleaseStub;
+import org.musicbrainz.android.api.data.ReleaseArtist;
+import org.musicbrainz.android.api.data.ReleaseInfo;
 import org.musicbrainz.picard.barcodescanner.R;
 import org.musicbrainz.picard.barcodescanner.tasks.ReleaseLookupTask;
 import org.musicbrainz.picard.barcodescanner.tasks.SendToPicardTask;
@@ -78,10 +78,10 @@ public class PerformSearchActivity extends BaseActivity {
 	}
 
 	private void search() {
-		TaskCallback<ReleaseStub[]> lookupCallback = new TaskCallback<ReleaseStub[]>() {
+		TaskCallback<ReleaseInfo[]> lookupCallback = new TaskCallback<ReleaseInfo[]>() {
 
 			@Override
-			public void onResult(ReleaseStub[] releases) {
+			public void onResult(ReleaseInfo[] releases) {
 				sendToPicard(releases);
 			}
 		};
@@ -94,11 +94,11 @@ public class PerformSearchActivity extends BaseActivity {
 		task.execute(mBarcode);
 	}
 
-	protected void sendToPicard(ReleaseStub[] releases) {
-		TaskCallback<ReleaseStub[]> sendToPicardCallback = new TaskCallback<ReleaseStub[]>() {
+	protected void sendToPicard(ReleaseInfo[] releases) {
+		TaskCallback<ReleaseInfo[]> sendToPicardCallback = new TaskCallback<ReleaseInfo[]>() {
 
 			@Override
-			public void onResult(ReleaseStub[] releases) {
+			public void onResult(ReleaseInfo[] releases) {
 				Intent resultIntent = new Intent(PerformSearchActivity.this,
 						ResultActivity.class);
 
@@ -108,7 +108,7 @@ public class PerformSearchActivity extends BaseActivity {
 				String[] releaseDates = new String[numberOfReleases];
 
 				for (int i = 0; i < numberOfReleases; ++i) {
-					ReleaseStub release = releases[i];
+					ReleaseInfo release = releases[i];
 					releaseTitles[i] = release.getTitle();
 					releaseArtists[i] = getArtistName(release);
 					releaseDates[i] = release.getDate();
@@ -145,10 +145,10 @@ public class PerformSearchActivity extends BaseActivity {
 		task.execute(releases);
 	}
 
-	protected String getArtistName(ReleaseStub release) {
+	protected String getArtistName(ReleaseInfo release) {
 		ArrayList<String> artistNames = new ArrayList<String>();
 		
-		for (ArtistNameMbid artist : release.getArtists()) {
+		for (ReleaseArtist artist : release.getArtists()) {
 			artistNames.add(artist.getName());
 		}
 		

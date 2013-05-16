@@ -23,14 +23,14 @@ package org.musicbrainz.picard.barcodescanner.tasks;
 import java.io.IOException;
 import java.util.LinkedList;
 
-import org.musicbrainz.android.api.data.ReleaseStub;
+import org.musicbrainz.android.api.data.ReleaseInfo;
 import org.musicbrainz.android.api.webservice.MusicBrainzWebClient;
 import org.musicbrainz.picard.barcodescanner.R;
 
 import android.content.Context;
 import android.util.Log;
 
-public class ReleaseLookupTask extends AsyncCallbackTask<String, Integer, ReleaseStub[]> {
+public class ReleaseLookupTask extends AsyncCallbackTask<String, Integer, ReleaseInfo[]> {
 
 	private Context mPackageContext;
 	
@@ -39,20 +39,20 @@ public class ReleaseLookupTask extends AsyncCallbackTask<String, Integer, Releas
 	}
 
 	@Override
-	protected ReleaseStub[] doInBackground(String... params) {
+	protected ReleaseInfo[] doInBackground(String... params) {
 		MusicBrainzWebClient mbClient = new MusicBrainzWebClient(
 				mPackageContext.getString(R.string.webservice_user_agent));
 		
 		try {
 			String barcode = params[0];
 			String searchTerm = String.format("barcode:%s", barcode);
-			LinkedList<ReleaseStub> releases = mbClient.searchRelease(searchTerm);
-			ReleaseStub[] releaseArray = new ReleaseStub[releases.size()];
+			LinkedList<ReleaseInfo> releases = mbClient.searchRelease(searchTerm);
+			ReleaseInfo[] releaseArray = new ReleaseInfo[releases.size()];
 			return releases.toArray(releaseArray);
 		} catch (IOException e) {
 			Log.e(this.getClass().getName(), e.getMessage(), e);
 			this.onError(e);
-			return new ReleaseStub[] {};
+			return new ReleaseInfo[] {};
 		}
 	}
 }

@@ -22,13 +22,13 @@ package org.musicbrainz.picard.barcodescanner.tasks;
 
 import java.io.IOException;
 
-import org.musicbrainz.android.api.data.ReleaseStub;
+import org.musicbrainz.android.api.data.ReleaseInfo;
 import org.musicbrainz.picard.barcodescanner.util.PicardClient;
 import org.musicbrainz.picard.barcodescanner.util.Preferences;
 
 import android.util.Log;
 
-public class SendToPicardTask extends AsyncCallbackTask<ReleaseStub, Integer, ReleaseStub[]> {
+public class SendToPicardTask extends AsyncCallbackTask<ReleaseInfo, Integer, ReleaseInfo[]> {
 
 	private Preferences mPreferences;
 	
@@ -37,12 +37,12 @@ public class SendToPicardTask extends AsyncCallbackTask<ReleaseStub, Integer, Re
 	}
 
 	@Override
-	protected ReleaseStub[] doInBackground(ReleaseStub... params) {
+	protected ReleaseInfo[] doInBackground(ReleaseInfo... params) {
 		PicardClient client = new PicardClient(mPreferences.getIpAddress(),
 				mPreferences.getPort());
 
 		try {
-			for (ReleaseStub release : params) {
+			for (ReleaseInfo release : params) {
 				client.openRelease(release.getReleaseMbid());
 			}
 		} catch (IOException e) {
