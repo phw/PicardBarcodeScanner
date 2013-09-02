@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+	
+	This file is part of MusicBrainz Picard Barcode Scanner.
+	
+	MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
+	and/or modify it under the terms of the GNU General Public License as
+	published by the Free Software Foundation, either version 3 of the License,
+	or (at your option) any later version.
+	
+	MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be
+	useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+	Public License for more details.
+	
+	You should have received a copy of the GNU General Public License along with
+	MusicBrainz Picard Barcode Scanner. If not, see
+	<http://www.gnu.org/licenses/>.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="app_name">Picard Barcode Scanner</string>
+    <string name="actionbar_title">Picard Barcode Scanner</string>
+    <string name="action_settings">Settings</string>
+    <string name="description_connect">In order to send scanned barcodes to Picard you have to connect your phone to the same network as the computer running Picard. Enter the IP address of the computer and Picard\'s port number below.</string>
+    <string name="label_connection_error">Could not connect to Picard. Please check the connection settings and your WiFi connection.</string>
+    <string name="picard_ip_address">IP address:</string>
+    <string name="picard_port">Port:</string>
+    <string name="btn_picard_connect">Connect with Picard</string>
+    <string name="description_scanner">Use your phone\'s camera to scan the barcode of a CD or other music media. If MusicBrainz knows about the media it will automatically be loaded into MusicBrainz Picard.</string>
+    <string name="btn_scan_barcode">Scan barcode</string>
+    <string name="description_result">MusicBrainz has found the following results for this barcode and sent them to Picard.</string>
+	<string name="description_no_result">MusicBrainz has not found any release for this barcode.</string>
+	<string name="loading_musicbrainz_text">Consulting MusicBrainz&#8230;</string>
+	<string name="loading_picard_text">Sending data to Picard&#8230;</string>
+	<string name="btn_save_preferences">Save settings</string>
+    
+</resources>

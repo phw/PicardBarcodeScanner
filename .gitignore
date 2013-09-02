@@ -1,5 +1,6 @@
-bin/*
-gen/*
-tests/bin/*
-tests/gen/*
-*.bak
+.gradle
+*/build/*
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+
