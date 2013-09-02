@@ -1,0 +1,3 @@
+[submodule "musicbrainz-android"]
+	path = musicbrainz-android
+	url = https://github.com/jdamcd/musicbrainz-android.git
