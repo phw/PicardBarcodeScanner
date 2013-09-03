@@ -28,9 +28,11 @@ import com.google.zxing.integration.android.IntentResult;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScannerActivity extends BaseActivity {
 	Boolean mAutoStart = false;
@@ -94,6 +96,11 @@ public class ScannerActivity extends BaseActivity {
 	private void startScanner() {
 		IntentIntegrator integrator = new IntentIntegrator(
 				ScannerActivity.this);
+        // Make sure the free barcode scanner app is the first in the list.
+        List<String> targetApplications = new ArrayList<String>(IntentIntegrator.TARGET_ALL_KNOWN);
+        targetApplications.removeAll(IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY);
+        targetApplications.addAll(0, IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY);
+        integrator.setTargetApplications(targetApplications);
 		integrator.initiateScan();
 	}
 	
