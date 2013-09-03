@@ -1,6 +1,7 @@
 Version 1.2 - 2013-09-03
  * Use ActionBar implementation from support library
  * Tested with Android 4.3
+ * XHDPI app icon
  * Added German translation
  * Added Vietnamese translation
 
