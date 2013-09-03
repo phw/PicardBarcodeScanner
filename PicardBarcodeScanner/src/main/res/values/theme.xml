@@ -21,7 +21,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="PicardBarcodeScanner" parent="@style/Theme.AppCompat.Light">
+    <style name="PicardBarcodeScanner" parent="@style/Theme.Base.AppCompat.Light.DarkActionBar">
         <item name="android:windowBackground">@color/background</item>
         <item name="android:textColor">@color/text</item>
     </style>
