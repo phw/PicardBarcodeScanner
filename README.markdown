@@ -3,7 +3,7 @@ Picard Barcode Scanner
 
 Description
 -----------
-Picard Barcode Scanner helps you to tag your physical releases with MusicBrainz Picard. It allows
+Picard Barcode Scanner helps you to tag your physical releases with [MusicBrainz Picard](http://picard.musicbrainz.org/). It allows
 you to scan the barcode of e.g. a CD and have the corresponding metadata from MusicBrainz
 automatically loaded into Picard.
 
@@ -14,7 +14,7 @@ Requirements
 ------------
  * Picard 1.0 or higher
  * Android 2.1 or higher
- * ZXing barcode scanner (https://play.google.com/store/apps/details?id=com.google.zxing.client.android)
+ * [ZXing barcode scanner](https://play.google.com/store/apps/details?id=com.google.zxing.client.android)
 
 Usage
 -----
