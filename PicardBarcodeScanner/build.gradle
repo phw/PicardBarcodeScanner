@@ -1,30 +1,26 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.+'
-    }
-}
-apply plugin: 'android'
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 18
-    buildToolsVersion "18.0.1"
-
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
     defaultConfig {
-        minSdkVersion 7
-        targetSdkVersion 18
+        applicationId "org.musicbrainz.picard.barcodescanner"
+        minSdkVersion 14
+        targetSdkVersion 29
+        versionCode 26
+        versionName '1.3.15'
     }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+    return void
 }
 
-android.sourceSets.main.java.srcDirs 'src/musicbrainz-android/api/src/main/java/'
-
 dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
-    compile "com.android.support:appcompat-v7:18.0.+"
+    implementation 'com.android.support:support-v4:27.1.0'
+    implementation 'com.android.support:appcompat-v7:26.0.0-alpha1'
 }
