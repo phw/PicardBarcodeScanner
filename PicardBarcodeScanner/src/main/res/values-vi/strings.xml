@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
   <string name="app_name">Picard Barcode Scanner</string>
   <string name="actionbar_title">Picard Barcode Scanner</string>
-  <string name="action_settings">Settings</string>
-  <string name="description_connect">Để có thể gửi các mã được quét vào Picard, bạn cần kết nối điện thoại của mình đến cùng chung mạng với hệ thống máy tính đang chạy Picard. Điền vào địa chỉ IP của máy tính và cổng kết nối dữ liệu của Picard bên dưới.</string>
-  <string name="label_connection_error">Không thể kết nối đến Picard. Hãy chọn phần thiết lập kết nối và tùy chỉnh hoặc kiểm tra lại kết nối WiFi của bạn.</string>
+  <string name="action_settings">Thiết lập</string>
+  <string name="description_connect">Để có thể gửi các mã đã được quét vào Picard bạn phải kết nối thiết bị đến cùng mạng lưới mà máy tính của bạn đang chạy Picard. Điền vào địa chỉ IP của máy tính và cổng giao tiếp mạng của Picard ở khung bên dưới.</string>
+  <string name="label_connection_error">Không thể kết nối đến Picard. Hãy chọn phần thiết lập kết nối và tùy chỉnh hoặc kiểm tra lại kết nối Wi-Fi của bạn.</string>
   <string name="picard_ip_address">Địa chỉ IP:</string>
   <string name="picard_port">Cổng kết nối:</string>
   <string name="btn_picard_connect">Kết nối với Picard</string>
-  <string name="description_scanner">Sử dụng camera của điện thoại để quét mã của một đĩa CD hoặc các đối tượng khác. Nếu như MusicBrainz có thể nhận biết được các đối tượng này thì chương trình sẽ ngay lập tức tải các thông tin liên quan từ mạng Internet về Picard.</string>
+  <string name="description_scanner">Sử dụng phần thiết bị chụp ảnh của thiết bị để quét mã của đĩa CD hoặc các ứng dụng đa phương tiện khác. Nếu như MusicBrainz nhận dạng được các đối tượng này thì đối tượng đó sẽ được tải trực tiếp vào phần MusicBrainz Picard.</string>
   <string name="btn_scan_barcode">Quét mã</string>
   <string name="description_result">MusicBrainz đã tìm thấy các kết quả sau cho mã được quét vừa rồi và đã gửi những thông tin này đến Picard.</string>
   <string name="description_no_result">MusicBrainz không tìm thấy bất kỳ thông tin liên quan nào đến phần mã đã quét vào.</string>

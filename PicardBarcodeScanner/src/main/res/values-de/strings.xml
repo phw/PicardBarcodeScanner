@@ -1,40 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--
-	Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
-	
-	This file is part of MusicBrainz Picard Barcode Scanner.
-	
-	MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
-	and/or modify it under the terms of the GNU General Public License as
-	published by the Free Software Foundation, either version 3 of the License,
-	or (at your option) any later version.
-	
-	MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be
-	useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-	Public License for more details.
-	
-	You should have received a copy of the GNU General Public License along with
-	MusicBrainz Picard Barcode Scanner. If not, see
-	<http://www.gnu.org/licenses/>.
--->
-
+<?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <string name="app_name">Picard Barcode-Scanner</string>
-    <string name="actionbar_title">Picard Barcode-Scanner</string>
-    <string name="action_settings">Einstellungen</string>
-    <string name="description_connect">Um die eingescannten Barcodes an Picard senden zu können, müssen Sie Ihr Smartphone und den Computer, auf dem Picard läuft, mit dem gleichen WLAN verbinden. Geben Sie hier die IP-Adresse des Computers und die Port-Nummer von Picard ein.</string>
-    <string name="label_connection_error">Konnte nicht mit Picard verbinden. Bitte überprüfen Sie die Einstellungen und die WLAN-Verbindung.</string>
-    <string name="picard_ip_address">IP-Adresse:</string>
-    <string name="picard_port">Port:</string>
-    <string name="btn_picard_connect">Mit Picard verbinden</string>
-    <string name="description_scanner">Verwenden Sie die Kamera Ihres Smartphones, um den Barcode einer CD oder anderer Musikmedien zu scannen. Wenn MusicBrainz die Musikmedien kennt, werden diese automatisch in MusicBrainz Picard geladen.</string>
-    <string name="btn_scan_barcode">Barcode scannen</string>
-    <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für diesen Barcode gefunden und an Picard gesendet.</string>
-	<string name="description_no_result">Für diesen Barcode konnte MusicBrainz keine Veröffentlichungen finden.</string>
-	<string name="loading_musicbrainz_text">Sende Anfrage an MusicBrainz…</string>
-	<string name="loading_picard_text">Sende Daten an Picard…</string>
-	<string name="btn_save_preferences">Einstellungen speichern</string>
-    
+  <string name="app_name">Picard Barcode-Scanner</string>
+  <string name="actionbar_title">Picard Barcode-Scanner</string>
+  <string name="action_settings">Einstellungen</string>
+  <string name="description_connect">Um die eingescannten Barcodes an Picard senden zu können, müssen Sie Ihr Gerät und den Computer, auf dem Picard läuft, mit dem gleichen WLAN verbinden. Geben Sie hier die IP-Adresse des Computers und die Port-Nummer von Picard ein.</string>
+  <string name="label_connection_error">Konnte nicht mit Picard verbinden. Bitte überprüfen Sie die Einstellungen und die WLAN-Verbindung.</string>
+  <string name="picard_ip_address">IP-Adresse:</string>
+  <string name="picard_port">Port:</string>
+  <string name="btn_picard_connect">Mit Picard verbinden</string>
+  <string name="description_scanner">Verwenden Sie die Kamera Ihres Geräts, um den Barcode einer CD oder anderer Musikmedien zu scannen. Wenn MusicBrainz die Musikmedien kennt, werden diese automatisch in MusicBrainz Picard geladen.</string>
+  <string name="btn_scan_barcode">Barcode scannen</string>
+  <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für diesen Barcode gefunden und an Picard gesendet.</string>
+  <string name="description_no_result">Für diesen Barcode konnte MusicBrainz keine Veröffentlichungen finden.</string>
+  <string name="loading_musicbrainz_text">Sende Anfrage an MusicBrainz…</string>
+  <string name="loading_picard_text">Sende Daten an Picard…</string>
+  <string name="btn_save_preferences">Einstellungen speichern</string>
 </resources>
