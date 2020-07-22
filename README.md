@@ -20,7 +20,7 @@ Usage
 -----
  1. Connect both your computer and your phone to the same WiFi network.
  2. Start MusicBrainz Picard (version 1.0 or higher).
- 3. In Picard open Options > Advanced Network and enable "Browser Integration" and disable "Liste only on localhost"
+ 3. In Picard open Options > Advanced Network and enable "Browser Integration" and disable "Listen only on localhost"
  4. Start Picard Barcode Scanner on your phone.
  5. On the first start the app will ask you for the IP address and port number Picard is listening
     on. Just enter the IP or network name of your computer. For the port the default 8000 should
