@@ -20,15 +20,16 @@ Usage
 -----
  1. Connect both your computer and your phone to the same WiFi network.
  2. Start MusicBrainz Picard (version 1.0 or higher).
- 3. Start Picard Barcode Scanner on your phone.
- 4. On the first start the app will ask you for the IP address and port number Picard is listening
+ 3. In Picard open Options > Advanced Network and enable "Browser Integration" and disable "Liste only on localhost"
+ 4. Start Picard Barcode Scanner on your phone.
+ 5. On the first start the app will ask you for the IP address and port number Picard is listening
     on. Just enter the IP or network name of your computer. For the port the default 8000 should
 	normaly be ok. In case you have multiple instances of Picard running on your computer it might
 	be 8001 or higher.
- 5. Use the app to scan the barcode of a music album. If the album is in the MusicBrainz database
+ 6. Use the app to scan the barcode of a music album. If the album is in the MusicBrainz database
     and your Picard connection settings are correct the album data will automatically be loaded
 	into Picard.
- 6. Tag your files in Picard.
+ 7. Tag your files in Picard.
  
 Build requirements
 ------------------
