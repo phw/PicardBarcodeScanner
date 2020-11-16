@@ -1,4 +1,6 @@
 *.iml
+*.swp
+*~
 .gradle
 /local.properties
 /.idea/caches
@@ -8,4 +10,5 @@
 *.iws
 .idea/workspace.xml
 .idea/tasks.xml
-
+/build/*
+/PicardBarcodeScanner/release/*
