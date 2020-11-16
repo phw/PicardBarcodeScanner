@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-  <string name="app_name">Lecteur de codes à barres Picard</string>
-  <string name="actionbar_title">Lecteur de codes à barres  Picard</string>
+  <string name="app_name">Lecteur de codes à barres pour Picard</string>
+  <string name="actionbar_title">Lecteur de codes à barres pour Picard</string>
   <string name="action_settings">Paramètres</string>
-  <string name="description_connect">Afin d’envoyer les codes à barres lus à Picard, vous devez connecter votre appareil au même réseau que l’ordinateur sur lequel Picard tourne. Saisir l’adresse IP de l’ordinateur et le numéro de port de Picard ci-dessous.</string>
+  <string name="description_connect">Afin d’envoyer les codes à barres lus à Picard, vous devez connecter votre appareil au même réseau que l’ordinateur sur lequel Picard tourne. Saisissez l’adresse IP de l’ordinateur et le numéro de port de Picard ci-dessous.</string>
   <string name="label_connection_error">Impossible de se connecter à Picard. Veuillez vérifier les paramètres de connexion et votre connexion Wi-Fi.</string>
   <string name="picard_ip_address">Adresse IP :</string>
   <string name="picard_port">Port :</string>
   <string name="btn_picard_connect">Se connecter à Picard</string>
-  <string name="description_scanner">Utiliser l’appareil-photo de votre appareil pour numériser le code à barres d’un CD ou d’autres supports musicaux. Si MusicBrainz reconnaît le support, il le chargera automatiquement dans Picard de MusicBrainz.</string>
-  <string name="btn_scan_barcode">Numériser le code à barres</string>
+  <string name="description_scanner">Utilisez l’appareil-photo de votre appareil pour balayer le code à barres d’un CD ou d’autres supports musicaux. Si MusicBrainz reconnaît le support, il le chargera automatiquement dans Picard de MusicBrainz.</string>
+  <string name="btn_scan_barcode">Balayer le code à barres</string>
   <string name="description_result">MusicBrainz a trouvé les résultats suivants pour ce code à barres et les a envoyés à Picard.</string>
   <string name="description_no_result">MusicBrainz n’a trouvé aucune parution pour ce codes à barres.</string>
   <string name="loading_musicbrainz_text">Consultation de MusicBrainz…</string>
