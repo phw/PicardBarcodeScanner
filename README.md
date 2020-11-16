@@ -13,7 +13,7 @@ tag the files using the correct album.
 Requirements
 ------------
  * Picard 1.0 or higher
- * Android 2.1 or higher
+ * Android 4.0 or higher
  * [ZXing barcode scanner](https://play.google.com/store/apps/details?id=com.google.zxing.client.android)
 
 Usage
@@ -30,7 +30,7 @@ Usage
     and your Picard connection settings are correct the album data will automatically be loaded
 	into Picard.
  7. Tag your files in Picard.
- 
+
 Build requirements
 ------------------
  * Android ActionBar from https://github.com/johannilsson/android-actionbar
