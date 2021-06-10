@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+	Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@googlemail.com>
 	
 	This file is part of MusicBrainz Picard Barcode Scanner.
 	
@@ -20,14 +20,6 @@
 -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- The action bar colors -->
-    <color name="actionbar_separator">#8a83ce</color>
-    <color name="actionbar_title">#FFFFFF</color>
-    <color name="actionbar_background_start">#736DAB</color>
-    <color name="actionbar_background_end">#736DAB</color>
-    <color name="actionbar_background_item_pressed_start">#FFBA58</color>
-    <color name="actionbar_background_item_pressed_end">#FFBA58</color>
 
     <!-- General layout -->
     <color name="background">#FFF</color>
