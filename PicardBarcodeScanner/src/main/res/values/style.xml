@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+	Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@googlemail.com>
 	
 	This file is part of MusicBrainz Picard Barcode Scanner.
 	
@@ -19,11 +19,9 @@
 	<http://www.gnu.org/licenses/>.
 -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
-    <style name="PicardBarcodeScanner" parent="@style/Theme.AppCompat.DayNight">
-        <item name="android:windowBackground">@color/background</item>
-        <item name="android:textColor">@color/text</item>
+    <style name="PicardBarcodeScanner" parent="Theme.AppCompat.DayNight">
     </style>
 
 </resources>

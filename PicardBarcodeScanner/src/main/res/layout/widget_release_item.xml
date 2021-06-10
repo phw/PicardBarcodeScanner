@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+	Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@googlemail.com>
 	
 	This file is part of MusicBrainz Picard Barcode Scanner.
 	
@@ -20,6 +20,7 @@
 -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/Theme.AppCompat.DayNight"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="7dp" >
@@ -29,14 +30,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:textColor="@color/text" />
+        android:textColor="?android:attr/textColorHighlight" />
 
     <TextView
         android:id="@+id/release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:textColor="@color/lightText" />
+        android:textColor="?android:attr/textColorSecondary" />
 
     <TextView
         android:id="@+id/release_artist"
@@ -44,6 +45,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/release_title"
-        android:textColor="@color/lightText" />
+        android:textColor="?android:attr/textColorSecondary" />
 
 </RelativeLayout>

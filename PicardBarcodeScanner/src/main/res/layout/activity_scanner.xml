@@ -33,7 +33,7 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:text="@string/description_scanner" />
-	
+
 	    <Button
 	        android:id="@+id/btn_scan_barcode"
 	        android:layout_width="fill_parent"
@@ -41,5 +41,6 @@
 	        android:layout_marginTop="@dimen/content_padding"
 	        android:drawableLeft="@drawable/ic_menu_barcode"
 	        android:text="@string/btn_scan_barcode" />
-		</LinearLayout>
+	
+	</LinearLayout>
 </ScrollView>
