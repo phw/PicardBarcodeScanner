@@ -83,6 +83,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 	protected boolean isRunningInEmulator() {
 		return ApplicationInfo.FLAG_DEBUGGABLE != 0 &&
-			("google_sdk".equals(Build.PRODUCT) || "sdk".equals(Build.PRODUCT) || "sdk_x86".equals(Build.PRODUCT));
+			("google_sdk".equals(Build.PRODUCT)
+					|| "sdk".equals(Build.PRODUCT)
+					|| "sdk_x86".equals(Build.PRODUCT)
+					|| "sdk_gphone".equals(Build.PRODUCT)
+					|| "sdk_gphone_x86".equals(Build.PRODUCT));
 	}
 }
