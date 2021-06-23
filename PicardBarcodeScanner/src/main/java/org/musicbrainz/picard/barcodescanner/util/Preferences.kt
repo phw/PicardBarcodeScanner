@@ -17,48 +17,33 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.util
 
-package org.musicbrainz.picard.barcodescanner.util;
+import android.content.Context
+import android.content.SharedPreferences
+import org.musicbrainz.picard.barcodescanner.R
 
-import org.musicbrainz.picard.barcodescanner.R;
+class Preferences(private val mContext: Context) {
+    private val mSettings: SharedPreferences = mContext.getSharedPreferences(
+        Constants.PREFERENCES_NAME, Context.MODE_PRIVATE
+    )
+    private val defaultPort: Int
+        get() {
+            val port = mContext.getString(R.string.picard_default_port)
+            return try {
+                port.trim { it <= ' ' }.toInt()
+            } catch (nfe: NumberFormatException) {
+                0
+            }
+        }
+    val ipAddress = mSettings.getString(Constants.PREFERENCE_PICARD_IP_ADDRESS, "")
+    val port = mSettings.getInt(Constants.PREFERENCE_PICARD_PORT, defaultPort)
 
-import android.content.Context;
-import android.content.SharedPreferences;
+    fun setIpAddressAndPort(ipAddress: String?, port: Int) {
+        val editor = mSettings.edit()
+        editor.putString(Constants.PREFERENCE_PICARD_IP_ADDRESS, ipAddress)
+        editor.putInt(Constants.PREFERENCE_PICARD_PORT, port)
+        editor.apply()
+    }
 
-public class Preferences {
-
-	private Context mContext;
-	private SharedPreferences mSettings;
-
-	public Preferences(Context packageContext) {
-		mContext = packageContext;
-		mSettings = packageContext.getSharedPreferences(
-				Constants.PREFERENCES_NAME, Context.MODE_PRIVATE);
-	}
-
-	public int getDefaultPort() {
-		String port = mContext.getString(R.string.picard_default_port);
-
-		try {
-			return Integer.parseInt(port.trim());
-		} catch (NumberFormatException nfe) {
-			return 0;
-		}
-	}
-
-	public String getIpAddress() {
-		return mSettings.getString(Constants.PREFERENCE_PICARD_IP_ADDRESS, "");
-	}
-
-	public int getPort() {
-		return mSettings.getInt(Constants.PREFERENCE_PICARD_PORT,
-				getDefaultPort());
-	}
-
-	public void setIpAddressAndPort(String ipAddress, int port) {
-		SharedPreferences.Editor editor = mSettings.edit();
-		editor.putString(Constants.PREFERENCE_PICARD_IP_ADDRESS, ipAddress);
-		editor.putInt(Constants.PREFERENCE_PICARD_PORT, port);
-		editor.commit();
-	}
 }

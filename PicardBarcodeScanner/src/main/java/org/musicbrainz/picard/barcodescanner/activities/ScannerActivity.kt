@@ -17,95 +17,81 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.activities
 
-package org.musicbrainz.picard.barcodescanner.activities;
+import android.content.Intent
+import android.os.Bundle
+import android.view.*
+import android.widget.Button
+import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentIntegrator.Companion.parseActivityResult
+import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.util.Constants
+import java.util.*
 
-import org.musicbrainz.picard.barcodescanner.R;
-import org.musicbrainz.picard.barcodescanner.util.Constants;
+class ScannerActivity : BaseActivity() {
+    var mAutoStart = false
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+    /** Called when the activity is first created.  */
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setSubView(R.layout.activity_scanner)
+        handleIntents()
+        if (!checkIfSettingsAreComplete()) {
+            val configurePicard = Intent(
+                this@ScannerActivity,
+                PreferencesActivity::class.java
+            )
+            startActivity(configurePicard)
+        } else if (mAutoStart) {
+            startScanner()
+        } else {
+            val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
+            connectBtn.setOnClickListener { startScanner() }
+        }
+    }
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+    override fun handleIntents() {
+        super.handleIntents()
+        val extras = intent.extras
+        if (extras != null) {
+            mAutoStart = extras.getBoolean(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, false)
+        }
+    }
 
-import java.util.ArrayList;
-import java.util.List;
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, intent)
+        val scanResult = parseActivityResult(
+            requestCode, resultCode, intent!!
+        )
+        if (scanResult != null) {
+            var barcode = scanResult.contents
+            if (isRunningInEmulator) barcode = "766929908628" // DEBUG
+            if (barcode != null) {
+                val resultIntent = Intent(
+                    this@ScannerActivity,
+                    PerformSearchActivity::class.java
+                )
+                resultIntent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode)
+                startActivity(resultIntent)
+            }
+        }
+    }
 
-public class ScannerActivity extends BaseActivity {
-	Boolean mAutoStart = false;
-	
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setSubView(R.layout.activity_scanner);
-
-		handleIntents();
-
-		if (!checkIfSettingsAreComplete()) {
-			Intent configurePicard = new Intent(ScannerActivity.this,
-					PreferencesActivity.class);
-			startActivity(configurePicard);
-		}
-		else if (mAutoStart) {
-			startScanner();
-		}
-		else {
-			Button connectBtn = (Button) findViewById(R.id.btn_scan_barcode);
-			connectBtn.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					startScanner();
-				}
-			});
-		}
-	}
-
-	@Override
-	protected void handleIntents() {
-		super.handleIntents();
-		
-		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-			mAutoStart = extras.getBoolean(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, false);
-		}
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		IntentResult scanResult = IntentIntegrator.parseActivityResult(
-				requestCode, resultCode, intent);
-
-		if (scanResult != null) {
-			String barcode = scanResult.getContents();
-			if (isRunningInEmulator())
-				barcode = "766929908628"; // DEBUG
-
-			if (barcode != null) {
-				Intent resultIntent = new Intent(ScannerActivity.this,
-						PerformSearchActivity.class);
-				resultIntent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode);
-				startActivity(resultIntent);
-			}
-		}
-	}
-	
-	private void startScanner() {
-		IntentIntegrator integrator = new IntentIntegrator(
-				ScannerActivity.this);
+    private fun startScanner() {
+        val integrator = IntentIntegrator(
+            this@ScannerActivity
+        )
         // Make sure the free barcode scanner app is the first in the list.
-        List<String> targetApplications = new ArrayList<String>(IntentIntegrator.TARGET_ALL_KNOWN);
-        targetApplications.removeAll(IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY);
-        targetApplications.addAll(0, IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY);
-        integrator.setTargetApplications(targetApplications);
-		integrator.initiateScan();
-	}
-	
-	protected boolean checkIfSettingsAreComplete() {
-		return !getPreferences().getIpAddress().equals("")
-				&& getPreferences().getPort() > 0;
-	}
+        val targetApplications: MutableList<String> = ArrayList(IntentIntegrator.TARGET_ALL_KNOWN)
+        targetApplications.removeAll(IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY)
+        targetApplications.addAll(0, IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY)
+        integrator.setTargetApplications(targetApplications)
+        integrator.initiateScan()
+    }
+
+    private fun checkIfSettingsAreComplete(): Boolean {
+        return (preferences.ipAddress != ""
+                && preferences.port > 0)
+    }
 }

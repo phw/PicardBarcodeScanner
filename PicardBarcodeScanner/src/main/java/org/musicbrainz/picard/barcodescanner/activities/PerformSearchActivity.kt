@@ -17,145 +17,131 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.activities
 
-package org.musicbrainz.picard.barcodescanner.activities;
+import android.content.Intent
+import android.os.Bundle
+import android.text.TextUtils
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.TextView
+import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
+import org.musicbrainz.picard.barcodescanner.tasks.ReleaseLookupTask
+import org.musicbrainz.picard.barcodescanner.tasks.SendToPicardTask
+import org.musicbrainz.picard.barcodescanner.tasks.TaskCallback
+import org.musicbrainz.picard.barcodescanner.util.Constants
+import java.util.*
 
-import java.util.ArrayList;
+class PerformSearchActivity : BaseActivity() {
+    private var mBarcode: String? = null
+    private var mLoadingTextView: TextView? = null
 
-import org.musicbrainz.android.api.data.ReleaseArtist;
-import org.musicbrainz.android.api.data.ReleaseInfo;
-import org.musicbrainz.picard.barcodescanner.R;
-import org.musicbrainz.picard.barcodescanner.tasks.ReleaseLookupTask;
-import org.musicbrainz.picard.barcodescanner.tasks.SendToPicardTask;
-import org.musicbrainz.picard.barcodescanner.tasks.TaskCallback;
-import org.musicbrainz.picard.barcodescanner.util.Constants;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.TextView;
-
-public class PerformSearchActivity extends BaseActivity {
-	private String mBarcode;
-
-	private TextView mLoadingTextView;
-
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setSubView(R.layout.activity_perform_search);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+    /** Called when the activity is first created.  */
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setSubView(R.layout.activity_perform_search)
+        val actionBar = supportActionBar
+        actionBar!!.setDisplayHomeAsUpEnabled(true)
 
         // Start animation
-		View spinner = findViewById(R.id.spinner);
-		Animation rotation = AnimationUtils.loadAnimation(this, R.anim.spinner);
-		spinner.startAnimation(rotation);
+        val spinner = findViewById<View>(R.id.spinner)
+        val rotation: Animation = AnimationUtils.loadAnimation(this, R.anim.spinner)
+        spinner.startAnimation(rotation)
+        mLoadingTextView = findViewById<View>(R.id.loading_text) as TextView
+        mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
+        handleIntents()
+        search()
+    }
 
-		mLoadingTextView = (TextView) findViewById(R.id.loading_text);
-		mLoadingTextView.setText(R.string.loading_musicbrainz_text);
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        search()
+    }
 
-		handleIntents();
-		search();
-	}
+    override fun handleIntents() {
+        super.handleIntents()
+        val extras: Bundle? = intent.extras
+        if (extras != null) {
+            mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE)
+        }
+    }
 
-	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-		search();
-	}
+    private fun search() {
+        val lookupCallback: TaskCallback<Array<ReleaseInfo>> =
+            object : TaskCallback<Array<ReleaseInfo>> {
+                override fun onResult(result: Array<ReleaseInfo>) {
+                    sendToPicard(result)
+                }
+            }
+        mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
+        val task = ReleaseLookupTask(this)
+        task.callback = lookupCallback
+        // TODO: Handle error
+        // task.setErrorCallback(errorCallback);
+        task.execute(mBarcode)
+    }
 
-	@Override
-	protected void handleIntents() {
-		super.handleIntents();
-		
-		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-			mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE);
-		}
-	}
+    protected fun sendToPicard(releases: Array<ReleaseInfo>) {
+        val sendToPicardCallback: TaskCallback<Iterator<ReleaseInfo?>?> =
+            object : TaskCallback<Iterator<ReleaseInfo?>?> {
+                override fun onResult(result: Iterator<ReleaseInfo?>?) {
+                    val resultIntent = Intent(
+                        this@PerformSearchActivity,
+                        ResultActivity::class.java
+                    )
+                    val numberOfReleases = releases.size
+                    val releaseTitles = arrayOfNulls<String>(numberOfReleases)
+                    val releaseArtists = arrayOfNulls<String>(numberOfReleases)
+                    val releaseDates = arrayOfNulls<String>(numberOfReleases)
+                    for (i in 0 until numberOfReleases) {
+                        val release: ReleaseInfo? = releases.get(i)
+                        releaseTitles[i] = release!!.title
+                        releaseArtists[i] = getArtistName(release)
+                        releaseDates[i] = release.date
+                    }
+                    resultIntent.putExtra(
+                        Constants.INTENT_EXTRA_RELEASE_TITLES,
+                        releaseTitles
+                    )
+                    resultIntent.putExtra(
+                        Constants.INTENT_EXTRA_RELEASE_ARTISTS,
+                        releaseArtists
+                    )
+                    resultIntent.putExtra(
+                        Constants.INTENT_EXTRA_RELEASE_DATES,
+                        releaseDates
+                    )
+                    startActivity(resultIntent)
+                    finish()
+                }
+            }
+        val errorCallback: TaskCallback<Exception> = object : TaskCallback<Exception> {
+            override fun onResult(result: Exception) {
+                val configurePicard = Intent(
+                    this@PerformSearchActivity,
+                    PreferencesActivity::class.java
+                )
+                configurePicard.putExtra(
+                    Constants.INTENT_EXTRA_BARCODE,
+                    mBarcode
+                )
+                startActivity(configurePicard)
+            }
+        }
+        mLoadingTextView!!.setText(R.string.loading_picard_text)
+        val task = SendToPicardTask(preferences)
+        task.callback = sendToPicardCallback
+        task.errorCallback = errorCallback
+        task.execute(*releases)
+    }
 
-	private void search() {
-		TaskCallback<ReleaseInfo[]> lookupCallback = new TaskCallback<ReleaseInfo[]>() {
-
-			@Override
-			public void onResult(ReleaseInfo[] releases) {
-				sendToPicard(releases);
-			}
-		};
-
-		mLoadingTextView.setText(R.string.loading_musicbrainz_text);
-		ReleaseLookupTask task = new ReleaseLookupTask(this);
-		task.setCallback(lookupCallback);
-		// TODO: Handle error
-		// task.setErrorCallback(errorCallback);
-		task.execute(mBarcode);
-	}
-
-	protected void sendToPicard(ReleaseInfo[] releases) {
-		TaskCallback<ReleaseInfo[]> sendToPicardCallback = new TaskCallback<ReleaseInfo[]>() {
-
-			@Override
-			public void onResult(ReleaseInfo[] releases) {
-				Intent resultIntent = new Intent(PerformSearchActivity.this,
-						ResultActivity.class);
-
-				int numberOfReleases = releases.length;
-				String[] releaseTitles = new String[numberOfReleases];
-				String[] releaseArtists = new String[numberOfReleases];
-				String[] releaseDates = new String[numberOfReleases];
-
-				for (int i = 0; i < numberOfReleases; ++i) {
-					ReleaseInfo release = releases[i];
-					releaseTitles[i] = release.getTitle();
-					releaseArtists[i] = getArtistName(release);
-					releaseDates[i] = release.getDate();
-				}
-
-				resultIntent.putExtra(Constants.INTENT_EXTRA_RELEASE_TITLES,
-						releaseTitles);
-				resultIntent.putExtra(Constants.INTENT_EXTRA_RELEASE_ARTISTS,
-						releaseArtists);
-				resultIntent.putExtra(Constants.INTENT_EXTRA_RELEASE_DATES,
-						releaseDates);
-
-				startActivity(resultIntent);
-				finish();
-			}
-		};
-
-		TaskCallback<Exception> errorCallback = new TaskCallback<Exception>() {
-
-			@Override
-			public void onResult(Exception result) {
-				Intent configurePicard = new Intent(PerformSearchActivity.this,
-						PreferencesActivity.class);
-				configurePicard.putExtra(Constants.INTENT_EXTRA_BARCODE,
-						mBarcode);
-				startActivity(configurePicard);
-			}
-		};
-
-		mLoadingTextView.setText(R.string.loading_picard_text);
-		SendToPicardTask task = new SendToPicardTask(getPreferences());
-		task.setCallback(sendToPicardCallback);
-		task.setErrorCallback(errorCallback);
-		task.execute(releases);
-	}
-
-	protected String getArtistName(ReleaseInfo release) {
-		ArrayList<String> artistNames = new ArrayList<String>();
-		
-		for (ReleaseArtist artist : release.getArtists()) {
-			artistNames.add(artist.getName());
-		}
-		
-		return TextUtils.join(", ", artistNames);
-	}
+    protected fun getArtistName(release: ReleaseInfo): String {
+        val artistNames = ArrayList<String>()
+        for (artist in release.artists) {
+            artistNames.add(artist.name!!)
+        }
+        return TextUtils.join(", ", artistNames)
+    }
 }

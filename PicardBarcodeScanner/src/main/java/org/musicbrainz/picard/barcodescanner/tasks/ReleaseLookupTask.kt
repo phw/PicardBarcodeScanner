@@ -17,42 +17,32 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.tasks
 
-package org.musicbrainz.picard.barcodescanner.tasks;
+import android.content.Context
+import android.util.Log
+import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
+import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzWebClient
+import java.io.IOException
+import java.util.*
 
-import java.io.IOException;
-import java.util.LinkedList;
-
-import org.musicbrainz.android.api.data.ReleaseInfo;
-import org.musicbrainz.android.api.webservice.MusicBrainzWebClient;
-import org.musicbrainz.picard.barcodescanner.R;
-
-import android.content.Context;
-import android.util.Log;
-
-public class ReleaseLookupTask extends AsyncCallbackTask<String, Integer, ReleaseInfo[]> {
-
-	private Context mPackageContext;
-	
-	public ReleaseLookupTask(Context packageContext) {
-		mPackageContext = packageContext;
-	}
-
-	@Override
-	protected ReleaseInfo[] doInBackground(String... params) {
-		MusicBrainzWebClient mbClient = new MusicBrainzWebClient(
-				mPackageContext.getString(R.string.webservice_user_agent));
-		
-		try {
-			String barcode = params[0];
-			String searchTerm = String.format("barcode:%s", barcode);
-			LinkedList<ReleaseInfo> releases = mbClient.searchRelease(searchTerm);
-			ReleaseInfo[] releaseArray = new ReleaseInfo[releases.size()];
-			return releases.toArray(releaseArray);
-		} catch (IOException e) {
-			Log.e(this.getClass().getName(), e.getMessage(), e);
-			this.onError(e);
-			return new ReleaseInfo[] {};
-		}
-	}
+class ReleaseLookupTask(private val mPackageContext: Context) :
+    AsyncCallbackTask<String?, Int?, Array<ReleaseInfo>>() {
+    override fun doInBackground(vararg params: String?): Array<ReleaseInfo> {
+        val mbClient = MusicBrainzWebClient(
+            mPackageContext.getString(R.string.webservice_user_agent)
+        )
+        return try {
+            val barcode = params[0]
+            val searchTerm = String.format("barcode:%s", barcode)
+            val releases: LinkedList<ReleaseInfo> = mbClient.searchRelease(searchTerm)
+            val releaseArray: Array<ReleaseInfo?> = arrayOfNulls(releases.size)
+            releases.toArray(releaseArray)
+        } catch (e: IOException) {
+            Log.e(this.javaClass.name, e.message, e)
+            onError(e)
+            arrayOf()
+        }
+    }
 }

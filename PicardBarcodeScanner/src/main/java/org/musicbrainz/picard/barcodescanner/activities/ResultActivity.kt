@@ -17,98 +17,83 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.activities
 
-package org.musicbrainz.picard.barcodescanner.activities;
+import android.content.Intent
+import android.os.Bundle
+import android.view.*
+import android.widget.Button
+import android.widget.TextView
+import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.util.Constants
+import kotlin.math.min
 
-import org.musicbrainz.picard.barcodescanner.R;
-import org.musicbrainz.picard.barcodescanner.util.Constants;
+class ResultActivity : BaseActivity() {
+    var descriptionTextView: TextView? = null
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
+    /** Called when the activity is first created.  */
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setSubView(R.layout.activity_result)
+        descriptionTextView = findViewById<View>(R.id.description_search_result) as TextView
+        val actionBar = supportActionBar
+        actionBar!!.setDisplayHomeAsUpEnabled(true)
+        val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
+        connectBtn.setOnClickListener {
+            val resultIntent = Intent(
+                this@ResultActivity,
+                ScannerActivity::class.java
+            )
+            resultIntent.putExtra(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, true)
+            resultIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(resultIntent)
+        }
+        handleIntents()
+    }
 
-public class ResultActivity extends BaseActivity {
-	TextView descriptionTextView;
-	
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setSubView(R.layout.activity_result);
-		
-		descriptionTextView = (TextView) findViewById(R.id.description_search_result);
+    override fun handleIntents() {
+        super.handleIntents()
+        var numberOfReleases = 0
+        val extras = intent.extras
+        if (extras != null) {
+            val releaseTitles = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_TITLES)
+            val releaseArtists = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_ARTISTS)
+            val releaseDates = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_DATES)
+            numberOfReleases = min(
+                min(releaseTitles!!.size, releaseArtists!!.size),
+                releaseDates!!.size
+            )
+            val resultList = findViewById<View>(R.id.result_list) as ViewGroup
+            resultList.removeAllViews()
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+            val inflater = applicationContext.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            for (i in 0 until numberOfReleases) {
+                addReleaseToView(
+                    resultList, inflater, releaseTitles[i],
+                    releaseArtists[i], releaseDates[i]
+                )
+            }
+        }
+        if (numberOfReleases == 0) {
+            descriptionTextView!!.setText(R.string.description_no_result)
+        }
+    }
 
-        Button connectBtn = (Button) findViewById(R.id.btn_scan_barcode);
-		connectBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent resultIntent = new Intent(ResultActivity.this,
-						ScannerActivity.class);
-				resultIntent.putExtra(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, true);
-				resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(resultIntent);
-			}
-		});
-		
-		handleIntents();
-	}
+    private fun setViewText(view: View, fieldId: Int, text: String) {
+        val textView = view.findViewById<View>(fieldId) as TextView
+        textView.text = text
+    }
 
-	@Override
-	protected void handleIntents() {
-		super.handleIntents();
-		int numberOfReleases = 0;
-		
-		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-			String[] releaseTitles = extras
-					.getStringArray(Constants.INTENT_EXTRA_RELEASE_TITLES);
-			String[] releaseArtists = extras
-					.getStringArray(Constants.INTENT_EXTRA_RELEASE_ARTISTS);
-			String[] releaseDates = extras
-					.getStringArray(Constants.INTENT_EXTRA_RELEASE_DATES);
-
-			numberOfReleases = Math.min(
-					Math.min(releaseTitles.length, releaseArtists.length),
-					releaseDates.length);
-
-			ViewGroup resultList = (ViewGroup) findViewById(R.id.result_list);
-			resultList.removeAllViews();
-
-			LayoutInflater inflater = (LayoutInflater) getApplicationContext()
-					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-			for (int i = 0; i < numberOfReleases; ++i) {
-				addReleaseToView(resultList, inflater, releaseTitles[i],
-						releaseArtists[i], releaseDates[i]);
-			}
-		}
-		
-		if (numberOfReleases == 0) {
-			descriptionTextView.setText(R.string.description_no_result);
-		}
-	}
-
-	private void setViewText(View view, int fieldId, String text) {
-		TextView textView = (TextView) view.findViewById(fieldId);
-		textView.setText(text);
-	}
-
-	private void addReleaseToView(ViewGroup parent, LayoutInflater inflater,
-			String releaseTitle, String releaseArtist, String releaseYear) {
-		View resultItem = inflater.inflate(R.layout.widget_release_item,
-				parent, false);
-		setViewText(resultItem, R.id.release_title, releaseTitle);
-		setViewText(resultItem, R.id.release_artist, releaseArtist);
-		setViewText(resultItem, R.id.release_date, releaseYear);
-		parent.addView(resultItem);
-	}
+    private fun addReleaseToView(parent: ViewGroup, inflater: LayoutInflater, releaseTitle: String, releaseArtist: String, releaseYear: String?) {
+        val resultItem = inflater.inflate(
+            R.layout.widget_release_item,
+            parent, false
+        )
+        setViewText(resultItem, R.id.release_title, releaseTitle)
+        setViewText(resultItem, R.id.release_artist, releaseArtist)
+        if (releaseYear != null) {
+            setViewText(resultItem, R.id.release_date, releaseYear)
+        }
+        parent.addView(resultItem)
+    }
 }

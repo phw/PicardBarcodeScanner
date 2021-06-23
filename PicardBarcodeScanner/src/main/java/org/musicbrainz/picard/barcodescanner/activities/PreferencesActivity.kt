@@ -17,133 +17,113 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.activities
 
-package org.musicbrainz.picard.barcodescanner.activities;
+import android.content.Intent
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.util.Constants
 
-import org.musicbrainz.picard.barcodescanner.R;
-import org.musicbrainz.picard.barcodescanner.util.Constants;
+class PreferencesActivity : BaseActivity() {
+    private var mIpAddressInput: EditText? = null
+    private var mPortInput: EditText? = null
+    private var mConnectBtn: Button? = null
+    private var mBarcode: String? = null
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+    /** Called when the activity is first created.  */
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setSubView(R.layout.activity_preferences)
+        mIpAddressInput = findViewById<View>(R.id.picard_ip_address) as EditText
+        mPortInput = findViewById<View>(R.id.picard_port) as EditText
+        mConnectBtn = findViewById<View>(R.id.btn_picard_connect) as Button
+        val actionBar = supportActionBar
+        actionBar!!.setDisplayHomeAsUpEnabled(true)
+        handleIntents()
+        registerEventListeners()
+        loadFormDataFromPreferences()
+        checkConnectButtonEnabled()
+        if (mBarcode != null) {
+            val errorMsg = findViewById<View>(R.id.label_connection_error) as TextView
+            errorMsg.visibility = View.VISIBLE
+            mConnectBtn!!.setText(R.string.btn_picard_connect)
+        }
+    }
 
-public class PreferencesActivity extends BaseActivity {
+    override fun handleIntents() {
+        super.handleIntents()
+        val extras = intent.extras
+        mBarcode = extras?.getString(Constants.INTENT_EXTRA_BARCODE)
+    }
 
-	private EditText mIpAddressInput;
-	private EditText mPortInput;
-	private Button mConnectBtn;
-	private String mBarcode;
+    private fun registerEventListeners() {
+        val textWatcher: TextWatcher = object : TextWatcher {
+            override fun onTextChanged(
+                s: CharSequence, start: Int, before: Int,
+                count: Int
+            ) {
+                checkConnectButtonEnabled()
+            }
 
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setSubView(R.layout.activity_preferences);
-		
-		mIpAddressInput = (EditText) findViewById(R.id.picard_ip_address);
-		mPortInput = (EditText) findViewById(R.id.picard_port);
-		mConnectBtn = (Button) findViewById(R.id.btn_picard_connect);
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int, count: Int,
+                after: Int
+            ) {
+            }
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+            override fun afterTextChanged(s: Editable) {}
+        }
+        mIpAddressInput!!.addTextChangedListener(textWatcher)
+        mConnectBtn!!.setOnClickListener {
+            preferences.setIpAddressAndPort(
+                readIpAddressFromInput(),
+                readPortFromInput()
+            )
+            startNextActivity()
+        }
+    }
 
-		handleIntents();
-		registerEventListeners();
-		loadFormDataFromPreferences();
-		checkConnectButtonEnabled();
+    private fun loadFormDataFromPreferences() {
+        mIpAddressInput!!.setText(preferences.ipAddress)
+        mPortInput!!.setText(java.lang.String.valueOf(preferences.port))
+    }
 
-		if (mBarcode != null) {
-			TextView errorMsg = (TextView) findViewById(R.id.label_connection_error);
-			errorMsg.setVisibility(View.VISIBLE);
-			mConnectBtn.setText(R.string.btn_picard_connect);
-		}
-	}
+    private fun checkConnectButtonEnabled() {
+        mConnectBtn!!.isEnabled = readIpAddressFromInput() != ""
+    }
 
-	@Override
-	protected void handleIntents() {
-		super.handleIntents();
-		
-		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-			mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE);
-		} else {
-			mBarcode = null;
-		}
-	}
+    private fun readIpAddressFromInput(): String {
+        return mIpAddressInput!!.text.toString()
+    }
 
-	private void registerEventListeners() {
-		TextWatcher textWatcher = new TextWatcher() {
+    private fun readPortFromInput(): Int {
+        val port = mPortInput!!.text.toString()
+        return try {
+            port.trim { it <= ' ' }.toInt()
+        } catch (nfe: NumberFormatException) {
+            0
+        }
+    }
 
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
-				checkConnectButtonEnabled();
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-			}
-		};
-		mIpAddressInput.addTextChangedListener(textWatcher);
-
-		mConnectBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				getPreferences().setIpAddressAndPort(readIpAddressFromInput(),
-						readPortFromInput());
-
-				startNextActivity();
-			}
-		});
-	}
-
-	private void loadFormDataFromPreferences() {
-		mIpAddressInput.setText(getPreferences().getIpAddress());
-		mPortInput.setText(String.valueOf(getPreferences().getPort()));
-	}
-
-	private void checkConnectButtonEnabled() {
-		mConnectBtn.setEnabled(!readIpAddressFromInput().equals(""));
-	}
-
-	private String readIpAddressFromInput() {
-		return mIpAddressInput.getText().toString();
-	}
-
-	private int readPortFromInput() {
-		String port = mPortInput.getText().toString();
-
-		try {
-			return Integer.parseInt(port.trim());
-		} catch (NumberFormatException nfe) {
-			return 0;
-		}
-	}
-
-	private void startNextActivity() {
-		Intent intent;
-
-		if (mBarcode == null) {
-			intent = new Intent(PreferencesActivity.this, ScannerActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		} else {
-			intent = new Intent(PreferencesActivity.this,
-					PerformSearchActivity.class);
-			intent.putExtra(Constants.INTENT_EXTRA_BARCODE, mBarcode);
-		}
-
-		startActivity(intent);
-		finish();
-	}
+    private fun startNextActivity() {
+        val intent: Intent
+        if (mBarcode == null) {
+            intent = Intent(this@PreferencesActivity, ScannerActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        } else {
+            intent = Intent(
+                this@PreferencesActivity,
+                PerformSearchActivity::class.java
+            )
+            intent.putExtra(Constants.INTENT_EXTRA_BARCODE, mBarcode)
+        }
+        startActivity(intent)
+        finish()
+    }
 }

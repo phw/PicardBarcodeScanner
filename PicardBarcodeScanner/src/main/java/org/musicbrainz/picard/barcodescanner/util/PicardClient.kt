@@ -17,58 +17,54 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.util
 
-package org.musicbrainz.picard.barcodescanner.util;
+import android.util.Log
+import org.apache.http.HttpResponse
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.impl.client.AbstractHttpClient
+import org.apache.http.impl.client.DefaultHttpClient
+import java.io.IOException
+import java.io.UnsupportedEncodingException
+import java.net.URLEncoder
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+class PicardClient(private val mIpAddress: String, private val mPort: Int) {
+    private val mHttpClient: AbstractHttpClient
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.AbstractHttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
+    @Throws(IOException::class)
+    fun openRelease(releaseId: String): Boolean {
+        val url = String.format(
+            PICARD_OPENALBUM_URL, mIpAddress,
+            mPort, uriEncode(releaseId)
+        )
+        val response = get(url)
+        return isResponseSuccess(response)
+    }
 
-import android.util.Log;
+    @Throws(IOException::class)
+    private operator fun get(url: String): HttpResponse {
+        val get = HttpGet(url)
+        return mHttpClient.execute(get)
+    }
 
-public class PicardClient {
+    private fun isResponseSuccess(response: HttpResponse): Boolean {
+        return response.statusLine.statusCode < 400
+    }
 
-	private static final String PICARD_OPENALBUM_URL = "http://%s:%d/openalbum?id=%s";
+    private fun uriEncode(releaseId: String): String {
+        return try {
+            URLEncoder.encode(releaseId, "UTF-8")
+        } catch (e: UnsupportedEncodingException) {
+            Log.e(this.javaClass.name, e.message, e)
+            URLEncoder.encode(releaseId)
+        }
+    }
 
-	private AbstractHttpClient mHttpClient;
-	private String mIpAddress;
-	private int mPort;
+    companion object {
+        private const val PICARD_OPENALBUM_URL = "http://%s:%d/openalbum?id=%s"
+    }
 
-	public PicardClient(String ipAddress, int port) {
-		mIpAddress = ipAddress;
-		mPort = port;
-		mHttpClient = new DefaultHttpClient();
-	}
-
-	public Boolean openRelease(String releaseId) throws IOException {
-		String url = String.format(PICARD_OPENALBUM_URL, mIpAddress,
-				mPort, uriEncode(releaseId));
-		HttpResponse response = get(url);
-		return isResponseSuccess(response);
-	}
-
-	private HttpResponse get(String url) throws IOException {
-		HttpGet get = new HttpGet(url);
-		HttpResponse response = mHttpClient.execute(get);
-		return response;
-	}
-
-	private Boolean isResponseSuccess(HttpResponse response) {
-		return response.getStatusLine().getStatusCode() < 400;
-	}
-
-	@SuppressWarnings("deprecation")
-	private String uriEncode(String releaseId) {
-		try {
-			return URLEncoder.encode(releaseId, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(this.getClass().getName(), e.getMessage(), e);
-			return URLEncoder.encode(releaseId);
-		}
-	}
+    init {
+        mHttpClient = DefaultHttpClient()
+    }
 }

@@ -17,76 +17,62 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.activities
 
-package org.musicbrainz.picard.barcodescanner.activities;
+import android.content.Intent
+import android.content.pm.ApplicationInfo
+import android.os.Build
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewStub
+import androidx.appcompat.app.AppCompatActivity
+import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.util.Preferences
 
-import org.musicbrainz.picard.barcodescanner.R;
-import org.musicbrainz.picard.barcodescanner.util.Preferences;
-
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.ViewStub;
-
-public abstract class BaseActivity extends AppCompatActivity {
-
-	private Preferences mPreferences = null;
-
-	protected void setSubView(int subView) {
-		setContentView(R.layout.main);
-		ViewStub content = (ViewStub) findViewById(R.id.view_content);
-		content.setLayoutResource(subView);
-		content.inflate();
-	}
-
-	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-		handleIntents();
-	}
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_activity_actions, menu);
-        return super.onCreateOptionsMenu(menu);
+abstract class BaseActivity : AppCompatActivity() {
+    private var mPreferences: Preferences? = null
+    protected fun setSubView(subView: Int) {
+        setContentView(R.layout.main)
+        val content = findViewById<View>(R.id.view_content) as ViewStub
+        content.layoutResource = subView
+        content.inflate()
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleIntents()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu items for use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_activity_actions, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent preferencesIntent = new Intent(this,
-                        PreferencesActivity.class);
-                startActivity(preferencesIntent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                val preferencesIntent = Intent(
+                    this,
+                    PreferencesActivity::class.java
+                )
+                startActivity(preferencesIntent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-	protected void handleIntents() {
-	}
-
-	protected Preferences getPreferences() {
-		if (mPreferences == null)
-			mPreferences = new Preferences(this);
-
-		return mPreferences;
-	}
-
-	protected boolean isRunningInEmulator() {
-		return ApplicationInfo.FLAG_DEBUGGABLE != 0 &&
-			("google_sdk".equals(Build.PRODUCT)
-					|| "sdk".equals(Build.PRODUCT)
-					|| "sdk_x86".equals(Build.PRODUCT)
-					|| "sdk_gphone".equals(Build.PRODUCT)
-					|| "sdk_gphone_x86".equals(Build.PRODUCT));
-	}
+    protected open fun handleIntents() {}
+    protected val preferences: Preferences
+        get() {
+            if (mPreferences == null) mPreferences = Preferences(this)
+            return mPreferences!!
+        }
+    protected val isRunningInEmulator: Boolean
+        get() = ApplicationInfo.FLAG_DEBUGGABLE != 0 &&
+                ("google_sdk" == Build.PRODUCT || "sdk" == Build.PRODUCT || "sdk_x86" == Build.PRODUCT || "sdk_gphone" == Build.PRODUCT || "sdk_gphone_x86" == Build.PRODUCT)
 }

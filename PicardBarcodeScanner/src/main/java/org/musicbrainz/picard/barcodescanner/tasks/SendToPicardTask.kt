@@ -17,39 +17,26 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.tasks
 
-package org.musicbrainz.picard.barcodescanner.tasks;
+import android.util.Log
+import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
+import org.musicbrainz.picard.barcodescanner.util.PicardClient
+import org.musicbrainz.picard.barcodescanner.util.Preferences
+import java.io.IOException
 
-import java.io.IOException;
+class SendToPicardTask(private val mPreferences: Preferences) : AsyncCallbackTask<ReleaseInfo, Int?, Iterator<ReleaseInfo?>?>() {
 
-import org.musicbrainz.android.api.data.ReleaseInfo;
-import org.musicbrainz.picard.barcodescanner.util.PicardClient;
-import org.musicbrainz.picard.barcodescanner.util.Preferences;
-
-import android.util.Log;
-
-public class SendToPicardTask extends AsyncCallbackTask<ReleaseInfo, Integer, ReleaseInfo[]> {
-
-	private Preferences mPreferences;
-	
-	public SendToPicardTask(Preferences preferences) {
-		mPreferences = preferences;
-	}
-
-	@Override
-	protected ReleaseInfo[] doInBackground(ReleaseInfo... params) {
-		PicardClient client = new PicardClient(mPreferences.getIpAddress(),
-				mPreferences.getPort());
-
-		try {
-			for (ReleaseInfo release : params) {
-				client.openRelease(release.getReleaseMbid());
-			}
-		} catch (IOException e) {
-			Log.e(this.getClass().getName(), e.getMessage(), e);
-			this.onError(e);
-		}
-
-		return params;
-	}
+    override fun doInBackground(vararg params: ReleaseInfo?): Iterator<ReleaseInfo?> {
+        val client = PicardClient(mPreferences.ipAddress!!, mPreferences.port)
+        try {
+            for (release in params) {
+                client.openRelease(release!!.releaseMbid!!)
+            }
+        } catch (e: IOException) {
+            Log.e(this.javaClass.name, e.message, e)
+            onError(e)
+        }
+        return params.iterator()
+    }
 }
