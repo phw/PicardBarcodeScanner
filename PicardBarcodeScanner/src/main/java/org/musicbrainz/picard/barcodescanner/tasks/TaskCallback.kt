@@ -17,11 +17,8 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.tasks
 
-package org.musicbrainz.picard.barcodescanner.tasks;
-
-public interface TaskCallback<Result> {
-
-	public void onResult(Result result);
-	
+interface TaskCallback<Result> {
+    fun onResult(result: Result)
 }

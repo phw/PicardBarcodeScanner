@@ -17,24 +17,15 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.util
 
-package org.musicbrainz.picard.barcodescanner.util;
-
-public final class Constants {
-
-	public static final String PREFERENCES_NAME = "org.musicbrainz.picard.barcodescanner.preferences";
-	
-	public static final String PREFERENCE_PICARD_IP_ADDRESS = "picard_ip_address";
-	
-	public static final String PREFERENCE_PICARD_PORT = "picard_port";
-	
-	public static final String INTENT_EXTRA_BARCODE = "org.musicbrainz.picard.barcode";
-	
-	public static final String INTENT_EXTRA_RELEASE_TITLES = "org.musicbrainz.picard.releaseTitles";
-	
-	public static final String INTENT_EXTRA_RELEASE_ARTISTS = "org.musicbrainz.picard.releaseArtists";
-	
-	public static final String INTENT_EXTRA_RELEASE_DATES = "org.musicbrainz.picard.releaseDates";
-	
-	public static final String INTENT_EXTRA_AUTOSTART_SCANNER = "org.musicbrainz.picard.startScanner";
+object Constants {
+    const val PREFERENCES_NAME = "org.musicbrainz.picard.barcodescanner.preferences"
+    const val PREFERENCE_PICARD_IP_ADDRESS = "picard_ip_address"
+    const val PREFERENCE_PICARD_PORT = "picard_port"
+    const val INTENT_EXTRA_BARCODE = "org.musicbrainz.picard.barcode"
+    const val INTENT_EXTRA_RELEASE_TITLES = "org.musicbrainz.picard.releaseTitles"
+    const val INTENT_EXTRA_RELEASE_ARTISTS = "org.musicbrainz.picard.releaseArtists"
+    const val INTENT_EXTRA_RELEASE_DATES = "org.musicbrainz.picard.releaseDates"
+    const val INTENT_EXTRA_AUTOSTART_SCANNER = "org.musicbrainz.picard.startScanner"
 }

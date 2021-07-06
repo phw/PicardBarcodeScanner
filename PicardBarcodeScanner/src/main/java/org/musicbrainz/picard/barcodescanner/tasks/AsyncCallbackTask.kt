@@ -17,53 +17,31 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
+package org.musicbrainz.picard.barcodescanner.tasks
 
-package org.musicbrainz.picard.barcodescanner.tasks;
+import android.os.AsyncTask
 
-import android.os.AsyncTask;
+abstract class AsyncCallbackTask<Params, Progress, Result> : AsyncTask<Params, Progress, Result>() {
+    private var mError = false
+    var callback: TaskCallback<Result>? = null
+    var errorCallback: TaskCallback<Exception>? = null
+    override fun onPostExecute(result: Result) {
+        if (callback != null && !mError) {
+            callback!!.onResult(result)
+        }
+    }
 
-public abstract class AsyncCallbackTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
-	
-	private Boolean mError = false;
-	
-	private TaskCallback<Result> mCallback;
-	
-	public TaskCallback<Result> getCallback() {
-		return mCallback;
-	}
-
-	public void setCallback(TaskCallback<Result> callback) {
-		this.mCallback = callback;
-	}
-
-	private TaskCallback<Exception> mErrorCallback;
-	
-	public TaskCallback<Exception> getErrorCallback() {
-		return mErrorCallback;
-	}
-
-	public void setErrorCallback(TaskCallback<Exception> callback) {
-		this.mErrorCallback = callback;
-	}
-
-	@Override
-	protected void onPostExecute(Result result) {
-		if (mCallback != null && !mError) {
-			mCallback.onResult(result);
-		}
-	}
-	
-	/*
+    /*
 	 * Called when an error occurred.
 	 * 
 	 * This method should be called by the implementation whenever an error
 	 * is preventing the successful termination of the task. Calling onError()
 	 * will prevent the normal callback being called.
 	 */
-	protected void onError(Exception ex) {
-		if (mErrorCallback != null) {
-			mError = true;
-			mErrorCallback.onResult(ex);
-		}
-	}
+    protected fun onError(ex: Exception) {
+        if (errorCallback != null) {
+            mError = true
+            errorCallback!!.onResult(ex)
+        }
+    }
 }
