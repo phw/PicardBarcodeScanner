@@ -3,12 +3,10 @@
 *~
 .gradle
 /local.properties
-/.idea/caches
-/.idea/workspace.xml
-/.idea/libraries
 */build/*
 *.iws
 .idea/workspace.xml
 .idea/tasks.xml
 /build/*
+.idea/*
 /PicardBarcodeScanner/release/*
