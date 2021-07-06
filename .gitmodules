@@ -1,3 +1,0 @@
-[submodule "PicardBarcodeScanner/src/musicbrainz-android"]
-	path = PicardBarcodeScanner/src/musicbrainz-android
-	url = https://github.com/jdamcd/musicbrainz-android.git
