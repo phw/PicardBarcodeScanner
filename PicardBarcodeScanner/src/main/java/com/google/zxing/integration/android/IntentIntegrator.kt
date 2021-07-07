@@ -138,7 +138,7 @@ class IntentIntegrator(private val activity: Activity) {
     }
 
     fun setTargetApplications(targetApplications: List<String>) {
-        require(!targetApplications.isEmpty()) { "No target applications" }
+        require(targetApplications.isNotEmpty()) { "No target applications" }
         this.targetApplications = targetApplications
     }
 
@@ -166,7 +166,7 @@ class IntentIntegrator(private val activity: Activity) {
      */
     @JvmOverloads
     fun initiateScan(desiredBarcodeFormats: Collection<String?>? = ALL_CODE_TYPES): AlertDialog? {
-        val intentScan = Intent(BS_PACKAGE + ".SCAN")
+        val intentScan = Intent("$BS_PACKAGE.SCAN")
         intentScan.addCategory(Intent.CATEGORY_DEFAULT)
 
         // check which types of codes to scan for
@@ -174,7 +174,7 @@ class IntentIntegrator(private val activity: Activity) {
             // set the desired barcode types
             val joinedByComma = StringBuilder()
             for (format in desiredBarcodeFormats) {
-                if (joinedByComma.length > 0) {
+                if (joinedByComma.isNotEmpty()) {
                     joinedByComma.append(',')
                 }
                 joinedByComma.append(format)
@@ -199,18 +199,16 @@ class IntentIntegrator(private val activity: Activity) {
      * @see android.app.Activity.startActivityForResult
      * @see android.app.Fragment.startActivityForResult
      */
-    protected fun startActivityForResult(intent: Intent?, code: Int) {
+    private fun startActivityForResult(intent: Intent?, code: Int) {
         activity.startActivityForResult(intent, code)
     }
 
     private fun findTargetAppPackage(intent: Intent): String? {
         val pm = activity.packageManager
         val availableApps = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
-        if (availableApps != null) {
-            for (targetApp in targetApplications) {
-                if (contains(availableApps, targetApp)) {
-                    return targetApp
-                }
+        for (targetApp in targetApplications) {
+            if (contains(availableApps, targetApp)) {
+                return targetApp
             }
         }
         return null
@@ -253,7 +251,7 @@ class IntentIntegrator(private val activity: Activity) {
     fun shareText(text: CharSequence?, type: CharSequence? = "TEXT_TYPE"): AlertDialog? {
         val intent = Intent()
         intent.addCategory(Intent.CATEGORY_DEFAULT)
-        intent.action = BS_PACKAGE + ".ENCODE"
+        intent.action = "$BS_PACKAGE.ENCODE"
         intent.putExtra("ENCODE_TYPE", type)
         intent.putExtra("ENCODE_DATA", text)
         val targetAppPackage = findTargetAppPackage(intent) ?: return showDownloadDialog()
@@ -312,7 +310,7 @@ class IntentIntegrator(private val activity: Activity) {
         @JvmField
         val TARGET_ALL_KNOWN = list(
             BSPLUS_PACKAGE,  // Barcode Scanner+
-            BSPLUS_PACKAGE + ".simple",  // Barcode Scanner+ Simple
+            "$BSPLUS_PACKAGE.simple",  // Barcode Scanner+ Simple
             BS_PACKAGE // Barcode Scanner          
             // What else supports this intent?
         )
@@ -363,7 +361,7 @@ class IntentIntegrator(private val activity: Activity) {
         }
 
         private fun list(vararg values: String): List<String> {
-            return Collections.unmodifiableList(Arrays.asList(*values))
+            return Collections.unmodifiableList(listOf(*values))
         }
     }
 
