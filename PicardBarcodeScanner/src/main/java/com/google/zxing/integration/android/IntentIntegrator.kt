@@ -19,7 +19,6 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.os.Bundle
@@ -181,12 +180,15 @@ class IntentIntegrator(private val activity: Activity) {
             }
             intentScan.putExtra("SCAN_FORMATS", joinedByComma.toString())
         }
-        val targetAppPackage = findTargetAppPackage(intentScan) ?: return showDownloadDialog()
-        intentScan.setPackage(targetAppPackage)
+
         intentScan.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intentScan.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
         attachMoreExtras(intentScan)
-        startActivityForResult(intentScan, REQUEST_CODE)
+        try {
+            startActivityForResult(intentScan, REQUEST_CODE)
+        } catch (ex: ActivityNotFoundException) {
+            showDownloadDialog()
+        }
         return null
     }
 
@@ -201,17 +203,6 @@ class IntentIntegrator(private val activity: Activity) {
      */
     private fun startActivityForResult(intent: Intent?, code: Int) {
         activity.startActivityForResult(intent, code)
-    }
-
-    private fun findTargetAppPackage(intent: Intent): String? {
-        val pm = activity.packageManager
-        val availableApps = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
-        for (targetApp in targetApplications) {
-            if (contains(availableApps, targetApp)) {
-                return targetApp
-            }
-        }
-        return null
     }
 
     private fun showDownloadDialog(): AlertDialog {
@@ -254,32 +245,42 @@ class IntentIntegrator(private val activity: Activity) {
         intent.action = "$BS_PACKAGE.ENCODE"
         intent.putExtra("ENCODE_TYPE", type)
         intent.putExtra("ENCODE_DATA", text)
-        val targetAppPackage = findTargetAppPackage(intent) ?: return showDownloadDialog()
-        intent.setPackage(targetAppPackage)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
         attachMoreExtras(intent)
-        activity.startActivity(intent)
+        try {
+            activity.startActivityForResult(intent, REQUEST_CODE)
+        } catch (ex: ActivityNotFoundException) {
+            showDownloadDialog()
+        }
         return null
     }
 
     private fun attachMoreExtras(intent: Intent) {
         for ((key, value) in moreExtras) {
             // Kind of hacky
-            if (value is Int) {
-                intent.putExtra(key, value)
-            } else if (value is Long) {
-                intent.putExtra(key, value)
-            } else if (value is Boolean) {
-                intent.putExtra(key, value)
-            } else if (value is Double) {
-                intent.putExtra(key, value)
-            } else if (value is Float) {
-                intent.putExtra(key, value)
-            } else if (value is Bundle) {
-                intent.putExtra(key, value)
-            } else {
-                intent.putExtra(key, value.toString())
+            when (value) {
+                is Int -> {
+                    intent.putExtra(key, value)
+                }
+                is Long -> {
+                    intent.putExtra(key, value)
+                }
+                is Boolean -> {
+                    intent.putExtra(key, value)
+                }
+                is Double -> {
+                    intent.putExtra(key, value)
+                }
+                is Float -> {
+                    intent.putExtra(key, value)
+                }
+                is Bundle -> {
+                    intent.putExtra(key, value)
+                }
+                else -> {
+                    intent.putExtra(key, value.toString())
+                }
             }
         }
     }
@@ -311,7 +312,7 @@ class IntentIntegrator(private val activity: Activity) {
         val TARGET_ALL_KNOWN = list(
             BSPLUS_PACKAGE,  // Barcode Scanner+
             "$BSPLUS_PACKAGE.simple",  // Barcode Scanner+ Simple
-            BS_PACKAGE // Barcode Scanner          
+            BS_PACKAGE // Barcode Scanner
             // What else supports this intent?
         )
 
