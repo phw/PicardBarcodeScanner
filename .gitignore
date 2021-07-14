@@ -9,4 +9,4 @@
 .idea/tasks.xml
 /build/*
 .idea/*
-/PicardBarcodeScanner/release/*
+/app/release/*

@@ -1,1 +1,1 @@
-include ':PicardBarcodeScanner'
+include ':app'
