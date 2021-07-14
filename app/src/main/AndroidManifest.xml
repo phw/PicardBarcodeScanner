@@ -11,7 +11,8 @@
         android:label="@string/app_name"
         android:theme="@style/PicardBarcodeScanner"
         android:allowBackup="true"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true">
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <activity
