@@ -78,7 +78,7 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="@dimen/content_padding"
-	        android:drawableLeft="@drawable/ic_menu_music"
+	        android:drawableLeft="@drawable/ic_action_music_1"
 	        android:text="@string/btn_save_preferences" />
 	
 	</LinearLayout>

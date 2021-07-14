@@ -65,13 +65,13 @@ Picard Barcode Scanner is free software published under the GPL version 3. See L
 Copyright © 2012-2014, 2020-2021 Philipp Wolfer <ph.wolfer@googlemail.com>
 Copyright © 2021 Akshat Tiwari
 
-The Picard icon by Carlin Mangar is licensed under the
-Creative Commons Attribution-ShareAlike 2.0 UK: England & Wales License.
-See http://creativecommons.org/licenses/by-sa/2.0/uk/
+The Picard icon Copyright © 2009 by Carlin Mangar is licensed under the
+[Creative Commons Attribution-ShareAlike 2.0 UK: England & Wales](http://creativecommons.org/licenses/by-sa/2.0/uk/)
+license.
 
-Some icons used are from http://www.androidicons.com/freebies.php, licensed under the
-Creative Commons Attribution 3.0 Unported License.
-See http://creativecommons.org/licenses/by/3.0/
+The user interface uses the Android Developer Icons from https://github.com/opoloo/androidicons,
+licensed under the [Creative Commons Attribution-ShareAlike 4.0 International CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+license.
 
 
 Author
