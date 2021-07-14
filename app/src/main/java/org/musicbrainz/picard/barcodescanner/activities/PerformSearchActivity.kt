@@ -83,7 +83,7 @@ class PerformSearchActivity : BaseActivity() {
         task.execute(mBarcode)
     }
 
-    protected fun sendToPicard(releases: Array<ReleaseInfo>) {
+    private fun sendToPicard(releases: Array<ReleaseInfo>) {
         val sendToPicardCallback: TaskCallback<Iterator<ReleaseInfo?>?> =
             object : TaskCallback<Iterator<ReleaseInfo?>?> {
                 override fun onResult(result: Iterator<ReleaseInfo?>?) {
@@ -137,7 +137,7 @@ class PerformSearchActivity : BaseActivity() {
         task.execute(*releases)
     }
 
-    protected fun getArtistName(release: ReleaseInfo): String {
+    private fun getArtistName(release: ReleaseInfo): String {
         val artistNames = ArrayList<String>()
         for (artist in release.artists) {
             artistNames.add(artist.name!!)

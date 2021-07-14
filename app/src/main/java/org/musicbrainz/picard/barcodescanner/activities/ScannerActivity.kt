@@ -39,6 +39,7 @@ class ScannerActivity : BaseActivity() {
         val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
         connectBtn.setOnClickListener { startScanner() }
         handleIntents()
+
         if (!checkIfSettingsAreComplete()) {
             val configurePicard = Intent(
                 this@ScannerActivity,
@@ -65,7 +66,7 @@ class ScannerActivity : BaseActivity() {
         )
         if (scanResult != null) {
             var barcode = scanResult.contents
-            if (isRunningInEmulator) barcode = "766929908628" // DEBUG
+            // if (isRunningInEmulator) barcode = "766929908628" // DEBUG
             if (barcode != null) {
                 startSearchActivity(barcode)
             }
@@ -94,7 +95,6 @@ class ScannerActivity : BaseActivity() {
     }
 
     private fun checkIfSettingsAreComplete(): Boolean {
-        return (preferences.ipAddress != ""
-                && preferences.port > 0)
+        return preferences.ipAddress != "" && preferences.port > 0
     }
 }
