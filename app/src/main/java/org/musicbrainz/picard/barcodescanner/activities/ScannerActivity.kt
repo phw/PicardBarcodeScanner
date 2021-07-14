@@ -36,6 +36,8 @@ class ScannerActivity : BaseActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSubView(R.layout.activity_scanner)
+        val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
+        connectBtn.setOnClickListener { startScanner() }
         handleIntents()
         if (!checkIfSettingsAreComplete()) {
             val configurePicard = Intent(
@@ -45,9 +47,6 @@ class ScannerActivity : BaseActivity() {
             startActivity(configurePicard)
         } else if (mAutoStart) {
             startScanner()
-        } else {
-            val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
-            connectBtn.setOnClickListener { startScanner() }
         }
     }
 
