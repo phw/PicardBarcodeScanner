@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+ * Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ * Copyright (C) 2021 Akshat Tiwari
  * 
  * This file is part of MusicBrainz Picard Barcode Scanner.
  * 
@@ -24,7 +25,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Button
 import com.google.zxing.integration.android.IntentIntegrator
-import com.google.zxing.integration.android.IntentIntegrator.Companion.parseActivityResult
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import java.util.*
@@ -60,8 +60,7 @@ class ScannerActivity : BaseActivity() {
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
-        super.onActivityResult(requestCode, resultCode, intent)
-        val scanResult = parseActivityResult(
+        val scanResult = IntentIntegrator.parseActivityResult(
             requestCode, resultCode, intent
         )
         if (scanResult != null) {
@@ -70,6 +69,8 @@ class ScannerActivity : BaseActivity() {
             if (barcode != null) {
                 startSearchActivity(barcode)
             }
+        } else {
+            super.onActivityResult(requestCode, resultCode, intent)
         }
     }
 
@@ -83,14 +84,8 @@ class ScannerActivity : BaseActivity() {
     }
 
     private fun startScanner() {
-        val integrator = IntentIntegrator(
-            this@ScannerActivity
-        )
-        // Make sure the free barcode scanner app is the first in the list.
-        val targetApplications: MutableList<String> = ArrayList(IntentIntegrator.TARGET_ALL_KNOWN)
-        targetApplications.removeAll(IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY)
-        targetApplications.addAll(0, IntentIntegrator.TARGET_BARCODE_SCANNER_ONLY)
-        integrator.setTargetApplications(targetApplications)
+        val integrator = IntentIntegrator(this@ScannerActivity)
+        integrator.setOrientationLocked(false)
         integrator.initiateScan()
     }
 
