@@ -26,4 +26,8 @@ dependencies {
     implementation "androidx.core:core-ktx:1.6.0"
     implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // OkHttp
+    implementation platform("com.squareup.okhttp3:okhttp-bom:4.9.0")
+    implementation "com.squareup.okhttp3:okhttp"
 }
