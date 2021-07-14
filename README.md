@@ -62,7 +62,7 @@ localization project on https://www.transifex.com/projects/p/picard-barcode-scan
 License
 -------
 Picard Barcode Scanner is free software published under the GPL version 3. See LICENSE for details.
-Copyright © 2012-2014, 2020-2021 Philipp Wolfer <ph.wolfer@googlemail.com>
+Copyright © 2012-2014, 2020-2021 Philipp Wolfer <ph.wolfer@gmail.com>
 Copyright © 2021 Akshat Tiwari
 
 The Picard icon Copyright © 2009 by Carlin Mangar is licensed under the

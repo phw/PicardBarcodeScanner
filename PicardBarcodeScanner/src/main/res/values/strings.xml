@@ -23,6 +23,34 @@
 
     <string name="app_name">Picard Barcode Scanner</string>
     <string name="actionbar_title">Picard Barcode Scanner</string>
+    <string name="action_about">About</string>
+    <string name="description_about"><![CDATA[<p>Copyright © 2012-2014, 2020-2021 Philipp Wolfer<br>
+Copyright © 2021 Akshat Tiwari</p>
+
+<p style="text-align: center">
+    <a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>
+</p>
+
+<p>MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
+and/or modify it under the terms of the
+<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>
+as published by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.</p>
+
+<p>MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.</p>
+
+<p>The Picard icon Copyright © 2009 by Carlin Mangar is licensed under the
+<a href="http://creativecommons.org/licenses/by-sa/2.0/uk/">Creative Commons Attribution-ShareAlike 2.0 UK: England &amp; Wales</a>
+license.</p>
+
+<p>The user interface uses the Android Developer Icons from
+<a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>,
+licensed under the
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International CC BY-SA 4.0</a>
+license.</p>]]></string>
     <string name="action_settings">Settings</string>
     <string name="description_connect">In order to send scanned barcodes to Picard you have to connect your device to the same network as the computer running Picard. Enter the IP address of the computer and Picard\'s port number below.</string>
     <string name="label_connection_error">Could not connect to Picard. Please check the connection settings and your Wi-Fi connection.</string>

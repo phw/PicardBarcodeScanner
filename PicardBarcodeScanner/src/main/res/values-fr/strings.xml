@@ -2,6 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
   <string name="app_name">Lecteur de codes à barres pour Picard</string>
   <string name="actionbar_title">Lecteur de codes à barres pour Picard</string>
+  <string name="action_about">À propos</string>
   <string name="action_settings">Paramètres</string>
   <string name="description_connect">Afin d’envoyer les codes à barres lus à Picard, vous devez connecter votre appareil au même réseau que l’ordinateur sur lequel Picard tourne. Saisissez l’adresse IP de l’ordinateur et le numéro de port de Picard ci-dessous.</string>
   <string name="label_connection_error">Impossible de se connecter à Picard. Veuillez vérifier les paramètres de connexion et votre connexion Wi-Fi.</string>
