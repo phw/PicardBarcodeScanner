@@ -336,8 +336,8 @@ class IntentIntegrator(private val activity: Activity) {
          * the fields will be null.
          */
         @JvmStatic
-        fun parseActivityResult(requestCode: Int, resultCode: Int, intent: Intent): IntentResult? {
-            if (requestCode == REQUEST_CODE) {
+        fun parseActivityResult(requestCode: Int, resultCode: Int, intent: Intent?): IntentResult? {
+            if (intent != null && requestCode == REQUEST_CODE) {
                 if (resultCode == Activity.RESULT_OK) {
                     val contents = intent.getStringExtra("SCAN_RESULT")
                     val formatName = intent.getStringExtra("SCAN_RESULT_FORMAT")

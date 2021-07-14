@@ -62,20 +62,24 @@ class ScannerActivity : BaseActivity() {
     public override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
         val scanResult = parseActivityResult(
-            requestCode, resultCode, intent!!
+            requestCode, resultCode, intent
         )
         if (scanResult != null) {
             var barcode = scanResult.contents
             if (isRunningInEmulator) barcode = "766929908628" // DEBUG
             if (barcode != null) {
-                val resultIntent = Intent(
-                    this@ScannerActivity,
-                    PerformSearchActivity::class.java
-                )
-                resultIntent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode)
-                startActivity(resultIntent)
+                startSearchActivity(barcode)
             }
         }
+    }
+
+    private fun startSearchActivity(barcode: String) {
+        val resultIntent = Intent(
+            this@ScannerActivity,
+            PerformSearchActivity::class.java
+        )
+        resultIntent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode)
+        startActivity(resultIntent)
     }
 
     private fun startScanner() {
