@@ -14,7 +14,7 @@ to tag the files using the correct album.
 Requirements
 ------------
  * Picard 1.0 or higher
- * Android 4.0 or higher
+ * Android 4.2 or higher
  * [ZXing barcode scanner](https://play.google.com/store/apps/details?id=com.google.zxing.client.android)
 
 
@@ -61,8 +61,8 @@ localization project on https://www.transifex.com/projects/p/picard-barcode-scan
 
 License
 -------
-Picard Barcode Scanner is free software published under the GPL version 3. See LICENSE for details.
-Copyright © 2012-2014, 2020-2021 Philipp Wolfer <ph.wolfer@gmail.com>
+Picard Barcode Scanner is free software published under the GPL version 3. See LICENSE for details.<br>
+Copyright © 2012-2014, 2020-2021 Philipp Wolfer <ph.wolfer@gmail.com><br>
 Copyright © 2021 Akshat Tiwari
 
 The Picard icon Copyright © 2009 by Carlin Mangar is licensed under the
@@ -72,8 +72,3 @@ license.
 The user interface uses the Android Developer Icons from https://github.com/opoloo/androidicons,
 licensed under the [Creative Commons Attribution-ShareAlike 4.0 International CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 license.
-
-
-Author
-------
-Philipp Wolfer <ph.wolfer@googlemail.com>
