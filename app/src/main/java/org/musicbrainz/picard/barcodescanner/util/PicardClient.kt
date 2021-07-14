@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+ * Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ * Copyright (C) 2021 Akshat Tiwari
  * 
  * This file is part of MusicBrainz Picard Barcode Scanner.
  * 
@@ -20,16 +21,15 @@
 package org.musicbrainz.picard.barcodescanner.util
 
 import android.util.Log
-import org.apache.http.HttpResponse
-import org.apache.http.client.methods.HttpGet
-import org.apache.http.impl.client.AbstractHttpClient
-import org.apache.http.impl.client.DefaultHttpClient
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import java.io.IOException
 import java.io.UnsupportedEncodingException
 import java.net.URLEncoder
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
-    private val mHttpClient: AbstractHttpClient
+    private val httpClient = OkHttpClient()
 
     @Throws(IOException::class)
     fun openRelease(releaseId: String): Boolean {
@@ -37,18 +37,17 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
             PICARD_OPENALBUM_URL, mIpAddress,
             mPort, uriEncode(releaseId)
         )
-        val response = get(url)
-        return isResponseSuccess(response)
+        get(url).use { response ->
+            return response.isSuccessful
+        }
     }
 
     @Throws(IOException::class)
-    private operator fun get(url: String): HttpResponse {
-        val get = HttpGet(url)
-        return mHttpClient.execute(get)
-    }
-
-    private fun isResponseSuccess(response: HttpResponse): Boolean {
-        return response.statusLine.statusCode < 400
+    private operator fun get(url: String): Response {
+        val request = Request.Builder()
+            .url(url)
+            .build()
+        return httpClient.newCall(request).execute()
     }
 
     private fun uriEncode(releaseId: String): String {
@@ -62,9 +61,5 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
 
     companion object {
         private const val PICARD_OPENALBUM_URL = "http://%s:%d/openalbum?id=%s"
-    }
-
-    init {
-        mHttpClient = DefaultHttpClient()
     }
 }
