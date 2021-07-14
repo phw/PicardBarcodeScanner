@@ -65,35 +65,35 @@ class ReleaseInfoHandler : MBHandler() {
                 results.add(release!!)
             }
             localName == "title" && !inMedium -> {
-                release!!.title = string
+                release!!.title = getString()
             }
             localName == "artist" -> {
                 inArtist = false
             }
             localName == "name" && inArtist -> {
-                releaseArtist!!.name = string
+                releaseArtist!!.name = getString()
                 release!!.addArtist(releaseArtist!!)
             }
             localName == "name" && inLabel -> {
-                release!!.addLabel(string)
+                release!!.addLabel(getString())
             }
             localName == "date" -> {
-                release!!.date = string
+                release!!.date = getString()
             }
             localName == "country" -> {
-                release!!.countryCode = string.uppercase(Locale.getDefault())
+                release!!.countryCode = getString().uppercase(Locale.getDefault())
             }
             localName == "label" -> {
                 inLabel = false
             }
             localName == "format" -> {
-                release!!.addFormat(string)
+                release!!.addFormat(getString())
             }
             localName == "medium" -> {
                 inMedium = false
             }
             localName == "sort-name" && inArtist -> {
-                releaseArtist!!.sortName = string
+                releaseArtist!!.sortName = getString()
             }
         }
     }

@@ -16,5 +16,7 @@ open class MBHandler : DefaultHandler() {
         sb = StringBuilder()
     }
 
-    protected val string = sb.toString()
+    protected fun getString() : String {
+        return sb.toString()
+    }
 }
