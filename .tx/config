@@ -1,8 +1,8 @@
 [main]
 host = https://www.transifex.com
-lang_map = nb_NO: nb-rNO, nl_NL: nl-rNL, pt_BR: pt-rBR, ro_RO: ro-rRO, zh_CN: zh-rCN
+lang_map = he: iw, nb_NO: nb-rNO, nl_NL: nl-rNL, pt_BR: pt-rBR, ro_RO: ro-rRO, zh_CN: zh-rCN
 
-[picard-barcode-scanner.stringsxml]
+[picard-barcode-scanner.app-src-main-res-values-strings-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings.xml
 source_file = app/src/main/res/values/strings.xml
 source_lang = en

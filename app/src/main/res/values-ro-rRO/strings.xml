@@ -11,6 +11,6 @@
   <string name="description_scanner">Folosiţi camera dispozitivului dvs. pentru a scana codul de bare al unui CD sau altui mediu digital muzical. Dacă MusicBrainz recunoaşte acest suport media, îl va încărca automat în MusicBrainz Picard. </string>
   <string name="btn_scan_barcode">Scanare cod de bare</string>
   <string name="loading_musicbrainz_text">Se consultă MusicBrainz…</string>
-  <string name="loading_picard_text">Se trimit datele către Picard...</string>
+  <string name="loading_picard_text">Se trimit datele către Picard…</string>
   <string name="btn_save_preferences">Salvare configurări</string>
 </resources>

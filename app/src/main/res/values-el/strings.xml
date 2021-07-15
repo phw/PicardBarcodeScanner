@@ -11,7 +11,7 @@
   <string name="btn_picard_connect">Σύνδεση με το Picard</string>
   <string name="description_scanner">Χρησιμοποιήστε τη φωτογραφική μηχανή της συσκευής σας για να σαρώσετε το γραμμικό κώδικα ενός CD ή άλλων μέσων μουσικής. Αν το MusicBrainz γνωρίζει σχετικά με τα μέσα ενημέρωσης ότι θα αυτόματα να φορτωθεί στο MusicBrainz Picard.</string>
   <string name="btn_scan_barcode">Σάρωση γραμμωτού κώδικα</string>
-  <string name="loading_musicbrainz_text">Διαβούλευση με το MusicBrainz..</string>
-  <string name="loading_picard_text">Αποστολή δεδομένων στο Picard...</string>
+  <string name="loading_musicbrainz_text">Διαβούλευση με το MusicBrainz…</string>
+  <string name="loading_picard_text">Αποστολή δεδομένων στο Picard…</string>
   <string name="btn_save_preferences">Αποθήκευση ρυθμίσεων</string>
 </resources>
