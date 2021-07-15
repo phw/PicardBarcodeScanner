@@ -35,19 +35,19 @@ class ReleaseInfo : Comparable<ReleaseInfo> {
         formats.add(format)
     }
 
-    override fun compareTo(another: ReleaseInfo): Int {
-        val artistNameComparison = artists[0].compareTo(another.artists[0])
+    override fun compareTo(other: ReleaseInfo): Int {
+        val artistNameComparison = artists[0].compareTo(other.artists[0])
         if (artistNameComparison != 0) {
             return artistNameComparison
         }
-        return if (date == null && another.date == null) {
+        return if (date == null && other.date == null) {
             0
         } else if (date == null) {
             1
-        } else if (another.date == null) {
+        } else if (other.date == null) {
             -1
         } else {
-            date!!.compareTo(another.date!!)
+            date!!.compareTo(other.date!!)
         }
     }
 }
