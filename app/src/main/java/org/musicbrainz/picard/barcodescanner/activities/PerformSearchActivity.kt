@@ -24,8 +24,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
@@ -46,10 +44,6 @@ class PerformSearchActivity : BaseActivity() {
         val actionBar = supportActionBar
         actionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        // Start animation
-        val spinner = findViewById<View>(R.id.spinner)
-        val rotation: Animation = AnimationUtils.loadAnimation(this, R.anim.spinner)
-        spinner.startAnimation(rotation)
         mLoadingTextView = findViewById<View>(R.id.loading_text) as TextView
         mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
         handleIntents()
