@@ -71,3 +71,6 @@ license.
 The user interface uses the Android Developer Icons from https://github.com/opoloo/androidicons,
 licensed under the [Creative Commons Attribution-ShareAlike 4.0 International CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 license.
+
+Loading animation by [杜磊 on LottieFiles](https://lottiefiles.com/7290-music-play)
+licensed under the [Creative Commons Attribution (BY) ](https://creativecommons.org/licenses/by/2.0/) license.
