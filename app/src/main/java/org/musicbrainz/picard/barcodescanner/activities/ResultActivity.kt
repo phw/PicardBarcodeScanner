@@ -22,6 +22,7 @@ package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.view.*
 import android.widget.Button
 import android.widget.TextView
@@ -55,8 +56,10 @@ class ResultActivity : BaseActivity() {
     override fun handleIntents() {
         super.handleIntents()
         var numberOfReleases = 0
+        var barcode: String? = ""
         val extras = intent.extras
         if (extras != null) {
+            barcode = extras.getString(Constants.INTENT_EXTRA_BARCODE)
             val errorMessage = extras.getString(Constants.INTENT_EXTRA_ERROR)
             val errorMsg = findViewById<View>(R.id.label_error) as TextView
             if (errorMessage != null) {
@@ -84,9 +87,11 @@ class ResultActivity : BaseActivity() {
                 }
             }
         }
-        if (numberOfReleases == 0) {
-            descriptionTextView!!.setText(R.string.description_no_result)
+        val description: String = when (numberOfReleases) {
+            0 -> getString(R.string.description_no_result, barcode)
+            else -> getString(R.string.description_result, barcode)
         }
+        descriptionTextView!!.text = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY)
     }
 
     private fun setViewText(view: View, fieldId: Int, text: String) {

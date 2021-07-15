@@ -10,8 +10,6 @@
   <string name="btn_picard_connect">קישור לפיקארד</string>
   <string name="description_scanner">נא להשתמש במצלמת המכשיר לסריקת הברקוד תקליטור  או מדיית מוזיקה אחרת. אם  מוזיקבריינז תזהה את המדיה הנתונים יטענו אוטומטית  למוזיקברינז פיקארד.</string>
   <string name="btn_scan_barcode">סריקת ברקוד</string>
-  <string name="description_result">מוזיקברינז  מצא את התוצאות הבאות לברקוד זה ושלח אותן לפיקארד.</string>
-  <string name="description_no_result">מוזיקברינז לא מצא הוצאה כלשהיא לברקוד זה.</string>
   <string name="loading_musicbrainz_text">היוועצות עם מוזיקבריינז</string>
   <string name="loading_picard_text">שיגור נתונים לפיקארד</string>
   <string name="btn_save_preferences">שמירת הגדרות</string>

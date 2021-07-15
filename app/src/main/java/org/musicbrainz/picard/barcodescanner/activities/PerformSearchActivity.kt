@@ -112,6 +112,10 @@ class PerformSearchActivity : BaseActivity() {
                         releaseDates[i] = release.date
                     }
                     resultIntent.putExtra(
+                        Constants.INTENT_EXTRA_BARCODE,
+                        mBarcode
+                    )
+                    resultIntent.putExtra(
                         Constants.INTENT_EXTRA_RELEASE_TITLES,
                         releaseTitles
                     )

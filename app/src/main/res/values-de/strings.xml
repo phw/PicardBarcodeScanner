@@ -11,8 +11,8 @@
   <string name="btn_picard_connect">Mit Picard verbinden</string>
   <string name="description_scanner">Verwenden Sie die Kamera Ihres Geräts, um den Barcode einer CD oder anderer Musikmedien zu scannen. Wenn MusicBrainz die Musikmedien kennt, werden diese automatisch in MusicBrainz Picard geladen.</string>
   <string name="btn_scan_barcode">Barcode scannen</string>
-  <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für diesen Barcode gefunden und an Picard gesendet.</string>
-  <string name="description_no_result">Für diesen Barcode konnte MusicBrainz keine Veröffentlichungen finden.</string>
+  <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für den Barcode <b>%1$s</b> gefunden und an Picard gesendet:</string>
+  <string name="description_no_result">Für den Barcode <b>%1$s</b> konnte MusicBrainz keine Veröffentlichungen finden.</string>
   <string name="loading_musicbrainz_text">Sende Anfrage an MusicBrainz…</string>
   <string name="loading_picard_text">Sende Daten an Picard…</string>
   <string name="btn_save_preferences">Einstellungen speichern</string>

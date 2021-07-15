@@ -10,8 +10,6 @@
   <string name="btn_picard_connect">Koble til med Picard</string>
   <string name="description_scanner">Bruk din enhets kamera for å skanne strekkoden på en CD eller annen musikkmedia. Hvis MusicBrainz har kjennskap til den, vil den bli lastet inn i MusicBrainz Picard.</string>
   <string name="btn_scan_barcode">Skann strekkode</string>
-  <string name="description_result">MusicBrainz fant følgende resultater fra strekkoden, og har sendt dem til Picard.</string>
-  <string name="description_no_result">MusicBrainz har ikke funnen noen utgivelse for denne strekkoden.</string>
   <string name="loading_musicbrainz_text">Konsulterer MusicBrainz…</string>
   <string name="loading_picard_text">Sender data til Picard…</string>
   <string name="btn_save_preferences">Lagre innstillinger</string>

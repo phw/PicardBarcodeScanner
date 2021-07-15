@@ -11,8 +11,6 @@
   <string name="btn_picard_connect">Se connecter à Picard</string>
   <string name="description_scanner">Utilisez l’appareil-photo de votre appareil pour balayer le code à barres d’un CD ou d’autres supports musicaux. Si MusicBrainz reconnaît le support, il le chargera automatiquement dans Picard de MusicBrainz.</string>
   <string name="btn_scan_barcode">Balayer le code à barres</string>
-  <string name="description_result">MusicBrainz a trouvé les résultats suivants pour ce code à barres et les a envoyés à Picard.</string>
-  <string name="description_no_result">MusicBrainz n’a trouvé aucune parution pour ce codes à barres.</string>
   <string name="loading_musicbrainz_text">Consultation de MusicBrainz…</string>
   <string name="loading_picard_text">Envoi des données à Picard…</string>
   <string name="btn_save_preferences">Enregistrer les paramètres</string>

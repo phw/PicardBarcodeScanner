@@ -10,8 +10,6 @@
   <string name="btn_picard_connect">Kết nối với Picard</string>
   <string name="description_scanner">Sử dụng phần thiết bị chụp ảnh của thiết bị để quét mã của đĩa CD hoặc các ứng dụng đa phương tiện khác. Nếu như MusicBrainz nhận dạng được các đối tượng này thì đối tượng đó sẽ được tải trực tiếp vào phần MusicBrainz Picard.</string>
   <string name="btn_scan_barcode">Quét mã</string>
-  <string name="description_result">MusicBrainz đã tìm thấy các kết quả sau cho mã được quét vừa rồi và đã gửi những thông tin này đến Picard.</string>
-  <string name="description_no_result">MusicBrainz không tìm thấy bất kỳ thông tin liên quan nào đến phần mã đã quét vào.</string>
   <string name="loading_musicbrainz_text">Đang kết nối với MusicBrainz...</string>
   <string name="loading_picard_text">Đang gửi dữ liệu đến Picard...</string>
   <string name="btn_save_preferences">Lưu thiết lập</string>

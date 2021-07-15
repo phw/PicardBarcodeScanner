@@ -63,8 +63,8 @@ licensed under the
     <string name="btn_picard_connect">Connect with Picard</string>
     <string name="description_scanner">Use your device\'s camera to scan the barcode of a CD or other music media. If MusicBrainz knows about the media it will automatically be loaded into MusicBrainz Picard.</string>
     <string name="btn_scan_barcode">Scan barcode</string>
-    <string name="description_result">MusicBrainz has found the following results for this barcode and sent them to Picard.</string>
-	<string name="description_no_result">MusicBrainz has not found any release for this barcode.</string>
+    <string name="description_result">MusicBrainz has found the following results for the barcode <b>%1$s</b> and sent them to Picard:</string>
+    <string name="description_no_result">MusicBrainz has not found any release for the barcode <b>%1$s</b>.</string>
 	<string name="loading_musicbrainz_text">Consulting MusicBrainz&#8230;</string>
 	<string name="loading_picard_text">Sending data to Picard&#8230;</string>
 	<string name="btn_save_preferences">Save settings</string>
