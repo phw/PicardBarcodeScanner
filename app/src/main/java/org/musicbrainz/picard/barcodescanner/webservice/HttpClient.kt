@@ -1,108 +1,44 @@
+/*
+ * Copyright (C) 2021 Akshat Tiwari
+ * Copyright (C) 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ *
+ * This file is part of MusicBrainz Picard Barcode Scanner.
+ *
+ * MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
+ * and/or modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * MusicBrainz Picard Barcode Scanner. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
 package org.musicbrainz.picard.barcodescanner.webservice
 
-import org.apache.http.*
-import org.apache.http.conn.params.ConnManagerParams
-import org.apache.http.conn.params.ConnPerRouteBean
-import org.apache.http.conn.scheme.PlainSocketFactory
-import org.apache.http.conn.scheme.Scheme
-import org.apache.http.conn.scheme.SchemeRegistry
-import org.apache.http.entity.HttpEntityWrapper
-import org.apache.http.impl.client.AbstractHttpClient
-import org.apache.http.impl.client.DefaultHttpClient
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager
-import org.apache.http.params.BasicHttpParams
-import org.apache.http.params.HttpConnectionParams
-import org.apache.http.params.HttpParams
-import org.apache.http.params.HttpProtocolParams
-import org.apache.http.protocol.HttpContext
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import java.io.IOException
-import java.io.InputStream
-import java.util.zip.GZIPInputStream
+import java.util.concurrent.TimeUnit
 
-/**
- * Configures the static http client. Gzip code is based on BetterHttp in
- * droid-fu.
- */
 object HttpClient {
-    private const val TIMEOUT = 20000
-    private const val MAX_CONNECTIONS = 4
-    private var client: DefaultHttpClient? = null
-    fun getClient(userAgent: String): AbstractHttpClient? {
-        setUserAgent(userAgent)
-        return client
-    }
+    private const val TIMEOUT : Long = 20000
+    private val client = OkHttpClient.Builder()
+        .callTimeout(TIMEOUT, TimeUnit.MILLISECONDS)
+        .build()
+    var userAgent = "picard-android-barcodescanner/1.5"
 
-    private fun setupParams(): HttpParams {
-        val params: HttpParams = BasicHttpParams()
-        ConnManagerParams.setTimeout(params, TIMEOUT.toLong())
-        ConnManagerParams.setMaxConnectionsPerRoute(params, ConnPerRouteBean(MAX_CONNECTIONS))
-        ConnManagerParams.setMaxTotalConnections(params, MAX_CONNECTIONS)
-        HttpConnectionParams.setSoTimeout(params, TIMEOUT)
-        HttpConnectionParams.setTcpNoDelay(params, true)
-        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1)
-        return params
-    }
-
-    private fun setUserAgent(userAgent: String) {
-        client!!.params.setParameter(HttpProtocolParams.USER_AGENT, userAgent)
-    }
-
-    private fun setupSchemeRegistry(): SchemeRegistry {
-        val schemeRegistry = SchemeRegistry()
-        schemeRegistry.register(Scheme("http", PlainSocketFactory.getSocketFactory(), 80))
-        return schemeRegistry
-    }
-
-    fun clearCredentials() {
-        client!!.credentialsProvider.clear()
-    }
-
-    private fun enableGzipEncoding() {
-        client!!.addRequestInterceptor(GzipHttpRequestInterceptor())
-        client!!.addResponseInterceptor(GzipHttpResponseInterceptor())
-    }
-
-    private class GzipHttpRequestInterceptor : HttpRequestInterceptor {
-        override fun process(request: HttpRequest, context: HttpContext) {
-            if (!request.containsHeader("Accept-Encoding")) {
-                request.addHeader("Accept-Encoding", "gzip")
-            }
-        }
-    }
-
-    private class GzipHttpResponseInterceptor : HttpResponseInterceptor {
-        override fun process(response: HttpResponse, context: HttpContext) {
-            val entity = response.entity
-            val encoding = entity.contentEncoding
-            encoding?.let { inflateGzip(response, it) }
-        }
-
-        private fun inflateGzip(response: HttpResponse, encoding: Header) {
-            for (element in encoding.elements) {
-                if (element.name.equals("gzip", ignoreCase = true)) {
-                    response.entity = GzipInflatingEntity(response.entity)
-                    break
-                }
-            }
-        }
-    }
-
-    private class GzipInflatingEntity(wrapped: HttpEntity?) : HttpEntityWrapper(wrapped) {
-        @Throws(IOException::class)
-        override fun getContent(): InputStream {
-            return GZIPInputStream(wrappedEntity.content)
-        }
-
-        override fun getContentLength(): Long {
-            return -1
-        }
-    }
-
-    init {
-        val params = setupParams()
-        val schemeRegistry = setupSchemeRegistry()
-        val threadSafeManager = ThreadSafeClientConnManager(params, schemeRegistry)
-        client = DefaultHttpClient(threadSafeManager, params)
-        enableGzipEncoding()
+    @Throws(IOException::class)
+    fun get(url: String): Response {
+        val request = Request.Builder()
+            .header("User-Agent", userAgent)
+            .url(url)
+            .build()
+        return client.newCall(request).execute()
     }
 }

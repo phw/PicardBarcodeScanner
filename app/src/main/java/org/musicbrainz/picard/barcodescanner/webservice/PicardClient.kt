@@ -18,15 +18,13 @@
  * MusicBrainz Picard Barcode Scanner. If not, see
  * <http://www.gnu.org/licenses/>.
  */
-package org.musicbrainz.picard.barcodescanner.util
+package org.musicbrainz.picard.barcodescanner.webservice
 
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils
 import java.io.IOException
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
-    private val httpClient = OkHttpClient()
+    private val httpClient = HttpClient
 
     @Throws(IOException::class)
     fun openRelease(releaseId: String): Boolean {
@@ -34,17 +32,9 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
             PICARD_OPENALBUM_URL, mIpAddress,
             mPort, WebServiceUtils.sanitise(releaseId)
         )
-        get(url).use { response ->
+        httpClient.get(url).use { response ->
             return response.isSuccessful
         }
-    }
-
-    @Throws(IOException::class)
-    private operator fun get(url: String): Response {
-        val request = Request.Builder()
-            .url(url)
-            .build()
-        return httpClient.newCall(request).execute()
     }
 
     companion object {

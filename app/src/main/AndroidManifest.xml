@@ -13,7 +13,6 @@
         android:theme="@style/PicardBarcodeScanner"
         android:allowBackup="true"
         android:usesCleartextTraffic="true">
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <activity
             android:name="org.musicbrainz.picard.barcodescanner.activities.ScannerActivity"
