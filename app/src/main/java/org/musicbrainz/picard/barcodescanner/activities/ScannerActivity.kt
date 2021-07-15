@@ -30,7 +30,7 @@ import org.musicbrainz.picard.barcodescanner.util.Constants
 import java.util.*
 
 class ScannerActivity : BaseActivity() {
-    var mAutoStart = false
+    private var mAutoStart = false
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +64,7 @@ class ScannerActivity : BaseActivity() {
             requestCode, resultCode, intent
         )
         if (scanResult != null) {
-            var barcode = scanResult.contents
+            val barcode = scanResult.contents
             // if (isRunningInEmulator) barcode = "766929908628" // DEBUG
             if (barcode != null) {
                 startSearchActivity(barcode)

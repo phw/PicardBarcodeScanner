@@ -106,8 +106,8 @@ class PerformSearchActivity : BaseActivity() {
                     val releaseArtists = arrayOfNulls<String>(numberOfReleases)
                     val releaseDates = arrayOfNulls<String>(numberOfReleases)
                     for (i in 0 until numberOfReleases) {
-                        val release: ReleaseInfo? = releases.get(i)
-                        releaseTitles[i] = release!!.title
+                        val release: ReleaseInfo = releases[i]
+                        releaseTitles[i] = release.title
                         releaseArtists[i] = getArtistName(release)
                         releaseDates[i] = release.date
                     }
