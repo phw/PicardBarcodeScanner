@@ -21,7 +21,7 @@ package org.musicbrainz.picard.barcodescanner.tasks
 
 import android.util.Log
 import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
-import org.musicbrainz.picard.barcodescanner.util.PicardClient
+import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
 import org.musicbrainz.picard.barcodescanner.util.Preferences
 import java.io.IOException
 

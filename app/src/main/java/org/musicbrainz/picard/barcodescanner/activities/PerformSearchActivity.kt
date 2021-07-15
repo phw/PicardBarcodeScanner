@@ -1,6 +1,7 @@
 /*
- * Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
- * 
+ * Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ * Copyright (C) 2021 Akshat Tiwari
+ *
  * This file is part of MusicBrainz Picard Barcode Scanner.
  * 
  * MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
@@ -76,7 +77,7 @@ class PerformSearchActivity : BaseActivity() {
                 }
             }
         mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
-        val task = ReleaseLookupTask(this)
+        val task = ReleaseLookupTask()
         task.callback = lookupCallback
         // TODO: Handle error
         // task.setErrorCallback(errorCallback);

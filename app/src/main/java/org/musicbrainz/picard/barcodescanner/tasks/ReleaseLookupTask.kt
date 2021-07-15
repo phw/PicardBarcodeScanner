@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+ * Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ * Copyright (C) 2021 Akshat Tiwari
  * 
  * This file is part of MusicBrainz Picard Barcode Scanner.
  * 
@@ -19,20 +20,15 @@
  */
 package org.musicbrainz.picard.barcodescanner.tasks
 
-import android.content.Context
 import android.util.Log
-import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
 import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzWebClient
 import java.io.IOException
 import java.util.*
 
-class ReleaseLookupTask(private val mPackageContext: Context) :
-    AsyncCallbackTask<String?, Int?, Array<ReleaseInfo>>() {
+class ReleaseLookupTask() : AsyncCallbackTask<String?, Int?, Array<ReleaseInfo>>() {
     override fun doInBackground(vararg params: String?): Array<ReleaseInfo> {
-        val mbClient = MusicBrainzWebClient(
-            mPackageContext.getString(R.string.webservice_user_agent)
-        )
+        val mbClient = MusicBrainzWebClient()
         return try {
             val barcode = params[0]
             val searchTerm = String.format("barcode:%s", barcode)

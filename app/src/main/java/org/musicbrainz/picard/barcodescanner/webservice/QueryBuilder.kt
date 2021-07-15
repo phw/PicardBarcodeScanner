@@ -1,13 +1,31 @@
+/*
+ * Copyright (C) 2011-2012 Jamie McDonald
+ * Copyright (C) 2021 Akshat Tiwari
+ * Copyright (C) 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ *
+ * This file is part of MusicBrainz Picard Barcode Scanner.
+ *
+ * MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
+ * and/or modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * MusicBrainz Picard Barcode Scanner. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
 package org.musicbrainz.picard.barcodescanner.webservice
 
 import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils.sanitise
 
 object QueryBuilder {
-    private const val WEB_SERVICE = "http://musicbrainz.org/ws/2/"
+    private const val WEB_SERVICE = "https://musicbrainz.org/ws/2/"
     private const val SEARCH_RELEASE = "release?query="
-
-    // MBID for Various Artists always exists.
-    private const val AUTH_TEST = "artist/89ad4ac3-39f7-470e-963a-56509c546377?inc=user-tags"
 
     fun releaseSearch(searchTerm: String?): String {
         return buildQuery(
@@ -15,11 +33,6 @@ object QueryBuilder {
                 searchTerm!!
             )
         )
-    }
-
-
-    fun authenticationCheck(): String {
-        return buildQuery(AUTH_TEST)
     }
 
     private fun buildQuery(path: String): String {
