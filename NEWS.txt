@@ -1,7 +1,11 @@
+Version 1.4.1 - 2021-07-15
+* Fixed "Scan barcode" button sometimes not reacting to clicks (issue #8)
+
 Version 1.4 - 2021-07-14
 * Code refactoring and rewrite in Kotlin (Akshat Tiwari)
 * Updated UI icons, with support for dark mode
 * Added About view
+* Android 4.2 is now the minimum supported version
 
 Version 1.3 - 2021-06-11
  * Support dark theme (Android 10 and later)
