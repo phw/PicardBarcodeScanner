@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
   <string name="app_name">Picard Barcode-Scanner</string>
-  <string name="actionbar_title">Picard Barcode-Scanner</string>
   <string name="action_about">Über</string>
   <string name="action_settings">Einstellungen</string>
   <string name="description_connect">Um die eingescannten Barcodes an Picard senden zu können, müssen Sie Ihr Gerät und den Computer, auf dem Picard läuft, mit dem gleichen WLAN verbinden. Geben Sie hier die IP-Adresse des Computers und die Port-Nummer von Picard ein.</string>

@@ -22,7 +22,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <string name="app_name">Picard Barcode Scanner</string>
-    <string name="actionbar_title">Picard Barcode Scanner</string>
     <string name="action_about">About</string>
     <string name="description_about"><![CDATA[<p>Copyright © 2012-2014, 2020-2021 Philipp Wolfer<br>
 Copyright © 2021 Akshat Tiwari</p>

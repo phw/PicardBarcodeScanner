@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
   <string name="app_name">Picard Barcode Scanner</string>
-  <string name="actionbar_title">Picard Barcode Scanner</string>
   <string name="action_settings">Thiết lập</string>
   <string name="description_connect">Để có thể gửi các mã đã được quét vào Picard bạn phải kết nối thiết bị đến cùng mạng lưới mà máy tính của bạn đang chạy Picard. Điền vào địa chỉ IP của máy tính và cổng giao tiếp mạng của Picard ở khung bên dưới.</string>
   <string name="label_connection_error">Không thể kết nối đến Picard. Hãy chọn phần thiết lập kết nối và tùy chỉnh hoặc kiểm tra lại kết nối Wi-Fi của bạn.</string>

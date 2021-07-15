@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
   <string name="app_name">Picard Barcode Scanner</string>
-  <string name="actionbar_title">Picard Barcode Scanner</string>
   <string name="action_about">Σχετικά με</string>
   <string name="action_settings">Ρυθμίσεις</string>
   <string name="description_connect">Για να αποστείλετε σαρωμένους γραμμοκώδικες στο Picard θα πρέπει να συνδέσετε τη συσκευή σας με το ίδιο δίκτυο με τον υπολογιστή που εκτελεί το Picard. Εισάγετε τη διεύθυνση IP του υπολογιστή και τον αριθμό θύρας του Picard παρακάτω.</string>

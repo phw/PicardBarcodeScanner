@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
   <string name="app_name">Picard-strekkodeskanner</string>
-  <string name="actionbar_title">Picard-strekkodeskanner</string>
   <string name="action_settings">Innstillinger</string>
   <string name="description_connect">For å kunne sende skannede strekkoder til Picard, må du koble enheten din til på samme nettverket som datamaskinen som kjører Picard. Skriv inn IP-adressen for maskinen og Picards portnummer nedenfor.</string>
   <string name="label_connection_error">Kunne ikke koble til Picard. Sjekk tilkoblingsinnstillingene og din Wi-Fi-tilknytning.</string>
