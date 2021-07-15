@@ -26,17 +26,22 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
-import org.musicbrainz.picard.barcodescanner.tasks.ReleaseLookupTask
-import org.musicbrainz.picard.barcodescanner.tasks.SendToPicardTask
-import org.musicbrainz.picard.barcodescanner.tasks.TaskCallback
 import org.musicbrainz.picard.barcodescanner.util.Constants
+import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzWebClient
+import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
+import java.io.IOException
 import java.util.*
 
 class PerformSearchActivity : BaseActivity() {
     private var mBarcode: String? = null
     private var mLoadingTextView: TextView? = null
+    private val uiScope = CoroutineScope(Dispatchers.Main)
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,12 +53,16 @@ class PerformSearchActivity : BaseActivity() {
         mLoadingTextView = findViewById<View>(R.id.loading_text) as TextView
         mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
         handleIntents()
-        search()
+        uiScope.launch {
+            search()
+        }
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        search()
+        uiScope.launch {
+            search()
+        }
     }
 
     override fun handleIntents() {
@@ -64,91 +73,108 @@ class PerformSearchActivity : BaseActivity() {
         }
     }
 
-    private fun search() {
-        val lookupCallback: TaskCallback<Array<ReleaseInfo>> =
-            object : TaskCallback<Array<ReleaseInfo>> {
-                override fun onResult(result: Array<ReleaseInfo>) {
-                    sendToPicard(result)
-                }
-            }
-        mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
-        val errorCallback: TaskCallback<Exception> = object : TaskCallback<Exception> {
-            override fun onResult(result: Exception) {
-                Log.e(this.javaClass.name, result.message, result)
-                val resultIntent = Intent(
-                    this@PerformSearchActivity,
-                    ResultActivity::class.java
-                )
-                resultIntent.putExtra(
-                    Constants.INTENT_EXTRA_ERROR,
-                    result.message
-                )
-                startActivity(resultIntent)
-                finish()
-            }
+    private suspend fun search() {
+        val releaseList: Array<ReleaseInfo>
+        try {
+            releaseList = releaseLookup(mBarcode)
+        } catch (e: IOException) {
+            Log.e(this.javaClass.name, e.message, e)
+            showResultActivityWithError(e.message)
+            return
         }
-        val task = ReleaseLookupTask()
-        task.callback = lookupCallback
-        task.errorCallback = errorCallback
-        task.execute(mBarcode)
+
+        try {
+            sendToPicard(releaseList)
+            showResultActivity(releaseList)
+        } catch (e: IOException) {
+            Log.e(this.javaClass.name, e.message, e)
+            configurePicard()
+        }
     }
 
-    private fun sendToPicard(releases: Array<ReleaseInfo>) {
-        val sendToPicardCallback: TaskCallback<Iterator<ReleaseInfo?>?> =
-            object : TaskCallback<Iterator<ReleaseInfo?>?> {
-                override fun onResult(result: Iterator<ReleaseInfo?>?) {
-                    val resultIntent = Intent(
-                        this@PerformSearchActivity,
-                        ResultActivity::class.java
-                    )
-                    val numberOfReleases = releases.size
-                    val releaseTitles = arrayOfNulls<String>(numberOfReleases)
-                    val releaseArtists = arrayOfNulls<String>(numberOfReleases)
-                    val releaseDates = arrayOfNulls<String>(numberOfReleases)
-                    for (i in 0 until numberOfReleases) {
-                        val release: ReleaseInfo = releases[i]
-                        releaseTitles[i] = release.title
-                        releaseArtists[i] = getArtistName(release)
-                        releaseDates[i] = release.date
-                    }
-                    resultIntent.putExtra(
-                        Constants.INTENT_EXTRA_BARCODE,
-                        mBarcode
-                    )
-                    resultIntent.putExtra(
-                        Constants.INTENT_EXTRA_RELEASE_TITLES,
-                        releaseTitles
-                    )
-                    resultIntent.putExtra(
-                        Constants.INTENT_EXTRA_RELEASE_ARTISTS,
-                        releaseArtists
-                    )
-                    resultIntent.putExtra(
-                        Constants.INTENT_EXTRA_RELEASE_DATES,
-                        releaseDates
-                    )
-                    startActivity(resultIntent)
-                    finish()
-                }
-            }
-        val errorCallback: TaskCallback<Exception> = object : TaskCallback<Exception> {
-            override fun onResult(result: Exception) {
-                val configurePicard = Intent(
-                    this@PerformSearchActivity,
-                    PreferencesActivity::class.java
-                )
-                configurePicard.putExtra(
-                    Constants.INTENT_EXTRA_BARCODE,
-                    mBarcode
-                )
-                startActivity(configurePicard)
+    @Throws(IOException::class)
+    private suspend fun releaseLookup(barcode: String?): Array<ReleaseInfo> {
+        var result: Array<ReleaseInfo>
+        withContext(Dispatchers.Default) {
+            val mbClient = MusicBrainzWebClient()
+            val searchTerm = String.format("barcode:%s", barcode)
+            val releases: LinkedList<ReleaseInfo> = mbClient.searchRelease(searchTerm)
+            val releaseArray: Array<ReleaseInfo?> = arrayOfNulls(releases.size)
+            result = releases.toArray(releaseArray)
+        }
+
+        return result
+    }
+
+    @Throws(IOException::class)
+    private suspend fun sendToPicard(releases: Array<ReleaseInfo>) {
+        mLoadingTextView!!.setText(R.string.loading_picard_text)
+        withContext(Dispatchers.Default) {
+            val client = PicardClient(preferences.ipAddress!!, preferences.port)
+            for (release in releases) {
+                client.openRelease(release!!.releaseMbid!!)
             }
         }
-        mLoadingTextView!!.setText(R.string.loading_picard_text)
-        val task = SendToPicardTask(preferences)
-        task.callback = sendToPicardCallback
-        task.errorCallback = errorCallback
-        task.execute(*releases)
+    }
+
+    private fun showResultActivityWithError(errorMessage: String?) {
+        val resultIntent = Intent(
+            this@PerformSearchActivity,
+            ResultActivity::class.java
+        )
+        resultIntent.putExtra(
+            Constants.INTENT_EXTRA_ERROR,
+            errorMessage
+        )
+        startActivity(resultIntent)
+        finish()
+    }
+
+    private fun showResultActivity(releases: Array<ReleaseInfo>) {
+        val resultIntent = Intent(
+            this@PerformSearchActivity,
+            ResultActivity::class.java
+        )
+        val numberOfReleases = releases.size
+        val releaseTitles = arrayOfNulls<String>(numberOfReleases)
+        val releaseArtists = arrayOfNulls<String>(numberOfReleases)
+        val releaseDates = arrayOfNulls<String>(numberOfReleases)
+        for (i in 0 until numberOfReleases) {
+            val release: ReleaseInfo = releases[i]
+            releaseTitles[i] = release.title
+            releaseArtists[i] = getArtistName(release)
+            releaseDates[i] = release.date
+        }
+        resultIntent.putExtra(
+            Constants.INTENT_EXTRA_BARCODE,
+            mBarcode
+        )
+        resultIntent.putExtra(
+            Constants.INTENT_EXTRA_RELEASE_TITLES,
+            releaseTitles
+        )
+        resultIntent.putExtra(
+            Constants.INTENT_EXTRA_RELEASE_ARTISTS,
+            releaseArtists
+        )
+        resultIntent.putExtra(
+            Constants.INTENT_EXTRA_RELEASE_DATES,
+            releaseDates
+        )
+        startActivity(resultIntent)
+        finish()
+    }
+
+    private fun configurePicard() {
+        val configurePicard = Intent(
+            this@PerformSearchActivity,
+            PreferencesActivity::class.java
+        )
+        configurePicard.putExtra(
+            Constants.INTENT_EXTRA_BARCODE,
+            mBarcode
+        )
+        startActivity(configurePicard)
     }
 
     private fun getArtistName(release: ReleaseInfo): String {
