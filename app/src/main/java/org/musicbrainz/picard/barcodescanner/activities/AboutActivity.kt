@@ -24,7 +24,6 @@ import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.*
 import android.widget.TextView
-import androidx.core.view.ContentInfoCompat
 import org.musicbrainz.picard.barcodescanner.R
 
 class AboutActivity : BaseActivity() {
@@ -32,7 +31,7 @@ class AboutActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setSubView(R.layout.activity_about)
         val infoTextView = findViewById<View>(R.id.description_about) as TextView
-        infoTextView.text = Html.fromHtml(getString(R.string.description_about))
+        infoTextView.text = Html.fromHtml(getString(R.string.description_about), Html.FROM_HTML_MODE_LEGACY)
         infoTextView.movementMethod = LinkMovementMethod.getInstance()
     }
 }
