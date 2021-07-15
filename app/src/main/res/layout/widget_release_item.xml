@@ -29,21 +29,21 @@
         android:id="@+id/release_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:textColor="?android:attr/textColorHighlight" />
 
     <TextView
         android:id="@+id/release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:textColor="?android:attr/textColorSecondary" />
 
     <TextView
         android:id="@+id/release_artist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/release_title"
         android:textColor="?android:attr/textColorSecondary" />
 
