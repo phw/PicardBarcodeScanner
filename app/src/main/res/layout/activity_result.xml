@@ -30,6 +30,17 @@
         android:padding="@dimen/window_padding" >
 
         <TextView
+            android:id="@+id/label_error"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:background="@drawable/errorbox"
+            android:padding="@dimen/messagebox_padding"
+            android:textColor="@color/errorColor"
+            android:layout_marginBottom="@dimen/content_padding"
+            android:visibility="gone" />
+
+        <TextView
             android:id="@+id/description_search_result"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

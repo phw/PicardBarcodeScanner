@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+ * Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ * Copyright (C) 2021 Akshat Tiwari
  * 
  * This file is part of MusicBrainz Picard Barcode Scanner.
  * 
@@ -29,7 +30,7 @@ import org.musicbrainz.picard.barcodescanner.util.Constants
 import kotlin.math.min
 
 class ResultActivity : BaseActivity() {
-    var descriptionTextView: TextView? = null
+    private var descriptionTextView: TextView? = null
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,22 +57,31 @@ class ResultActivity : BaseActivity() {
         var numberOfReleases = 0
         val extras = intent.extras
         if (extras != null) {
-            val releaseTitles = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_TITLES)
-            val releaseArtists = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_ARTISTS)
-            val releaseDates = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_DATES)
-            numberOfReleases = min(
-                min(releaseTitles!!.size, releaseArtists!!.size),
-                releaseDates!!.size
-            )
-            val resultList = findViewById<View>(R.id.result_list) as ViewGroup
-            resultList.removeAllViews()
-
-            val inflater = applicationContext.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            for (i in 0 until numberOfReleases) {
-                addReleaseToView(
-                    resultList, inflater, releaseTitles[i],
-                    releaseArtists[i], releaseDates[i]
+            val errorMessage = extras.getString(Constants.INTENT_EXTRA_ERROR)
+            val errorMsg = findViewById<View>(R.id.label_error) as TextView
+            if (errorMessage != null) {
+                errorMsg.visibility = View.VISIBLE
+                errorMsg.text = errorMessage
+            } else {
+                errorMsg.visibility = View.GONE
+                val releaseTitles = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_TITLES)
+                val releaseArtists = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_ARTISTS)
+                val releaseDates = extras.getStringArray(Constants.INTENT_EXTRA_RELEASE_DATES)
+                numberOfReleases = min(
+                    min(releaseTitles!!.size, releaseArtists!!.size),
+                    releaseDates!!.size
                 )
+                val resultList = findViewById<View>(R.id.result_list) as ViewGroup
+                resultList.removeAllViews()
+
+                val inflater =
+                    applicationContext.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                for (i in 0 until numberOfReleases) {
+                    addReleaseToView(
+                        resultList, inflater, releaseTitles[i],
+                        releaseArtists[i], releaseDates[i]
+                    )
+                }
             }
         }
         if (numberOfReleases == 0) {

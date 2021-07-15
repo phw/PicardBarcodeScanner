@@ -23,6 +23,7 @@ package org.musicbrainz.picard.barcodescanner.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
@@ -71,10 +72,24 @@ class PerformSearchActivity : BaseActivity() {
                 }
             }
         mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
+        val errorCallback: TaskCallback<Exception> = object : TaskCallback<Exception> {
+            override fun onResult(result: Exception) {
+                Log.e(this.javaClass.name, result.message, result)
+                val resultIntent = Intent(
+                    this@PerformSearchActivity,
+                    ResultActivity::class.java
+                )
+                resultIntent.putExtra(
+                    Constants.INTENT_EXTRA_ERROR,
+                    result.message
+                )
+                startActivity(resultIntent)
+                finish()
+            }
+        }
         val task = ReleaseLookupTask()
         task.callback = lookupCallback
-        // TODO: Handle error
-        // task.setErrorCallback(errorCallback);
+        task.errorCallback = errorCallback
         task.execute(mBarcode)
     }
 
