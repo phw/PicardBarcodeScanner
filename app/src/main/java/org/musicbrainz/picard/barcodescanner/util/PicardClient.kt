@@ -20,13 +20,10 @@
  */
 package org.musicbrainz.picard.barcodescanner.util
 
-import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
-import java.io.UnsupportedEncodingException
-import java.net.URLEncoder
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
     private val httpClient = OkHttpClient()
@@ -35,7 +32,7 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
     fun openRelease(releaseId: String): Boolean {
         val url = String.format(
             PICARD_OPENALBUM_URL, mIpAddress,
-            mPort, uriEncode(releaseId)
+            mPort, WebServiceUtils.sanitise(releaseId)
         )
         get(url).use { response ->
             return response.isSuccessful
@@ -48,15 +45,6 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
             .url(url)
             .build()
         return httpClient.newCall(request).execute()
-    }
-
-    private fun uriEncode(releaseId: String): String {
-        return try {
-            URLEncoder.encode(releaseId, "UTF-8")
-        } catch (e: UnsupportedEncodingException) {
-            Log.e(this.javaClass.name, e.message, e)
-            URLEncoder.encode(releaseId)
-        }
     }
 
     companion object {
