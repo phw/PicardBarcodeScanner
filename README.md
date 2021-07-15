@@ -46,12 +46,6 @@ Usage
     [Picard documentation](https://picard-docs.musicbrainz.org/en/usage/match.html).
 
 
-Build requirements
-------------------
- * Android ActionBar from https://github.com/johannilsson/android-actionbar
- * The MusicBrainz API from https://github.com/jdamcd/musicbrainz-android/
-
-
 Translations
 ------------
 You can help translate this project into your language. Please visit the Picard Barcode Scanner
