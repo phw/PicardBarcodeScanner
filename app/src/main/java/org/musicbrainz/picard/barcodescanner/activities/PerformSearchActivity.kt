@@ -92,7 +92,6 @@ class PerformSearchActivity : BaseActivity() {
         }
     }
 
-    @Throws(IOException::class)
     private suspend fun releaseLookup(barcode: String?): Array<ReleaseInfo> {
         var result: Array<ReleaseInfo>
         withContext(Dispatchers.IO) {
@@ -106,7 +105,6 @@ class PerformSearchActivity : BaseActivity() {
         return result
     }
 
-    @Throws(IOException::class)
     private suspend fun sendToPicard(releases: Array<ReleaseInfo>) {
         mLoadingTextView!!.setText(R.string.loading_picard_text)
         withContext(Dispatchers.IO) {

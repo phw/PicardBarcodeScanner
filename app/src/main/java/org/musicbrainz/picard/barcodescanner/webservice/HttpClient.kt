@@ -20,11 +20,10 @@
  */
 package org.musicbrainz.picard.barcodescanner.webservice
 
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import okhttp3.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
+import kotlin.coroutines.suspendCoroutine
 
 object HttpClient {
     private const val TIMEOUT : Long = 20000
@@ -33,12 +32,21 @@ object HttpClient {
         .build()
     var userAgent = "picard-android-barcodescanner/1.5"
 
-    @Throws(IOException::class)
-    fun get(url: String): Response {
+    suspend fun get(url: String): Response {
         val request = Request.Builder()
             .header("User-Agent", userAgent)
             .url(url)
             .build()
-        return client.newCall(request).execute()
+        return suspendCoroutine { cont ->
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    cont.resumeWith(Result.failure(e))
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    cont.resumeWith(Result.success(response))
+                }
+            })
+        }
     }
 }

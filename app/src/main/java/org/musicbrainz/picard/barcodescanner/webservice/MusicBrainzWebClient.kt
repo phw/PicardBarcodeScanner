@@ -34,8 +34,7 @@ class MusicBrainzWebClient {
     private var httpClient = HttpClient
     private var responseParser = ResponseParser()
 
-    @Throws(IOException::class)
-    fun searchRelease(searchTerm: String?): LinkedList<ReleaseInfo>{
+    suspend fun searchRelease(searchTerm: String?): LinkedList<ReleaseInfo>{
         val url = QueryBuilder.releaseSearch(searchTerm)
         httpClient.get(url).use { response ->
             if (response.isSuccessful) {

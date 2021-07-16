@@ -26,8 +26,7 @@ import java.io.IOException
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
     private val httpClient = HttpClient
 
-    @Throws(IOException::class)
-    fun openRelease(releaseId: String): Boolean {
+    suspend fun openRelease(releaseId: String): Boolean {
         val url = String.format(
             PICARD_OPENALBUM_URL, mIpAddress,
             mPort, WebServiceUtils.sanitise(releaseId)
