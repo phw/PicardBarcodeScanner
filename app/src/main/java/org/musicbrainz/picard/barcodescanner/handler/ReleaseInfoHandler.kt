@@ -19,7 +19,7 @@ class ReleaseInfoHandler : MBHandler() {
         when (localName) {
             "release" -> {
                 release = ReleaseInfo()
-                release!!.releaseMbid = atts.getValue("id")
+                release!!.id = atts.getValue("id")
             }
             "title" -> {
                 buildString()
