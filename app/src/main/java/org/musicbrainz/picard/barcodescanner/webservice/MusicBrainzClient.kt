@@ -5,7 +5,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitClient {
+class MusicBrainzClient {
 
     private val BASE_URL = "https://musicbrainz.org/ws/2/"
     var userAgent = "picard-android-barcodescanner/1.5"
