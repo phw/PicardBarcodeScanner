@@ -31,7 +31,7 @@ class Preferences(private val mContext: Context) {
         get() {
             val port = mContext.getString(R.string.picard_default_port)
             return try {
-                port.trim { it <= ' ' }.toInt()
+                port.trim().toInt()
             } catch (nfe: NumberFormatException) {
                 0
             }

@@ -5,12 +5,11 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url
 
-
 interface Api {
 
     @GET("release/")
     suspend fun lookupReleaseWithBarcode(@Query("query") barcode: String): BarcodeReleaseResponse
 
     @GET
-    suspend fun sendToPicard(@Url fullUrl: String): Boolean
+    suspend fun sendToPicard(@Url fullUrl: String)
 }

@@ -31,6 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.data.BarcodeReleaseResponse
 import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzClient
@@ -73,15 +74,22 @@ class PerformSearchActivity : BaseActivity() {
     }
 
     private suspend fun search() {
+        val result: BarcodeReleaseResponse
         try {
-            val result = MusicBrainzClient().instance.lookupReleaseWithBarcode(mBarcode!!)
-            mLoadingTextView!!.setText(R.string.loading_picard_text)
+            result = MusicBrainzClient().instance.lookupReleaseWithBarcode(mBarcode!!)
+        }
+        catch (e: Exception){
+            Log.e(this.javaClass.name, e.message, e)
+            showResultActivityWithError(e.message)
+            return
+        }
+        try{
             sendToPicard(result.releases)
             showResultActivity(result.releases)
         }
         catch (e: Exception){
             Log.e(this.javaClass.name, e.message, e)
-            showResultActivityWithError(e.message)
+            configurePicard()
         }
     }
 

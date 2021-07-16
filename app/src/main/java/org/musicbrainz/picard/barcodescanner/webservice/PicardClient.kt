@@ -21,6 +21,7 @@
 package org.musicbrainz.picard.barcodescanner.webservice
 
 import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils
+import java.lang.Exception
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
 
@@ -32,8 +33,7 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
         return try {
             MusicBrainzClient().instance.sendToPicard(url)
             true
-        }
-        catch (e:Exception){
+        } catch (e: Exception){
             false
         }
     }
