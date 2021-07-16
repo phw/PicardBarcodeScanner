@@ -95,7 +95,7 @@ class PerformSearchActivity : BaseActivity() {
     @Throws(IOException::class)
     private suspend fun releaseLookup(barcode: String?): Array<ReleaseInfo> {
         var result: Array<ReleaseInfo>
-        withContext(Dispatchers.Default) {
+        withContext(Dispatchers.IO) {
             val mbClient = MusicBrainzWebClient()
             val searchTerm = String.format("barcode:%s", barcode)
             val releases: LinkedList<ReleaseInfo> = mbClient.searchRelease(searchTerm)
@@ -109,7 +109,7 @@ class PerformSearchActivity : BaseActivity() {
     @Throws(IOException::class)
     private suspend fun sendToPicard(releases: Array<ReleaseInfo>) {
         mLoadingTextView!!.setText(R.string.loading_picard_text)
-        withContext(Dispatchers.Default) {
+        withContext(Dispatchers.IO) {
             val client = PicardClient(preferences.ipAddress!!, preferences.port)
             for (release in releases) {
                 client.openRelease(release.releaseMbid!!)
