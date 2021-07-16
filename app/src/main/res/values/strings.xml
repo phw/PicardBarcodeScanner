@@ -67,5 +67,6 @@ licensed under the
 	<string name="loading_musicbrainz_text">Consulting MusicBrainz&#8230;</string>
 	<string name="loading_picard_text">Sending data to Picard&#8230;</string>
 	<string name="btn_save_preferences">Save settings</string>
-    
+	<string name="barcode">barcode:</string>
+
 </resources>

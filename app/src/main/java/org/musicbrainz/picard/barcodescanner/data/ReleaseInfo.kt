@@ -7,7 +7,7 @@ import java.util.*
  * the same release group).
  */
 class ReleaseInfo : Comparable<ReleaseInfo> {
-    var releaseMbid: String? = null
+    var id: String? = null
     var title: String? = null
     val artists = ArrayList<ReleaseArtist>()
     var date: String? = null
