@@ -83,22 +83,25 @@ class PerformSearchActivity : BaseActivity() {
             showResultActivityWithError(e.message)
             return
         }
-        try{
-            sendToPicard(result.releases)
+        if(sendToPicard(result.releases)){
             showResultActivity(result.releases)
         }
-        catch (e: Exception){
-            Log.e(this.javaClass.name, e.message, e)
+        else{
             configurePicard()
         }
     }
 
-    private suspend fun sendToPicard(releases: List<ReleaseInfo>) {
+    private suspend fun sendToPicard(releases: List<ReleaseInfo>) : Boolean {
         mLoadingTextView!!.setText(R.string.loading_picard_text)
         val client = PicardClient(preferences.ipAddress!!, preferences.port)
+        var status = false
         for (release in releases) {
-            client.openRelease(release.id!!)
+            val result = client.openRelease(release.id!!)
+            if(result){
+                status = true
+            }
         }
+        return status
     }
 
     private fun showResultActivityWithError(errorMessage: String?) {
