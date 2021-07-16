@@ -24,6 +24,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.zxing.integration.android.IntentIntegrator
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.util.Constants
@@ -59,18 +60,13 @@ class ScannerActivity : BaseActivity() {
         }
     }
 
-    public override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
-        val scanResult = IntentIntegrator.parseActivityResult(
-            requestCode, resultCode, intent
-        )
+    private val zxingActivityResultLauncher  = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val scanResult = IntentIntegrator.parseActivityResult(it.resultCode, it.data)
         if (scanResult != null) {
             val barcode = scanResult.contents
-            // if (isRunningInEmulator) barcode = "766929908628" // DEBUG
             if (barcode != null) {
                 startSearchActivity(barcode)
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, intent)
         }
     }
 
@@ -86,7 +82,7 @@ class ScannerActivity : BaseActivity() {
     private fun startScanner() {
         val integrator = IntentIntegrator(this@ScannerActivity)
         integrator.setOrientationLocked(false)
-        integrator.initiateScan()
+        zxingActivityResultLauncher.launch(integrator.createScanIntent())
     }
 
     private fun checkIfSettingsAreComplete(): Boolean {
