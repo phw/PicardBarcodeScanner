@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
   <string name="app_name">סורק ברקוד פיקארד</string>
+  <string name="action_about">אודות</string>
   <string name="action_settings">הגדרות</string>
   <string name="description_connect">על מנת לשלוח ברקוד סרוק לפיקארד, יש לוודא שמכשיר האנדרואיד והמחשב מקושרים לאותה הרשת בה רץ פיקארד. נא להזין את כתובת ה IP ופתחת המחשב מטה.</string>
   <string name="label_connection_error">לא ניתן להתחבר לפיקארד. נא לבדוק הגדרות חיבור וחיבורי ווי-פיי.</string>
@@ -9,6 +10,8 @@
   <string name="btn_picard_connect">קישור לפיקארד</string>
   <string name="description_scanner">נא להשתמש במצלמת המכשיר לסריקת הברקוד תקליטור  או מדיית מוזיקה אחרת. אם  מוזיקבריינז תזהה את המדיה הנתונים יטענו אוטומטית  למוזיקברינז פיקארד.</string>
   <string name="btn_scan_barcode">סריקת ברקוד</string>
+  <string name="description_result">מוזיקברינז  מצא את התוצאות הבאות לברקוד <b>%1$s</b> ושלח אותן לפיקארד.</string>
+  <string name="description_no_result">מוזיקברינז לא מצא הוצאה כלשהי לברקוד <b>%1$s</b>.</string>
   <string name="loading_musicbrainz_text">היוועצות עם מוזיקבריינז</string>
   <string name="loading_picard_text">שיגור נתונים לפיקארד</string>
   <string name="btn_save_preferences">שמירת הגדרות</string>
