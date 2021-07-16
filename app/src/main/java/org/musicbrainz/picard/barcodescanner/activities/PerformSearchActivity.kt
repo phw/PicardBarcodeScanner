@@ -30,12 +30,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
 import org.musicbrainz.picard.barcodescanner.util.Constants
-import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzWebClient
+import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzClient
 import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
-import java.io.IOException
 import java.util.*
 
 class PerformSearchActivity : BaseActivity() {
@@ -74,43 +74,24 @@ class PerformSearchActivity : BaseActivity() {
     }
 
     private suspend fun search() {
-        val releaseList: Array<ReleaseInfo>
         try {
-            releaseList = releaseLookup(mBarcode)
-        } catch (e: IOException) {
+            val result = MusicBrainzClient().instance.lookupReleaseWithBarcode(mBarcode!!)
+            mLoadingTextView!!.setText(R.string.loading_picard_text)
+            sendToPicard(result.releases)
+            showResultActivity(result.releases)
+        }
+        catch (e: Exception){
             Log.e(this.javaClass.name, e.message, e)
             showResultActivityWithError(e.message)
-            return
-        }
-
-        try {
-            sendToPicard(releaseList)
-            showResultActivity(releaseList)
-        } catch (e: IOException) {
-            Log.e(this.javaClass.name, e.message, e)
-            configurePicard()
         }
     }
 
-    private suspend fun releaseLookup(barcode: String?): Array<ReleaseInfo> {
-        var result: Array<ReleaseInfo>
-        withContext(Dispatchers.IO) {
-            val mbClient = MusicBrainzWebClient()
-            val searchTerm = String.format("barcode:%s", barcode)
-            val releases: LinkedList<ReleaseInfo> = mbClient.searchRelease(searchTerm)
-            val releaseArray: Array<ReleaseInfo?> = arrayOfNulls(releases.size)
-            result = releases.toArray(releaseArray)
-        }
-
-        return result
-    }
-
-    private suspend fun sendToPicard(releases: Array<ReleaseInfo>) {
+    private suspend fun sendToPicard(releases: List<ReleaseInfo>) {
         mLoadingTextView!!.setText(R.string.loading_picard_text)
         withContext(Dispatchers.IO) {
             val client = PicardClient(preferences.ipAddress!!, preferences.port)
             for (release in releases) {
-                client.openRelease(release.releaseMbid!!)
+                client.openRelease(release.id!!)
             }
         }
     }
@@ -128,7 +109,7 @@ class PerformSearchActivity : BaseActivity() {
         finish()
     }
 
-    private fun showResultActivity(releases: Array<ReleaseInfo>) {
+    private fun showResultActivity(releases: List<ReleaseInfo>) {
         val resultIntent = Intent(
             this@PerformSearchActivity,
             ResultActivity::class.java
