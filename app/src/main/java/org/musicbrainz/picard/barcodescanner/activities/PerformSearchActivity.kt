@@ -112,7 +112,7 @@ class PerformSearchActivity : BaseActivity() {
         withContext(Dispatchers.Default) {
             val client = PicardClient(preferences.ipAddress!!, preferences.port)
             for (release in releases) {
-                client.openRelease(release!!.releaseMbid!!)
+                client.openRelease(release.releaseMbid!!)
             }
         }
     }
