@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+ * Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+ * Copyright (C) 2021 Akshat Tiwari
  * 
  * This file is part of MusicBrainz Picard Barcode Scanner.
  * 
@@ -20,8 +21,6 @@
 package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
-import android.content.pm.ApplicationInfo
-import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -80,7 +79,4 @@ abstract class BaseActivity : AppCompatActivity() {
             if (mPreferences == null) mPreferences = Preferences(this)
             return mPreferences!!
         }
-    protected val isRunningInEmulator: Boolean
-        get() = ApplicationInfo.FLAG_DEBUGGABLE != 0 &&
-                ("google_sdk" == Build.PRODUCT || "sdk" == Build.PRODUCT || "sdk_x86" == Build.PRODUCT || "sdk_gphone" == Build.PRODUCT || "sdk_gphone_x86" == Build.PRODUCT)
 }
