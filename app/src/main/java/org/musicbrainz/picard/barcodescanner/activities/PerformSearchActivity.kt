@@ -29,7 +29,6 @@ import android.widget.TextView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
@@ -88,11 +87,9 @@ class PerformSearchActivity : BaseActivity() {
 
     private suspend fun sendToPicard(releases: List<ReleaseInfo>) {
         mLoadingTextView!!.setText(R.string.loading_picard_text)
-        withContext(Dispatchers.IO) {
-            val client = PicardClient(preferences.ipAddress!!, preferences.port)
-            for (release in releases) {
-                client.openRelease(release.id!!)
-            }
+        val client = PicardClient(preferences.ipAddress!!, preferences.port)
+        for (release in releases) {
+            client.openRelease(release.id!!)
         }
     }
 

@@ -20,9 +20,7 @@
  */
 package org.musicbrainz.picard.barcodescanner.webservice
 
-import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils
-import java.io.IOException
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
 
@@ -31,19 +29,13 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
             PICARD_OPENALBUM_URL, mIpAddress,
             mPort, WebServiceUtils.sanitise(releaseId)
         )
-        val client = OkHttpClient()
-        val request = Request.Builder().url(url).build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-
-            }
-        })
-        return true
+        return try {
+            MusicBrainzClient().instance.sendToPicard(url)
+            true
+        }
+        catch (e:Exception){
+            false
+        }
     }
 
     companion object {
