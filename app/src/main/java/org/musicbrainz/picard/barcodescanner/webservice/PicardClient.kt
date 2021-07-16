@@ -20,20 +20,34 @@
  */
 package org.musicbrainz.picard.barcodescanner.webservice
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils
 import java.io.IOException
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
-    private val httpClient = HttpClient
 
-    suspend fun openRelease(releaseId: String): Boolean {
+    fun openRelease(releaseId: String): Boolean {
         val url = String.format(
             PICARD_OPENALBUM_URL, mIpAddress,
             mPort, WebServiceUtils.sanitise(releaseId)
         )
-        httpClient.get(url).use { response ->
-            return response.isSuccessful
+
+        CoroutineScope(context = Dispatchers.Default).launch {
+            val client = OkHttpClient()
+            val request = Request.Builder().url(url).build()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {}
+
+                override fun onResponse(call: Call, response: Response) {
+
+                }
+            })
         }
+        return true
     }
 
     companion object {
