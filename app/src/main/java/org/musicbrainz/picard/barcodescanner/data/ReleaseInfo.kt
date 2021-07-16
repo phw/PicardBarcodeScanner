@@ -1,39 +1,20 @@
 package org.musicbrainz.picard.barcodescanner.data
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
 /**
  * Partial release data to differentiate between similar releases (e.g. part of
  * the same release group).
  */
-class ReleaseInfo : Comparable<ReleaseInfo> {
-    var id: String? = null
-    var title: String? = null
-    val artists = ArrayList<ReleaseArtist>()
-    var date: String? = null
-    var tracksNum = 0
-    var countryCode: String? = null
-    private val labels: MutableCollection<String> = LinkedList()
-    private val formats: MutableCollection<String> = LinkedList()
-    fun addArtist(artist: ReleaseArtist) {
-        artists.add(artist)
-    }
 
-    fun getLabels(): Collection<String> {
-        return labels
-    }
+@Parcelize
+data class ReleaseInfo(var id: String? = null,
+                       var title: String? = null,
+                       val artists: ArrayList<ReleaseArtist> = ArrayList<ReleaseArtist>(),
+                       var date: String? = null) : Comparable<ReleaseInfo>, Parcelable {
 
-    fun addLabel(label: String) {
-        labels.add(label)
-    }
-
-    fun getFormats(): Collection<String> {
-        return formats
-    }
-
-    fun addFormat(format: String) {
-        formats.add(format)
-    }
 
     override fun compareTo(other: ReleaseInfo): Int {
         val artistNameComparison = artists[0].compareTo(other.artists[0])
