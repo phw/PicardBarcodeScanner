@@ -2,9 +2,9 @@ package org.musicbrainz.picard.barcodescanner.data
 
 import java.util.*
 
-class BarcodeReleaseResponse {
+class ReleaseSearchResponse {
     var created: String? = null
     var count = 0
     var offset = 0
-    var releases: List<ReleaseInfo> = ArrayList()
+    var releases: List<Release> = ArrayList()
 }

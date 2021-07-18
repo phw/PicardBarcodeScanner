@@ -3,6 +3,7 @@ Version 1.5 - 2021-??-??
 * Barcode scanning in portrait mode is possible
 * Show the read barcode on result page
 * Improved layout for languages with right-to-left text flow
+* Proper display of release artist credits with join phrases
 * Proper error handling for MusicBrainz webservice request failures
 * New loading animation
 * Replaced deprecated legacy APIs

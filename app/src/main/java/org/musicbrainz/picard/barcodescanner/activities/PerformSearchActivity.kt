@@ -22,7 +22,6 @@ package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -31,8 +30,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.R
-import org.musicbrainz.picard.barcodescanner.data.BarcodeReleaseResponse
-import org.musicbrainz.picard.barcodescanner.data.ReleaseInfo
+import org.musicbrainz.picard.barcodescanner.data.ReleaseSearchResponse
+import org.musicbrainz.picard.barcodescanner.data.Release
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzClient
 import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
@@ -74,7 +73,7 @@ class PerformSearchActivity : BaseActivity() {
     }
 
     private suspend fun search() {
-        val result: BarcodeReleaseResponse
+        val result: ReleaseSearchResponse
         try {
             result = MusicBrainzClient().instance.lookupReleaseWithBarcode(getString(R.string.barcode)+mBarcode!!)
         }
@@ -83,21 +82,20 @@ class PerformSearchActivity : BaseActivity() {
             showResultActivityWithError(e.message)
             return
         }
-        if(sendToPicard(result.releases)){
+        if (sendToPicard(result.releases)) {
             showResultActivity(result.releases)
-        }
-        else{
+        } else {
             configurePicard()
         }
     }
 
-    private suspend fun sendToPicard(releases: List<ReleaseInfo>) : Boolean {
+    private suspend fun sendToPicard(releases: List<Release>) : Boolean {
         mLoadingTextView!!.setText(R.string.loading_picard_text)
         val client = PicardClient(preferences.ipAddress!!, preferences.port)
         var status = false
         for (release in releases) {
             val result = client.openRelease(release.id!!)
-            if(result){
+            if (result) {
                 status = true
             }
         }
@@ -117,7 +115,7 @@ class PerformSearchActivity : BaseActivity() {
         finish()
     }
 
-    private fun showResultActivity(releases: List<ReleaseInfo>) {
+    private fun showResultActivity(releases: List<Release>) {
         val resultIntent = Intent(
             this@PerformSearchActivity,
             ResultActivity::class.java
@@ -127,9 +125,9 @@ class PerformSearchActivity : BaseActivity() {
         val releaseArtists = arrayOfNulls<String>(numberOfReleases)
         val releaseDates = arrayOfNulls<String>(numberOfReleases)
         for (i in 0 until numberOfReleases) {
-            val release: ReleaseInfo = releases[i]
+            val release: Release = releases[i]
             releaseTitles[i] = release.title
-            releaseArtists[i] = getArtistName(release)
+            releaseArtists[i] = release.releaseArtist
             releaseDates[i] = release.date
         }
         resultIntent.putExtra(
@@ -162,13 +160,5 @@ class PerformSearchActivity : BaseActivity() {
             mBarcode
         )
         startActivity(configurePicard)
-    }
-
-    private fun getArtistName(release: ReleaseInfo): String {
-        val artistNames = ArrayList<String>()
-        for (artist in release.artists) {
-            artistNames.add(artist.name!!)
-        }
-        return TextUtils.join(", ", artistNames)
     }
 }
