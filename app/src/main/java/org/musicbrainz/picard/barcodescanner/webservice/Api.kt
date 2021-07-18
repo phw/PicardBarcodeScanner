@@ -8,7 +8,7 @@ import retrofit2.http.Url
 interface Api {
 
     @GET("release/")
-    suspend fun lookupReleaseWithBarcode(@Query("query") barcode: String): ReleaseSearchResponse
+    suspend fun lookupReleaseWithQuery(@Query("query") query: String): ReleaseSearchResponse
 
     @GET
     suspend fun sendToPicard(@Url fullUrl: String)

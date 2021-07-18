@@ -75,7 +75,8 @@ class PerformSearchActivity : BaseActivity() {
     private suspend fun search() {
         val result: ReleaseSearchResponse
         try {
-            result = MusicBrainzClient().instance.lookupReleaseWithBarcode(getString(R.string.barcode)+mBarcode!!)
+            val query = getString(R.string.query_barcode, mBarcode)
+            result = MusicBrainzClient().instance.lookupReleaseWithQuery(query)
         }
         catch (e: Exception){
             Log.e(this.javaClass.name, e.message, e)
