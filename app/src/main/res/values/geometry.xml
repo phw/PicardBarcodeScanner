@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2012 Philipp Wolfer <ph.wolfer@googlemail.com>
+	Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@googlemail.com>
 	
 	This file is part of MusicBrainz Picard Barcode Scanner.
 	
@@ -23,6 +23,7 @@
 
     <dimen name="window_padding">16dp</dimen>
     <dimen name="content_padding">12dp</dimen>
-	<dimen name="messagebox_padding">6dp</dimen>
+    <dimen name="content_padding_large">24dp</dimen>
+    <dimen name="messagebox_padding">6dp</dimen>
     
 </resources>

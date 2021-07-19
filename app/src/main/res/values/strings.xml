@@ -56,7 +56,9 @@ licensed under the
 <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 (BY)</a> license.</p>]]></string>
     <string name="action_settings">Settings</string>
     <string name="description_connect">In order to send scanned barcodes to Picard you have to connect your device to the same network as the computer running Picard. Enter the IP address of the computer and Picard\'s port number below.</string>
+    <string name="label_status_update">Checking Picard connection&#8230;</string>
     <string name="label_connection_error">Could not connect to Picard. Please check the connection settings and your Wi-Fi connection.</string>
+    <string name="label_connection_no_config">Picard connection not configured.</string>
     <string name="picard_ip_address">IP address:</string>
     <string name="picard_port">Port:</string>
     <string name="btn_picard_connect">Connect with Picard</string>

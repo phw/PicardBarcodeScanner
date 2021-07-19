@@ -28,6 +28,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.google.zxing.integration.android.IntentIntegrator
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.util.Constants
+import org.musicbrainz.picard.barcodescanner.views.ConnectionStatusView
 import java.util.*
 
 class ScannerActivity : BaseActivity() {
@@ -40,15 +41,17 @@ class ScannerActivity : BaseActivity() {
         val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
         connectBtn.setOnClickListener { startScanner() }
         handleIntents()
+        val connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
+        connectionBox!!.setOnClickListener {
+            startPreferencesActivity()
+        }
 
-        if (!checkIfSettingsAreComplete()) {
-            val configurePicard = Intent(
-                this@ScannerActivity,
-                PreferencesActivity::class.java
-            )
-            startActivity(configurePicard)
+        if (!preferences.connectionConfigured) {
+            startPreferencesActivity()
         } else if (mAutoStart) {
             startScanner()
+        } else {
+            connectionBox.updateStatus(preferences.ipAddress, preferences.port)
         }
     }
 
@@ -70,6 +73,14 @@ class ScannerActivity : BaseActivity() {
         }
     }
 
+    private fun startPreferencesActivity() {
+        val configurePicard = Intent(
+            this@ScannerActivity,
+            PreferencesActivity::class.java
+        )
+        startActivity(configurePicard)
+    }
+
     private fun startSearchActivity(barcode: String) {
         val resultIntent = Intent(
             this@ScannerActivity,
@@ -83,9 +94,5 @@ class ScannerActivity : BaseActivity() {
         val integrator = IntentIntegrator(this@ScannerActivity)
         integrator.setOrientationLocked(false)
         zxingActivityResultLauncher.launch(integrator.createScanIntent())
-    }
-
-    private fun checkIfSettingsAreComplete(): Boolean {
-        return preferences.ipAddress != "" && preferences.port > 0
     }
 }

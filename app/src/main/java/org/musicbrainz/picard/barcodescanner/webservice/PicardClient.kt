@@ -20,25 +20,54 @@
  */
 package org.musicbrainz.picard.barcodescanner.webservice
 
+import org.musicbrainz.picard.barcodescanner.data.PicardPingResult
 import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.lang.Exception
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
 
     suspend fun openRelease(releaseId: String): Boolean {
-        val url = String.format(
-            PICARD_OPENALBUM_URL, mIpAddress,
-            mPort, WebServiceUtils.sanitise(releaseId)
-        )
         return try {
-            MusicBrainzClient().instance.sendToPicard(url)
+            instance.openAlbum(WebServiceUtils.sanitise(releaseId))
             true
-        } catch (e: Exception){
+        } catch (e: Exception) {
             false
         }
     }
 
+    suspend fun ping(): PicardPingResult {
+        return try {
+            val result = instance.ping()
+            val match = pingResponseRegex.matchEntire((result))
+            when {
+                match != null -> PicardPingResult(true, getAppName(match.groupValues[1]))
+                result == legacyPingResponse -> PicardPingResult(true, getAppName())
+                else -> PicardPingResult(false, "")
+            }
+        } catch (e: Exception) {
+            PicardPingResult(false, "")
+        }
+    }
+
+    private fun getAppName(version: String? = null): String {
+        return picardAppName.format(version).trimEnd()
+    }
+
+    private val instance: PicardApi by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(String.format(PICARD_BASE_URL, mIpAddress, mPort))
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .build()
+
+        retrofit.create(PicardApi::class.java)
+    }
+
     companion object {
-        private const val PICARD_OPENALBUM_URL = "http://%s:%d/openalbum?id=%s"
+        private const val PICARD_BASE_URL = "http://%s:%d/"
+        private val pingResponseRegex = Regex("MusicBrainz-Picard/(.*)")
+        private const val legacyPingResponse = "Nothing to see here"
+        private const val picardAppName = "MusicBrainz Picard %s"
     }
 }

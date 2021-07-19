@@ -2,6 +2,7 @@ Version 1.5 - 2021-??-??
 * Built-in barcode scanner, no longer relying on external app
 * Barcode scanning in portrait mode is possible
 * Show the read barcode on result page
+* Show Picard connection status
 * Improved layout for languages with right-to-left text flow
 * Proper display of release artist credits with join phrases
 * Proper error handling for MusicBrainz webservice request failures

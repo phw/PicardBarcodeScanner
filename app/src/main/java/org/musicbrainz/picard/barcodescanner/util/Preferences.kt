@@ -46,4 +46,8 @@ class Preferences(private val mContext: Context) {
         editor.apply()
     }
 
+    val connectionConfigured: Boolean
+        get() {
+            return !ipAddress.isNullOrBlank() && port > 0
+        }
 }
