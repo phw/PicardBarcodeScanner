@@ -8,7 +8,7 @@
     <uses-feature android:name="android.hardware.camera"/>
 
     <application
-        android:icon="@drawable/picard"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/PicardBarcodeScanner"
         android:supportsRtl="true"

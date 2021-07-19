@@ -99,14 +99,19 @@ class ScannerActivity : BaseActivity() {
         if (checkIfSettingsAreComplete()) {
             val client = PicardClient(preferences.ipAddress!!, preferences.port)
             val status = client.ping()
-            val statusLabel = findViewById<View>(R.id.label_connection_status) as TextView
+            val appLabel = findViewById<View>(R.id.status_application_name) as TextView
+            val hostLabel = findViewById<View>(R.id.status_connection_host) as TextView
+            val errorLabel = findViewById<View>(R.id.status_no_connection) as TextView
             if (status.active) {
-                statusLabel.visibility = View.VISIBLE
-                statusLabel.text = getString(
-                    R.string.label_connection_status,
-                    status.application, preferences.ipAddress, preferences.port)
+                appLabel.visibility = View.VISIBLE
+                hostLabel.visibility = View.VISIBLE
+                errorLabel.visibility = View.GONE
+                appLabel.text = status.application
+                hostLabel.text = "%s:%d".format(preferences.ipAddress, preferences.port)
             } else {
-                statusLabel.visibility = View.INVISIBLE
+                appLabel.visibility = View.GONE
+                hostLabel.visibility = View.GONE
+                errorLabel.visibility = View.VISIBLE
             }
         }
     }

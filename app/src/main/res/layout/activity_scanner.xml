@@ -34,18 +34,18 @@
             android:layout_height="wrap_content"
             android:text="@string/description_scanner" />
 
-        <TextView
-            android:id="@+id/label_connection_status"
-            android:layout_width="fill_parent"
+        <include
+            layout="@layout/connection_status"
+            android:id="@+id/connection_status_box"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:text="@string/label_connection_status" />
+            android:layout_marginTop="@dimen/content_padding_large" />
 
         <Button
             android:id="@+id/btn_scan_barcode"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/content_padding"
+            android:layout_marginTop="@dimen/content_padding_large"
             android:drawableStart="@drawable/ic_action_barcode_1"
             android:text="@string/btn_scan_barcode" />
     
