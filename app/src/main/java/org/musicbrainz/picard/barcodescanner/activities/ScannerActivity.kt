@@ -41,17 +41,16 @@ class ScannerActivity : BaseActivity() {
         val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
         connectBtn.setOnClickListener { startScanner() }
         handleIntents()
+        val connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
+        connectionBox!!.setOnClickListener {
+            startPreferencesActivity()
+        }
 
         if (!preferences.connectionConfigured) {
-            val configurePicard = Intent(
-                this@ScannerActivity,
-                PreferencesActivity::class.java
-            )
-            startActivity(configurePicard)
+            startPreferencesActivity()
         } else if (mAutoStart) {
             startScanner()
         } else {
-            val connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
             connectionBox.updateStatus(preferences.ipAddress, preferences.port)
         }
     }
@@ -72,6 +71,14 @@ class ScannerActivity : BaseActivity() {
                 startSearchActivity(barcode)
             }
         }
+    }
+
+    private fun startPreferencesActivity() {
+        val configurePicard = Intent(
+            this@ScannerActivity,
+            PreferencesActivity::class.java
+        )
+        startActivity(configurePicard)
     }
 
     private fun startSearchActivity(barcode: String) {
