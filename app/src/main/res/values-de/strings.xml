@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-  <string name="app_name">Picard Barcode-Scanner</string>
-  <string name="action_about">Über</string>
-  <string name="description_about"><![CDATA[<p>Copyright © 2012-2014, 2020-2021 Philipp Wolfer<br>
+    <string name="app_name">Picard Barcode-Scanner</string>
+    <string name="action_about">Über</string>
+    <string name="description_about"><![CDATA[<p>Copyright © 2012-2014, 2020-2021 Philipp Wolfer<br>
 Copyright © 2021 Akshat Tiwari</p>
 
 <p style=\"text-align: center\">
@@ -28,17 +28,19 @@ Lizenz.</p>
 <p>Lade-Animation von <a href="https://lottiefiles.com/7290-music-play">杜磊 on LottieFiles</a>
 lizenziert unter der
 <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 (BY)</a> Lizenz .</p>]]></string>
-  <string name="action_settings">Einstellungen</string>
-  <string name="description_connect">Um die eingescannten Barcodes an Picard senden zu können, müssen Sie Ihr Gerät und den Computer, auf dem Picard läuft, mit dem gleichen WLAN verbinden. Geben Sie hier die IP-Adresse des Computers und die Port-Nummer von Picard ein.</string>
-  <string name="label_connection_error">Konnte nicht mit Picard verbinden. Bitte überprüfen Sie die Einstellungen und die WLAN-Verbindung.</string>
-  <string name="picard_ip_address">IP-Adresse:</string>
-  <string name="picard_port">Port:</string>
-  <string name="btn_picard_connect">Mit Picard verbinden</string>
-  <string name="description_scanner">Verwenden Sie die Kamera Ihres Geräts, um den Barcode einer CD oder anderer Musikmedien zu scannen. Wenn MusicBrainz die Musikmedien kennt, werden diese automatisch in MusicBrainz Picard geladen.</string>
-  <string name="btn_scan_barcode">Barcode scannen</string>
-  <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für den Barcode <b>%1$s</b> gefunden und an Picard gesendet:</string>
-  <string name="description_no_result">Für den Barcode <b>%1$s</b> konnte MusicBrainz keine Veröffentlichungen finden.</string>
-  <string name="loading_musicbrainz_text">Sende Anfrage an MusicBrainz…</string>
-  <string name="loading_picard_text">Sende Daten an Picard…</string>
-  <string name="btn_save_preferences">Einstellungen speichern</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="description_connect">Um die eingescannten Barcodes an Picard senden zu können, müssen Sie Ihr Gerät und den Computer, auf dem Picard läuft, mit dem gleichen WLAN verbinden. Geben Sie hier die IP-Adresse des Computers und die Port-Nummer von Picard ein.</string>
+    <string name="label_connection_error">Konnte nicht mit Picard verbinden. Bitte überprüfen Sie die Einstellungen und die WLAN-Verbindung.</string>
+    <string name="picard_ip_address">IP-Adresse:</string>
+    <string name="picard_port">Port:</string>
+    <string name="btn_picard_connect">Mit Picard verbinden</string>
+    <string name="description_scanner">Verwenden Sie die Kamera Ihres Geräts, um den Barcode einer CD oder anderer Musikmedien zu scannen. Wenn MusicBrainz die Musikmedien kennt, werden diese automatisch in MusicBrainz Picard geladen.</string>
+    <string name="btn_scan_barcode">Barcode scannen</string>
+    <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für den Barcode <b>%1$s</b> gefunden und an Picard gesendet:</string>
+    <string name="description_no_result">Für den Barcode <b>%1$s</b> konnte MusicBrainz keine Veröffentlichungen finden.</string>
+    <string name="loading_musicbrainz_text">Sende Anfrage an MusicBrainz…</string>
+    <string name="loading_picard_text">Sende Daten an Picard…</string>
+    <string name="btn_save_preferences">Einstellungen speichern</string>
+    <string name="label_status_update">Überprüfe Verbindung zu Picard…</string>
+    <string name="label_connection_no_config">Verbindung zu Picard nicht konfiguriert.</string>
 </resources>
