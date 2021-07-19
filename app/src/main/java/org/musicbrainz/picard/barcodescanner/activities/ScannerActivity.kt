@@ -33,6 +33,7 @@ import java.util.*
 
 class ScannerActivity : BaseActivity() {
     private var mAutoStart = false
+    private var connectionBox: ConnectionStatusView? = null
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,18 +41,14 @@ class ScannerActivity : BaseActivity() {
         setSubView(R.layout.activity_scanner)
         val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
         connectBtn.setOnClickListener { startScanner() }
+        connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
+        connectionBox!!.setOnClickListener { startPreferencesActivity() }
         handleIntents()
-        val connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
-        connectionBox!!.setOnClickListener {
-            startPreferencesActivity()
-        }
 
         if (!preferences.connectionConfigured) {
             startPreferencesActivity()
         } else if (mAutoStart) {
             startScanner()
-        } else {
-            connectionBox.updateStatus(preferences.ipAddress, preferences.port)
         }
     }
 
@@ -61,6 +58,8 @@ class ScannerActivity : BaseActivity() {
         if (extras != null) {
             mAutoStart = extras.getBoolean(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, false)
         }
+
+        connectionBox!!.updateStatus(preferences.ipAddress, preferences.port)
     }
 
     private val zxingActivityResultLauncher  = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
