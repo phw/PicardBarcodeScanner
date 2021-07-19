@@ -28,18 +28,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/window_padding" >
-    
+
+        <org.musicbrainz.picard.barcodescanner.views.ConnectionStatusView
+            android:id="@+id/connection_status_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/content_padding"
+            android:layout_marginBottom="@dimen/content_padding_large" />
+
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/description_scanner" />
-
-        <include
-            layout="@layout/connection_status"
-            android:id="@+id/connection_status_box"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/content_padding_large" />
 
         <Button
             android:id="@+id/btn_scan_barcode"

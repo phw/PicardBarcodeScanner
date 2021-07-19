@@ -26,40 +26,41 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.util.Constants
+import org.musicbrainz.picard.barcodescanner.views.ConnectionStatusView
 
 class PreferencesActivity : BaseActivity() {
-    private var mIpAddressInput: EditText? = null
-    private var mPortInput: EditText? = null
-    private var mConnectBtn: Button? = null
-    private var mBarcode: String? = null
+    private var ipAddressInput: EditText? = null
+    private var portInput: EditText? = null
+    private var connectBtn: Button? = null
+    private var barcode: String? = null
+    private var connectionBox: ConnectionStatusView? = null
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSubView(R.layout.activity_preferences)
-        mIpAddressInput = findViewById<View>(R.id.picard_ip_address) as EditText
-        mPortInput = findViewById<View>(R.id.picard_port) as EditText
-        mConnectBtn = findViewById<View>(R.id.btn_picard_connect) as Button
+        ipAddressInput = findViewById<View>(R.id.picard_ip_address) as EditText
+        portInput = findViewById<View>(R.id.picard_port) as EditText
+        connectBtn = findViewById<View>(R.id.btn_picard_connect) as Button
+        connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
         val actionBar = supportActionBar
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         handleIntents()
-        registerEventListeners()
         loadFormDataFromPreferences()
         checkConnectButtonEnabled()
-        if (mBarcode != null) {
-            val errorMsg = findViewById<View>(R.id.label_connection_error) as TextView
-            errorMsg.visibility = View.VISIBLE
-            mConnectBtn!!.setText(R.string.btn_picard_connect)
+        registerEventListeners()
+        checkConnectionStatus()
+        if (barcode != null) {
+            connectBtn!!.setText(R.string.btn_picard_connect)
         }
     }
 
     override fun handleIntents() {
         super.handleIntents()
         val extras = intent.extras
-        mBarcode = extras?.getString(Constants.INTENT_EXTRA_BARCODE)
+        barcode = extras?.getString(Constants.INTENT_EXTRA_BARCODE)
     }
 
     private fun registerEventListeners() {
@@ -69,6 +70,7 @@ class PreferencesActivity : BaseActivity() {
                 count: Int
             ) {
                 checkConnectButtonEnabled()
+                checkConnectionStatus()
             }
 
             override fun beforeTextChanged(
@@ -79,8 +81,9 @@ class PreferencesActivity : BaseActivity() {
 
             override fun afterTextChanged(s: Editable) {}
         }
-        mIpAddressInput!!.addTextChangedListener(textWatcher)
-        mConnectBtn!!.setOnClickListener {
+        ipAddressInput!!.addTextChangedListener(textWatcher)
+        portInput!!.addTextChangedListener(textWatcher)
+        connectBtn!!.setOnClickListener {
             preferences.setIpAddressAndPort(
                 readIpAddressFromInput(),
                 readPortFromInput()
@@ -90,20 +93,20 @@ class PreferencesActivity : BaseActivity() {
     }
 
     private fun loadFormDataFromPreferences() {
-        mIpAddressInput!!.setText(preferences.ipAddress)
-        mPortInput!!.setText(java.lang.String.valueOf(preferences.port))
+        ipAddressInput!!.setText(preferences.ipAddress)
+        portInput!!.setText(java.lang.String.valueOf(preferences.port))
     }
 
     private fun checkConnectButtonEnabled() {
-        mConnectBtn!!.isEnabled = readIpAddressFromInput() != ""
+        connectBtn!!.isEnabled = readIpAddressFromInput() != ""
     }
 
     private fun readIpAddressFromInput(): String {
-        return mIpAddressInput!!.text.toString()
+        return ipAddressInput!!.text.toString()
     }
 
     private fun readPortFromInput(): Int {
-        val port = mPortInput!!.text.toString()
+        val port = portInput!!.text.toString()
         return try {
             port.trim { it <= ' ' }.toInt()
         } catch (nfe: NumberFormatException) {
@@ -111,9 +114,13 @@ class PreferencesActivity : BaseActivity() {
         }
     }
 
+    private fun checkConnectionStatus() {
+        connectionBox!!.updateStatus(readIpAddressFromInput(), readPortFromInput())
+    }
+
     private fun startNextActivity() {
         val intent: Intent
-        if (mBarcode == null) {
+        if (barcode == null) {
             intent = Intent(this@PreferencesActivity, ScannerActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         } else {
@@ -121,7 +128,7 @@ class PreferencesActivity : BaseActivity() {
                 this@PreferencesActivity,
                 PerformSearchActivity::class.java
             )
-            intent.putExtra(Constants.INTENT_EXTRA_BARCODE, mBarcode)
+            intent.putExtra(Constants.INTENT_EXTRA_BARCODE, barcode)
         }
         startActivity(intent)
         finish()

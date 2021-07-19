@@ -79,8 +79,4 @@ abstract class BaseActivity : AppCompatActivity() {
             if (mPreferences == null) mPreferences = Preferences(this)
             return mPreferences!!
         }
-
-    protected fun checkIfSettingsAreComplete(): Boolean {
-        return preferences.ipAddress != "" && preferences.port > 0
-    }
 }

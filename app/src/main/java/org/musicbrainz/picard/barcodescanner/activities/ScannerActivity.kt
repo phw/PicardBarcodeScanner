@@ -24,20 +24,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.zxing.integration.android.IntentIntegrator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.util.Constants
-import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
+import org.musicbrainz.picard.barcodescanner.views.ConnectionStatusView
 import java.util.*
 
 class ScannerActivity : BaseActivity() {
     private var mAutoStart = false
-    private val uiScope = CoroutineScope(Dispatchers.Main)
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +42,7 @@ class ScannerActivity : BaseActivity() {
         connectBtn.setOnClickListener { startScanner() }
         handleIntents()
 
-        if (!checkIfSettingsAreComplete()) {
+        if (!preferences.connectionConfigured) {
             val configurePicard = Intent(
                 this@ScannerActivity,
                 PreferencesActivity::class.java
@@ -56,9 +51,8 @@ class ScannerActivity : BaseActivity() {
         } else if (mAutoStart) {
             startScanner()
         } else {
-            uiScope.launch {
-                checkConnectionStatus()
-            }
+            val connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
+            connectionBox.updateStatus(preferences.ipAddress, preferences.port)
         }
     }
 
@@ -93,26 +87,5 @@ class ScannerActivity : BaseActivity() {
         val integrator = IntentIntegrator(this@ScannerActivity)
         integrator.setOrientationLocked(false)
         zxingActivityResultLauncher.launch(integrator.createScanIntent())
-    }
-
-    private suspend fun checkConnectionStatus() {
-        if (checkIfSettingsAreComplete()) {
-            val client = PicardClient(preferences.ipAddress!!, preferences.port)
-            val status = client.ping()
-            val appLabel = findViewById<View>(R.id.status_application_name) as TextView
-            val hostLabel = findViewById<View>(R.id.status_connection_host) as TextView
-            val errorLabel = findViewById<View>(R.id.status_no_connection) as TextView
-            if (status.active) {
-                appLabel.visibility = View.VISIBLE
-                hostLabel.visibility = View.VISIBLE
-                errorLabel.visibility = View.GONE
-                appLabel.text = status.application
-                hostLabel.text = "%s:%d".format(preferences.ipAddress, preferences.port)
-            } else {
-                appLabel.visibility = View.GONE
-                hostLabel.visibility = View.GONE
-                errorLabel.visibility = View.VISIBLE
-            }
-        }
     }
 }

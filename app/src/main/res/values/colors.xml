@@ -21,7 +21,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <color name="errorColor">#B94A48</color>
-    <color name="errorBackgroundColor">#F2DEDE</color>
+    <color name="errorColor">#FFFFFF</color>
+    <color name="errorBackgroundColor">#FF5722</color>
 
 </resources>

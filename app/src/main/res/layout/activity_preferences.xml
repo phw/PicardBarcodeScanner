@@ -1,87 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
-	
-	This file is part of MusicBrainz Picard Barcode Scanner.
-	
-	MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
-	and/or modify it under the terms of the GNU General Public License as
-	published by the Free Software Foundation, either version 3 of the License,
-	or (at your option) any later version.
-	
-	MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be
-	useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-	Public License for more details.
-	
-	You should have received a copy of the GNU General Public License along with
-	MusicBrainz Picard Barcode Scanner. If not, see
-	<http://www.gnu.org/licenses/>.
+    Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@gmail.com>
+
+    This file is part of MusicBrainz Picard Barcode Scanner.
+
+    MusicBrainz Picard Barcode Scanner is free software: you can redistribute it
+    and/or modify it under the terms of the GNU General Public License as
+    published by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be
+    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+    Public License for more details.
+
+    You should have received a copy of the GNU General Public License along with
+    MusicBrainz Picard Barcode Scanner. If not, see
+    <http://www.gnu.org/licenses/>.
 -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
     
-	<LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    android:padding="@dimen/window_padding" >
-	
-	    <TextView
-	        android:id="@+id/label_connection_error"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/label_connection_error"
-	        android:background="@drawable/errorbox"
-	        android:padding="@dimen/messagebox_padding"
-	        android:textColor="@color/errorColor"
-	        android:layout_marginBottom="@dimen/content_padding"
-	        android:visibility="gone"
-	        />
-	    
-	    <TextView
-	        android:id="@+id/description_connect"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/description_connect" />
-	
-	    <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:labelFor="@id/picard_ip_address"
-	        android:layout_marginTop="@dimen/content_padding"
-	        android:text="@string/picard_ip_address" />
-	
-	    <EditText
-	        android:id="@+id/picard_ip_address"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:labelFor="@id/picard_port"
-	        android:layout_marginTop="@dimen/content_padding"
-	        android:inputType="textNoSuggestions" />
-	
-	    <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="@dimen/content_padding"
-	        android:text="@string/picard_port" />
-	
-	    <EditText
-	        android:id="@+id/picard_port"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="@dimen/content_padding"
-	        android:inputType="number" />
-	
-	    <Button
-	        android:id="@+id/btn_picard_connect"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="@dimen/content_padding"
-	        android:drawableStart="@drawable/ic_action_music_1"
-	        android:text="@string/btn_save_preferences" />
-	
-	</LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/window_padding" >
+
+        <org.musicbrainz.picard.barcodescanner.views.ConnectionStatusView
+            android:id="@+id/connection_status_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/content_padding"
+            android:layout_marginBottom="@dimen/content_padding_large" />
+        
+        <TextView
+            android:id="@+id/description_connect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description_connect" />
+    
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/picard_ip_address"
+            android:layout_marginTop="@dimen/content_padding"
+            android:text="@string/picard_ip_address" />
+    
+        <EditText
+            android:id="@+id/picard_ip_address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/picard_port"
+            android:layout_marginTop="@dimen/content_padding"
+            android:inputType="textNoSuggestions" />
+    
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"
+            android:text="@string/picard_port" />
+    
+        <EditText
+            android:id="@+id/picard_port"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"
+            android:inputType="number" />
+    
+        <Button
+            android:id="@+id/btn_picard_connect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"
+            android:drawableStart="@drawable/ic_action_music_1"
+            android:text="@string/btn_save_preferences" />
+    
+    </LinearLayout>
 </ScrollView>
