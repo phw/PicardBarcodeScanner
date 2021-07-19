@@ -5,6 +5,7 @@ Version 1.5 - 2021-??-??
 * Improved layout for languages with right-to-left text flow
 * Proper display of release artist credits with join phrases
 * Proper error handling for MusicBrainz webservice request failures
+* Fixed display of long release titles in result view
 * New loading animation
 * Replaced deprecated legacy APIs
 * Updated French German and Hebrew translations
