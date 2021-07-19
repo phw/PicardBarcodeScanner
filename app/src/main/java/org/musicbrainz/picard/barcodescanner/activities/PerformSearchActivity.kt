@@ -77,6 +77,10 @@ class PerformSearchActivity : BaseActivity() {
         try {
             val query = getString(R.string.query_barcode, mBarcode)
             result = MusicBrainzClient().instance.lookupReleaseWithQuery(query)
+            if (result.releases.isEmpty()) {
+                showResultActivity(result.releases)
+                return
+            }
         }
         catch (e: Exception){
             Log.e(this.javaClass.name, e.message, e)
