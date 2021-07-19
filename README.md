@@ -49,7 +49,7 @@ Usage
 Translations
 ------------
 You can help translate this project into your language. Please visit the Picard Barcode Scanner
-localization project on https://translate.uploadedlobster.com/projects/picard-barcode-scanner/
+localization project on https://translate.uploadedlobster.com/engage/picard-barcode-scanner/
 
 
 License
