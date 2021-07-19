@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MusicBrainzClient {
 
-    private val BASE_URL = "https://musicbrainz.org/ws/2/"
+    private val baseUrl = "https://musicbrainz.org/ws/2/"
     var userAgent = "picard-android-barcodescanner/1.5"
 
     private val okHttpClient = OkHttpClient.Builder()
@@ -23,15 +23,14 @@ class MusicBrainzClient {
             chain.proceed(request)
         }.build()
 
-
-    val instance: Api by lazy {
+    val instance: MusicBrainzApi by lazy {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .client(okHttpClient)
             .build()
 
-        retrofit.create(Api::class.java)
+        retrofit.create(MusicBrainzApi::class.java)
     }
 
 }

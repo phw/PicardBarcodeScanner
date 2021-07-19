@@ -24,14 +24,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.zxing.integration.android.IntentIntegrator
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.util.Constants
+import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
 import java.util.*
 
 class ScannerActivity : BaseActivity() {
     private var mAutoStart = false
+    private val uiScope = CoroutineScope(Dispatchers.Main)
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +55,10 @@ class ScannerActivity : BaseActivity() {
             startActivity(configurePicard)
         } else if (mAutoStart) {
             startScanner()
+        } else {
+            uiScope.launch {
+                checkConnectionStatus()
+            }
         }
     }
 
@@ -85,7 +95,19 @@ class ScannerActivity : BaseActivity() {
         zxingActivityResultLauncher.launch(integrator.createScanIntent())
     }
 
-    private fun checkIfSettingsAreComplete(): Boolean {
-        return preferences.ipAddress != "" && preferences.port > 0
+    private suspend fun checkConnectionStatus() {
+        if (checkIfSettingsAreComplete()) {
+            val client = PicardClient(preferences.ipAddress!!, preferences.port)
+            val status = client.ping()
+            val statusLabel = findViewById<View>(R.id.label_connection_status) as TextView
+            if (status.active) {
+                statusLabel.visibility = View.VISIBLE
+                statusLabel.text = getString(
+                    R.string.label_connection_status,
+                    status.application, preferences.ipAddress, preferences.port)
+            } else {
+                statusLabel.visibility = View.INVISIBLE
+            }
+        }
     }
 }
