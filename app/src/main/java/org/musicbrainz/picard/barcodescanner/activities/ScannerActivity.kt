@@ -92,6 +92,12 @@ class ScannerActivity : BaseActivity() {
     private fun startScanner() {
         val integrator = IntentIntegrator(this@ScannerActivity)
         integrator.setOrientationLocked(false)
+        integrator.setDesiredBarcodeFormats(
+            IntentIntegrator.EAN_13,
+            IntentIntegrator.EAN_8,
+            IntentIntegrator.UPC_A,
+            IntentIntegrator.UPC_E,
+        )
         zxingActivityResultLauncher.launch(integrator.createScanIntent())
     }
 }
