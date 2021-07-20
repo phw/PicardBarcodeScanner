@@ -59,6 +59,7 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
         val retrofit = Retrofit.Builder()
             .baseUrl(String.format(PICARD_BASE_URL, mIpAddress, mPort))
             .addConverterFactory(ScalarsConverterFactory.create())
+            .client(HttpClient)
             .build()
 
         retrofit.create(PicardApi::class.java)

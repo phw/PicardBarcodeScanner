@@ -1,7 +1,6 @@
 package org.musicbrainz.picard.barcodescanner.webservice
 
 import com.google.gson.GsonBuilder
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -10,7 +9,7 @@ class MusicBrainzClient {
     private val baseUrl = "https://musicbrainz.org/ws/2/"
     var userAgent = "picard-android-barcodescanner/1.5"
 
-    private val okHttpClient = OkHttpClient.Builder()
+    private val okHttpClient = HttpClient.newBuilder()
         .addInterceptor { chain ->
             val original = chain.request()
 
