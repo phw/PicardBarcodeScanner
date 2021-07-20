@@ -55,11 +55,13 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/picard_port"
             android:layout_marginTop="@dimen/content_padding"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:importantForAutofill="no" />
     
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:labelFor="@id/picard_port"
             android:layout_marginTop="@dimen/content_padding"
             android:text="@string/picard_port" />
     
@@ -68,7 +70,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/content_padding"
-            android:inputType="number" />
+            android:inputType="number"
+            android:importantForAutofill="no" />
     
         <Button
             android:id="@+id/btn_picard_connect"
