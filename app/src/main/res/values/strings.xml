@@ -22,6 +22,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <string name="app_name">Picard Barcode Scanner</string>
+    <string name="app_version">Version %1$s</string>
     <string name="action_about">About</string>
     <string name="about_copyright"><![CDATA[Copyright © 2012-2014, 2020-2021 Philipp Wolfer<br>Copyright © 2021 Akshat Tiwari<br><br><a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>]]></string>
     <string name="about_license_1"><![CDATA[MusicBrainz Picard Barcode Scanner is free software: you can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a> as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.]]></string>

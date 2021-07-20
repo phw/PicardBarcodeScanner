@@ -22,7 +22,7 @@ package org.musicbrainz.picard.barcodescanner.activities
 import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
-import android.view.*
+import android.view.View
 import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
 
@@ -38,6 +38,9 @@ class AboutActivity : BaseActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSubView(R.layout.activity_about)
+        val versionTextView = findViewById<View>(R.id.application_version) as TextView
+        val versionName = packageManager.getPackageInfo(packageName, 0).versionName
+        versionTextView.text = getString(R.string.app_version, versionName)
         for ((rText, rView) in contentMappings) {
             val infoTextView = findViewById<View>(rView) as TextView
             infoTextView.text = Html.fromHtml(getString(rText), Html.FROM_HTML_MODE_LEGACY)

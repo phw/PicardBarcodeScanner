@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">Picard-strekkodeskanner</string>
+    <string name="app_version">Versjon %1$s</string>
     <string name="about_copyright"><![CDATA[Opphavsrett © 2012-2014, 2020-2021 Philipp Wolfer<br>Opphavsrett © 2021 Akshat Tiwari<br><br><a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>]]></string>
     <string name="about_license_1"><![CDATA[MusicBrainz Picard-strekkodeskanneren er fri programvare lisensiert GPLv3+.]]></string>
     <string name="about_icons"><![CDATA[Brukergrensesnittet bruker Android-utviklerikonene fra <a href=https://github.com/opoloo/androidicons>https://github.com/opoloo/androidicons</a>, lisensiert <a href=https://creativecommons.org/licenses/by-sa/4.0/>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.]]></string>
