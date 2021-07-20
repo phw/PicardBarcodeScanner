@@ -25,6 +25,7 @@ import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.lang.Exception
+import java.util.concurrent.TimeUnit
 
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
 
@@ -57,18 +58,21 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
 
     private val instance: PicardApi by lazy {
         val retrofit = Retrofit.Builder()
-            .baseUrl(String.format(PICARD_BASE_URL, mIpAddress, mPort))
+            .baseUrl(String.format(baseUrl, mIpAddress, mPort))
             .addConverterFactory(ScalarsConverterFactory.create())
-            .client(HttpClient)
+            .client(okHttpClient)
             .build()
 
         retrofit.create(PicardApi::class.java)
     }
 
     companion object {
-        private const val PICARD_BASE_URL = "http://%s:%d/"
+        private const val baseUrl = "http://%s:%d/"
         private val pingResponseRegex = Regex("MusicBrainz-Picard/(.*)")
         private const val legacyPingResponse = "Nothing to see here"
         private const val picardAppName = "MusicBrainz Picard %s"
+        private val okHttpClient = HttpClient.newBuilder()
+            .connectTimeout(1000, TimeUnit.MILLISECONDS)
+            .build()
     }
 }
