@@ -23,4 +23,5 @@
     <string name="btn_save_preferences">Einstellungen speichern</string>
     <string name="label_status_update">Überprüfe Verbindung zu Picard…</string>
     <string name="label_connection_no_config">Verbindung zu Picard nicht konfiguriert.</string>
+    <string name="about_picard_icon">Das MusicBrainz Picard Icon von der MetaBrainz Foundation ist lizenziert unter der &lt;a href=https://creativecommons.org/licenses/by-sa/4.0/&gt;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&lt;/a&gt; Lizenz.</string>
 </resources>
