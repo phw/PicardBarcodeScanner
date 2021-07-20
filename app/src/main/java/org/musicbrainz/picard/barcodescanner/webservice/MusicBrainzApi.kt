@@ -27,5 +27,5 @@ import retrofit2.http.Query
 interface MusicBrainzApi {
 
     @GET("release/")
-    suspend fun lookupReleaseWithQuery(@Query("query") query: String): ReleaseSearchResponse
+    suspend fun queryReleases(@Query("query") query: String): ReleaseSearchResponse
 }

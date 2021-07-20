@@ -75,8 +75,7 @@ class PerformSearchActivity : BaseActivity() {
     private suspend fun search() {
         val result: ReleaseSearchResponse
         try {
-            val query = getString(R.string.query_barcode, mBarcode)
-            result = MusicBrainzClient().instance.lookupReleaseWithQuery(query)
+            result = musicBrainzClient.queryReleasesByBarcode(mBarcode)
             if (result.releases.isEmpty()) {
                 showResultActivity(result.releases)
                 return
@@ -96,10 +95,10 @@ class PerformSearchActivity : BaseActivity() {
 
     private suspend fun sendToPicard(releases: List<Release>) : Boolean {
         mLoadingTextView!!.setText(R.string.loading_picard_text)
-        val client = PicardClient(preferences.ipAddress!!, preferences.port)
+        val picardClient = PicardClient(preferences.ipAddress!!, preferences.port)
         var status = false
         for (release in releases) {
-            val result = client.openRelease(release.id!!)
+            val result = picardClient.openRelease(release.id!!)
             if (result) {
                 status = true
             }
@@ -165,5 +164,9 @@ class PerformSearchActivity : BaseActivity() {
             mBarcode
         )
         startActivity(configurePicard)
+    }
+
+    private val musicBrainzClient: MusicBrainzClient by lazy {
+        MusicBrainzClient()
     }
 }
