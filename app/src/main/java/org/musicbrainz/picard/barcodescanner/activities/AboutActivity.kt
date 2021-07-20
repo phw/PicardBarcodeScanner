@@ -31,6 +31,7 @@ class AboutActivity : BaseActivity() {
         R.string.about_copyright to R.id.about_copyright,
         R.string.about_license_1 to R.id.about_license_1,
         R.string.about_license_2 to R.id.about_license_2,
+        R.string.about_picard_icon to R.id.about_picard_icon,
         R.string.about_icons to R.id.about_icons,
         R.string.about_lottie to R.id.about_lottie,
     )

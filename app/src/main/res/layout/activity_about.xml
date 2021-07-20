@@ -84,6 +84,12 @@
             android:layout_marginTop="@dimen/content_padding"/>
 
         <TextView
+            android:id="@+id/about_picard_icon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"/>
+
+        <TextView
             android:id="@+id/about_icons"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
