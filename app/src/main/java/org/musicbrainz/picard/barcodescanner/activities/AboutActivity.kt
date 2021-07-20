@@ -27,11 +27,21 @@ import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
 
 class AboutActivity : BaseActivity() {
+    private val contentMappings = mapOf(
+        R.string.about_copyright to R.id.about_copyright,
+        R.string.about_license_1 to R.id.about_license_1,
+        R.string.about_license_2 to R.id.about_license_2,
+        R.string.about_icons to R.id.about_icons,
+        R.string.about_lottie to R.id.about_lottie,
+    )
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSubView(R.layout.activity_about)
-        val infoTextView = findViewById<View>(R.id.description_about) as TextView
-        infoTextView.text = Html.fromHtml(getString(R.string.description_about), Html.FROM_HTML_MODE_LEGACY)
-        infoTextView.movementMethod = LinkMovementMethod.getInstance()
+        for ((rText, rView) in contentMappings) {
+            val infoTextView = findViewById<View>(rView) as TextView
+            infoTextView.text = Html.fromHtml(getString(rText), Html.FROM_HTML_MODE_LEGACY)
+            infoTextView.movementMethod = LinkMovementMethod.getInstance()
+        }
     }
 }

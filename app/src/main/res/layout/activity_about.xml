@@ -21,44 +21,70 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/window_padding" >
+        android:padding="@dimen/window_padding">
 
-        <ImageView
-            android:id="@+id/application_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon"
-            android:contentDescription="@null"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/application_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon"
+                android:contentDescription="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/application_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@id/application_logo"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/application_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="6dp"
-            app:layout_constraintStart_toEndOf="@id/application_logo"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/description_about"
+            android:id="@+id/about_copyright"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginTop="@dimen/content_padding_large"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/application_logo"/>
+            android:layout_marginTop="@dimen/content_padding_large"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/about_license_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"/>
+
+        <TextView
+            android:id="@+id/about_license_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"/>
+
+        <TextView
+            android:id="@+id/about_icons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"/>
+
+        <TextView
+            android:id="@+id/about_lottie"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_padding"/>
+    </LinearLayout>
+
 </ScrollView>
