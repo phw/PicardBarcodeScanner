@@ -13,6 +13,7 @@
         android:theme="@style/PicardBarcodeScanner"
         android:supportsRtl="true"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_rules"
         android:usesCleartextTraffic="true">
 
         <activity
