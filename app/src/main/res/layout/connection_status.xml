@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2012, 2021 Philipp Wolfer <ph.wolfer@googlemail.com>
+	Copyright (C) 2021 Philipp Wolfer <ph.wolfer@googlemail.com>
 
 	This file is part of MusicBrainz Picard Barcode Scanner.
 
@@ -27,6 +27,8 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:src="@drawable/picard"
         android:contentDescription="@null"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,22 +37,28 @@
     <TextView
         android:id="@+id/status_info"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/content_padding"
+        android:gravity="center_vertical"
         android:textStyle="italic"
         android:text="@string/label_connection_error"
         android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/status_application_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/content_padding"
+        android:layout_marginTop="4dp"
         android:textColor="?android:attr/textColorHighlight"
         android:textStyle="bold"
+        android:scrollHorizontally="true"
+        android:ellipsize="end"
+        android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -60,9 +68,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/content_padding"
+        android:layout_marginBottom="4dp"
         android:textColor="?android:attr/textColorSecondary"
+        android:scrollHorizontally="true"
+        android:ellipsize="end"
+        android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintBottom_toBottomOf="@+id/logo"
+        app:layout_constraintBottom_toBottomOf="@id/logo"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </merge>
