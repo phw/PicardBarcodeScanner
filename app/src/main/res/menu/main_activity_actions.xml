@@ -2,12 +2,21 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:support="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_about"
-        android:icon="@drawable/ic_action_info"
-        android:title="@string/action_about"
-        support:showAsAction="ifRoom" />
-    <item android:id="@+id/action_settings"
-        android:icon="@drawable/ic_action_settings"
-        android:title="@string/action_settings"
-        support:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/mainMenu"
+        android:title="@string/action_menu"
+        android:icon="@drawable/ic_action_overflow"
+        support:showAsAction="always">
+        <menu>
+            <item android:id="@+id/action_settings"
+                android:icon="@drawable/ic_action_settings"
+                android:title="@string/action_settings" />
+            <item android:id="@+id/action_sponsor"
+                android:icon="@drawable/ic_action_heart"
+                android:title="@string/action_sponsor" />
+            <item android:id="@+id/action_about"
+                android:icon="@drawable/ic_action_info"
+                android:title="@string/action_about" />
+        </menu>
+    </item>
 </menu>

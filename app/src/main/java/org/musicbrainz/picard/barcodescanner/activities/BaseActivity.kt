@@ -21,12 +21,14 @@
 package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
+import android.net.Uri
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewStub
 import androidx.appcompat.app.AppCompatActivity
 import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.util.Constants.SPONSOR_URL
 import org.musicbrainz.picard.barcodescanner.util.Preferences
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -67,6 +69,11 @@ abstract class BaseActivity : AppCompatActivity() {
                     PreferencesActivity::class.java
                 )
                 startActivity(preferencesIntent)
+                true
+            }
+            R.id.action_sponsor -> {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(SPONSOR_URL))
+                startActivity(browserIntent)
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -29,4 +29,5 @@ object Constants {
     const val INTENT_EXTRA_RELEASE_ARTISTS = "org.musicbrainz.picard.releaseArtists"
     const val INTENT_EXTRA_RELEASE_DATES = "org.musicbrainz.picard.releaseDates"
     const val INTENT_EXTRA_AUTOSTART_SCANNER = "org.musicbrainz.picard.startScanner"
+    const val SPONSOR_URL = "https://github.com/sponsors/phw/"
 }
