@@ -59,7 +59,7 @@
                 android:id="@+id/application_version"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Version 1.5"
+                android:text=""
                 app:layout_constraintStart_toStartOf="@id/application_title"
                 app:layout_constraintBottom_toBottomOf="@id/application_logo"
                 app:layout_constraintEnd_toEndOf="parent" />
