@@ -20,6 +20,24 @@
      id="defs1236">
     <inkscape:path-effect
        effect="powerclip"
+       id="path-effect918"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Füllregel Gerade-Ungerade im &lt;b&gt;Füllung und Kontur&lt;/b&gt;-Dialog verwenden, wenn das Anwenden des Ausschnitts mit nachfolgendem Umwandeln in Pfade kein Ergebnis bringt" />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect910"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Füllregel Gerade-Ungerade im &lt;b&gt;Füllung und Kontur&lt;/b&gt;-Dialog verwenden, wenn das Anwenden des Ausschnitts mit nachfolgendem Umwandeln in Pfade kein Ergebnis bringt" />
+    <inkscape:path-effect
+       effect="powerclip"
        id="path-effect2192"
        is_visible="true"
        lpeversion="1"
@@ -67,18 +85,11 @@
        clipPathUnits="userSpaceOnUse"
        id="clipPath1988">
       <circle
-         style="display:none;fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
+         style="display:block;fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
          id="circle1990"
          cx="62.5"
          cy="62.5"
-         r="11"
-         d="m 73.5,62.5 a 11,11 0 0 1 -11,11 11,11 0 0 1 -11,-11 11,11 0 0 1 11,-11 11,11 0 0 1 11,11 z" />
-      <path
-         id="lpe_path-effect1992"
-         style="display:block;fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
-         class="powerclip"
-         d="M 41,41 H 84 V 84 H 41 Z m 32.5,21.5 a 11,11 0 0 0 -11,-11 11,11 0 0 0 -11,11 11,11 0 0 0 11,11 11,11 0 0 0 11,-11 z"
-         inkscape:original-d="M 41,41 H 84 V 84 H 41 Z m 32.5,21.5 a 11,11 0 0 0 -11,-11 11,11 0 0 0 -11,11 11,11 0 0 0 11,11 11,11 0 0 0 11,-11 z" />
+         r="11" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -133,13 +144,6 @@
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipath_lpe_path-effect2180">
-      <circle
-         style="display:none;fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
-         id="circle2182"
-         cx="62.5"
-         cy="62.5"
-         r="11"
-         d="m 73.5,62.5 a 11,11 0 0 1 -11,11 11,11 0 0 1 -11,-11 11,11 0 0 1 11,-11 11,11 0 0 1 11,11 z" />
       <path
          id="lpe_path-effect2180"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
@@ -149,22 +153,43 @@
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath2188">
-      <circle
-         style="display:none;fill:#bebebe;fill-opacity:0.602295;stroke-width:0.106906"
-         id="circle2190"
-         clip-path="url(#clipPath1988)"
-         inkscape:path-effect="#path-effect1992"
-         sodipodi:type="arc"
-         sodipodi:cx="62.5"
-         sodipodi:cy="62.5"
-         sodipodi:rx="16.5"
-         sodipodi:ry="16.5"
-         d="M 79,62.5 A 16.5,16.5 0 0 1 62.5,79 16.5,16.5 0 0 1 46,62.5 16.5,16.5 0 0 1 62.5,46 16.5,16.5 0 0 1 79,62.5 Z" />
       <path
          id="lpe_path-effect2192"
          style="fill:#bebebe;fill-opacity:0.602295;stroke-width:0.106906"
          class="powerclip"
          d="m 35.5,35.5 h 54 v 54 h -54 z M 79,62.5 A 16.5,16.5 0 0 0 62.5,46 16.5,16.5 0 0 0 46,62.5 16.5,16.5 0 0 0 62.5,79 16.5,16.5 0 0 0 79,62.5 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath906">
+      <circle
+         style="display:none;fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
+         id="circle908"
+         cx="62.5"
+         cy="62.5"
+         r="11"
+         d="m 73.5,62.5 a 11,11 0 0 1 -11,11 11,11 0 0 1 -11,-11 11,11 0 0 1 11,-11 11,11 0 0 1 11,11 z" />
+      <path
+         id="lpe_path-effect910"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
+         class="powerclip"
+         d="m -1.25,-1.25 h 127.5 v 127.5 H -1.25 Z M 73.5,62.5 a 11,11 0 0 0 -11,-11 11,11 0 0 0 -11,11 11,11 0 0 0 11,11 11,11 0 0 0 11,-11 z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath914">
+      <circle
+         style="display:none;fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
+         id="circle916"
+         cx="62.5"
+         cy="62.5"
+         r="11"
+         d="m 73.5,62.5 a 11,11 0 0 1 -11,11 11,11 0 0 1 -11,-11 11,11 0 0 1 11,-11 11,11 0 0 1 11,11 z" />
+      <path
+         id="lpe_path-effect918"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.0712708"
+         class="powerclip"
+         d="m -5.25,-5.25 h 135.5 v 135.5 H -5.25 Z M 73.5,62.5 a 11,11 0 0 0 -11,-11 11,11 0 0 0 -11,11 11,11 0 0 0 11,11 11,11 0 0 0 11,-11 z" />
     </clipPath>
   </defs>
   <sodipodi:namedview
@@ -231,24 +256,34 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g891">
+       id="g945">
       <g
-         id="g878">
-        <circle
+         id="g930">
+        <path
            style="fill:#babad2;fill-opacity:1;stroke-width:0.406568"
            id="path1223"
-           cx="62.5"
-           cy="62.5"
-           r="62.75" />
-        <circle
+           clip-path="url(#clipPath914)"
+           inkscape:path-effect="#path-effect918"
+           sodipodi:type="arc"
+           sodipodi:cx="62.5"
+           sodipodi:cy="62.5"
+           sodipodi:rx="62.75"
+           sodipodi:ry="62.75"
+           d="M 125.25,62.5 A 62.75,62.75 0 0 1 62.5,125.25 62.75,62.75 0 0 1 -0.25,62.5 62.75,62.75 0 0 1 62.5,-0.25 62.75,62.75 0 0 1 125.25,62.5 Z" />
+        <path
            style="fill:#e7e7e7;fill-opacity:1;stroke-width:0.380651"
            id="path1223-6"
-           cx="62.5"
-           cy="62.5"
-           r="58.75" />
+           clip-path="url(#clipPath906)"
+           inkscape:path-effect="#path-effect910"
+           sodipodi:type="arc"
+           sodipodi:cx="62.5"
+           sodipodi:cy="62.5"
+           sodipodi:rx="58.75"
+           sodipodi:ry="58.75"
+           d="M 121.25,62.5 A 58.75,58.75 0 0 1 62.5,121.25 58.75,58.75 0 0 1 3.75,62.5 58.75,58.75 0 0 1 62.5,3.75 58.75,58.75 0 0 1 121.25,62.5 Z" />
       </g>
       <g
-         id="g879">
+         id="g924">
         <path
            id="path1223-6-7"
            clip-path="url(#clipPath2076)"
@@ -262,39 +297,17 @@
            style="fill:#cdd9ed;fill-opacity:0.766511;stroke-width:0.380651" />
       </g>
       <g
-         id="g885">
-        <circle
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.0712707"
-           id="path1223-2-1-2-2-3-7"
-           cx="62.5"
-           cy="62.5"
-           r="11" />
-        <circle
-           style="fill:#bebebe;fill-opacity:0.602295;stroke-width:0.106906"
+         id="g934">
+        <path
            id="path1223-2-3"
            clip-path="url(#clipath_lpe_path-effect2180)"
-           inkscape:path-effect="#path-effect2180"
-           sodipodi:type="arc"
-           sodipodi:cx="62.5"
-           sodipodi:cy="62.5"
-           sodipodi:rx="16.5"
-           sodipodi:ry="16.5" />
-        <circle
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.0712707"
-           id="path1223-2-1-2-2"
-           cx="62.5"
-           cy="62.5"
-           r="11" />
+           d="M 79,62.5 A 16.5,16.5 0 0 1 62.5,79 16.5,16.5 0 0 1 46,62.5 16.5,16.5 0 0 1 62.5,46 16.5,16.5 0 0 1 79,62.5 Z"
+           style="fill:#bebebe;fill-opacity:0.602295;stroke-width:0.106906" />
         <path
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.142542"
            id="path1223-2-1-8"
            clip-path="url(#clipPath2188)"
-           inkscape:path-effect="#path-effect2192"
-           sodipodi:type="arc"
-           sodipodi:cx="62.5"
-           sodipodi:cy="62.5"
-           sodipodi:rx="22"
-           sodipodi:ry="22" />
+           d="m 84.5,62.5 a 22,22 0 0 1 -22,22 22,22 0 0 1 -22,-22 22,22 0 0 1 22,-22 22,22 0 0 1 22,22 z"
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.142542" />
       </g>
     </g>
   </g>
