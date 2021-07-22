@@ -9,7 +9,6 @@ description: |
 
   Krever:
   • Picard 1.0 eller senere
-  • ZXing-strekkodeskanneren er tilgjengelig fra Play-butikken
   • Android-enheten og maskinen som kjører Picard burde begge være på samme nettverk, og porten 8000 burde være tilgjengelig
 
   Dette programmet er fri programvare utgitt med GPLv3-lisens. Kildekoden er tilgjengelig på GitHub.
