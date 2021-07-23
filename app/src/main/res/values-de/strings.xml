@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <string name="app_name">Picard Barcode Scanner</string>
+    <string name="app_name">Picard Barcode-Scanner</string>
     <string name="app_version">Version %1$s</string>
     <string name="action_about">Über</string>
     <string name="about_copyright"><![CDATA[Copyright © 2012-2014, 2020-2021 Philipp Wolfer<br>Copyright © 2021 Akshat Tiwari<br><br><a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>]]></string>
