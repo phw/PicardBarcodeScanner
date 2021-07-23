@@ -1,15 +1,15 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-  <string name="app_name">Picard Barcode Scanner</string>
-  <string name="action_settings">設定</string>
-  <string name="description_connect">スキャンしたバーコードを Picard に送信するには、Picard を実行しているコンピュータと同じネットワークに、デバイスを接続する必要があります。 以下に、コンピュータの IP アドレスと、Picard のポート番号を入力してください。</string>
-  <string name="label_connection_error">Picard に接続できませんでした。接続設定と WiFi 接続を確認してください。</string>
-  <string name="picard_ip_address">IP アドレス:</string>
-  <string name="picard_port">ポート:</string>
-  <string name="btn_picard_connect">Picard と接続</string>
-  <string name="description_scanner">CDやその他の音楽メディアのバーコードをスキャンするには、デバイスのカメラを使用してください。MusicBrainz にメディアの情報がある場合は、自動的に MusicBrainz Picard にロードされます。</string>
-  <string name="btn_scan_barcode">バーコードをスキャン</string>
-  <string name="loading_musicbrainz_text">MusicBrainz に問い合わせ中…</string>
-  <string name="loading_picard_text">Picard にデータを送信中…</string>
-  <string name="btn_save_preferences">設定を保存</string>
+    <string name="app_name">Picard Barcode Scanner</string>
+    <string name="action_settings">設定</string>
+    <string name="description_connect">スキャンしたバーコードを Picard に送信するには、Picard を実行しているコンピュータと同じネットワークに、デバイスを接続する必要があります。 以下に、コンピュータの IP アドレスと、Picard のポート番号を入力してください。</string>
+    <string name="label_connection_error">Picard に接続できませんでした。接続設定と WiFi 接続を確認してください。</string>
+    <string name="picard_ip_address">IP アドレス:</string>
+    <string name="picard_port">ポート:</string>
+    <string name="btn_picard_connect">Picard と接続</string>
+    <string name="description_scanner">CDやその他の音楽メディアのバーコードをスキャンするには、デバイスのカメラを使用してください。MusicBrainz にメディアの情報がある場合は、自動的に MusicBrainz Picard にロードされます。</string>
+    <string name="btn_scan_barcode">バーコードをスキャン</string>
+    <string name="loading_musicbrainz_text">MusicBrainz に問い合わせ中…</string>
+    <string name="loading_picard_text">Picard にデータを送信中…</string>
+    <string name="btn_save_preferences">設定を保存</string>
 </resources>
