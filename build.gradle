@@ -18,9 +18,3 @@ allprojects {
         google()
     }
 }
-
-android {
-    lintOptions {
-        abortOnError false
-    }
-}
