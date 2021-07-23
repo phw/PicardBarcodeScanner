@@ -1,5 +1,6 @@
-app_name: Picard Barcode-Scanner
-short_description: Απλοποιεί τις ετικέτες των αντιγράφωμενων CD σας με τον MusicBrainz Picard
+app_name: Picard Barcode Scanner
+short_description: Απλοποιεί τις ετικέτες των αντιγράφωμενων CD σας με τον MusicBrainz
+  Picard
 description: |
   Ο Picard Barcode Scanner σας επιτρέπει να φορτώσετε κυκλοφορίες στο MusicBrainz Picard, χρησιμοποιώντας την Android συσκευή σας ως ένα σαρωτή γραμμωτού κώδικα. Απλώς σαρώστε το γραμμικό κώδικα του άλμπουμ και αναζητήστε μεο τον MusicBrainz γισ αντιστοιχία κυκλοφορίων στην επιφάνεια εργασίας του υπολογιστή σας.
 
