@@ -1,4 +1,4 @@
-Version 1.5 - 2021-??-??
+Version 1.5 - 2021-07-27
 * Built-in barcode scanner, no longer relying on external app
 * Barcode scanning in portrait mode is possible
 * Show Picard connection status
