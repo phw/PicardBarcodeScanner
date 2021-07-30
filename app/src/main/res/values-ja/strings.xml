@@ -12,4 +12,6 @@
     <string name="loading_musicbrainz_text">MusicBrainz に問い合わせ中…</string>
     <string name="loading_picard_text">Picard にデータを送信中…</string>
     <string name="btn_save_preferences">設定を保存</string>
+    <string name="app_version">バージョン %1$s</string>
+    <string name="action_about">このソフトウェアについて</string>
 </resources>

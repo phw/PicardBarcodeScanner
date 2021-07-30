@@ -15,4 +15,5 @@
     <string name="loading_musicbrainz_text">Consultation de MusicBrainz…</string>
     <string name="loading_picard_text">Envoi des données à Picard…</string>
     <string name="btn_save_preferences">Enregistrer les paramètres</string>
+    <string name="app_version">Version %1$s</string>
 </resources>
