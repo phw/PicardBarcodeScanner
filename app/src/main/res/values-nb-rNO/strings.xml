@@ -22,4 +22,8 @@
     <string name="label_connection_no_config">Du har ikke satt opp noen Picard-tilkobling.</string>
     <string name="description_no_result">MusicBrainz har ikke funnet noen utgivelse for strekkoden <b>%1$s</b>.</string>
     <string name="description_result">MusicBrainz har funnet følgende resultater for strekkoden <b>%1$s</b> og sendt dem til Picard:</string>
+    <string name="action_menu">Meny</string>
+    <string name="action_sponsor">Kronerulling</string>
+    <string name="about_license_2">MusicBrainz Picard-strekkodeskanner deles i forhåpning om at det er nyttig, uten noen garanti, selv uten implisitt garanti om salgbarhet eller formålstjenlighet. Sjekk GPL-lisensen for flere detaljer.</string>
+    <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen og er lisensiert &lt;a href=https://creativecommons.org/licenses/by-sa/4.0/&gt;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&lt;/a&gt;</string>
 </resources>
