@@ -45,9 +45,11 @@
 
             <TextView
                 android:id="@+id/application_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:autoSizeTextType="uniform"
+                android:maxLines="1"
+                android:textSize="22sp"
                 android:text="@string/app_name"
                 android:textStyle="bold"
                 android:layout_marginStart="@dimen/content_padding"
@@ -57,9 +59,10 @@
 
             <TextView
                 android:id="@+id/application_version"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:autoSizeTextType="uniform"
+                android:maxLines="1"
                 android:text=""
                 app:layout_constraintStart_toStartOf="@id/application_title"
                 app:layout_constraintBottom_toBottomOf="@id/application_logo"
