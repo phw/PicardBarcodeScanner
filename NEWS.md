@@ -1,5 +1,11 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.5.1 - 2021-08-20
+- Fixed layout issues with large font size / large UI scale (Yuhui Su, issue #20)
+- Added Chinese (simplified) translation (Yuhui Su)
+- Updated Norwegian Bokmål translation (Allan Nordhøy)
+- Included store metadata in repository in Triple-T format
+
 ## Version 1.5 - 2021-07-27
 - Built-in barcode scanner, no longer relying on external app
 - Barcode scanning in portrait mode is possible

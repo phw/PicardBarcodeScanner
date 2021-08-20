@@ -1,10 +1,3 @@
-- Built-in barcode scanner, no longer relying on external app
-- Barcode scanning in portrait mode is possible
-- Show Picard connection status
-- Show the read barcode on result page
-- Improved layout for languages with right-to-left text flow
-- Proper display of release artist credits with join phrases
-- Fixed display of long release titles in result view
-- New loading animation
-- Updated French, German, Hebrew and Norwegian Bokmål translations
-- Android 7.0 is now the minimum supported version
+- Fixed layout issues with large font size / large UI scale
+- Added Chinese (simplified) translation
+- Updated Norwegian Bokmål translation
