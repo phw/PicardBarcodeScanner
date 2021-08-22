@@ -45,10 +45,13 @@ class ScannerActivity : BaseActivity() {
         connectionBox!!.setOnClickListener { startPreferencesActivity() }
         handleIntents()
 
-        if (!preferences.connectionConfigured) {
-            startPreferencesActivity()
-        } else if (mAutoStart) {
-            startScanner()
+        when {
+            !preferences.connectionConfigured -> {
+                startPreferencesActivity()
+            }
+            mAutoStart -> {
+                startScanner()
+            }
         }
     }
 

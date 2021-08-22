@@ -29,17 +29,24 @@ class Release : Comparable<Release> {
 
     override fun compareTo(other: Release): Int {
         val artistNameComparison = releaseArtist.compareTo(other.releaseArtist)
-        if (artistNameComparison != 0) {
-            return artistNameComparison
-        }
-        return if (date == null && other.date == null) {
-            0
-        } else if (date == null) {
-            1
-        } else if (other.date == null) {
-            -1
-        } else {
-            date!!.compareTo(other.date!!)
+        return when {
+            artistNameComparison != 0 -> {
+                artistNameComparison
+            }
+            else -> when {
+                date == null && other.date == null -> {
+                    0
+                }
+                date == null -> {
+                    1
+                }
+                other.date == null -> {
+                    -1
+                }
+                else -> {
+                    date!!.compareTo(other.date!!)
+                }
+            }
         }
     }
 }
