@@ -33,19 +33,17 @@ class Release : Comparable<Release> {
             artistNameComparison != 0 -> {
                 artistNameComparison
             }
-            else -> when {
-                date == null && other.date == null -> {
-                    0
-                }
-                date == null -> {
-                    1
-                }
-                other.date == null -> {
-                    -1
-                }
-                else -> {
-                    date!!.compareTo(other.date!!)
-                }
+            date == null && other.date == null -> {
+                0
+            }
+            date == null -> {
+                1
+            }
+            other.date == null -> {
+                -1
+            }
+            else -> {
+                date!!.compareTo(other.date!!)
             }
         }
     }
