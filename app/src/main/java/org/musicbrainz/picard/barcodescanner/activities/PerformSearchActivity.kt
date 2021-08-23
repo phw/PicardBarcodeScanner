@@ -23,15 +23,14 @@ package org.musicbrainz.picard.barcodescanner.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.TextView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.R
-import org.musicbrainz.picard.barcodescanner.data.ReleaseSearchResponse
 import org.musicbrainz.picard.barcodescanner.data.Release
+import org.musicbrainz.picard.barcodescanner.data.ReleaseSearchResponse
+import org.musicbrainz.picard.barcodescanner.databinding.ActivityPerformSearchBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzClient
 import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
@@ -39,18 +38,18 @@ import java.util.*
 
 class PerformSearchActivity : BaseActivity() {
     private var mBarcode: String? = null
-    private var mLoadingTextView: TextView? = null
     private val uiScope = CoroutineScope(Dispatchers.Main)
+    private lateinit var binding: ActivityPerformSearchBinding
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSubView(R.layout.activity_perform_search)
+        binding = ActivityPerformSearchBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val actionBar = supportActionBar
         actionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        mLoadingTextView = findViewById<View>(R.id.loading_text) as TextView
-        mLoadingTextView!!.setText(R.string.loading_musicbrainz_text)
+        binding.loadingText.setText(R.string.loading_musicbrainz_text)
         handleIntents()
         uiScope.launch {
             search()
@@ -94,7 +93,7 @@ class PerformSearchActivity : BaseActivity() {
     }
 
     private suspend fun sendToPicard(releases: List<Release>) : Boolean {
-        mLoadingTextView!!.setText(R.string.loading_picard_text)
+        binding.loadingText.setText(R.string.loading_picard_text)
         val picardClient = PicardClient(preferences.ipAddress!!, preferences.port)
         var status = false
         for (release in releases) {

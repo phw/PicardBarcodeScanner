@@ -24,26 +24,22 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import android.widget.Button
-import android.widget.EditText
 import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.databinding.ActivityPreferencesBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import org.musicbrainz.picard.barcodescanner.views.ConnectionStatusView
 
 class PreferencesActivity : BaseActivity() {
-    private var ipAddressInput: EditText? = null
-    private var portInput: EditText? = null
-    private var connectBtn: Button? = null
     private var barcode: String? = null
     private var connectionBox: ConnectionStatusView? = null
+    private lateinit var binding: ActivityPreferencesBinding
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSubView(R.layout.activity_preferences)
-        ipAddressInput = findViewById<View>(R.id.picard_ip_address) as EditText
-        portInput = findViewById<View>(R.id.picard_port) as EditText
-        connectBtn = findViewById<View>(R.id.btn_picard_connect) as Button
+        binding = ActivityPreferencesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
         val actionBar = supportActionBar
         actionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -53,7 +49,7 @@ class PreferencesActivity : BaseActivity() {
         registerEventListeners()
         checkConnectionStatus()
         if (barcode != null) {
-            connectBtn!!.setText(R.string.btn_picard_connect)
+            binding.btnPicardConnect.setText(R.string.btn_picard_connect)
         }
     }
 
@@ -81,9 +77,9 @@ class PreferencesActivity : BaseActivity() {
 
             override fun afterTextChanged(s: Editable) {}
         }
-        ipAddressInput!!.addTextChangedListener(textWatcher)
-        portInput!!.addTextChangedListener(textWatcher)
-        connectBtn!!.setOnClickListener {
+        binding.picardIpAddress.addTextChangedListener(textWatcher)
+        binding.picardPort.addTextChangedListener(textWatcher)
+        binding.btnPicardConnect.setOnClickListener {
             preferences.setIpAddressAndPort(
                 readIpAddressFromInput(),
                 readPortFromInput()
@@ -93,22 +89,22 @@ class PreferencesActivity : BaseActivity() {
     }
 
     private fun loadFormDataFromPreferences() {
-        ipAddressInput!!.setText(preferences.ipAddress)
-        portInput!!.setText(java.lang.String.valueOf(preferences.port))
+        binding.picardIpAddress.setText(preferences.ipAddress)
+        binding.picardPort.setText(java.lang.String.valueOf(preferences.port))
     }
 
     private fun checkConnectButtonEnabled() {
-        connectBtn!!.isEnabled = readIpAddressFromInput() != ""
+        binding.btnPicardConnect.isEnabled = readIpAddressFromInput() != ""
     }
 
     private fun readIpAddressFromInput(): String {
-        return ipAddressInput!!.text.toString()
+        return binding.picardIpAddress.text.toString()
     }
 
     private fun readPortFromInput(): Int {
-        val port = portInput!!.text.toString()
+        val port = binding.picardPort.text.toString()
         return try {
-            port.trim { it <= ' ' }.toInt()
+            port.trim().toInt()
         } catch (nfe: NumberFormatException) {
             0
         }

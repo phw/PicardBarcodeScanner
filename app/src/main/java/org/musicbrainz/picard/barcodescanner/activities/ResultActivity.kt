@@ -27,17 +27,19 @@ import android.view.*
 import android.widget.Button
 import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.databinding.ActivityResultBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import kotlin.math.min
 
 class ResultActivity : BaseActivity() {
-    private var descriptionTextView: TextView? = null
+
+    private lateinit var binding: ActivityResultBinding
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSubView(R.layout.activity_result)
-        descriptionTextView = findViewById<View>(R.id.description_search_result) as TextView
+        binding = ActivityResultBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val actionBar = supportActionBar
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
@@ -91,7 +93,7 @@ class ResultActivity : BaseActivity() {
             0 -> getString(R.string.description_no_result, barcode)
             else -> getString(R.string.description_result, barcode)
         }
-        descriptionTextView!!.text = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY)
+        binding.descriptionSearchResult.text = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY)
     }
 
     private fun setViewText(view: View, fieldId: Int, text: String) {

@@ -33,9 +33,7 @@ import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.PicardPingResult
 import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
 
-class ConnectionStatusView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : ConstraintLayout(context, attrs, defStyleAttr) {
+class ConnectionStatusView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private val uiScope = CoroutineScope(Dispatchers.Main)
     private var appLabel: TextView

@@ -25,8 +25,11 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.databinding.ActivityAboutBinding
 
 class AboutActivity : BaseActivity() {
+    private lateinit var binding: ActivityAboutBinding
+
     private val contentMappings = mapOf(
         R.string.about_copyright to R.id.about_copyright,
         R.string.about_license_1 to R.id.about_license_1,
@@ -38,10 +41,11 @@ class AboutActivity : BaseActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSubView(R.layout.activity_about)
-        val versionTextView = findViewById<View>(R.id.application_version) as TextView
+        binding = ActivityAboutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val versionName = packageManager.getPackageInfo(packageName, 0).versionName
-        versionTextView.text = getString(R.string.app_version, versionName)
+        binding.applicationVersion.text = getString(R.string.app_version, versionName)
         for ((rText, rView) in contentMappings) {
             val infoTextView = findViewById<View>(rView) as TextView
             infoTextView.text = Html.fromHtml(getString(rText), Html.FROM_HTML_MODE_LEGACY)
