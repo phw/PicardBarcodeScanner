@@ -1,4 +1,4 @@
-Mit dem Picard Barcode-Scanner können Sie Ihr Android-Gerät als Barcode-Scanner verwenden, um Musikalben in MusicBrainz Picard zu laden. Einfach den Barcode eines Musikalbums scannen und der Picard Barcode-Scanner durchsucht MusicBrainz nach passenden Veröffentlichungen. Diese werden in Picard auf Ihrem Desktop-Computer geladen.
+Mit dem Picard Barcode-Scanner können Sie Ihr Android-Gerät als Strichcode-Scanner verwenden, um Musikalben in MusicBrainz Picard zu laden. Einfach den Strichcode eines Musikalbums scannen und der Picard Barcode-Scanner durchsucht MusicBrainz nach passenden Veröffentlichungen. Diese werden in Picard auf Ihrem Desktop-Computer geladen.
 
 Das ist insbesondere nützlich, wenn Sie eine große Musiksammlung bereits digitalisiert haben und jetzt alle Dateien mit den passenden Tags versehen wollen.
 

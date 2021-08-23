@@ -4,8 +4,8 @@
     <string name="app_version">Version %1$s</string>
     <string name="action_about">Über</string>
     <string name="about_copyright"><![CDATA[Copyright © 2012-2014, 2020-2021 Philipp Wolfer<br>Copyright © 2021 Akshat Tiwari<br><br><a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>]]></string>
-    <string name="about_license_1"><![CDATA[MusicBrainz Picard Barcode Scanner ist freie Software. Sie können es unter den Bedingungen der <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren Version.]]></string>
-    <string name="about_license_2"><![CDATA[Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, dass es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.]]></string>
+    <string name="about_license_1">MusicBrainz Picard Barcode-Scanner ist freie Software. Sie können es unter den Bedingungen der &lt;a href=https://www.gnu.org/licenses/gpl-3.0.en.html&gt;GNU General Public License&lt;/a&gt;, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren Version.</string>
+    <string name="about_license_2">Die Veröffentlichung von MusicBrainz Picard Barcode-Scanner erfolgt in der Hoffnung, dass es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.</string>
     <string name="about_icons"><![CDATA[Die Benutzeroberfläche verwendet die Android Developer Icons von <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, lizenziert unter der <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> Lizenz.]]></string>
     <string name="about_lottie">Lade-Animation von &lt;a href=https://lottiefiles.com/7290-music-play&gt;杜磊 auf LottieFiles&lt;/a&gt; lizenziert unter der &lt;a href=https://creativecommons.org/licenses/by/2.0/&gt;Creative Commons Attribution 2.0 Generic (CC BY 2.0)&lt;/a&gt; Lizenz.</string>
     <string name="action_settings">Einstellungen</string>
@@ -14,10 +14,10 @@
     <string name="picard_ip_address">IP-Adresse:</string>
     <string name="picard_port">Port:</string>
     <string name="btn_picard_connect">Mit Picard verbinden</string>
-    <string name="description_scanner">Verwenden Sie die Kamera Ihres Geräts, um den Barcode einer CD oder anderer Musikmedien zu scannen. Wenn MusicBrainz die Musikmedien kennt, werden diese automatisch in MusicBrainz Picard geladen.</string>
-    <string name="btn_scan_barcode">Barcode scannen</string>
-    <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für den Barcode <b>%1$s</b> gefunden und an Picard gesendet:</string>
-    <string name="description_no_result">Für den Barcode <b>%1$s</b> konnte MusicBrainz keine Veröffentlichungen finden.</string>
+    <string name="description_scanner">Verwenden Sie die Kamera Ihres Geräts, um den Strichcode einer CD oder anderer Musikmedien zu scannen. Wenn MusicBrainz die Musikmedien kennt, werden diese automatisch in MusicBrainz Picard geladen.</string>
+    <string name="btn_scan_barcode">Strichcode scannen</string>
+    <string name="description_result">MusicBrainz hat die folgenden Ergebnisse für den Strichcode <b>%1$s</b> gefunden und an Picard gesendet:</string>
+    <string name="description_no_result">Für den Strichcode <b>%1$s</b> konnte MusicBrainz keine Veröffentlichungen finden.</string>
     <string name="loading_musicbrainz_text">Sende Anfrage an MusicBrainz…</string>
     <string name="loading_picard_text">Sende Daten an Picard…</string>
     <string name="btn_save_preferences">Einstellungen speichern</string>
