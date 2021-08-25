@@ -1,7 +1,7 @@
 Picard Barcode Scanner
 ======================
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/phw/PicardBarcodeScanner)
-![F-Droid](https://img.shields.io/f-droid/v/org.musicbrainz.picard.barcodescanner)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/phw/PicardBarcodeScanner)](https://github.com/phw/PicardBarcodeScanner/releases)
+[![F-Droid](https://img.shields.io/f-droid/v/org.musicbrainz.picard.barcodescanner)](https://f-droid.org/de/packages/org.musicbrainz.picard.barcodescanner/)
 
 Description
 -----------
