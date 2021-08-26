@@ -2,6 +2,9 @@ Picard Barcode Scanner
 ======================
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/phw/PicardBarcodeScanner)](https://github.com/phw/PicardBarcodeScanner/releases)
 [![F-Droid](https://img.shields.io/f-droid/v/org.musicbrainz.picard.barcodescanner)](https://f-droid.org/de/packages/org.musicbrainz.picard.barcodescanner/)
+[![PlayStore Downloads](https://PlayBadges.pavi2410.me/badge/downloads?id=org.musicbrainz.picard.barcodescanner)](https://play.google.com/store/apps/details?id=org.musicbrainz.picard.barcodescanner)
+[![PlayStore Ratings](https://PlayBadges.pavi2410.me/badge/ratings?id=org.musicbrainz.picard.barcodescanner)](https://play.google.com/store/apps/details?id=org.musicbrainz.picard.barcodescanner)
+
 
 Description
 -----------
