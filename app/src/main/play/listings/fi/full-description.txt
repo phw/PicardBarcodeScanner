@@ -1,0 +1,13 @@
+Viivakoodinlukija Picardille mahdollistaa julkaisujen avaamisen MusicBrainz Picardissa käyttämällä Android-laitettasi viivakoodinlukijana. Lue vain albumin viivakoodi, ja sovellus hakee julkaisun MusicBrainzista sekä lähettää sen tietokoneellasi auki olevaan Picardiin.
+
+Tämä on erityisen näppärä jos olet jo digitoinut fyysisen musiikkikokoelmasi ja haluat merkata tiedostot vastaamaan täsmälleen omistamaasi albumia.
+
+Huomioi: Tämä ei ole musiikintägäysohjelma Androidille vaan aputyökalu MusicBrainz Picardin työpöytäversiolle.
+
+Vaatimukset:
+• Picard 1.0 tai uudempi
+• Android-laitteesi ja Picardin pitää olla samassa verkossa, ja portin 8000 pitää olla saavutettavissa.
+
+Tätä sovellusta jaellaan GPLv3-lisenssillä. Lähdekoodi löytyy GitHubista.
+
+Voit auttaa sovelluksen kääntämisessä kielellesi. Vieraile sovelluksen käännösprojektin sivuilla osoitteessa https://translate.uploadedlobster.com/engage/picard-barcode-scanner/
