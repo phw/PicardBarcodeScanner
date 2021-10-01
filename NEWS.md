@@ -1,5 +1,9 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.5.2 - 2021-10-01
+- Added Finnish translation (Riku Viitanen)
+- Updated Chinese (simplified) and German translations
+
 ## Version 1.5.1 - 2021-08-20
 - Fixed layout issues with large font size / large UI scale (Yuhui Su, issue #20)
 - Added Chinese (simplified) translation (Yuhui Su)
