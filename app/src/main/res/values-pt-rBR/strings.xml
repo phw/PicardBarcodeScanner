@@ -19,4 +19,8 @@
     <string name="picard_ip_address">Endereço IP:</string>
     <string name="picard_port">Porta:</string>
     <string name="btn_picard_connect">Conectar com o Picard</string>
+    <string name="description_scanner">Use a câmera do seu dispositivo para digitalizar o código de barras de um CD ou outra mídia musical. Se o MusicBrainz souber sobre a mídia, ela será automaticamente carregada na MusicBrainz Picard.</string>
+    <string name="btn_scan_barcode">Digitalizar um código de barras</string>
+    <string name="description_result">O MusicBrainz encontrou os seguintes resultados para o código de barras <b>%1$s</b> e os enviou ao Picard:</string>
+    <string name="description_no_result">O MusicBrainz não encontrou nenhum resultado para o código de barras <b>%1$s</b>.</string>
 </resources>
