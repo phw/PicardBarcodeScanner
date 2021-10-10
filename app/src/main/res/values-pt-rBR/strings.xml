@@ -12,4 +12,11 @@
     <string name="about_picard_icon">Ícone do The MusicBrainz Picard por MetaBrainz Foundation é registrado sob a licença de &lt;a href=https://creativecommons.org/licenses/by-sa/4.0/&gt;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&lt;/a&gt;.</string>
     <string name="about_lottie">Animações por &lt;a href=https://lottiefiles.com/7290-music-play&gt;杜磊 on LottieFiles&lt;/a&gt; registrado sob a licença de &lt;a href=https://creativecommons.org/licenses/by/2.0/&gt;Creative Commons Attribution 2.0 Generic (CC BY 2.0)&lt;/a&gt;.</string>
     <string name="about_icons">A interface do usuário utiliza os ícones do Android Developer de &lt;a href=https://github.com/opoloo/androidicons&gt;https://github.com/opoloo/androidicons&lt;/a&gt;, registrado sob a licença de &lt;a href=https://creativecommons.org/licenses/by-sa/4.0/&gt;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&lt;/a&gt;.</string>
+    <string name="description_connect">Para enviar códigos de barras digitalizados ao Picard você tem que conectar seu dispositivo à mesma rede que o computador executando o Picard. Digite abaixo o endereço IP do computador e o número da porta do Picard.</string>
+    <string name="label_status_update">Verificando a conexão do Picard…</string>
+    <string name="label_connection_error">Não foi possível conectar ao Picard. Por favor, verifique as configurações de conexão e a sua conexão com Wi-Fi.</string>
+    <string name="label_connection_no_config">A conexão do Picard não configurada.</string>
+    <string name="picard_ip_address">Endereço IP:</string>
+    <string name="picard_port">Porta:</string>
+    <string name="btn_picard_connect">Conectar com o Picard</string>
 </resources>
