@@ -23,4 +23,7 @@
     <string name="btn_scan_barcode">Digitalizar um código de barras</string>
     <string name="description_result">O MusicBrainz encontrou os seguintes resultados para o código de barras <b>%1$s</b> e os enviou ao Picard:</string>
     <string name="description_no_result">O MusicBrainz não encontrou nenhum resultado para o código de barras <b>%1$s</b>.</string>
+    <string name="loading_musicbrainz_text">Consultando o MusicBrainz…</string>
+    <string name="btn_save_preferences">Salvar configurações</string>
+    <string name="loading_picard_text">Enviando os dados ao Picard…</string>
 </resources>
