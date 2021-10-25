@@ -23,11 +23,14 @@ package org.musicbrainz.picard.barcodescanner.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import androidx.activity.result.contract.ActivityResultContracts
-import com.google.zxing.integration.android.IntentIntegrator
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityScannerBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import java.util.*
+
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanIntentResult
+import com.journeyapps.barcodescanner.ScanOptions
+
 
 class ScannerActivity : BaseActivity() {
     private var mAutoStart = false
@@ -63,16 +66,6 @@ class ScannerActivity : BaseActivity() {
         binding.connectionStatusBox.updateStatus(preferences.ipAddress, preferences.port)
     }
 
-    private val zxingActivityResultLauncher  = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        val scanResult = IntentIntegrator.parseActivityResult(it.resultCode, it.data)
-        if (scanResult != null) {
-            val barcode = scanResult.contents
-            if (barcode != null) {
-                startSearchActivity(barcode)
-            }
-        }
-    }
-
     private fun startPreferencesActivity() {
         val configurePicard = Intent(
             this@ScannerActivity,
@@ -90,15 +83,22 @@ class ScannerActivity : BaseActivity() {
         startActivity(resultIntent)
     }
 
+    private val barcodeLauncher = registerForActivityResult(ScanContract()) { result: ScanIntentResult ->
+        val barcode = result.contents
+        if (barcode != null) {
+            startSearchActivity(barcode)
+        }
+    }
+
     private fun startScanner() {
-        val integrator = IntentIntegrator(this@ScannerActivity)
-        integrator.setOrientationLocked(false)
-        integrator.setDesiredBarcodeFormats(
-            IntentIntegrator.EAN_13,
-            IntentIntegrator.EAN_8,
-            IntentIntegrator.UPC_A,
-            IntentIntegrator.UPC_E,
+        val options = ScanOptions()
+        options.setOrientationLocked(false)
+        options.setDesiredBarcodeFormats(
+            ScanOptions.EAN_13,
+            ScanOptions.EAN_8,
+            ScanOptions.UPC_A,
+            ScanOptions.UPC_E,
         )
-        zxingActivityResultLauncher.launch(integrator.createScanIntent())
+        barcodeLauncher.launch(options)
     }
 }
