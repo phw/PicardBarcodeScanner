@@ -34,14 +34,6 @@ abstract class BaseActivity : AppCompatActivity() {
     private var mPreferences: Preferences? = null
     private lateinit var binding: MainBinding
 
-    protected fun setSubView(subView: Int) {
-        binding = MainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.viewContent.layoutResource = subView
-        binding.viewContent.inflate()
-    }
-
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleIntents()
