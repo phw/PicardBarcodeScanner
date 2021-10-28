@@ -1,2 +1,1 @@
-- Added Finnish translation
-- Updated Chinese (simplified) and German translations
+- Added Portuguese (Brazil) translation

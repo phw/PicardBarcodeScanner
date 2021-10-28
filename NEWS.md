@@ -1,5 +1,9 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.5.3 - 2021-10-28
+- Added Portuguese (Brazil) translation (inkhorn)
+- Fixed Hebrew store listing metadata for F-Droid
+
 ## Version 1.5.2 - 2021-10-01
 - Added Finnish translation (Riku Viitanen)
 - Updated Chinese (simplified) and German translations
