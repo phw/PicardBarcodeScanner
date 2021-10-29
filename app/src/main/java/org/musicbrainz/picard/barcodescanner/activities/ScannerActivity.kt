@@ -21,8 +21,10 @@
 package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityScannerBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import java.util.*
@@ -30,11 +32,19 @@ import java.util.*
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
+import org.musicbrainz.picard.barcodescanner.R
+import org.musicbrainz.picard.barcodescanner.util.Preferences
 
 
-class ScannerActivity : BaseActivity() {
+class ScannerActivity : AppCompatActivity() {
     private var mAutoStart = false
     private lateinit var binding: ActivityScannerBinding
+    private var mPreferences: Preferences? = null
+    private val preferences: Preferences
+        get() {
+            if (mPreferences == null) mPreferences = Preferences(this)
+            return mPreferences!!
+        }
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,8 +66,7 @@ class ScannerActivity : BaseActivity() {
         }
     }
 
-    override fun handleIntents() {
-        super.handleIntents()
+    private fun handleIntents() {
         val extras = intent.extras
         if (extras != null) {
             mAutoStart = extras.getBoolean(Constants.INTENT_EXTRA_AUTOSTART_SCANNER, false)
@@ -100,5 +109,40 @@ class ScannerActivity : BaseActivity() {
             ScanOptions.UPC_E,
         )
         barcodeLauncher.launch(options)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu items for use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_activity_actions, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle presses on the action bar items
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                val preferencesIntent = Intent(
+                    this,
+                    PreferencesActivity::class.java
+                )
+                startActivity(preferencesIntent)
+                true
+            }
+            R.id.action_about -> {
+                val aboutIntent = Intent(
+                    this,
+                    AboutActivity::class.java
+                )
+                startActivity(aboutIntent)
+                true
+            }
+            R.id.action_sponsor -> {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(Constants.SPONSOR_URL))
+                startActivity(browserIntent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

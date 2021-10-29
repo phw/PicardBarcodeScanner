@@ -26,12 +26,13 @@ import android.text.Html
 import android.view.*
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityResultBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import kotlin.math.min
 
-class ResultActivity : BaseActivity() {
+class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
 
@@ -55,8 +56,7 @@ class ResultActivity : BaseActivity() {
         handleIntents()
     }
 
-    override fun handleIntents() {
-        super.handleIntents()
+    private fun handleIntents() {
         var numberOfReleases = 0
         var barcode: String? = ""
         val extras = intent.extras

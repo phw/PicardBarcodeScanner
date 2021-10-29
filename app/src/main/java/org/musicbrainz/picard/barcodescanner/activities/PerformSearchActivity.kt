@@ -21,8 +21,12 @@
 package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,42 +36,42 @@ import org.musicbrainz.picard.barcodescanner.data.Release
 import org.musicbrainz.picard.barcodescanner.data.ReleaseSearchResponse
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityPerformSearchBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
+import org.musicbrainz.picard.barcodescanner.util.Preferences
 import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzClient
 import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
 import java.util.*
 
-class PerformSearchActivity : BaseActivity() {
+class PerformSearchActivity : AppCompatActivity() {
     private var mBarcode: String? = null
     private val uiScope = CoroutineScope(Dispatchers.Main)
     private lateinit var binding: ActivityPerformSearchBinding
+    private var mPreferences: Preferences? = null
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPerformSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val actionBar = supportActionBar
-        actionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        mBarcode = intent.extras?.getString(Constants.INTENT_EXTRA_BARCODE)
 
         binding.loadingText.setText(R.string.loading_musicbrainz_text)
-        handleIntents()
         uiScope.launch {
             search()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu items for use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_activity_actions, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         uiScope.launch {
             search()
-        }
-    }
-
-    override fun handleIntents() {
-        super.handleIntents()
-        val extras: Bundle? = intent.extras
-        if (extras != null) {
-            mBarcode = extras.getString(Constants.INTENT_EXTRA_BARCODE)
         }
     }
 
@@ -167,5 +171,30 @@ class PerformSearchActivity : BaseActivity() {
 
     private val musicBrainzClient: MusicBrainzClient by lazy {
         MusicBrainzClient()
+    }
+    private val preferences: Preferences
+        get() {
+            if (mPreferences == null) mPreferences = Preferences(this)
+            return mPreferences!!
+        }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle presses on the action bar items
+        return when (item.itemId) {
+            R.id.action_about -> {
+                val aboutIntent = Intent(
+                    this,
+                    AboutActivity::class.java
+                )
+                startActivity(aboutIntent)
+                true
+            }
+            R.id.action_sponsor -> {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(Constants.SPONSOR_URL))
+                startActivity(browserIntent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
