@@ -22,6 +22,7 @@ package org.musicbrainz.picard.barcodescanner.activities
 import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
+import android.view.Menu
 import android.view.View
 import android.widget.TextView
 import org.musicbrainz.picard.barcodescanner.R
@@ -51,5 +52,11 @@ class AboutActivity : BaseActivity() {
             infoTextView.text = Html.fromHtml(getString(rText), Html.FROM_HTML_MODE_LEGACY)
             infoTextView.movementMethod = LinkMovementMethod.getInstance()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val result = super.onCreateOptionsMenu(menu)
+        menu.findItem(R.id.action_about).isVisible = false
+        return result
     }
 }

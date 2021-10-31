@@ -23,7 +23,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.*
+import android.view.Menu
+import android.view.View
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityPreferencesBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
@@ -51,6 +52,12 @@ class PreferencesActivity : BaseActivity() {
         if (barcode != null) {
             binding.btnPicardConnect.setText(R.string.btn_picard_connect)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val result = super.onCreateOptionsMenu(menu)
+        menu.findItem(R.id.action_settings).isVisible = false
+        return result
     }
 
     override fun handleIntents() {
