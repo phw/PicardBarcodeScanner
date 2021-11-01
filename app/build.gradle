@@ -23,6 +23,7 @@ android {
         targetSdk 31
         versionCode 17
         versionName '1.5.3'
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
