@@ -21,14 +21,14 @@ android {
         applicationId "org.musicbrainz.picard.barcodescanner"
         minSdk 24
         targetSdk 31
-        versionCode 18
+        versionCode 19
         versionName '1.5.3'
-        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.config
         }
     }
     buildFeatures {
