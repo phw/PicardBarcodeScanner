@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'app/**'
+      - 'fastlane/metadata/**'
       - '.github/workflows/release-beta.yml'
     branches: [ beta ]
 
