@@ -5,7 +5,7 @@ default_platform(:android)
      desc "Deploy a beta version to the Google Play"
      lane :beta do
          gradle(task: "clean bundleRelease")
-         upload_to_play_store(track: 'beta', release_status: 'draft')
+         upload_to_play_store(track: 'beta', release_status: 'completed')
      end
 
      desc "Deploy a new version to the Google Play"
