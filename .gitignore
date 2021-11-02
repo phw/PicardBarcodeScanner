@@ -3,10 +3,13 @@
 *~
 .gradle
 /local.properties
-*/build/*
 *.iws
+.idea/*
 .idea/workspace.xml
 .idea/tasks.xml
 /build/*
-.idea/*
+*/build/*
 /app/release/*
+Gemfile.lock
+play_config.json
+*.jks
