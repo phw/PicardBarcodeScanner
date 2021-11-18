@@ -1,1 +1,1 @@
-Lecteur de codes à barres pour Picard
+Lecteur Code-barres de Picard
