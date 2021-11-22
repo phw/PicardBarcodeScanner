@@ -1,0 +1,2 @@
+- Hide corresponding menu item on Preferences and About screen
+- Added Dutch translation

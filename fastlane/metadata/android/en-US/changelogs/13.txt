@@ -1,0 +1,3 @@
+- Fixed layout issues with large font size / large UI scale
+- Added Chinese (simplified) translation
+- Updated Norwegian Bokmål translation
