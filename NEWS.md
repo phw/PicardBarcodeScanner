@@ -1,5 +1,9 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.5.4 - 2021-11-22
+- Hide corresponding menu item on Preferences and About screen
+- Added Dutch translation (Maurits Meulenbelt)
+
 ## Version 1.5.3 - 2021-10-28
 - Added Portuguese (Brazil) translation (inkhorn)
 - Fixed Hebrew store listing metadata for F-Droid

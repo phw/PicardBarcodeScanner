@@ -24,8 +24,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.*
-import androidx.appcompat.app.AppCompatActivity
+import android.view.Menu
+import android.view.View
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityPreferencesBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
@@ -57,16 +57,15 @@ class PreferencesActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu items for use in the action bar
-        val inflater = menuInflater
-        inflater.inflate(R.menu.main_activity_actions, menu)
+        val result = super.onCreateOptionsMenu(menu)
         menu.findItem(R.id.action_settings).isVisible = false
-        return super.onCreateOptionsMenu(menu)
+        return result
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+    override fun handleIntents() {
+        super.handleIntents()
+        val extras = intent.extras
+        barcode = extras?.getString(Constants.INTENT_EXTRA_BARCODE)
     }
 
     private fun registerEventListeners() {

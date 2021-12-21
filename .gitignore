@@ -2,11 +2,23 @@
 *.swp
 *~
 .gradle
-/local.properties
-*/build/*
 *.iws
+/local.properties
+*.jks
+
+# IDE
+.idea/*
 .idea/workspace.xml
 .idea/tasks.xml
+
+# Build
 /build/*
-.idea/*
+*/build/*
 /app/release/*
+
+# Fastlane related files
+play_config.json
+Gemfile.lock
+/vendor/*
+/fastlane/README.md
+/fastlane/report.xml

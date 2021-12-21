@@ -25,7 +25,6 @@ import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -60,27 +59,8 @@ class AboutActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu items for use in the action bar
-        val inflater = menuInflater
-        inflater.inflate(R.menu.main_activity_actions, menu)
+        val result = super.onCreateOptionsMenu(menu)
         menu.findItem(R.id.action_about).isVisible = false
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle presses on the action bar items
-        return when (item.itemId) {
-            R.id.action_settings -> {
-                val preferencesIntent = Intent(this, PreferencesActivity::class.java)
-                startActivity(preferencesIntent)
-                true
-            }
-            R.id.action_sponsor -> {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(Constants.SPONSOR_URL))
-                startActivity(browserIntent)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+        return result
     }
 }

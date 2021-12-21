@@ -1,0 +1,13 @@
+Met Picard Barcode Scanner kan je een Android-apparaat gebruiken als streepjescodescanner om uitgaven in MusicBrainz Picard laden. Als je een streepjescode scant, zoekt de app in MusicBrainz naar de bijbehorende uitgave en struurt hij die naar Picard op je pc.
+
+Dit is vooral handig als je je fysieke muziekverzameling al hebt gedigitaliseerd en je de bestanden wil taggen met precies hetzelfde album als je fysiek hebt.
+
+Let op: dit is geen muziektagger voor Android, maar een hulpmiddel voor MusicBrainz Picard op je pc.
+
+Vereisten:
+• Picard 1.0 of nieuwer
+• Je Android-apparaat en de computer waarop Picard draait, moeten zich op hetzelfde netwerk bevinden, en poort 8000 moet toegankelijk zijn.
+
+Deze app is vrije software onder de GPLv3-licentie. De broncode is beschikbaar op GitHub.
+
+Als je wil helpen met het vertalen van deze app naar je moedertaal, kan je het vertaalproject vinden op https://translate.uploadedlobster.com/engage/picard-barcode-scanner/.
