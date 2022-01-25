@@ -25,14 +25,19 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.Menu
 import android.view.View
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityPreferencesBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import org.musicbrainz.picard.barcodescanner.views.ConnectionStatusView
+import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
 
 class PreferencesActivity : BaseActivity() {
     private var barcode: String? = null
     private var connectionBox: ConnectionStatusView? = null
+    private val uiScope = CoroutineScope(Dispatchers.Main)
     private lateinit var binding: ActivityPreferencesBinding
 
     /** Called when the activity is first created.  */
@@ -86,6 +91,14 @@ class PreferencesActivity : BaseActivity() {
         }
         binding.picardIpAddress.addTextChangedListener(textWatcher)
         binding.picardPort.addTextChangedListener(textWatcher)
+        binding.btnPortDetect.setOnClickListener {
+            val ipAddress = readIpAddressFromInput()
+            if (ipAddress != "") {
+                uiScope.launch {
+                    detectPort(ipAddress)
+              }
+            }
+        }
         binding.btnPicardConnect.setOnClickListener {
             preferences.setIpAddressAndPort(
                 readIpAddressFromInput(),
@@ -101,7 +114,9 @@ class PreferencesActivity : BaseActivity() {
     }
 
     private fun checkConnectButtonEnabled() {
-        binding.btnPicardConnect.isEnabled = readIpAddressFromInput() != ""
+        val enabled = readIpAddressFromInput() != ""
+        binding.btnPortDetect.isEnabled = enabled
+        binding.btnPicardConnect.isEnabled = enabled
     }
 
     private fun readIpAddressFromInput(): String {
@@ -119,6 +134,17 @@ class PreferencesActivity : BaseActivity() {
 
     private fun checkConnectionStatus() {
         connectionBox!!.updateStatus(readIpAddressFromInput(), readPortFromInput())
+    }
+
+    private suspend fun detectPort(ipAddress: String) {
+        for (port in 8000..8010) {
+            val client = PicardClient(ipAddress, port)
+            val status = client.ping()
+            if (status.active) {
+                binding.picardPort.setText(port.toString())
+                return
+            }
+        }
     }
 
     private fun startNextActivity() {
