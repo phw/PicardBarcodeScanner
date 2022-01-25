@@ -26,13 +26,11 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import org.musicbrainz.picard.barcodescanner.R
-import org.musicbrainz.picard.barcodescanner.databinding.MainBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants.SPONSOR_URL
 import org.musicbrainz.picard.barcodescanner.util.Preferences
 
 abstract class BaseActivity : AppCompatActivity() {
     private var mPreferences: Preferences? = null
-    private lateinit var binding: MainBinding
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
