@@ -137,7 +137,9 @@ class PreferencesActivity : BaseActivity() {
     }
 
     private suspend fun detectPort(ipAddress: String) {
-        for (port in 8000..8010) {
+        val startPort = preferences.defaultPort
+        val endPort = startPort + 10
+        for (port in startPort..endPort) {
             val client = PicardClient(ipAddress, port)
             val status = client.ping()
             if (status.active) {

@@ -27,7 +27,7 @@ class Preferences(private val mContext: Context) {
     private val mSettings: SharedPreferences = mContext.getSharedPreferences(
         Constants.PREFERENCES_NAME, Context.MODE_PRIVATE
     )
-    private val defaultPort: Int
+    val defaultPort: Int
         get() {
             val port = mContext.getString(R.string.picard_default_port)
             return try {
