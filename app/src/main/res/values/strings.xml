@@ -24,7 +24,7 @@
     <string name="action_menu">Menu</string>
     <string name="action_settings">Settings</string>
     <string name="action_sponsor">Give a tip</string>
-    <string name="about_copyright"><![CDATA[Copyright © 2012–2014, 2020-2021 Philipp Wolfer<br>Copyright © 2021 Akshat Tiwari<br><br><a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>]]></string>
+    <string name="about_copyright"><![CDATA[Copyright © 2012–2014, 2020-2022 Philipp Wolfer<br>Copyright © 2021 Akshat Tiwari<br><br><a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>]]></string>
     <string name="about_license_1"><![CDATA[MusicBrainz Picard Barcode Scanner is free software: you can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a> as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.]]></string>
     <string name="about_license_2"><![CDATA[MusicBrainz Picard Barcode Scanner is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.]]></string>
     <string name="about_picard_icon"><![CDATA[The MusicBrainz Picard icon by the MetaBrainz Foundation is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> license.]]></string>
