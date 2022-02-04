@@ -1,5 +1,9 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.6.0 - 2022-??-??
+- Picard port can be auto detected in settings
+- New adaptive icon (for Android 8 and later)
+
 ## Version 1.5.4 - 2021-11-22
 - Hide corresponding menu item on Preferences and About screen
 - Added Dutch translation (Maurits Meulenbelt)
