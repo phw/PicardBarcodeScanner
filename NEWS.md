@@ -1,6 +1,6 @@
 # Picard Barcode Scanner Changelog
 
-## Version 1.6.0 - 2022-??-??
+## Version 1.6.0 - 2022-02-05
 - Picard port can be auto detected in settings
 - New adaptive icon (for Android 8 and later)
 

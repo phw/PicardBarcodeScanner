@@ -1,0 +1,2 @@
+- Picard port can be auto detected in settings
+- New adaptive icon (for Android 8 and later)
