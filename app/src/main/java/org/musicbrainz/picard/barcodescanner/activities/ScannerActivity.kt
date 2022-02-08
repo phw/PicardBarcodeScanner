@@ -22,10 +22,8 @@ package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityScannerBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
-import java.util.*
 
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult

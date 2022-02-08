@@ -26,7 +26,6 @@ import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.*
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.Release
 import org.musicbrainz.picard.barcodescanner.data.ReleaseSearchResponse
@@ -34,7 +33,6 @@ import org.musicbrainz.picard.barcodescanner.databinding.ActivityPerformSearchBi
 import org.musicbrainz.picard.barcodescanner.util.Constants
 import org.musicbrainz.picard.barcodescanner.webservice.MusicBrainzClient
 import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
-import java.util.*
 
 class PerformSearchActivity : BaseActivity() {
     private var mBarcode: String? = null
