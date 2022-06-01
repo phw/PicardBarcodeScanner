@@ -1,0 +1,3 @@
+- Corrige des problèmes de disposition avec une police de grande taille / une interface agrandie
+- Ajoute la traduction en chinois simplifié
+- Actualise la traduction en norvégien (bokmål)

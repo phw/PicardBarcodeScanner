@@ -1,4 +1,4 @@
-Le lecteur de codes à barres Picard vous permet de charger des parutions dans Picard de MusicBrainz en utilisant votre appareil Android comme lecteur de codes à barres. Balayez juste le code à barres d’un album et il rechercha les parutions correspondantes dans MusicBrainz, puis les chargera dans Picard sur votre ordinateur.
+Le lecteur de code-barres Picard vous permet de charger des parutions dans Picard de MusicBrainz en utilisant votre appareil Android comme lecteur de code-barres. Balayez juste le code-barres d’un album et il rechercha les parutions correspondantes dans MusicBrainz, puis les chargera dans Picard sur votre ordinateur.
 
 Cela est particulièrement utile si votre collection musicale est déjà numérisée et que vous voulez baliser les fichiers à partir de vos albums physiques.
 
@@ -10,4 +10,4 @@ Exigences :
 
 Cette appli est libre et publiée sous GPLv3. Le code source se trouve sur GitHub.
 
-Vous pouvez aider à la traduction de cette appli dans votre langue. Veuillez visiter le projet de localisation du lecteur de codes à barres Picard sur https ://translate.uploadedlobster.com/engage/picard-barcode-scanner/
+Vous pouvez aider à la traduction de cette appli dans votre langue. Veuillez visiter le projet de localisation du lecteur de code-barres Picard sur https://translate.uploadedlobster.com/engage/picard-barcode-scanner/

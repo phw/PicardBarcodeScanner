@@ -1,0 +1,2 @@
+- Masque l’entrée de menu correspondante dans les écrans « Préférences » et « À propos »
+- Ajoute la traduction en néerlandais

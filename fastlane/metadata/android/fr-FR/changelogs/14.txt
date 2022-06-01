@@ -1,0 +1,2 @@
+- Ajoute la traduction en finnois
+- Actualise les traductions en allemand et chinois simplifié

@@ -1,0 +1,10 @@
+- Intègre un lecteur de code-barres, ne dépend plus d’une application externe
+- Rend possible la lecture de code-barres en mode portrait
+- Montre l’état de la connexion à Picard
+- Montre le code-barres lu dans la page de résultat
+- Améliore l‘affichage pour les langues écrites de droite à gauche
+- Affiche proprement les crédits d’artiste de parution avec les mots de liaison
+- Corrige l’affichage des longs titres de parution dans la vue des résultats
+- Remplace l’animation de chargement
+- Met à jour les traductions en allemand, français, hébreux, norvégien (bokmål)
+- Requiert au minimum Android 7.0

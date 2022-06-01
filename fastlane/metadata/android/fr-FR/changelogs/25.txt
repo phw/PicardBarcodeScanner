@@ -1,0 +1,2 @@
+- Permet d’auto-détecter le port de Picard dans les paramètres
+- Ajoute une nouvelle icône adaptative (pour Android 8 et plus récent)

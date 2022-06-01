@@ -16,4 +16,5 @@
     <string name="loading_picard_text">Envoi des données à Picard…</string>
     <string name="btn_save_preferences">Enregistrer les paramètres</string>
     <string name="app_version">Version %1$s</string>
+    <string name="label_connection_no_config">La connexion à Picard n’est pas configurée.</string>
 </resources>
