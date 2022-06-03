@@ -1,0 +1,2 @@
+- Den jeweiligen Menüpunkt in den Ansichten "Einstellungen" und "Info" entfernt
+- Niederländische Übersetzung hinzugefügt

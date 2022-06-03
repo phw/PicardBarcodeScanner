@@ -1,0 +1,3 @@
+- Layout-Probleme bei Verwendung von großen Schriftarten oder UI-Skalierung behoben
+- Übersetzung für Chinesisch (vereinfact) hinzugefügt
+- Übersetzung für Norwegisch Bokmål aktualisiert
