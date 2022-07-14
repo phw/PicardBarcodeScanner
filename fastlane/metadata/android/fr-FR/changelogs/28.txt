@@ -1,0 +1,3 @@
+- Rabaisse la version minimum requise de Android à 5.0
+- Supporte la configuration de sauvegarde du nouvel Android 12
+- Met à jour les traductions en allemand et en français
