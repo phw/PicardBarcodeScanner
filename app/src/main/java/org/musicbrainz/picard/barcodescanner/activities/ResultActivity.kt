@@ -22,10 +22,10 @@ package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Html
 import android.view.*
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityResultBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
@@ -93,7 +93,7 @@ class ResultActivity : BaseActivity() {
             0 -> getString(R.string.description_no_result, barcode)
             else -> getString(R.string.description_result, barcode)
         }
-        binding.descriptionSearchResult.text = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY)
+        binding.descriptionSearchResult.text = HtmlCompat.fromHtml(description, HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 
     private fun setViewText(view: View, fieldId: Int, text: String) {
