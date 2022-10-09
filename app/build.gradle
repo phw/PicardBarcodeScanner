@@ -6,7 +6,7 @@ plugins {
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 
 android {
-    compileSdk 31
+    compileSdk 32
     signingConfigs {
         release {
             if (keystorePropertiesFile.exists()) {
