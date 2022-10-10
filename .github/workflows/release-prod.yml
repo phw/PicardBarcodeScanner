@@ -1,6 +1,8 @@
 name: Release (Production)
 
-on: release
+on:
+  release:
+    types: [published]
 
 jobs:
   deploy:
