@@ -1,5 +1,10 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.6.1 - 2022-10-10
+- Lowered version requirements to Android 5.0 again
+- Support new Android 12 backup configuration
+- Updated Dutch, French and German translations
+
 ## Version 1.6.0 - 2022-02-05
 - Picard port can be auto detected in settings
 - New adaptive icon (for Android 8 and later)
