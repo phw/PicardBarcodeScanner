@@ -1,0 +1,3 @@
+- Versionsanforderungen erneut auf Android 5.0 reduziert
+- Unterstützung für die neue Backup-Konfiguration in Android 12
+- Aktualisierte Übersetzungen für Niederländisch, Französisch und Deutsch
