@@ -23,7 +23,7 @@ android {
         applicationId "org.musicbrainz.picard.barcodescanner"
         minSdk 21
         targetSdk 32
-        versionCode 27
+        versionCode 28
         versionName '1.6.1 Beta'
     }
     buildTypes {
