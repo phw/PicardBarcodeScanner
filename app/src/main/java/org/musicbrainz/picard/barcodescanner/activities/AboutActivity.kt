@@ -19,6 +19,9 @@
  */
 package org.musicbrainz.picard.barcodescanner.activities
 
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.Menu
@@ -27,6 +30,13 @@ import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityAboutBinding
+
+fun PackageManager.getPackageInfoCompat(packageName: String, flags: Int = 0): PackageInfo =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(flags.toLong()))
+    } else {
+        @Suppress("DEPRECATION") getPackageInfo(packageName, flags)
+    }
 
 class AboutActivity : BaseActivity() {
     private lateinit var binding: ActivityAboutBinding
@@ -45,7 +55,7 @@ class AboutActivity : BaseActivity() {
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val versionName = packageManager.getPackageInfo(packageName, 0).versionName
+        val versionName = packageManager.getPackageInfoCompat(packageName, 0).versionName
         binding.applicationVersion.text = getString(R.string.app_version, versionName)
         for ((rText, rView) in contentMappings) {
             val infoTextView = findViewById<View>(rView) as TextView
