@@ -6,7 +6,7 @@ plugins {
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 
 android {
-    compileSdk 32
+    compileSdk 33
     signingConfigs {
         release {
             if (keystorePropertiesFile.exists()) {
@@ -22,7 +22,7 @@ android {
     defaultConfig {
         applicationId "org.musicbrainz.picard.barcodescanner"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 29
         versionName '1.6.1'
     }
@@ -48,15 +48,12 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0'
     implementation 'com.airbnb.android:lottie:4.2.2'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-
-    // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

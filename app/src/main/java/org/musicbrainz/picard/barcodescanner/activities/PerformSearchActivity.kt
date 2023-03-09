@@ -23,8 +23,7 @@ package org.musicbrainz.picard.barcodescanner.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.data.Release
@@ -36,7 +35,6 @@ import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
 
 class PerformSearchActivity : BaseActivity() {
     private var mBarcode: String? = null
-    private val uiScope = CoroutineScope(Dispatchers.Main)
     private lateinit var binding: ActivityPerformSearchBinding
 
     /** Called when the activity is first created.  */
@@ -49,14 +47,14 @@ class PerformSearchActivity : BaseActivity() {
 
         binding.loadingText.setText(R.string.loading_musicbrainz_text)
         handleIntents()
-        uiScope.launch {
+        lifecycleScope.launch {
             search()
         }
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        uiScope.launch {
+        lifecycleScope.launch {
             search()
         }
     }

@@ -25,8 +25,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.Menu
 import android.view.View
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityPreferencesBinding
@@ -37,7 +36,6 @@ import org.musicbrainz.picard.barcodescanner.webservice.PicardClient
 class PreferencesActivity : BaseActivity() {
     private var barcode: String? = null
     private var connectionBox: ConnectionStatusView? = null
-    private val uiScope = CoroutineScope(Dispatchers.Main)
     private lateinit var binding: ActivityPreferencesBinding
 
     /** Called when the activity is first created.  */
@@ -94,7 +92,7 @@ class PreferencesActivity : BaseActivity() {
         binding.btnPortDetect.setOnClickListener {
             val ipAddress = readIpAddressFromInput()
             if (ipAddress != "") {
-                uiScope.launch {
+                lifecycleScope.launch {
                     detectPort(ipAddress)
               }
             }
