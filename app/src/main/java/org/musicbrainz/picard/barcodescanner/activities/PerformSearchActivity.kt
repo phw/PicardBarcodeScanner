@@ -42,8 +42,7 @@ class PerformSearchActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPerformSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val actionBar = supportActionBar
-        actionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.loadingText.setText(R.string.loading_musicbrainz_text)
         handleIntents()

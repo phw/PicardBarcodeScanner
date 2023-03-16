@@ -45,8 +45,7 @@ class PreferencesActivity : BaseActivity() {
         setContentView(binding.root)
 
         connectionBox = findViewById<View>(R.id.connection_status_box) as ConnectionStatusView
-        val actionBar = supportActionBar
-        actionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         handleIntents()
         loadFormDataFromPreferences()
         checkConnectButtonEnabled()

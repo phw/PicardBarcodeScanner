@@ -40,8 +40,7 @@ class ResultActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val actionBar = supportActionBar
-        actionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val connectBtn = findViewById<View>(R.id.btn_scan_barcode) as Button
         connectBtn.setOnClickListener {
             val resultIntent = Intent(
