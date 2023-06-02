@@ -10,4 +10,4 @@ Vereisten:
 
 Deze app is vrije software onder de GPLv3-licentie. De broncode is beschikbaar op GitHub.
 
-Als je wil helpen met het vertalen van deze app naar je moedertaal, kan je het vertaalproject vinden op https://translate.uploadedlobster.com/engage/picard-barcode-scanner/.
+Als je wil helpen met het vertalen van deze app naar je moedertaal, kan je het vertaalproject vinden op https://translate.uploadedlobster.com/engage/picard-barcode-scanner/

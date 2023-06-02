@@ -25,5 +25,5 @@
     <string name="action_menu">Meny</string>
     <string name="action_sponsor">Kronerulling</string>
     <string name="about_license_2">MusicBrainz Picard-strekkodeskanner deles i forhåpning om at det er nyttig, uten noen garanti, selv uten implisitt garanti om salgbarhet eller formålstjenlighet. Sjekk GPL-lisensen for flere detaljer.</string>
-    <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen og er lisensiert &lt;a href=https://creativecommons.org/licenses/by-sa/4.0/&gt;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&lt;/a&gt;</string>
+    <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen og er lisensiert &lt;a href=https://creativecommons.org/licenses/by-sa/4.0/&gt;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&lt;/a&gt;.</string>
 </resources>
