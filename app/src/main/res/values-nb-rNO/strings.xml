@@ -2,10 +2,10 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">Picard-strekkodeskanner</string>
     <string name="app_version">Versjon %1$s</string>
-    <string name="about_copyright"><![CDATA[Opphavsrett © 2012–2014, 2020–2022 Philipp Wolfer<br>Opphavsrett © 2021 Akshat Tiwari<br><br><a href="https://github.com/phw/PicardBarcodeScanner">https://github.com/phw/PicardBarcodeScanner</a>]]></string>
+    <string name="about_copyright">Opphavsrett © 2012–2014, 2020–2022 Philipp Wolfer&lt;br&gt;Opphavsrett © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
     <string name="about_license_1">MusicBrainz Picard-strekkodeskanneren er fri programvare lisensiert GPLv3+.</string>
-    <string name="about_icons"><![CDATA[Brukergrensesnittet bruker Android-utviklerikonene fra <a href=https://github.com/opoloo/androidicons>https://github.com/opoloo/androidicons</a>, lisensiert <a href=https://creativecommons.org/licenses/by-sa/4.0/>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.]]></string>
-    <string name="about_lottie"><![CDATA[Innlastingsanimasjon av <a href=https://lottiefiles.com/7290-music-play>杜磊 på LottieFiles</a>, lisensiert <a href=https://creativecommons.org/licenses/by/2.0/>Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>.]]></string>
+    <string name="about_icons">Brukergrensesnittet bruker Android-utviklerikonene fra <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, lisensiert <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
+    <string name="about_lottie">Innlastingsanimasjon av <a href="https://lottiefiles.com/7290-music-play">杜磊 på LottieFiles</a>, lisensiert <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>.</string>
     <string name="action_settings">Innstillinger</string>
     <string name="description_connect">For å kunne sende skannede strekkoder til Picard, må du koble enheten din til på samme nettverket som datamaskinen som kjører Picard. Skriv inn IP-adressen for maskinen og Picards portnummer nedenfor.</string>
     <string name="label_connection_error">Kunne ikke koble til Picard. Sjekk tilkoblingsinnstillingene og din Wi-Fi-tilknytning.</string>
@@ -25,5 +25,5 @@
     <string name="action_menu">Meny</string>
     <string name="action_sponsor">Kronerulling</string>
     <string name="about_license_2">MusicBrainz Picard-strekkodeskanner deles i forhåpning om at det er nyttig, uten noen garanti, selv uten implisitt garanti om salgbarhet eller formålstjenlighet. Sjekk GPL-lisensen for flere detaljer.</string>
-    <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen og er lisensiert &lt;a href=https://creativecommons.org/licenses/by-sa/4.0/&gt;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&lt;/a&gt;.</string>
+    <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen og er lisensiert <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
 </resources>
