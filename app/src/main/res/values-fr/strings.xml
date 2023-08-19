@@ -18,7 +18,7 @@
     <string name="app_version">Version %1$s</string>
     <string name="label_connection_no_config">La connexion à Picard n’est pas configurée.</string>
     <string name="about_picard_icon">L’icône de MusicBrainz Picard par la MetaBrainz Foundation est distribué sous les termes de la licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0)</a>.</string>
-    <string name="about_lottie">L’animation de chargement par <a href="https://lottiefiles.com/7290-music-play">杜磊 on LottieFiles</a> est distribuée sous les termes de la licence <a href="https://creativecommons.org/licenses/by/2.0/deed.fr">Creative Commons Attribution 2.0 Générique (CC BY 2.0)</a>.</string>
+    <string name="about_lottie">L’animation de chargement par <a href="https://lottiefiles.com/7290-music-play">杜磊 sur LottieFiles</a> est distribuée sous les termes de la licence <a href="https://creativecommons.org/licenses/by/2.0/deed.fr">Creative Commons Attribution 2.0 Générique (CC BY 2.0)</a>.</string>
     <string name="action_sponsor">Donner un pourboire</string>
     <string name="btn_port_detect">Auto-détecter le port réseau de Picard</string>
     <string name="action_menu">Menu</string>
