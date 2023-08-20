@@ -1,0 +1,2 @@
+- Übersetzungen für Chinesisch (vereinfacht), Niederländisch, Französisch und Deutsch aktualisiert
+- Getestet mit Android 13
