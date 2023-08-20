@@ -65,13 +65,13 @@ in the Picard documentation.
 Translations
 ------------
 You can help translate this project into your language. Please visit the Picard Barcode Scanner
-localization project on https://translate.uploadedlobster.com/engage/picard-barcode-scanner/
+localization project on https://translations.metabrainz.org/projects/picard-barcode-scanner/
 
 
 License
 -------
 Picard Barcode Scanner is free software published under the GPL version 3. See LICENSE for details.<br>
-Copyright © 2012-2014, 2020-2022 Philipp Wolfer <ph.wolfer@gmail.com><br>
+Copyright © 2012-2014, 2020-2023 Philipp Wolfer <ph.wolfer@gmail.com><br>
 Copyright © 2021 Akshat Tiwari
 
 The Picard Barcode Scanner by Philipp Wolfer is licensed under the
