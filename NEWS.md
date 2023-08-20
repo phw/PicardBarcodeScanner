@@ -1,5 +1,9 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.6.2 - 2023-08-20
+- Updated Chinese (Simplified), Dutch, French and German translations
+- Tested with Android 13
+
 ## Version 1.6.1 - 2022-10-10
 - Lowered version requirements to Android 5.0 again
 - Support new Android 12 backup configuration
