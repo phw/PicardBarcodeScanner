@@ -1,0 +1,2 @@
+- Met à jour les traductions en chinois (simplifié), néerlandais, allemand et en français
+- Testé avec Android 13
