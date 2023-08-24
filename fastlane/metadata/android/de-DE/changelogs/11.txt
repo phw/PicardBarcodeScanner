@@ -1,10 +1,10 @@
-- Eingebauter Barcode-Scanner, der nicht mehr auf eine externe App angewiesen ist
-- Barcode-Scannen im Hochformat ist möglich
-- Picard-Verbindungsstatus wird angezeigt
-- Der gelesene Barcode wird auf der Ergebnisseite angezeigt
+- Eingebauter Barcode-Scanner, nicht mehr abhängig von externer App
+- Barcode-Scannen im Hochformat möglich
+- Picard-Verbindungsstatus anzeigen
+- Anzeige des ausgelesenen Barcodes
 - Verbessertes Layout für Sprachen mit Textfluss von rechts nach links
-- Korrekte Anzeige der Künstlernennungen mit Verknüpfungsphrase
-- Die Anzeige von langen Veröffentlichungstiteln in der Ergebnisansicht wurde korrigiert
+- Künstlernennungen mit Verknüpfungsphrase korrigiert
+- Anzeige von langen Veröffentlichungstiteln korrigiert
 - Neue Ladeanimation
-- Aktualisierte französische, deutsche, hebräische und norwegische Bokmål-Übersetzungen
-- Android 7.0 ist jetzt die unterstützte Mindestversion
+- Aktualisierte Übersetzungen Französisch, Deutsch, Hebräisch, Norwegische Bokmål
+- Android 7.0 ist die Mindestversion
