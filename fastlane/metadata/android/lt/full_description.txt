@@ -1,0 +1,13 @@
+Picard brūkšninių kodų skaitytuvas leidžia įkelti leidinius į MusicBrainz Picard pasinaudojant Android įrenginiu kaip brūkšninių kodų skaitytuvu. Tiesiog nuskaityk albumo brūkšninį kodą ir jis atliks paiešką MusicBrainz, ieškodamas tinkamų leidinių, ir įkelia juos į Picard tavo kompiuteryje.
+
+Tai ypač naudinga, jei savo fizinę muzikos kolekciją jau suskaitmeninai ir nori žymėti failus naudodamas (-a) būtent tą albumą, kurį turi.
+
+Atkreipk dėmesį: tai nėra Android skirtas muzikos failų žymeklis, o pagalbinis įrankis MusicBrainz Picard kompiuteryje.
+
+Reikalavimai:
+• Picard 1.0 arba naujesnė versija.
+• Tavo Android įrenginį ir kompiuteris, kuriame paleistas Picard, turi būti tame pačiame tinkle, o 8000 prievadas turi būti pasiekiamas.
+
+Ši programėlė yra nemokama programinė įranga, paskelbta pagal GPLv3. Šaltinis kodas prieinamas GitHub svetainėje.
+
+Gali padėti išversti šią programėlę į savo kalbą. Apsilankyk Picard brūkšninių kodų skaitytuvo lokalizavimo projekte https://translate.uploadedlobster.com/engage/picard-barcode-scanner/

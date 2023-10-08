@@ -1,0 +1,2 @@
+- Paslėpti atitinkamą meniu elementą Nuostatų ir Apie ekrane
+- Pridėtas olandų vertimas

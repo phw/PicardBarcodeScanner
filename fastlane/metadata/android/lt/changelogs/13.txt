@@ -1,0 +1,3 @@
+- Ištaisytos išdėstymo problemos su dideliu šrifto dydžiu / dideliu naudotojo UI masteliu
+- Pridėta kinų (supaprastintas) vertimas
+- Atnaujintas norvegų Bokmål vertimas

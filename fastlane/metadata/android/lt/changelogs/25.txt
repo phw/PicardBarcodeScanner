@@ -1,0 +1,2 @@
+- Picard prievadas gali būti automatiškai nusistatyti nustatymuose
+- Nauja prisitaikanti piktograma (skirta Android 8 ir naujesnėms)

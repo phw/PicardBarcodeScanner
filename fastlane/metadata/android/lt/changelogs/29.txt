@@ -1,0 +1,3 @@
+- Vėl sumažinti versijos reikalavimai iki Android 5.0
+- Palaikoma nauja Android 12 atsarginių kopijų konfigūracija
+- Atnaujinta olandų, prancūzų ir vokiečių vertimai

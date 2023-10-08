@@ -1,0 +1,10 @@
+- Integruotas brūkšninių kodų skaitytuvas, nebereikia naudotis išorinės programėle
+- Galima nuskaityti brūkšninius kodus portreto režimu
+- Rodoma Picard ryšio būsena
+- Rezultatų puslapyje rodyti nuskaitytą brūkšninį kodą
+- Patobulintas išdėstymas kalboms su teksto srautu iš dešinės į kairę
+- Tinkamai rodomi leidinių atlikėjų pavadinimai su jungtinėmis frazėmis
+- Ištaisytas ilgų leidinių pavadinimų rodymas rezultatų rodinyje
+- Naujas pakrovimo animacija
+- Atnaujinta prancūzų, vokiečių, hebrajų ir norvegų Bokmål vertimai
+- Nuo šiol palaikoma tik Android 7.0 versija

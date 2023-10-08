@@ -1,0 +1,2 @@
+- Atnaujinta kinų (supaprastinta), olandų, prancūzų ir vokiečių vertimai
+- Išbandyta su Android 13
