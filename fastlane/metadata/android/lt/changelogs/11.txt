@@ -6,5 +6,3 @@
 - Tinkamai rodomi leidinių atlikėjų pavadinimai su jungtinėmis frazėmis
 - Ištaisytas ilgų leidinių pavadinimų rodymas rezultatų rodinyje
 - Naujas pakrovimo animacija
-- Atnaujinta prancūzų, vokiečių, hebrajų ir norvegų Bokmål vertimai
-- Nuo šiol palaikoma tik Android 7.0 versija

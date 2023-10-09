@@ -6,5 +6,3 @@
 - Affiche proprement les crédits d’artiste de parution avec les mots de liaison
 - Corrige l’affichage des longs titres de parution dans la vue des résultats
 - Remplace l’animation de chargement
-- Met à jour les traductions en allemand, français, hébreux, norvégien (bokmål)
-- Requiert au minimum Android 7.0
