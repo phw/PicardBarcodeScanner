@@ -6,5 +6,3 @@
 - Künstlernennungen mit Verknüpfungsphrase korrigiert
 - Anzeige von langen Veröffentlichungstiteln korrigiert
 - Neue Ladeanimation
-- Aktualisierte Übersetzungen Französisch, Deutsch, Hebräisch, Norwegische Bokmål
-- Android 7.0 ist die Mindestversion
