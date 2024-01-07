@@ -12,19 +12,19 @@
     <string name="about_picard_icon">Het pictogram voor MusicBrainz Picard van de MetaBrainz Foundation heeft de licentie <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
     <string name="about_icons">De gebruikersinterface maakt gebruik van Android Developer-pictogrammen, afkomstig van <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a> met de licentie <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
     <string name="about_lottie">Laadanimatie door <a href="https://lottiefiles.com/7290-music-play">杜磊 op LottieFiles</a> met de licentie <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>.</string>
-    <string name="description_connect">Om de gescande streepjescode naar Picard te sturen, moet je je apparaat verbinden met hetzelfde netwerk als de computer waarop Picard draait. Voer het IP-adres van de computer en de poort die Picard gebruikt hieronder in.</string>
-    <string name="label_status_update">De verbinding met Picard wordt gecontroleerd…</string>
+    <string name="description_connect">Om de uitgelezen streepjescode naar Picard te sturen, moet je je apparaat verbinden met hetzelfde netwerk als de computer waarop Picard draait. Voer het IP-adres van de computer en de poort die Picard gebruikt hieronder in.</string>
+    <string name="label_status_update">De verbinding met Picard wordt gecontroleerd …</string>
     <string name="label_connection_error">Er kon geen verbinding met Picard worden gemaakt. Controleer je verbindingsinstellingen en je wifiverbinding.</string>
     <string name="label_connection_no_config">De verbinding met Picard is niet ingesteld.</string>
     <string name="picard_ip_address">IP-adres:</string>
     <string name="picard_port">Poort:</string>
     <string name="btn_picard_connect">Met Picard verbinding maken</string>
-    <string name="btn_scan_barcode">Streepjescode scannen</string>
+    <string name="btn_scan_barcode">Streepjescode uitlezen</string>
     <string name="description_result">MusicBrainz heeft voor de streepjescode <b>%1$s</b> de volgende resultaten gevonden en naar Picard gestuurd:</string>
     <string name="description_no_result">MusicBrainz heeft voor de streepjescode <b>%1$s</b> geen uitgave gevonden.</string>
-    <string name="loading_musicbrainz_text">MusicBrainz wordt geraadpleegd…</string>
-    <string name="loading_picard_text">Informatie wordt naar Picard gestuurd…</string>
-    <string name="description_scanner">Gebruik de camera van je apparaat om de streepjescode van een cd of andere drager te scannen. Als MusicBrainz de uitgave kent, wordt zij automatisch in MusicBrainz Picard geladen.</string>
+    <string name="loading_musicbrainz_text">MusicBrainz wordt geraadpleegd …</string>
+    <string name="loading_picard_text">Informatie wordt naar Picard gestuurd …</string>
+    <string name="description_scanner">Gebruik de camera van je apparaat om de streepjescode van een cd of andere drager uit te lezen. Als MusicBrainz de uitgave kent, wordt zij automatisch in MusicBrainz Picard geladen.</string>
     <string name="btn_save_preferences">Instellingen opslaan</string>
-    <string name="btn_port_detect">Picard netwerkpoort automatisch detecteren</string>
+    <string name="btn_port_detect">Picard-netwerkpoort automatisch detecteren</string>
 </resources>

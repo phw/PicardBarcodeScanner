@@ -1,0 +1,8 @@
+- Ingebouwde streepjescodelezer, externe app niet meer nodig
+- Verticaal streepjescodes uitlezen nu mogelijk
+- De status van de verbinding met Picard wordt nu weergegeven
+- De uitgelezen streepjescode wordt nu op de resultatenpagina weergegeven
+- Betere opmaak met talen die van rechts naar links worden geschreven
+- Vermeldingen van uitgaveartiesten met koppelzinnen worden juist weergegeven
+- Betere weergave van lange uitgavetitels in resultatenoverzicht
+- Nieuwe laadanimatie

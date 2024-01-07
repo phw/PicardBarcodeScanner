@@ -1,0 +1,3 @@
+- Vereiste Android-versie weer verlaagd naar Android 5.0
+- Ondersteuning voor de nieuwe back-upconfiguratie in Android 12
+- Duitse, Franse en Nederlandse vertalingen bijgewerkt

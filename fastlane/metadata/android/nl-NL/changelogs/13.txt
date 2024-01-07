@@ -1,0 +1,3 @@
+- Opmaakproblemen met grote lettertypen of UI opgelost
+- Vertaling naar vereenvoudigd Chinees toegevoegd
+- Vertaling naar Bokmål bijgewerkt

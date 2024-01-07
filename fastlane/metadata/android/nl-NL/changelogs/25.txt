@@ -1,0 +1,2 @@
+- De Picard-poort kan in de instellingen automatisch worden gedetecteerd
+- Nieuw adaptief pictogram (voor Android 8 en nieuwer)
