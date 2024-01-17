@@ -11,7 +11,7 @@
     <string name="about_icons">Naudotojo sąsaja naudoja Android Developer piktogramas iš <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, licencijuotas pagal <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> licenciją.</string>
     <string name="action_sponsor">Duoti arbatpinigių</string>
     <string name="description_scanner">Naudok įrenginio kamerą, kad nuskaitytum CD ar kitos muzikos laikmenos brūkšninį kodą. Jei MusicBrainz žino apie laikmeną, ji bus automatiškai pakrauta į MusicBrainz Picard.</string>
-    <string name="label_connection_no_config">Picard sąsaja nesukonfigūruota.</string>
+    <string name="label_connection_no_config">Picard ryšys nesukonfigūruotas.</string>
     <string name="description_connect">Norėdamas (-a) siųsti nuskaitytus brūkšninius kodus į Picard, turi prijungti įrenginį prie to paties tinklo, kuriame ir kompiuteris veikia Picard. Toliau įvesk kompiuterio IP adresą ir Picard prievado numerį.</string>
     <string name="label_status_update">Tikrinamas Picard ryšys…</string>
     <string name="label_connection_error">Nepavyko prijungti prie Picard. Patikrink ryšio nustatymus ir savo Wi-Fi ryšį.</string>
