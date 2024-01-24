@@ -1,0 +1,4 @@
+- Enable per-app language support (Android 13+)
+- Added Lithuanian translation
+- Updated Chinese (Simplified), Dutch, French and German
+- Tested with Android 14
