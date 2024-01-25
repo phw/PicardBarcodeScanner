@@ -1,0 +1,4 @@
+- App-spezifische Spracheinstellungen aktiviert (Android 13+)
+- Übersetzung für Litauisch hinzugefügt
+- Übersetzungen für Chinesisch (vereinfacht), Niederländisch, Französisch und Deutsch aktualisiert
+- Getestet mit Android 14
