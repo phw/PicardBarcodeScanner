@@ -1,5 +1,11 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.6.3 - 2024-02-19
+- Enable per-app language support (Android 13+)
+- Added Lithuanian translation (Vac31)
+- Updated Chinese (Simplified), Dutch, French and German translations
+- Tested with Android 14
+
 ## Version 1.6.2 - 2023-08-20
 - Updated Chinese (Simplified), Dutch, French and German translations
 - Tested with Android 13
