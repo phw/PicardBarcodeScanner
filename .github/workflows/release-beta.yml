@@ -64,4 +64,7 @@ jobs:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
 
       - name: Distribute app to Beta track 🚀
-        run: bundle exec fastlane beta
+        run: |
+          # Workaround to skip incomplete translations
+          rm -rf ./fastlane/metadata/android/zh-CN/
+          bundle exec fastlane beta
