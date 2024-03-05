@@ -1,0 +1,1 @@
+Nicht verwendete Berechtigung DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION entfernt

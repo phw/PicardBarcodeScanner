@@ -1,5 +1,8 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.6.4 - 2024-03-05
+- Remove unused DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+
 ## Version 1.6.3 - 2024-02-19
 - Enable per-app language support (Android 13+)
 - Added Lithuanian translation (Vac31)
