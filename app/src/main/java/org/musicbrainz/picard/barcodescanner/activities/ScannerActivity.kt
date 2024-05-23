@@ -22,6 +22,8 @@ package org.musicbrainz.picard.barcodescanner.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import org.musicbrainz.picard.barcodescanner.databinding.ActivityScannerBinding
 import org.musicbrainz.picard.barcodescanner.util.Constants
 
@@ -98,5 +100,22 @@ class ScannerActivity : BaseActivity() {
             ScanOptions.UPC_E,
         )
         barcodeLauncher.launch(options)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_activity_actions, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_barcode_history -> {
+                val intent = Intent(this, BarcodeHistoryActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

@@ -17,6 +17,9 @@
             <item android:id="@+id/action_about"
                 android:icon="@drawable/ic_action_info"
                 android:title="@string/action_about" />
+            <item android:id="@+id/action_barcode_history"
+                android:icon="@drawable/ic_action_history"
+                android:title="@string/action_barcode_history" />
         </menu>
     </item>
 </menu>
