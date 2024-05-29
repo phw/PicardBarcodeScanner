@@ -1,0 +1,4 @@
+- Įjungti kiekvienos programėlės kalbos palaikymą (Android 13+)
+- Pridėtas vertimas į lietuvių kalbą
+- Atnaujinta kinų (supaprastinta), olandų, prancūzų ir vokiečių kalbos
+- Išbandyta su Android 14
