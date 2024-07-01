@@ -74,7 +74,7 @@ Picard Barcode Scanner is free software published under the GPL version 3. See L
 Copyright © 2012-2014, 2020-2024 Philipp Wolfer <ph.wolfer@gmail.com><br>
 Copyright © 2021 Akshat Tiwari
 
-The Picard Barcode Scanner by Philipp Wolfer is licensed under the
+The Picard Barcode Scanner icon by Philipp Wolfer is licensed under the
 [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/)
 license.
 
