@@ -1,1 +1,1 @@
-Forenkler merking av rippede CD-er med MusicBrainz Picard
+Forenkler tagging av rippede CD-er og LP-er med MusicBrainz Picard

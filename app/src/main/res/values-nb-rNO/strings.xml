@@ -3,27 +3,28 @@
     <string name="app_name">Picard-strekkodeskanner</string>
     <string name="app_version">Versjon %1$s</string>
     <string name="about_copyright">Opphavsrett © 2012–2014, 2020–2024 Philipp Wolfer&lt;br&gt;Opphavsrett © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
-    <string name="about_license_1">MusicBrainz Picard-strekkodeskanneren er fri programvare lisensiert GPLv3+.</string>
-    <string name="about_icons">Brukergrensesnittet bruker Android-utviklerikonene fra <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, lisensiert <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
-    <string name="about_lottie">Innlastingsanimasjon av <a href="https://lottiefiles.com/7290-music-play">杜磊 på LottieFiles</a>, lisensiert <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>.</string>
+    <string name="about_license_1">MusicBrainz Picard strekkodeskanneren er fri programvare: du kan videre omfordele og/eller endre programmet i samsvar med vilkårene til <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU 3. General Public License </a> publisert av Free Software Foundation, enten versjon 3 eller en hvilken som helst senere versjon.</string>
+    <string name="about_icons">Brukergrensesnittet bruker Android-utviklerikoner fra <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> lisensen.</string>
+    <string name="about_lottie">Lasteanimasjonen av <a href="https://lottiefiles.com/7290-music-play">杜磊 på LottieFiles</a>, under <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>lisensen.</string>
     <string name="action_settings">Innstillinger</string>
-    <string name="description_connect">For å kunne sende skannede strekkoder til Picard, må du koble enheten din til på samme nettverket som datamaskinen som kjører Picard. Skriv inn IP-adressen for maskinen og Picards portnummer nedenfor.</string>
-    <string name="label_connection_error">Kunne ikke koble til Picard. Sjekk tilkoblingsinnstillingene og din Wi-Fi-tilknytning.</string>
+    <string name="description_connect">For å kunne sende skannede strekkoder til Picard, må enheten kobles på det nettverket datamaskinen som kjører Picard bruker. Skriv inn IP-adressen til datamaskinen og Picards portnummer nedenfor.</string>
+    <string name="label_connection_error">Kunne ikke koble til Picard. Sjekk tilkoblingsinnstillingene og Wi-Fi-oppkoblingen.</string>
     <string name="picard_ip_address">IP-adresse:</string>
     <string name="picard_port">Port:</string>
     <string name="btn_picard_connect">Koble til med Picard</string>
-    <string name="description_scanner">Bruk din enhets kamera for å skanne strekkoden på en CD eller annen musikkmedia. Hvis MusicBrainz har kjennskap til den, vil den bli lastet inn i MusicBrainz Picard.</string>
+    <string name="description_scanner">Bruk enhetens kamera for å skanne strekkoden på en CD eller annen musikkmedia. Om informasjon om den finnes i MusicBrainz-databasen, vil dette bli lastet inn i appen.</string>
     <string name="btn_scan_barcode">Skann strekkode</string>
-    <string name="loading_musicbrainz_text">Konsulterer MusicBrainz…</string>
+    <string name="loading_musicbrainz_text">Sjekker med MusicBrainz…</string>
     <string name="loading_picard_text">Sender data til Picard…</string>
     <string name="btn_save_preferences">Lagre innstillinger</string>
     <string name="action_about">Om</string>
-    <string name="label_status_update">Sjekker Picard-tilkobling …</string>
-    <string name="label_connection_no_config">Du har ikke satt opp noen Picard-tilkobling.</string>
+    <string name="label_status_update">Sjekker Picards tilkobling …</string>
+    <string name="label_connection_no_config">Picard-tilkobling er ikke konfigurert.</string>
     <string name="description_no_result">MusicBrainz har ikke funnet noen utgivelse for strekkoden <b>%1$s</b>.</string>
-    <string name="description_result">MusicBrainz har funnet følgende resultater for strekkoden <b>%1$s</b> og sendt dem til Picard:</string>
+    <string name="description_result">MusicBrainz fant følgende resultater for strekkoden <b>%1$s</b> og har sendt disse til Picard:</string>
     <string name="action_menu">Meny</string>
     <string name="action_sponsor">Kronerulling</string>
-    <string name="about_license_2">MusicBrainz Picard-strekkodeskanner deles i forhåpning om at det er nyttig, uten noen garanti, selv uten implisitt garanti om salgbarhet eller formålstjenlighet. Sjekk GPL-lisensen for flere detaljer.</string>
-    <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen og er lisensiert <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
+    <string name="about_license_2">Vi distribuerer MusicBrainz Picard-strekkodeskanneren i håp om at den er nyttig, men UTEN NOEN SOM HELST GARANTI, også uten den implisitte ideen om SALGBARHET eller FORMÅLSTJENLIGHET. Sjekk GPL-lisensen for flere detaljer.</string>
+    <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> lisensen.</string>
+    <string name="btn_port_detect">Sett Picards nettverksport automatisk</string>
 </resources>

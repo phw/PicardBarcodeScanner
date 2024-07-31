@@ -1,0 +1,8 @@
+- Innebygget strekkodeskanner, eksternt program ikke lenger nødvendig.
+- Strekkodeskanning er nå mulig i portrettmodus
+- Vis Picards tilknytningsstatus
+- Vis strekkode på resultatsiden
+- Forbedret visning av høyre-til-venstre skrevne språk
+- Korrekt visning av utgivelsesartister med 
+- Korrigert visning av lange utgivelsestitler i resultatoversikten
+- Ny lasteanimasjon
