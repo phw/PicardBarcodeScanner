@@ -1,0 +1,3 @@
+- Korrigerte problemer med store skrifter / større brukergrensesnitt
+- Kinesisk (forenklet) oversettelse
+- Oppdaterte den norske bokmålsoversettelsen
