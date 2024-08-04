@@ -1,0 +1,2 @@
+- Oppdaterte kinesisk (forenklet), nederlandsk, fransk og tysk oversettelser
+- Testet med Android 13

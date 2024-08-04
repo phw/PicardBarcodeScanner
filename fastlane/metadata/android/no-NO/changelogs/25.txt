@@ -1,0 +1,2 @@
+- Picard porten kan nå stilles automatisk i innstillinger
+- Nytt adaptivt ikon (for Android 8 og nyere)

@@ -1,0 +1,3 @@
+- Versjonskravet senket til Android 5.0 igjen
+- Støtter den nye sikkerhetskopifunksjonen til Android 12 
+- Oppdaterte nederlandsk, fransk og tysk oversettelse
