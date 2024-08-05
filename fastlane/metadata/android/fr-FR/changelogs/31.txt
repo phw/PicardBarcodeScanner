@@ -1,0 +1,4 @@
+- Supporte les préférences linguistiques par application (Android 13+)
+- Ajoute la traduction en lituanien
+- Met à jour les traductions en français, allemand, chinois (simplifié), et néerlandais
+- Testé avec Android 14

@@ -1,0 +1,1 @@
+Supprime la permission inutilisée DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
