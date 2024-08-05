@@ -1,0 +1,4 @@
+- Ondersteuning voor talen per app toegevoegd (Android 13 en hoger)
+- Litouwse vertaling toegevoegd
+- (Vereenvoudigd) Chinese, Nederlandse, Franse en Duitse vertaling vernieuwd
+- Getest met Android 14
