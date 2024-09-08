@@ -3,28 +3,28 @@
     <string name="action_about">Apie</string>
     <string name="action_menu">Meniu</string>
     <string name="action_settings">Nustatymai</string>
-    <string name="app_version">Versija %1$s</string>
-    <string name="about_copyright">Autorinės teisės © 2012–2014, 2020–2024 Philipp Wolfer&lt;br&gt;Autorinės teisės © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
-    <string name="about_license_1">MusicBrainz Picard brūkšninių kodų skaitytuvas yra laisvoji programinė įranga: gali ją platinti ir (arba) keisti pagal Free Software fondo paskelbtos <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public licencija</a> 3 versijos arba (savo nuožiūra) bet kurios vėlesnės versijos.</string>
-    <string name="app_name">Picard brūkšninių kodų skaitytuvas</string>
-    <string name="about_picard_icon">MusicBrainz Picard piktograma, sukurta MetaBrainz fondo, yra licencijuota pagal <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> licenciją.</string>
-    <string name="about_icons">Naudotojo sąsaja naudoja Android Developer piktogramas iš <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, licencijuotas pagal <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> licenciją.</string>
+    <string name="app_version">%1$s versija</string>
+    <string name="about_copyright">© 2012–2014, 2020–2024 Philipp Wolfer&lt;br&gt;© 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
+    <string name="about_license_1">„MusicBrainz Picard“ brūkšninių kodų skaitytuvas yra laisvoji programinė įranga. Gali ją platinti ir (arba) keisti pagal „Free Software“ fondo paskelbtos <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">„GNU General Public“ licencija</a> 3 versijos arba (savo nuožiūra) bet kurios vėlesnės versijos.</string>
+    <string name="app_name">„Picard“ brūkšninių kodų skaitytuvas</string>
+    <string name="about_picard_icon">„MusicBrainz Picard“ piktograma, sukurta „MetaBrainz“ fondo, yra licencijuota pagal „<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>“ licenciją.</string>
+    <string name="about_icons">Naudotojo sąsaja naudoja „Android Developer“ piktogramas iš <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, licencijuota pagal „<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>“ licenciją.</string>
     <string name="action_sponsor">Duoti arbatpinigių</string>
-    <string name="description_scanner">Naudok įrenginio kamerą, kad nuskaitytum CD ar kitos muzikos laikmenos brūkšninį kodą. Jei MusicBrainz žino apie laikmeną, ji bus automatiškai pakrauta į MusicBrainz Picard.</string>
-    <string name="label_connection_no_config">Picard ryšys nesukonfigūruotas.</string>
-    <string name="description_connect">Norėdamas (-a) siųsti nuskaitytus brūkšninius kodus į Picard, turi prijungti įrenginį prie to paties tinklo, kuriame ir kompiuteris veikia Picard. Toliau įvesk kompiuterio IP adresą ir Picard prievado numerį.</string>
-    <string name="label_status_update">Tikrinamas Picard ryšys…</string>
-    <string name="label_connection_error">Nepavyko prijungti prie Picard. Patikrink ryšio nustatymus ir savo Wi-Fi ryšį.</string>
+    <string name="description_scanner">Naudok įrenginio fotoaparatą, kad nuskenuotum CD ar kitos muzikos laikmenos brūkšninį kodą. Jei „MusicBrainz“ žino apie laikmeną, ji bus automatiškai įkelta į „MusicBrainz Picard“.</string>
+    <string name="label_connection_no_config">„Picard“ prijungimas nesukonfigūruotas.</string>
+    <string name="description_connect">Norint siųsti nuskenuotus brūkšninius kodus į „Picard“, turi prijungti įrenginį prie to paties tinklo, kuriame ir kompiuteris veikia „Picard“. Toliau įvesk kompiuterio IP adresą ir „Picard“ prievado numerį.</string>
+    <string name="label_status_update">Tikrinamas „Picard“ ryšys…</string>
+    <string name="label_connection_error">Nepavyko prijungti prie „Picard“. Patikrink prijungimo nustatymus ir savo „Wi-Fi“ ryšį.</string>
     <string name="picard_ip_address">IP adresas:</string>
     <string name="picard_port">Prievadas:</string>
-    <string name="btn_picard_connect">Prijungti su Picard</string>
-    <string name="description_no_result">MusicBrainz nerado jokių leidinių su brūkšniniu kodu <b>%1$s</b>.</string>
-    <string name="description_result">MusicBrainz rado šias rezultatus brūkšninio kodui <b>%1$s</b> ir nusiuntė juos į Picard:</string>
-    <string name="btn_scan_barcode">Nuskaityti brūkšninį kodą</string>
-    <string name="loading_musicbrainz_text">Konsultavimas MusicBrainz…</string>
-    <string name="loading_picard_text">Siunčiama duomenis į Picard…</string>
+    <string name="btn_picard_connect">Prijungti su „Picard“</string>
+    <string name="description_no_result">„MusicBrainz“ nerado jokių leidinių, skirtų brūkšniniam kodui <b>%1$s</b>.</string>
+    <string name="description_result">„MusicBrainz“ rado šiuos rezultatus brūkšniniam kodui <b>%1$s</b> ir nusiuntė juos į „Picard“:</string>
+    <string name="btn_scan_barcode">Skenuoti brūkšninį kodą</string>
+    <string name="loading_musicbrainz_text">Konsultuojama „MusicBrainz“…</string>
+    <string name="loading_picard_text">Siunčiami duomenys į „Picard“…</string>
     <string name="btn_save_preferences">Išsaugoti nustatymus</string>
-    <string name="btn_port_detect">Automatiškai nustatyti Picard tinklo prievadą</string>
-    <string name="about_license_2">MusicBrainz Picard brūkšninių kodų skaitytuvas platinamas tikintis, kad jis bus naudingas, tačiau BE JOKIŲ GARANTIJŲ; net be numanomų garantijų dėl PREKYBINGUMO ar TINKAMUMO KONKREČIAM TIKSLUI. Daugiau informacijos rasi GNU General Public licencijoje.</string>
-    <string name="about_lottie">Pakrovimo animacija sukūrė <a href="https://lottiefiles.com/7290-music-play">杜磊 LottieFiles</a>, licencijuota pagal <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a> licenciją.</string>
+    <string name="btn_port_detect">Automatiškai nustatyti „Picard“ tinklo prievadą</string>
+    <string name="about_license_2">„MusicBrainz Picard“ brūkšninių kodų skaitytuvas platinamas tikintis, kad jis bus naudingas, tačiau BE JOKIŲ GARANTIJŲ; net be numanomų garantijų dėl PREKYBINGUMO ar TINKAMUMO KONKREČIAM TIKSLUI. Daugiau informacijos rasi „GNU General Public“ licencijoje.</string>
+    <string name="about_lottie">Įkėlimo animacija sukūrė <a href="https://lottiefiles.com/7290-music-play">杜磊 LottieFiles</a>, licencijuota pagal „<a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>“ licenciją.</string>
 </resources>
