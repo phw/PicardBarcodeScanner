@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="action_about">О</string>
+    <string name="action_about">О приложении</string>
     <string name="action_settings">Настройки</string>
     <string name="picard_port">Порт:</string>
+    <string name="app_name">Сканер штрих-кодов Picard</string>
+    <string name="action_menu">Меню</string>
+    <string name="app_version">Версия %1$s</string>
+    <string name="action_sponsor">Пожертвовать</string>
+    <string name="about_license_2"><![CDATA[Сканер штрих-кодов MusicBrainz Picard распространяется в надежде, что он будет полезен, но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий ТОВАРНОЙ ПРИГОДНОСТИ или ПРИГОДНОСТИ ДЛЯ ЧАСТНЫХ ЦЕЛЕЙ. Более подробную информацию см. в GNU General Public License.]]></string>
+    <string name="label_status_update">Проверка подключения к Picard…</string>
+    <string name="label_connection_error">Не удалось подключиться к Picard. Пожалуйста, проверьте настройки соединения и подключение к Wi-Fi.</string>
+    <string name="picard_ip_address">IP-адрес:</string>
+    <string name="btn_picard_connect">Подключиться к Picard</string>
+    <string name="btn_scan_barcode">Сканировать штрих-код</string>
+    <string name="description_result">В базе данных MusicBrainz были найдены следующие результаты для штрих-кода <b>%1$s</b>, которые были отправлены в Picard:</string>
+    <string name="description_no_result">В базе данных MusicBrainz не было найдено релизов для штрих-кода <b>%1$s</b>.</string>
+    <string name="loading_musicbrainz_text">Поиск в MusicBrainz…</string>
+    <string name="loading_picard_text">Отправка данных в Picard…</string>
+    <string name="btn_save_preferences">Сохранить настройки</string>
+    <string name="btn_port_detect">Автоопределение сетевого порта Picard</string>
+    <string name="description_scanner">Используйте камеру вашего устройства, чтобы отсканировать штрих-код компакт-диска или другого музыкального носителя. Если в MusicBrainz есть информация об этом носителе, он будет автоматически загружен в MusicBrainz Picard.</string>
+    <string name="label_connection_no_config">Подключение к Picard не настроено.</string>
+    <string name="about_copyright">Copyright © 2012–2014, 2020–2024 Philipp Wolfer&lt;br&gt;Copyright © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
+    <string name="about_license_1">Сканер штрих-кодов MusicBrainz Picard является свободным программным обеспечением: вы можете распространять его и/или изменять на условиях <a href="«https://www.gnu.org/licenses/gpl-3.0.en.html»">GNU General Public License</a>, опубликованной Free Software Foundation, либо версии 3 этой лицензии, либо (по вашему выбору) любой более поздней версии.</string>
+    <string name="about_picard_icon">Иконка MusicBrainz Picard, созданная Фондом MetaBrainz, распространяется по лицензии <a href="«https://creativecommons.org/licenses/by-sa/4.0/»">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
+    <string name="about_icons">Пользовательский интерфейс использует иконки Android Developer Icons из репозитория <a href="«https://github.com/opoloo/androidicons»">https://github.com/opoloo/androidicons</a>, распространяемые по лицензии <a href="«https://creativecommons.org/licenses/by-sa/4.0/»">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
+    <string name="about_lottie">Анимация загрузки создана <a href="«https://lottiefiles.com/7290-music-play»">杜磊 на LottieFiles</a> по лицензии <a href="«https://creativecommons.org/licenses/by/2.0/»">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>.</string>
+    <string name="description_connect">Чтобы отправить отсканированные штрих-коды в Picard, необходимо подключить устройство к той же сети, что и компьютер, на котором работает Picard. Введите IP-адрес компьютера и номер порта Picard ниже.</string>
 </resources>
