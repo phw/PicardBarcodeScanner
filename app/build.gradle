@@ -6,7 +6,7 @@ plugins {
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 
 android {
-    compileSdk 34
+    compileSdk 35
     signingConfigs {
         release {
             if (keystorePropertiesFile.exists()) {
@@ -22,7 +22,7 @@ android {
     defaultConfig {
         applicationId "org.musicbrainz.picard.barcodescanner"
         minSdk 21
-        targetSdk 34
+        targetSdk 35
         versionCode 33
         versionName '1.6.4'
     }
