@@ -22,4 +22,7 @@
     <string name="loading_picard_text">S\'estan enviant les dades a Picard…</string>
     <string name="btn_save_preferences">Desa els paràmetres</string>
     <string name="btn_port_detect">Detecta automàticament el port de Picard</string>
+    <string name="about_lottie">Animació de càrrega de <a href="https://lottiefiles.com/7290-music-play">杜磊 a LottieFiles</a> publicada sota la llicència <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>.</string>
+    <string name="about_picard_icon">La icona de MusicBrainz Picard de MetaBrainz Foundation es publica sota la llicència <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
+    <string name="about_icons">La interfície d\'usuari fa servir les icones Android Developer Icons de <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, publicades sota la llicència <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
 </resources>
