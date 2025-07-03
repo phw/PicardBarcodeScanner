@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity
 import org.musicbrainz.picard.barcodescanner.R
 import org.musicbrainz.picard.barcodescanner.util.Constants.SPONSOR_URL
 import org.musicbrainz.picard.barcodescanner.util.Preferences
+import androidx.core.net.toUri
 
 abstract class BaseActivity : AppCompatActivity() {
     private var mPreferences: Preferences? = null
@@ -64,7 +65,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 true
             }
             R.id.action_sponsor -> {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(SPONSOR_URL))
+                val browserIntent = Intent(Intent.ACTION_VIEW, SPONSOR_URL.toUri())
                 startActivity(browserIntent)
                 true
             }
