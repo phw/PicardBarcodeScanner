@@ -21,6 +21,7 @@
 package org.musicbrainz.picard.barcodescanner.webservice
 
 import com.google.gson.GsonBuilder
+import com.google.gson.Strictness
 import org.musicbrainz.picard.barcodescanner.data.ReleaseSearchResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -35,7 +36,8 @@ class MusicBrainzClient {
     private val instance: MusicBrainzApi by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .addConverterFactory(GsonConverterFactory.create(
+                GsonBuilder().setStrictness(Strictness.LENIENT).create()))
             .client(okHttpClient)
             .build()
 
@@ -52,7 +54,7 @@ class MusicBrainzClient {
                 val requestBuilder = original.newBuilder()
                     .header("User-Agent", userAgent)
                     .addHeader("Accept", "application/json")
-                    .method(original.method(), original.body())
+                    .method(original.method, original.body)
 
                 val request = requestBuilder.build()
                 chain.proceed(request)
