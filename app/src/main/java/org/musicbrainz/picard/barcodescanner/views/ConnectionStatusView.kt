@@ -73,17 +73,17 @@ class ConnectionStatusView @JvmOverloads constructor(context: Context, attrs: At
     }
 
     private fun setStatus(status: PicardPingResult, host: String, port: Int) {
-        appLabel.visibility = View.VISIBLE
-        hostLabel.visibility = View.VISIBLE
-        infoLabel.visibility = View.GONE
+        appLabel.visibility = VISIBLE
+        hostLabel.visibility = VISIBLE
+        infoLabel.visibility = GONE
         appLabel.text = status.application
         hostLabel.text = "%s:%d".format(host, port)
     }
 
     private fun setInfoMessage(@StringRes resId: Int) {
-        appLabel.visibility = View.GONE
-        hostLabel.visibility = View.GONE
+        appLabel.visibility = GONE
+        hostLabel.visibility = GONE
         infoLabel.setText(resId)
-        infoLabel.visibility = View.VISIBLE
+        infoLabel.visibility = VISIBLE
     }
 }
