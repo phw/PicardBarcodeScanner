@@ -7,7 +7,7 @@
     <string name="action_menu">Меню</string>
     <string name="app_version">Версия %1$s</string>
     <string name="action_sponsor">Пожертвовать</string>
-    <string name="about_license_2"><![CDATA[Сканер штрих-кодов MusicBrainz Picard распространяется в надежде, что он будет полезен, но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий ТОВАРНОЙ ПРИГОДНОСТИ или ПРИГОДНОСТИ ДЛЯ ЧАСТНЫХ ЦЕЛЕЙ. Более подробную информацию см. в GNU General Public License.]]></string>
+    <string name="about_license_2">Сканер штрих-кодов MusicBrainz Picard распространяется в надежде, что он будет полезен, но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий ТОВАРНОЙ ПРИГОДНОСТИ или ПРИГОДНОСТИ ДЛЯ ЧАСТНЫХ ЦЕЛЕЙ. Более подробную информацию см. в GNU General Public License.</string>
     <string name="label_status_update">Проверка подключения к Picard…</string>
     <string name="label_connection_error">Не удалось подключиться к Picard. Пожалуйста, проверьте настройки соединения и подключение к Wi-Fi.</string>
     <string name="picard_ip_address">IP-адрес:</string>
