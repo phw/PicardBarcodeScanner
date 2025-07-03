@@ -35,7 +35,7 @@ class MusicBrainzClient {
 
     private val instance: MusicBrainzApi by lazy {
         val retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(
                 GsonBuilder().setStrictness(Strictness.LENIENT).create()))
             .client(okHttpClient)
@@ -45,14 +45,14 @@ class MusicBrainzClient {
     }
 
     companion object {
-        private const val baseUrl = "https://musicbrainz.org/ws/2/"
-        private const val userAgent = "picard-android-barcodescanner/1.5"
+        private const val BASE_URL = "https://musicbrainz.org/ws/2/"
+        private const val USER_AGENT = "picard-android-barcodescanner/1.5"
         private val okHttpClient = HttpClient.newBuilder()
             .addInterceptor { chain ->
                 val original = chain.request()
 
                 val requestBuilder = original.newBuilder()
-                    .header("User-Agent", userAgent)
+                    .header("User-Agent", USER_AGENT)
                     .addHeader("Accept", "application/json")
                     .method(original.method, original.body)
 

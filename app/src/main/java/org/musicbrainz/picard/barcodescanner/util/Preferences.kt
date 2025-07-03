@@ -22,6 +22,7 @@ package org.musicbrainz.picard.barcodescanner.util
 import android.content.Context
 import android.content.SharedPreferences
 import org.musicbrainz.picard.barcodescanner.R
+import androidx.core.content.edit
 
 class Preferences(private val mContext: Context) {
     private val mSettings: SharedPreferences = mContext.getSharedPreferences(
@@ -40,10 +41,10 @@ class Preferences(private val mContext: Context) {
     val port = mSettings.getInt(Constants.PREFERENCE_PICARD_PORT, defaultPort)
 
     fun setIpAddressAndPort(ipAddress: String?, port: Int) {
-        val editor = mSettings.edit()
-        editor.putString(Constants.PREFERENCE_PICARD_IP_ADDRESS, ipAddress)
-        editor.putInt(Constants.PREFERENCE_PICARD_PORT, port)
-        editor.apply()
+        mSettings.edit {
+            putString(Constants.PREFERENCE_PICARD_IP_ADDRESS, ipAddress)
+            putInt(Constants.PREFERENCE_PICARD_PORT, port)
+        }
     }
 
     val connectionConfigured: Boolean

@@ -20,6 +20,7 @@
  */
 package org.musicbrainz.picard.barcodescanner.webservice
 
+import android.annotation.SuppressLint
 import org.musicbrainz.picard.barcodescanner.data.PicardPingResult
 import org.musicbrainz.picard.barcodescanner.util.WebServiceUtils
 import retrofit2.Retrofit
@@ -27,6 +28,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
+@SuppressLint("DefaultLocale")
 class PicardClient(private val mIpAddress: String, private val mPort: Int) {
 
     suspend fun openRelease(releaseId: String): Boolean {
@@ -41,10 +43,10 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
     suspend fun ping(): PicardPingResult {
         return try {
             val result = instance.ping()
-            val match = pingResponseRegex.matchEntire((result))
+            val match = PING_RESPONSE_REGEX.matchEntire((result))
             when {
                 match != null -> PicardPingResult(true, getAppName(match.groupValues[1]))
-                result == legacyPingResponse -> PicardPingResult(true, getAppName())
+                result == LEGACY_PING_RESPONSE -> PicardPingResult(true, getAppName())
                 else -> PicardPingResult(false, "")
             }
         } catch (e: Exception) {
@@ -53,12 +55,12 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
     }
 
     private fun getAppName(version: String? = null): String {
-        return picardAppName.format(version).trimEnd()
+        return PICARD_APP_NAME.format(version).trimEnd()
     }
 
     private val instance: PicardApi by lazy {
         val retrofit = Retrofit.Builder()
-            .baseUrl(String.format(baseUrl, mIpAddress, mPort))
+            .baseUrl(String.format(BASE_URL, mIpAddress, mPort))
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(okHttpClient)
             .build()
@@ -67,10 +69,10 @@ class PicardClient(private val mIpAddress: String, private val mPort: Int) {
     }
 
     companion object {
-        private const val baseUrl = "http://%s:%d/"
-        private val pingResponseRegex = Regex("MusicBrainz-Picard/(.*)")
-        private const val legacyPingResponse = "Nothing to see here"
-        private const val picardAppName = "MusicBrainz Picard %s"
+        private const val BASE_URL = "http://%s:%d/"
+        private val PING_RESPONSE_REGEX = Regex("MusicBrainz-Picard/(.*)")
+        private const val LEGACY_PING_RESPONSE = "Nothing to see here"
+        private const val PICARD_APP_NAME = "MusicBrainz Picard %s"
         private val okHttpClient = HttpClient.newBuilder()
             .connectTimeout(1000, TimeUnit.MILLISECONDS)
             .build()
