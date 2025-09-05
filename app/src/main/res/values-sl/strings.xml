@@ -1,3 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="action_about">&amp;O programu …</string>
+    <string name="picard_port">Vrata:</string>
 </resources>
