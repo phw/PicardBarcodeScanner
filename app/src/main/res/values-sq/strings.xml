@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_about">Mbi</string>
+    <string name="action_settings">Rregullime</string>
+    <string name="picard_port">Portë:</string>
+</resources>

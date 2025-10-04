@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_about">Tentang Kami</string>
+    <string name="picard_port">Port:</string>
+    <string name="action_settings">Tetapan</string>
+</resources>
