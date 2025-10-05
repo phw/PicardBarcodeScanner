@@ -17,7 +17,8 @@
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_rules"
         android:dataExtractionRules="@xml/data_extraction_rules"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="23">
 
         <activity
             android:name="org.musicbrainz.picard.barcodescanner.activities.ScannerActivity"
