@@ -6,7 +6,7 @@
     <string name="action_menu">Menu</string>
     <string name="action_settings">Instellingen</string>
     <string name="action_sponsor">Geef een fooi</string>
-    <string name="about_copyright">Auteursrecht © 2012 – 2014, 2020 – 2024 Philipp Wolfer&lt;br&gt;Auteursrecht © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
+    <string name="about_copyright">Auteursrecht © 2012 – 2014, 2020 – 2025 Philipp Wolfer&lt;br&gt;Auteursrecht © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
     <string name="about_license_1">MusicBrainz Picard Barcode Scanner is vrije software: je kan de app verder verspreiden en/of wijzigen volgens de bepalingen van de <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>, gepubliceerd door de Free Software Foundation, zowel onder versie 3 van deze licentie als (als je wil) onder elke latere versie.</string>
     <string name="about_license_2">We verspreiden MusicBrainz Picard Barcode Scanner in de hoop dat je er wat aan hebt, maar ZONDER ENIGE GARANTIE, zelfs zonder de impliciete garantie van VERKOOPBAARHEID of GESCHIKTHEID VOOR EEN BEPAALD DOEL. Zie de GNU General Public License voor meer informatie.</string>
     <string name="about_picard_icon">Het pictogram voor MusicBrainz Picard van de MetaBrainz Foundation heeft de licentie <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>

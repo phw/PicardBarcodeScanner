@@ -17,7 +17,7 @@
     <string name="loading_picard_text">Lähetetään tietoja Picardille…</string>
     <string name="btn_save_preferences">Tallenna asetukset</string>
     <string name="app_version">Versio %1$s</string>
-    <string name="about_copyright">Tekijänoikeus © 2012–2014, 2020–2024 Philipp Wolfer&lt;br&gt;Tekijänoikeus © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
+    <string name="about_copyright">Tekijänoikeus © 2012–2014, 2020–2025 Philipp Wolfer&lt;br&gt;Tekijänoikeus © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
     <string name="app_name">Viivakoodinlukija Picardille</string>
     <string name="about_license_1">Viivakoodinlukija MusicBrainz Picardille on vapaa ohjelma: tätä ohjelmaa saa levittää edelleen ja muuttaa Free Software Foundationin julkaiseman <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public Licensen</a> (GPL-lisenssi) version 3 tai (valinnan mukaan) myöhemmän version ehtojen mukaisesti.</string>
     <string name="about_picard_icon">MusicBrainz Picardin kuvakkeen tekijänoikeus: MetaBrainz Foundation. Julkaistu <a href="https://creativecommons.org/licenses/by-sa/4.0/">Nimeä-JaaSamoin 4.0 Kansainvälinen (CC BY-SA 4.0)</a> lisenssillä.</string>

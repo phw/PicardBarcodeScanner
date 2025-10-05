@@ -3,7 +3,7 @@
     <string name="action_about">Quant a</string>
     <string name="picard_port">Port:</string>
     <string name="description_connect">Per tal d\'enviar codis de barres llegits a Picard, heu de connectar el dispositiu a la mateixa xarxa que l\'ordinador on s\'executa Picard. Indiqueu l\'adreça IP de l\'ordinador i el número de port de Picard a continuació.</string>
-    <string name="about_copyright">Copyright © 2012–2014, 2020–2024 Philipp Wolfer&lt;br&gt;Copyright © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
+    <string name="about_copyright">Copyright © 2012–2014, 2020–2025 Philipp Wolfer&lt;br&gt;Copyright © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
     <string name="app_name">Lector de codis de Picard</string>
     <string name="action_menu">Menú</string>
     <string name="action_settings">Paràmetres</string>

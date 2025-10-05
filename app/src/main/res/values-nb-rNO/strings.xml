@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">Picard-strekkodeskanner</string>
     <string name="app_version">Versjon %1$s</string>
-    <string name="about_copyright">Opphavsrett © 2012–2014, 2020–2024 Philipp Wolfer&lt;br&gt;Opphavsrett © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
+    <string name="about_copyright">Opphavsrett © 2012–2014, 2020–2025 Philipp Wolfer&lt;br&gt;Opphavsrett © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
     <string name="about_license_1">MusicBrainz Picard strekkodeskanneren er fri programvare: du kan videre omfordele og/eller endre programmet i samsvar med vilkårene til <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU 3. General Public License </a> publisert av Free Software Foundation, enten versjon 3 eller en hvilken som helst senere versjon.</string>
     <string name="about_icons">Brukergrensesnittet bruker Android-utviklerikoner fra <a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>, under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> lisensen.</string>
     <string name="about_lottie">Lasteanimasjonen av <a href="https://lottiefiles.com/7290-music-play">杜磊 på LottieFiles</a>, under <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>lisensen.</string>
