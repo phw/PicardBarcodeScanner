@@ -1,0 +1,3 @@
+- Added Catalan and Russian translations
+- Updated Dutch, French, German, Lithuanian and Norwegian Bokmål translations
+- Tested with Android 15 and 16
