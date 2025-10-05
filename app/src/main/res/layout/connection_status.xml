@@ -21,6 +21,7 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/connectionStatusBox">
 
     <ImageView
@@ -47,7 +48,8 @@
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:targetApi="26" />
 
     <TextView
         android:id="@+id/status_application_name"
@@ -63,7 +65,8 @@
         android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:targetApi="26" />
 
     <TextView
         android:id="@+id/status_connection_host"
@@ -78,6 +81,7 @@
         android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintBottom_toBottomOf="@id/logo"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:targetApi="26" />
 
 </merge>
