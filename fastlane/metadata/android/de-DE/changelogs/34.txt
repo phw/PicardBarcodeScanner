@@ -1,0 +1,3 @@
+- Übersetzungen für Katalanisch und Russisch hinzugefügt
+- Übersetzungen für Niederländisch, Französisch, Deutsch, Litauisch und Norwegisch Bokmål aktualisiert
+- Getestet mit Android 15 und 16
