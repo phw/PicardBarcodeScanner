@@ -1,0 +1,3 @@
+- S'han tornat a rebaixar els requisits de versió a Android 5.0
+- Compatibilitat amb la nova configuració de còpia de seguretat d'Android 12
+- S'han actualitzat les traduccions a l'alemany, el francès i el neerlandès

@@ -1,0 +1,3 @@
+- S'han afegit traduccions al català i el rus
+- S'han actualitzat les traduccions a l'alemany, el francès, el lituà, el noruec Bokmål i el neerlandès
+- S'ha provat amb Android 15 i 16

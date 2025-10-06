@@ -1,0 +1,3 @@
+- S'han corregit els problemes de disseny amb una mida de lletra o interfície d'usuari gran
+- S'ha afegit una traducció al xinès (simplificat)
+- S'ha actualitzat la traducció al noruec Bokmål

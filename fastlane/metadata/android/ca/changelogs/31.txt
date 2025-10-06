@@ -1,0 +1,4 @@
+- S'ha habilitat la compatibilitat amb la llengua per aplicació (Android 13 i superior)
+- S'ha afegit una traducció al lituà
+- S'han actualitzat les traduccions a l'alemany, el francès, el neerlandès i el xinès (simplificat)
+- S'ha provat amb Android 14

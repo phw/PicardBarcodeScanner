@@ -1,0 +1,8 @@
+- Lector de codis de barres integrat; ja no es depèn d'una aplicació externa
+- És possible llegir codis de barres en mode vertical
+- Mostra l'estat de connexió a Picard
+- Mostra el codi de barres llegit a la pàgina de resultats
+- S'ha millorat el disseny per a les llengües amb text de dreta a esquerra
+- Els crèdits d'artistes de les publicacions amb frases d'unió es mostren correctament
+- S'han corregit els títols de publicacions llargs a la visualització de resultats
+- Animació de càrrega nova

@@ -1,0 +1,2 @@
+- S'ha amagat l'element del menú corresponent a Preferències i a la pantalla Quant a
+- S'ha afegit una traducció al neerlandès

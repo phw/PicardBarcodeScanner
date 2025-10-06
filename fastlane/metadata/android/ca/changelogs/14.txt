@@ -1,0 +1,2 @@
+- S'ha afegit una traducció al finès
+- S'han actualitzat les traduccions a l'alemany i el xinès (simplificat)

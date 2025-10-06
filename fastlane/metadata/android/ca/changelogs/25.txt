@@ -1,0 +1,2 @@
+- El port de Picard es pot detectar automàticament als paràmetres
+- Icona adaptativa nova (per a Android 8 i posterior)
