@@ -1,5 +1,10 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.6.5 - 2025-10-13
+- Added Catalan and Russian translations
+- Updated Dutch, French, German, Lithuanian and Norwegian Bokmål translations
+- Tested with Android 15 and 16
+
 ## Version 1.6.4 - 2024-03-05
 - Remove unused DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 
