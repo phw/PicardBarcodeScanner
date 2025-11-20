@@ -21,6 +21,7 @@ package org.musicbrainz.picard.barcodescanner.util
 
 object Constants {
     const val PREFERENCES_NAME = "org.musicbrainz.picard.barcodescanner.preferences"
+    const val PREFERENCE_MUSICBRAINZ_SERVER_URL = "musicbrainz_server_url"
     const val PREFERENCE_PICARD_IP_ADDRESS = "picard_ip_address"
     const val PREFERENCE_PICARD_PORT = "picard_port"
     const val INTENT_EXTRA_ERROR = "org.musicbrainz.picard.error"

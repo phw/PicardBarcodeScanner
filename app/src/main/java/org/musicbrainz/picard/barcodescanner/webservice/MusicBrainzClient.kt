@@ -20,22 +20,34 @@
  */
 package org.musicbrainz.picard.barcodescanner.webservice
 
+import androidx.core.net.toUri
 import com.google.gson.GsonBuilder
 import com.google.gson.Strictness
 import org.musicbrainz.picard.barcodescanner.data.ReleaseSearchResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MusicBrainzClient {
+class MusicBrainzClient(private val mMusicBrainzServerUrl: String) {
 
     suspend fun queryReleasesByBarcode(barcode: String?): ReleaseSearchResponse {
         val query = "barcode:%s".format(barcode)
         return instance.queryReleases(query)
     }
 
+    private val baseUrl: String
+        get() {
+            val uri = mMusicBrainzServerUrl.toUri()
+            val uriBuilder = uri.buildUpon()
+            uriBuilder.path("/ws/2/")
+            if (uri.scheme == null) {
+                uriBuilder.scheme("https")
+            }
+            return uriBuilder.toString()
+        }
+
     private val instance: MusicBrainzApi by lazy {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create(
                 GsonBuilder().setStrictness(Strictness.LENIENT).create()))
             .client(okHttpClient)
@@ -45,7 +57,6 @@ class MusicBrainzClient {
     }
 
     companion object {
-        private const val BASE_URL = "https://musicbrainz.org/ws/2/"
         private const val USER_AGENT = "picard-android-barcodescanner/1.5"
         private val okHttpClient = HttpClient.newBuilder()
             .addInterceptor { chain ->

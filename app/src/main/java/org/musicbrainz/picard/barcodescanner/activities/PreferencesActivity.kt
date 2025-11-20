@@ -97,7 +97,8 @@ class PreferencesActivity : BaseActivity() {
             }
         }
         binding.btnPicardConnect.setOnClickListener {
-            preferences.setIpAddressAndPort(
+            preferences.setAllPreferences(
+                readMusicBrainzServerUrlFromInput(),
                 readIpAddressFromInput(),
                 readPortFromInput()
             )
@@ -106,6 +107,7 @@ class PreferencesActivity : BaseActivity() {
     }
 
     private fun loadFormDataFromPreferences() {
+        binding.musicbrainzServerUrl.setText(preferences.musicBrainzServerUrl)
         binding.picardIpAddress.setText(preferences.ipAddress)
         binding.picardPort.setText(java.lang.String.valueOf(preferences.port))
     }
@@ -114,6 +116,10 @@ class PreferencesActivity : BaseActivity() {
         val enabled = readIpAddressFromInput() != ""
         binding.btnPortDetect.isEnabled = enabled
         binding.btnPicardConnect.isEnabled = enabled
+    }
+
+    private fun readMusicBrainzServerUrlFromInput(): String {
+        return binding.musicbrainzServerUrl.text.toString()
     }
 
     private fun readIpAddressFromInput(): String {

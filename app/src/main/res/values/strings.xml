@@ -45,4 +45,5 @@
     <string name="loading_picard_text">Sending data to Picard…</string>
     <string name="btn_save_preferences">Save settings</string>
     <string name="btn_port_detect">Auto-detect Picard network port</string>
+    <string name="musicbrainz_server_url">MusicBrainz server:</string>
 </resources>

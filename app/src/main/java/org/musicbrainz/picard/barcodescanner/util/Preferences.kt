@@ -37,11 +37,20 @@ class Preferences(private val mContext: Context) {
                 0
             }
         }
+
+    val defaultMusicBrainzServerUrl: String
+        get() {
+            return mContext.getString(R.string.default_musicbrainz_server_url)
+        }
+
+    val musicBrainzServerUrl = mSettings.getString(
+        Constants.PREFERENCE_MUSICBRAINZ_SERVER_URL, defaultMusicBrainzServerUrl)
     val ipAddress = mSettings.getString(Constants.PREFERENCE_PICARD_IP_ADDRESS, "")
     val port = mSettings.getInt(Constants.PREFERENCE_PICARD_PORT, defaultPort)
 
-    fun setIpAddressAndPort(ipAddress: String?, port: Int) {
+    fun setAllPreferences(musicBrainzServerUrl: String, ipAddress: String, port: Int) {
         mSettings.edit {
+            putString(Constants.PREFERENCE_MUSICBRAINZ_SERVER_URL, musicBrainzServerUrl)
             putString(Constants.PREFERENCE_PICARD_IP_ADDRESS, ipAddress)
             putInt(Constants.PREFERENCE_PICARD_PORT, port)
         }

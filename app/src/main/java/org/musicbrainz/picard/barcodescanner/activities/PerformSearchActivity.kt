@@ -161,6 +161,6 @@ class PerformSearchActivity : BaseActivity() {
     }
 
     private val musicBrainzClient: MusicBrainzClient by lazy {
-        MusicBrainzClient()
+        MusicBrainzClient(preferences.musicBrainzServerUrl!!)
     }
 }

@@ -42,7 +42,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description_connect" />
-    
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/musicbrainz_server_url"
+            android:layout_marginTop="@dimen/content_padding"
+            android:text="@string/musicbrainz_server_url" />
+
+        <EditText
+            android:id="@+id/musicbrainz_server_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/picard_port"
+            android:layout_marginTop="@dimen/content_padding"
+            android:height="@dimen/edit_view_height"
+            android:inputType="textUri"
+            android:importantForAutofill="no" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
