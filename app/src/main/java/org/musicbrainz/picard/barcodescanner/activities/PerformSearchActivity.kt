@@ -89,7 +89,7 @@ class PerformSearchActivity : BaseActivity() {
 
     private suspend fun sendToPicard(releases: List<Release>) : Boolean {
         binding.loadingText.setText(R.string.loading_picard_text)
-        val picardClient = PicardClient(preferences.ipAddress!!, preferences.port)
+        val picardClient = PicardClient(preferences.ipAddress, preferences.port)
         var status = false
         for (release in releases) {
             val result = picardClient.openRelease(release.id!!)
@@ -161,6 +161,6 @@ class PerformSearchActivity : BaseActivity() {
     }
 
     private val musicBrainzClient: MusicBrainzClient by lazy {
-        MusicBrainzClient(preferences.musicBrainzServerUrl!!)
+        MusicBrainzClient(preferences.musicBrainzServerUrl)
     }
 }
