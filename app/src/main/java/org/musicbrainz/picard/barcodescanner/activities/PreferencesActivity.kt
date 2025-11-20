@@ -98,8 +98,8 @@ class PreferencesActivity : BaseActivity() {
         }
         binding.btnPicardConnect.setOnClickListener {
             preferences.setAllPreferences(
-                readMusicBrainzServerUrlFromInput(),
-                readIpAddressFromInput(),
+                readMusicBrainzServerUrlFromInput().trim(),
+                readIpAddressFromInput().trim(),
                 readPortFromInput()
             )
             startNextActivity()

@@ -58,6 +58,7 @@
             android:layout_marginTop="@dimen/content_padding"
             android:height="@dimen/edit_view_height"
             android:inputType="textUri"
+            android:hint="@string/default_musicbrainz_server_url"
             android:importantForAutofill="no" />
 
         <TextView
