@@ -21,7 +21,7 @@
         tools:targetApi="23">
 
         <activity
-            android:name="org.musicbrainz.picard.barcodescanner.activities.ScannerActivity"
+            android:name="${applicationId}.activities.ScannerActivity"
             android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
@@ -34,28 +34,28 @@
             android:noHistory="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.musicbrainz.picard.barcodescanner.activities.AboutActivity" />
+                android:value="${applicationId}.activities.AboutActivity" />
         </activity>
         <activity
             android:name=".activities.PreferencesActivity"
             android:noHistory="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.musicbrainz.picard.barcodescanner.activities.ScannerActivity" />
+                android:value="${applicationId}.activities.ScannerActivity" />
         </activity>
         <activity
-            android:name="org.musicbrainz.picard.barcodescanner.activities.PerformSearchActivity"
+            android:name="${applicationId}.activities.PerformSearchActivity"
             android:noHistory="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.musicbrainz.picard.barcodescanner.activities.ScannerActivity" />
+                android:value="${applicationId}.activities.ScannerActivity" />
         </activity>
         <activity
             android:name=".activities.ResultActivity"
             android:noHistory="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.musicbrainz.picard.barcodescanner.activities.ScannerActivity" />
+                android:value="${applicationId}.activities.ScannerActivity" />
         </activity>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
