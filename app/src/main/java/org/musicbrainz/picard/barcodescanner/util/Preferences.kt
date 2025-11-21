@@ -46,8 +46,8 @@ class Preferences(private val mContext: Context) {
     val musicBrainzServerUrl: String
         get() {
             return mSettings.getString(
-                Constants.PREFERENCE_MUSICBRAINZ_SERVER_URL, defaultMusicBrainzServerUrl) ?: ""
-
+                Constants.PREFERENCE_MUSICBRAINZ_SERVER_URL, defaultMusicBrainzServerUrl
+            ) ?: defaultMusicBrainzServerUrl
         }
 
     val ipAddress: String
