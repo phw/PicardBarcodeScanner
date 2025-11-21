@@ -46,4 +46,6 @@
     <string name="btn_save_preferences">Save settings</string>
     <string name="btn_port_detect">Auto-detect Picard network port</string>
     <string name="musicbrainz_server_url">MusicBrainz server:</string>
+    <string name="validate_invalid_url">Enter a valid URL</string>
+    <string name="validate_empty_picard_address">Enter IP address or hostname for Picard</string>
 </resources>

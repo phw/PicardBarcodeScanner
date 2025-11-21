@@ -27,4 +27,7 @@
     <string name="action_menu">Menü</string>
     <string name="action_sponsor">Trinkgeld geben</string>
     <string name="btn_port_detect">Picard Netzwerk-Port automatisch ermitteln</string>
+    <string name="musicbrainz_server_url">MusicBrainz-Server:</string>
+    <string name="validate_invalid_url">Gültige URL eingeben</string>
+    <string name="validate_empty_picard_address">IP-Adresse oder Hostnamen für Picard eingeben</string>
 </resources>

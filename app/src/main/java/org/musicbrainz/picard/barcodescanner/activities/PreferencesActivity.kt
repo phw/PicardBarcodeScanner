@@ -25,6 +25,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.Menu
 import android.view.View
+import android.webkit.URLUtil
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import org.musicbrainz.picard.barcodescanner.R
@@ -74,7 +78,7 @@ class PreferencesActivity : BaseActivity() {
                 s: CharSequence, start: Int, before: Int,
                 count: Int
             ) {
-                checkConnectButtonEnabled()
+                validateForm()
                 checkConnectionStatus()
             }
 
@@ -85,6 +89,10 @@ class PreferencesActivity : BaseActivity() {
             }
 
             override fun afterTextChanged(s: Editable) {}
+        }
+
+        binding.musicbrainzServerUrl.doAfterTextChanged {
+            validateForm()
         }
         binding.picardIpAddress.addTextChangedListener(textWatcher)
         binding.picardPort.addTextChangedListener(textWatcher)
@@ -110,6 +118,28 @@ class PreferencesActivity : BaseActivity() {
         binding.musicbrainzServerUrl.setText(preferences.musicBrainzServerUrl)
         binding.picardIpAddress.setText(preferences.ipAddress)
         binding.picardPort.setText(java.lang.String.valueOf(preferences.port))
+    }
+
+    private fun validateForm() {
+        var isValid = true
+        val serverUrl = readMusicBrainzServerUrlFromInput()
+        if (serverUrl != ""
+            && !(URLUtil.isHttpUrl(serverUrl) || URLUtil.isHttpsUrl(serverUrl))
+        ) {
+            isValid = false
+            binding.musicbrainzServerUrl.error = getString(R.string.validate_invalid_url)
+        }
+
+        val ipAddress = readIpAddressFromInput()
+        if (ipAddress == "") {
+            isValid = false
+            binding.btnPicardConnect.isEnabled = false
+            binding.picardIpAddress.error = getString(R.string.validate_empty_picard_address)
+        } else {
+            binding.btnPicardConnect.isEnabled = true
+        }
+
+        binding.btnPicardConnect.isEnabled = isValid
     }
 
     private fun checkConnectButtonEnabled() {
