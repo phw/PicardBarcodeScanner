@@ -52,11 +52,11 @@ class PreferencesActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         handleIntents()
         loadFormDataFromPreferences()
-        checkConnectButtonEnabled()
+        checkSaveButtonEnabled()
         registerEventListeners()
         checkConnectionStatus()
         if (barcode != null) {
-            binding.btnPicardConnect.setText(R.string.btn_picard_connect)
+            binding.btnSavePreferences.setText(R.string.btn_save_preferences)
         }
     }
 
@@ -104,7 +104,7 @@ class PreferencesActivity : BaseActivity() {
               }
             }
         }
-        binding.btnPicardConnect.setOnClickListener {
+        binding.btnSavePreferences.setOnClickListener {
             preferences.setAllPreferences(
                 readMusicBrainzServerUrlFromInput().trim(),
                 readIpAddressFromInput().trim(),
@@ -133,19 +133,19 @@ class PreferencesActivity : BaseActivity() {
         val ipAddress = readIpAddressFromInput()
         if (ipAddress == "") {
             isValid = false
-            binding.btnPicardConnect.isEnabled = false
+            binding.btnSavePreferences.isEnabled = false
             binding.picardIpAddress.error = getString(R.string.validate_empty_picard_address)
         } else {
-            binding.btnPicardConnect.isEnabled = true
+            binding.btnSavePreferences.isEnabled = true
         }
 
-        binding.btnPicardConnect.isEnabled = isValid
+        binding.btnSavePreferences.isEnabled = isValid
     }
 
-    private fun checkConnectButtonEnabled() {
+    private fun checkSaveButtonEnabled() {
         val enabled = readIpAddressFromInput() != ""
         binding.btnPortDetect.isEnabled = enabled
-        binding.btnPicardConnect.isEnabled = enabled
+        binding.btnSavePreferences.isEnabled = enabled
     }
 
     private fun readMusicBrainzServerUrlFromInput(): String {
