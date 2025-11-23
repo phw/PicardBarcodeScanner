@@ -27,4 +27,7 @@
     <string name="description_scanner">Gebruik de camera van je apparaat om de streepjescode van een cd of andere drager uit te lezen. Als MusicBrainz de uitgave kent, wordt zij automatisch in MusicBrainz Picard geladen.</string>
     <string name="btn_save_preferences">Instellingen opslaan</string>
     <string name="btn_port_detect">Picard-netwerkpoort automatisch detecteren</string>
+    <string name="musicbrainz_server_url">MusicBrainz-server:</string>
+    <string name="validate_invalid_url">Voer een geldige URL in</string>
+    <string name="validate_empty_picard_address">Voer een IP-adres of hostnaam voor Picard in</string>
 </resources>
