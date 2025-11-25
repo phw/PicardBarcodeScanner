@@ -57,7 +57,7 @@ and is **not endorsed** by the MetaBrainz Foundation.
 
 ## 3. Communication with MusicBrainz Picard on Your Local Network
 
-Optionally, you may configure the app to send the scanned **MusicBrainz Release ID** to your own
+You may configure the app to send the scanned **MusicBrainz Release ID** to your own
 instance of **MusicBrainz Picard** running on the same local network.
 
 - You explicitly enter the **IP address** or hostname of your Picard installation.
