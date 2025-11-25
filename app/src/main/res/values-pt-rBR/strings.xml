@@ -26,5 +26,5 @@
     <string name="loading_musicbrainz_text">Consultando o MusicBrainz…</string>
     <string name="btn_save_preferences">Salvar configurações</string>
     <string name="loading_picard_text">Enviando os dados ao Picard…</string>
-    <string name="musicbrainz_server_url">Servidor MusicBrainz</string>
+    <string name="musicbrainz_server_url">Servidor MusicBrainz:</string>
 </resources>

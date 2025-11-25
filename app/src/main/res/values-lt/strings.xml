@@ -27,5 +27,5 @@
     <string name="btn_port_detect">Automatiškai nustatyti „Picard“ tinklo prievadą</string>
     <string name="about_license_2">„MusicBrainz Picard“ brūkšninių kodų skaitytuvas platinamas tikintis, kad jis bus naudingas, tačiau BE JOKIŲ GARANTIJŲ; net be numanomų garantijų dėl PREKYBINGUMO ar TINKAMUMO KONKREČIAM TIKSLUI. Daugiau informacijos rasi „GNU General Public“ licencijoje.</string>
     <string name="about_lottie">Įkėlimo animacija sukūrė <a href="https://lottiefiles.com/7290-music-play">杜磊 LottieFiles</a>, licencijuota pagal „<a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>“ licenciją.</string>
-    <string name="musicbrainz_server_url">MusicBrainz serveris</string>
+    <string name="musicbrainz_server_url">MusicBrainz serveris:</string>
 </resources>

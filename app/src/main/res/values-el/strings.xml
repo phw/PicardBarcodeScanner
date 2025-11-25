@@ -14,5 +14,5 @@
     <string name="loading_picard_text">Αποστολή δεδομένων στο Picard…</string>
     <string name="btn_save_preferences">Αποθήκευση ρυθμίσεων</string>
     <string name="app_version">Έκδοση %1$s</string>
-    <string name="musicbrainz_server_url">Εξυπηρετητής MusicBrainz</string>
+    <string name="musicbrainz_server_url">Εξυπηρετητής MusicBrainz:</string>
 </resources>

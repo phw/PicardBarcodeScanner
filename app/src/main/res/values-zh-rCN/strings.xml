@@ -26,5 +26,5 @@
     <string name="about_copyright">版权所有 © 2012–2014、2020–2025 Philipp Wolfer&lt;br&gt;版权所有 © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
     <string name="about_license_2">MusicBrainz Picard 条形码扫描器以希望可用的原则分发，但不做任何担保；甚至没有对适销性或针对特定目的的适用性的暗示保证。有关更多详细信息，请参阅 GNU 通用公共许可证。</string>
     <string name="about_lottie">加载动画由 <a href="https://lottiefiles.com/7290-music-play">杜磊 on LottieFiles</a> 授权，并遵循<a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a> 许可证。</string>
-    <string name="musicbrainz_server_url">MusicBrainz 服务器</string>
+    <string name="musicbrainz_server_url">MusicBrainz 服务器：</string>
 </resources>

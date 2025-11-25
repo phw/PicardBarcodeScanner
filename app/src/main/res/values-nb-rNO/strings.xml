@@ -27,5 +27,5 @@
     <string name="about_license_2">Vi distribuerer MusicBrainz Picard-strekkodeskanneren i håp om at den er nyttig, men UTEN NOEN SOM HELST GARANTI, også uten den implisitte ideen om SALGBARHET eller FORMÅLSTJENLIGHET. Sjekk GPL-lisensen for flere detaljer.</string>
     <string name="about_picard_icon">MusicBrainz Picard-ikonet er laget av MetaBrainz-stiftelsen under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> lisensen.</string>
     <string name="btn_port_detect">Sett Picards nettverksport automatisk</string>
-    <string name="musicbrainz_server_url">MusicBrainz Server</string>
+    <string name="musicbrainz_server_url">MusicBrainz Server:</string>
 </resources>
