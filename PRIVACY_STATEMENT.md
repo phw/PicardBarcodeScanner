@@ -44,7 +44,7 @@ makes all data available under free and open licenses. MusicBrainz is operated
 by the [MetaBrainz Foundation](https://metabrainz.org/), a California based
 501(c)(3) tax-exempt non-profit corporation dedicated to keeping MusicBrainz
 [free and open source](https://musicbrainz.org/doc/About/Data_License). Please
-refer to the MetaBrainz [Data Policy](https://metabrainz.org/privacy) if you
+refer to the MetaBrainz [Privacy Policy](https://metabrainz.org/privacy) if you
 have any questions on the data usage of the MusicBrainz service.
 
 Picard Barcode Scanner is my personal project and not endorsed by the
