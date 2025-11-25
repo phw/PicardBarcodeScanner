@@ -1,5 +1,8 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.7 - 2025-11-25
+- MusicBrainz server can be configured in settings
+
 ## Version 1.6.5 - 2025-10-13
 - Added Catalan and Russian translations
 - Updated Dutch, French, German, Lithuanian and Norwegian Bokmål translations
