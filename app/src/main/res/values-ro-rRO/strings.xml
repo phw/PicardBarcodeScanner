@@ -13,4 +13,5 @@
     <string name="loading_picard_text">Se trimit datele către Picard…</string>
     <string name="btn_save_preferences">Salvare configurări</string>
     <string name="action_about">Despre</string>
+    <string name="musicbrainz_server_url">Serverul MusicBrainz</string>
 </resources>

@@ -27,4 +27,5 @@
     <string name="about_icons">Пользовательский интерфейс использует иконки Android Developer Icons из репозитория <a href="«https://github.com/opoloo/androidicons»">https://github.com/opoloo/androidicons</a>, распространяемые по лицензии <a href="«https://creativecommons.org/licenses/by-sa/4.0/»">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.</string>
     <string name="about_lottie">Анимация загрузки создана <a href="«https://lottiefiles.com/7290-music-play»">杜磊 на LottieFiles</a> по лицензии <a href="«https://creativecommons.org/licenses/by/2.0/»">Creative Commons Attribution 2.0 Generic (CC BY 2.0)</a>.</string>
     <string name="description_connect">Чтобы отправить отсканированные штрих-коды в Picard, необходимо подключить устройство к той же сети, что и компьютер, на котором работает Picard. Введите IP-адрес компьютера и номер порта Picard ниже.</string>
+    <string name="musicbrainz_server_url">Сервер MusicBrainz</string>
 </resources>
