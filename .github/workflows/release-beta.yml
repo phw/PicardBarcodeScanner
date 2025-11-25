@@ -66,5 +66,5 @@ jobs:
       - name: Distribute app to Beta track 🚀
         run: |
           # Workaround to skip incomplete translations
-          rm -rf ./fastlane/metadata/android/zh-CN/
+          rm -rf ./fastlane/metadata/android/{ca,zh-CN}/
           bundle exec fastlane beta
