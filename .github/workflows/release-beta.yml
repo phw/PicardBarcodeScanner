@@ -33,10 +33,10 @@ jobs:
           path: ~/.gradle/wrapper/
           key: cache-clean-wrapper-${{ matrix.os }}-${{ matrix.jdk }}
 
-      - name: set up JDK 17
+      - name: set up JDK
         uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'adopt'
 
       - name: Grant Permission to Execute
