@@ -31,7 +31,7 @@ The app operates entirely on your device except when:
 
 1. Performing a barcode lookup on MusicBrainz, or
 2. Sending a MusicBrainz Release ID to **MusicBrainz Picard running on your own local network**, on 
-   a local IP address you have configured in the app's preferences.
+   a local IP address you have configured in the app’s preferences.
 
 
 ## 2. Data Transmitted During Barcode Lookup
@@ -130,5 +130,5 @@ an issue on GitHub:
 
 Or contact me directly:
 
-**Philipp Wolfer**
+**Philipp Wolfer**  
 **Email:** ph.wolfer@gmail.com
