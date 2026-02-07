@@ -1,0 +1,13 @@
+El Lector de codis de barres de Picard us permet carregar publicacions a MusicBrainz Picard utilitzant el vostre dispositiu Android com a lector de codis de barres. Només heu d'escanejar el codi de barres d'un àlbum perquè cerqui a MusicBrainz les publicacions coincidents i les carregui a Picard a l'ordinador.
+
+Això és especialment útil ja teniu una col·lecció musical física digitalitzada i voleu etiquetar els fitxers seguint exactament els àlbums que posseïu.
+
+Nota: Això no és una eina d'etiquetatge musical per a Android, sinó una eina complementària a MusicBrainz Picard a l'ordinador.
+
+Requisits:
+• Picard 1.0 o posterior
+• El dispositiu Android i l'ordinador amb Picard han d'estar connectats a la mateixa xarxa i el port 8000 ha de ser accessible.
+
+Aquesta aplicació és programari lliure publicat sota la llicència GPLv3. El codi font està disponible a GitHub.
+
+Podeu ajudar a traduir aquesta aplicació a la vostra llengua. Visiteu el projecte de localització del Lector de codis de barres de Picard a https://translate.uploadedlobster.com/engage/picard-barcode-scanner/
