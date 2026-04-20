@@ -1,5 +1,8 @@
 # Picard Barcode Scanner Changelog
 
+## Version 1.7.1 - 2026-04-20
+- Rebuild with updated dependencies and developer registration token
+
 ## Version 1.7 - 2025-11-25
 - MusicBrainz server can be configured in settings
 
