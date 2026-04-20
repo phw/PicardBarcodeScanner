@@ -62,5 +62,5 @@ jobs:
       - name: Distribute app to Production 🚀
         run: |
           # Workaround to skip incomplete translations
-          rm -rf ./fastlane/metadata/android/{ca,zh-CN}/
+          rm -rf ./fastlane/metadata/android/zh-CN/
           bundle exec fastlane production
