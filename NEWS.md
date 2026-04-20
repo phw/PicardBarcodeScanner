@@ -1,7 +1,8 @@
 # Picard Barcode Scanner Changelog
 
-## Version 1.7.1 - 2026-04-20
+## Version 1.8 - 2026-04-20
 - Rebuild with updated dependencies and developer registration token
+- Android 6 or later is now required
 
 ## Version 1.7 - 2025-11-25
 - MusicBrainz server can be configured in settings
