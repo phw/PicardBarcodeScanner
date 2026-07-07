@@ -14,4 +14,20 @@
     <string name="btn_save_preferences">設定を保存</string>
     <string name="app_version">バージョン %1$s</string>
     <string name="action_about">このソフトウェアについて</string>
+    <string name="label_connection_no_config">Picard接続が設定されていません。</string>
+    <string name="action_menu">メニュー</string>
+    <string name="action_sponsor">チップを投げる</string>
+    <string name="label_status_update">Picard接続のチェック中……</string>
+    <string name="description_result">MusicBrainzは、バーコード <b>%1$s</b> について以下の検索結果を特定、Picardに送信しました:</string>
+    <string name="description_no_result">MusicBrainz では、バーコード <b>%1$s</b> に対応するリリースは見つかりませんでした。</string>
+    <string name="btn_port_detect">Picardネットワークポートを自動検出</string>
+    <string name="musicbrainz_server_url">MusicBrainzサーバー:</string>
+    <string name="validate_invalid_url">有効なURLを入力してください</string>
+    <string name="validate_empty_picard_address">Picardに対するIPアドレス、もしくはホストネームを入力してください</string>
+    <string name="about_license_1">MusicBrainz Picard Barcode Scannerはフリーソフトウェアであり、フリーソフトウェア財団が公表している <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a> の条件に基づき、本ソフトウェアを再配布、改変またはその両方を行うことができます。適用されるのは、同ライセンスのバージョン3、またはそれ以降のいずれかのバージョン（利用者の選択による）です。</string>
+    <string name="about_license_2">MusicBrainz Picard Barcode Scanner は、有用であることを願って配布されていますが、*いかなる保証も伴いません*。商品性および特定目的への適合性の保証は、言外に示されたものも含め一切含まれません。詳細については、GNU General Public License をご覧ください。</string>
+    <string name="about_picard_icon">MetaBrainz財団によるMusicBrainz Picardアイコンは、 <a href="https://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示-継承 4.0 国際 (CC BY-SA 4.0)</a> ライセンスの下で提供されています。</string>
+    <string name="about_icons">ユーザーインターフェースでは、<a href="https://github.com/opoloo/androidicons">https://github.com/opoloo/androidicons</a>のAndroid Developer Iconsを使用しており、これらは<a href="https://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示-継承 4.0 国際 (CC BY-SA 4.0)</a> ライセンスの下で提供されています。</string>
+    <string name="about_lottie">読み込みアニメーションは<a href="https://lottiefiles.com/7290-music-play">杜磊 on LottieFiles</a>を使用し、<a href="https://creativecommons.org/licenses/by/2.0/">クリエイティブ・コモンズ 表示 2.0 ジェネリック (CC BY 2.0)</a>ライセンスの下で提供されています。</string>
+    <string name="about_copyright">Copyright © 2012–2014, 2020–2025 Philipp Wolfer&lt;br&gt;Copyright © 2021 Akshat Tiwari&lt;br&gt;&lt;br&gt;&lt;a href=\"https://github.com/phw/PicardBarcodeScanner\"&gt;https://github.com/phw/PicardBarcodeScanner&lt;/a&gt;</string>
 </resources>
