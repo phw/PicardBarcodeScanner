@@ -1,0 +1,3 @@
+- Ajout des traductions en catalan et en russe
+- Mise à jour des traductions en néerlandais, français, allemand, lituanien et norvégien (bokmål)
+- Testé avec Android 15 et 16

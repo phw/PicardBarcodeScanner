@@ -1,0 +1,1 @@
+- Le serveur MusicBrainz peut être configuré dans les réglages
