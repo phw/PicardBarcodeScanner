@@ -1,1 +1,1 @@
-Picard条形码扫描器
+Picard 条形码扫描器

@@ -1,0 +1,13 @@
+Picard 条形码扫描器让您能把 Android 设备当作条形码扫描器，把发行品加载到 MusicBrainz Picard 中。只需扫描专辑的条形码，它就会在 MusicBrainz 中搜索匹配的发行品，并把它们加载到桌面计算机上的 Picard 里。
+
+如果您已经把实体音乐收藏数字化，并希望用自己手里那张专辑来标记文件，这会特别有用。
+
+请注意：这不是 Android 上的音乐文件标记工具，而是桌面端 MusicBrainz Picard 的辅助工具。
+
+要求：
+• Picard 1.0 或更高版本
+• 您的 Android 设备与运行 Picard 的计算机应在同一网络内，且 8000 端口可访问
+
+此应用是遵循 GPLv3 发布的自由软件。源代码可在 GitHub 上获取。
+
+您可以帮助将此应用翻译成您的语言。请访问 Picard 条形码扫描器本地化项目：https://translate.uploadedlobster.com/engage/picard-barcode-scanner/

@@ -1,0 +1,1 @@
+使用 MusicBrainz Picard 简化 CD 和 LP 的标记
