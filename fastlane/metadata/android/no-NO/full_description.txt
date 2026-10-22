@@ -1,13 +1,13 @@
-Picard strekkodeskanner lar deg laste utgivelser inn i MusicBrainz Picard ved bruk av din Android-enhet som strekkodeskanner. Skann strekkoden på et album, og det vil søkes opp samsvarende utgivelser på MusicBrainz, som igjen laster dem inn i Picard på datamaskinen.
+Picard- strekkodeskanner lar deg laste utgivelser inn i MusicBrainz Picard ved bruk av en Android-enhet som strekkodeskanner. Skann strekkoden på et album, og det vil søkes opp samsvarende utgivelser på MusicBrainz, som igjen laster dem inn i Picard på datamaskinen.
 
-Dette er spesielt nyttig hvis du allerede har digitalisert din fysiske musikksamling og ønsker å tagge filene med nøyaktig det albumet du har.
+Dette er spesielt nyttig hvis en allerede har digitalisert sin fysiske musikksamling og ønsker å tagge filene med nøyaktig det albumet en har.
 
-Merk: Dette er ikke en musikkfiltagger for Android, men heller ett hjelpeverktøy for MusicBrainz Picard på datamaskin.
+Bemerk: Dette er ikke en musikkfiltagger for Android, men heller ett hjelpeverktøy for MusicBrainz Picard på datamaskin.
 
-Krever:
-• Picard 1.0 eller senere
-• Android-enheten og maskinen som kjører Picard må begge være på samme nettverk, og porten 8000 må være tilgjengelig
+Krav:
+• Picard 1.0 eller nyere
+• Android-enheten og datamaskinen som kjører Picard må begge være på samme nettverk, og porten 8000 må være tilgjengelig
 
 Dette programmet er fri programvare utgitt med GPLv3-lisens. Kildekoden er tilgjengelig på GitHub.
 
-Du kan hjelpe til med oversettelsen av programmet til ditt språk. Besøk prosjektet for lokalisering av Picard-strekkodeskanner på https://translations.metabrainz.org/projects/picard-barcode-scanner/
+Alle kan hjelpe til med å oversette dette programmet. Besøk prosjektet for lokalisering av Picard-strekkodeskanner på https://translations.metabrainz.org/projects/picard-barcode-scanner/

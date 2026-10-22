@@ -1,4 +1,4 @@
-- App-spesifikk språkstøtte for Android 13+ aktivert
+- Språkstøtte per-app aktivert (Android 13+)
 - Litauisk oversettelse
-- Oppdaterte kinesisk (forenklet), nederlandsk, fransk og tysk oversettelser
+- Oppdaterte de kinesiske (forenklet), nederlandske, franske og tyske oversettelsene
 - Testet med Android 14

@@ -1,2 +1,2 @@
-- Skjul tilsvarende menyelementer på Innstillinger- og Om-skjermene
+- Tilsvarende menyelement på skjermen for Innstillinger og om er nå skjult
 - Nederlandsk oversettelse

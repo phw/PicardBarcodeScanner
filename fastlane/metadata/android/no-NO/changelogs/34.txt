@@ -1,0 +1,3 @@
+- Katalansk og russisk oversettelse
+- Oppdaterte de nederlandske, franske, tyske, litauiske og norsk bokmål oversettelsene
+- Tested med Android 15 og 16
